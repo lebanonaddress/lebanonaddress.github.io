@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3844.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>C++ 类成员指针 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">C++ 类成员指针 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<p>C++的类成员指针是一种奇葩的指针。</p> <p>假设现在我们要表示一个三维的点，现在有两种定义方式：</p> <pre><code class="language-cpp">struct point1{ 	int x, y, z; };  struct point2{ 	int c[3]; };</code></pre> <p>第一种的优点是更直观，但第二种可以方便的用for遍历三个属性。最终我选择了第一种，但是我还想弄一个遍历功能怎么办？这个时候类成员指针就排上用场了，我们可以创建一个“指向point中具体成员的指针”。</p> <pre><code class="language-cpp">int A:: *member = &amp;A::x;</code></pre> <p>让member指针指向A中的成员x，且类型是int，此时我们就可以通过member来访问x：</p> <pre><code class="language-cpp">point1 tmp{4, 5, 6}; cout &lt;&lt; tmp.(*member); //把member解引用，得到tmp::x，表示要访问x</code></pre> <p>所以我们定义一个数组，就可以迭代访问类里的各种int属性了</p> <pre><code class="language-cpp">int A:: *member [] = {&amp;A::x, &amp;A::y, &amp;A::z}; for (int i = 0; i &lt; 3; ++i) 	cout &lt;&lt; tmp.(*member[i]);</code></pre> <p>这个用途也可以放到成员函数上，构建一个函数列表，顺序调用。</p> <p>这么个指针的行为跟一般的指针显然不一样，它不保存地址，而是保存一个“偏移量”，从对象地址开头到对象成员的偏移量。这玩意其实可以输出：</p> <pre><code class="language-cpp">struct A{ 	int a, b, c; };  main() { 	printf("%d%d%d", &amp;A::a, &amp;A::b, &amp;A::c); //! 输入为0, 4, 8 	//! 当然这玩意类型不是int，printf直接将他以int解析输出了，所以cout达不到效果 }</code></pre> <p>这样类成员指针的意义就很明显了，假设一个A的对象t，那么t的地址<code>&amp;t</code>和a的地址<code>&amp;(t.a)</code>是相等的，而<code>&amp;(t.b)</code>要多出来4，<code>&amp;(t.c)</code>又要多出来4。每个对象的内存构造都是一样的，这个类成员指针就是获取每个成员相对于头地址的偏移量，这样当我使用<code>t.*member</code>编译器就知道是头地址+4处的变量，并且是个int。</p> <p>不过成员函数又不太一样了。不同对象的成员函数只有同一份程序短代码。C++不能用<code>&amp;(t.fun)</code>的方式获取对象的成员函数的地址，要用取<code>&amp;A::fun</code>得到函数的地址。这个当然是真地址了。</p> <p>类成员指针可以用于<code>static</code>吗？显然不行，static成员单独存放，与类本身无关，取<code>&amp;A::staticmember</code>得到的就是这个变量的正经地址。那可以用于<code>virtual function</code>吗？答案是可以，但是虚函数的地址无法确定，所以又变成了储存偏移量，实际上储存的是函数在虚表中的索引值。</p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3843.htm">字符集与编码详解</a></p>
+                                                <p>下一个：<a href="/html/category/article-3845.htm">win11系统找不到记事本如何解决</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4050.htm" title="C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数">C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数</a></li>
+                        <li class="py-2"><a href="/html/category/article-4047.htm" title="springboot关于mysql数据库date时间的坑">springboot关于mysql数据库date时间的坑</a></li>
+                        <li class="py-2"><a href="/html/category/article-4054.htm" title="[Java]如何获取指定日期一天的开始时间和结束时间">[Java]如何获取指定日期一天的开始时间和结束时间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4014.htm" title="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值">【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值</a></li>
+                        <li class="py-2"><a href="/html/category/article-4038.htm" title="[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案">[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案</a></li>
+                        <li class="py-2"><a href="/html/category/article-4052.htm" title="Windows如何查看WiFi密码">Windows如何查看WiFi密码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4030.htm" title="vite+element-plus项目基础搭建">vite+element-plus项目基础搭建</a></li>
+                        <li class="py-2"><a href="/html/category/article-4057.htm" title="vue打包后整合到springboot项目、并打包成jar上传到Linux服务器运行【前后端分离开发、整体部署到Linux服务器】">vue打包后整合到springboot项目、并打包成jar上传到Linux服务器运行【前后端分离开发、整体部署到Linux服务器】</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3912.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>PyQt5 按钮Button 添加事件(信号/槽) - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">PyQt5 按钮Button 添加事件(信号/槽) </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p>本文基于<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/zhouzhiwengang/article/details/119732734"  title="PyQt5 按钮Buttons样式设计" rel="nofollow">PyQt5 按钮Buttons样式设计</a>，针对按钮添加响应的点击事件触发。</p> <h1>效果截图:</h1> <p><img fetchpriority="high" decoding="async" alt="" height="250" src="http://img.555519.xyz/uploads/20230109/a9bfb10d301adb08cb09511f214c4b35.jpg"></p> <h1>PyQt 模型设计：</h1> <p><img decoding="async" alt="" height="409" src="http://img.555519.xyz/uploads/20230109/9bdd0cc129b101d17145762c0e548bb9.jpg"></p> <h1>&nbsp;PyQt 设计器截图：</h1> <p><img decoding="async" alt="" height="396" src="http://img.555519.xyz/uploads/20230109/f66c5b2fa095f590bee0b137777315aa.jpg"></p> <h2>*.UI 源码</h2> <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;ui version="4.0"&gt;  &lt;class&gt;MainWindow&lt;/class&gt;  &lt;widget class="QMainWindow" name="MainWindow"&gt;   &lt;property name="geometry"&gt;    &lt;rect&gt;     &lt;x&gt;0&lt;/x&gt;     &lt;y&gt;0&lt;/y&gt;     &lt;width&gt;800&lt;/width&gt;     &lt;height&gt;600&lt;/height&gt;    &lt;/rect&gt;   &lt;/property&gt;   &lt;property name="windowTitle"&gt;    &lt;string&gt;MainWindow&lt;/string&gt;   &lt;/property&gt;   &lt;widget class="QWidget" name="centralwidget"&gt;    &lt;widget class="QWidget" name="horizontalLayoutWidget"&gt;     &lt;property name="geometry"&gt;      &lt;rect&gt;       &lt;x&gt;20&lt;/x&gt;       &lt;y&gt;30&lt;/y&gt;       &lt;width&gt;478&lt;/width&gt;       &lt;height&gt;80&lt;/height&gt;      &lt;/rect&gt;     &lt;/property&gt;     &lt;layout class="QHBoxLayout" name="horizontalLayout"&gt;      &lt;item&gt;       &lt;widget class="QPushButton" name="pushButton_5"&gt;        &lt;property name="minimumSize"&gt;         &lt;size&gt;          &lt;width&gt;0&lt;/width&gt;          &lt;height&gt;48&lt;/height&gt;         &lt;/size&gt;        &lt;/property&gt;        &lt;property name="text"&gt;         &lt;string&gt;PushButton&lt;/string&gt;        &lt;/property&gt;       &lt;/widget&gt;      &lt;/item&gt;      &lt;item&gt;       &lt;widget class="QPushButton" name="pushButton_4"&gt;        &lt;property name="minimumSize"&gt;         &lt;size&gt;          &lt;width&gt;0&lt;/width&gt;          &lt;height&gt;48&lt;/height&gt;         &lt;/size&gt;        &lt;/property&gt;        &lt;property name="text"&gt;         &lt;string&gt;PushButton&lt;/string&gt;        &lt;/property&gt;       &lt;/widget&gt;      &lt;/item&gt;      &lt;item&gt;       &lt;widget class="QPushButton" name="pushButton_3"&gt;        &lt;property name="minimumSize"&gt;         &lt;size&gt;          &lt;width&gt;0&lt;/width&gt;          &lt;height&gt;48&lt;/height&gt;         &lt;/size&gt;        &lt;/property&gt;        &lt;property name="text"&gt;         &lt;string&gt;PushButton&lt;/string&gt;        &lt;/property&gt;       &lt;/widget&gt;      &lt;/item&gt;      &lt;item&gt;       &lt;widget class="QPushButton" name="pushButton_2"&gt;        &lt;property name="minimumSize"&gt;         &lt;size&gt;          &lt;width&gt;0&lt;/width&gt;          &lt;height&gt;48&lt;/height&gt;         &lt;/size&gt;        &lt;/property&gt;        &lt;property name="text"&gt;         &lt;string&gt;PushButton&lt;/string&gt;        &lt;/property&gt;       &lt;/widget&gt;      &lt;/item&gt;      &lt;item&gt;       &lt;widget class="QPushButton" name="pushButton"&gt;        &lt;property name="minimumSize"&gt;         &lt;size&gt;          &lt;width&gt;0&lt;/width&gt;          &lt;height&gt;48&lt;/height&gt;         &lt;/size&gt;        &lt;/property&gt;        &lt;property name="text"&gt;         &lt;string&gt;PushButton&lt;/string&gt;        &lt;/property&gt;       &lt;/widget&gt;      &lt;/item&gt;     &lt;/layout&gt;    &lt;/widget&gt;    &lt;widget class="QWidget" name="horizontalLayoutWidget_2"&gt;     &lt;property name="geometry"&gt;      &lt;rect&gt;       &lt;x&gt;20&lt;/x&gt;       &lt;y&gt;110&lt;/y&gt;       &lt;width&gt;478&lt;/width&gt;       &lt;height&gt;80&lt;/height&gt;      &lt;/rect&gt;     &lt;/property&gt;     &lt;layout class="QHBoxLayout" name="horizontalLayout_2"&gt;      &lt;item&gt;       &lt;widget class="QPlainTextEdit" name="plainTextEdit"/&gt;      &lt;/item&gt;     &lt;/layout&gt;    &lt;/widget&gt;   &lt;/widget&gt;  &lt;/widget&gt;  &lt;resources/&gt;  &lt;connections&gt;   &lt;connection&gt;    &lt;sender&gt;pushButton&lt;/sender&gt;    &lt;signal&gt;clicked()&lt;/signal&gt;    &lt;receiver&gt;plainTextEdit&lt;/receiver&gt;    &lt;slot&gt;zoomIn()&lt;/slot&gt;    &lt;hints&gt;     &lt;hint type="sourcelabel"&gt;      &lt;x&gt;362&lt;/x&gt;      &lt;y&gt;39&lt;/y&gt;     &lt;/hint&gt;     &lt;hint type="destinationlabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;149&lt;/y&gt;     &lt;/hint&gt;    &lt;/hints&gt;   &lt;/connection&gt;   &lt;connection&gt;    &lt;sender&gt;pushButton_2&lt;/sender&gt;    &lt;signal&gt;clicked()&lt;/signal&gt;    &lt;receiver&gt;plainTextEdit&lt;/receiver&gt;    &lt;slot&gt;zoomIn()&lt;/slot&gt;    &lt;hints&gt;     &lt;hint type="sourcelabel"&gt;      &lt;x&gt;355&lt;/x&gt;      &lt;y&gt;69&lt;/y&gt;     &lt;/hint&gt;     &lt;hint type="destinationlabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;149&lt;/y&gt;     &lt;/hint&gt;    &lt;/hints&gt;   &lt;/connection&gt;   &lt;connection&gt;    &lt;sender&gt;pushButton_3&lt;/sender&gt;    &lt;signal&gt;clicked()&lt;/signal&gt;    &lt;receiver&gt;plainTextEdit&lt;/receiver&gt;    &lt;slot&gt;zoomIn()&lt;/slot&gt;    &lt;hints&gt;     &lt;hint type="sourcelabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;69&lt;/y&gt;     &lt;/hint&gt;     &lt;hint type="destinationlabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;149&lt;/y&gt;     &lt;/hint&gt;    &lt;/hints&gt;   &lt;/connection&gt;   &lt;connection&gt;    &lt;sender&gt;pushButton_4&lt;/sender&gt;    &lt;signal&gt;clicked()&lt;/signal&gt;    &lt;receiver&gt;plainTextEdit&lt;/receiver&gt;    &lt;slot&gt;zoomIn()&lt;/slot&gt;    &lt;hints&gt;     &lt;hint type="sourcelabel"&gt;      &lt;x&gt;162&lt;/x&gt;      &lt;y&gt;69&lt;/y&gt;     &lt;/hint&gt;     &lt;hint type="destinationlabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;149&lt;/y&gt;     &lt;/hint&gt;    &lt;/hints&gt;   &lt;/connection&gt;   &lt;connection&gt;    &lt;sender&gt;pushButton_5&lt;/sender&gt;    &lt;signal&gt;clicked()&lt;/signal&gt;    &lt;receiver&gt;plainTextEdit&lt;/receiver&gt;    &lt;slot&gt;zoomIn()&lt;/slot&gt;    &lt;hints&gt;     &lt;hint type="sourcelabel"&gt;      &lt;x&gt;65&lt;/x&gt;      &lt;y&gt;69&lt;/y&gt;     &lt;/hint&gt;     &lt;hint type="destinationlabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;149&lt;/y&gt;     &lt;/hint&gt;    &lt;/hints&gt;   &lt;/connection&gt;  &lt;/connections&gt; &lt;/ui&gt; </code></pre> <h2>*.UI 源码 转换为*.py</h2> <pre><code># -*- coding: utf-8 -*-  # Form implementation generated from reading ui file 'untitled2.ui' # # Created by: PyQt5 UI code generator 5.15.4 # # WARNING: Any manual changes made to this file will be lost when pyuic5 is # run again.  Do not edit this file unless you know what you are doing. import sys  from PyQt5 import QtCore, QtGui, QtWidgets from PyQt5.QtWidgets import QApplication, QMainWindow  StyleSheet = """ /*这里是通用设置，所有按钮都有效，不过后面的可以覆盖这个*/ QPushButton {     border: none; /*去掉边框*/ } /* QPushButton#xxx 或者 #xx 都表示通过设置的objectName来指定 */ QPushButton#pushButton {     background-color: #f44336; /*背景颜色*/ } #pushButton:hover {     background-color: #e57373; /*鼠标悬停时背景颜色*/ } /*注意pressed一定要放在hover的后面，否则没有效果*/ #pushButton:pressed {     background-color: #ffcdd2; /*鼠标按下不放时背景颜色*/ } #pushButton_2 {     background-color: #4caf50;     border-radius: 5px; /*圆角*/ } #pushButton_2:hover {     background-color: #81c784; } #pushButton_2:pressed {     background-color: #c8e6c9; } #pushButton_3 {     background-color: #2196f3;     /*限制最小最大尺寸*/     min-width: 96px;     max-width: 96px;     min-height: 96px;     max-height: 96px;     border-radius: 48px; /*圆形*/ } #pushButton_3:hover {     background-color: #64b5f6; } #pushButton_3:pressed {     background-color: #bbdefb; } #pushButton_4 {     max-height: 48px;     border-top-right-radius: 20px; /*右上角圆角*/     border-bottom-left-radius: 20px; /*左下角圆角*/     background-color: #ff9800; } #pushButton_4:hover {     background-color: #ffb74d; } #pushButton_4:pressed {     background-color: #ffe0b2; } /*根据文字内容来区分按钮,同理还可以根据其它属性来区分*/ #pushButton_5 {     color: white; /*文字颜色*/     background-color: #9c27b0; } """   class Ui_MainWindow(object):     def setupUi(self, MainWindow):         MainWindow.setObjectName("MainWindow")         MainWindow.resize(800, 600)         self.centralwidget = QtWidgets.QWidget(MainWindow)         self.centralwidget.setObjectName("centralwidget")         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(20, 30, 478, 80))         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)         self.horizontalLayout.setObjectName("horizontalLayout")         self.pushButton_5 = QtWidgets.QPushButton(self.horizontalLayoutWidget)         self.pushButton_5.setMinimumSize(QtCore.QSize(0, 48))         self.pushButton_5.setObjectName("pushButton_5")         self.horizontalLayout.addWidget(self.pushButton_5)         self.pushButton_4 = QtWidgets.QPushButton(self.horizontalLayoutWidget)         self.pushButton_4.setMinimumSize(QtCore.QSize(0, 48))         self.pushButton_4.setObjectName("pushButton_4")         self.horizontalLayout.addWidget(self.pushButton_4)         self.pushButton_3 = QtWidgets.QPushButton(self.horizontalLayoutWidget)         self.pushButton_3.setMinimumSize(QtCore.QSize(0, 48))         self.pushButton_3.setObjectName("pushButton_3")         self.horizontalLayout.addWidget(self.pushButton_3)         self.pushButton_2 = QtWidgets.QPushButton(self.horizontalLayoutWidget)         self.pushButton_2.setMinimumSize(QtCore.QSize(0, 48))         self.pushButton_2.setObjectName("pushButton_2")         self.horizontalLayout.addWidget(self.pushButton_2)         self.pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)         self.pushButton.setMinimumSize(QtCore.QSize(0, 48))         self.pushButton.setObjectName("pushButton")         self.horizontalLayout.addWidget(self.pushButton)         self.horizontalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)         self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(20, 110, 478, 80))         self.horizontalLayoutWidget_2.setObjectName("horizontalLayoutWidget_2")         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_2)         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)         self.horizontalLayout_2.setObjectName("horizontalLayout_2")         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.horizontalLayoutWidget_2)         self.plainTextEdit.setObjectName("plainTextEdit")         self.horizontalLayout_2.addWidget(self.plainTextEdit)         MainWindow.setCentralWidget(self.centralwidget)          self.retranslateUi(MainWindow)         # Qt Designer 设计器自动生成相关事件代码(信号/槽)         # self.pushButton.clicked.connect(self.plainTextEdit.zoomIn)         # self.pushButton_2.clicked.connect(self.plainTextEdit.zoomIn)         # self.pushButton_3.clicked.connect(self.plainTextEdit.zoomIn)         # self.pushButton_4.clicked.connect(self.plainTextEdit.zoomIn)         # self.pushButton_5.clicked.connect(self.plainTextEdit.zoomIn)         # 自定义函数进行相关(信号/槽)事件绑定         self.pushButton.clicked.connect(self.onClicked)         self.pushButton_2.clicked.connect(self.onPressed)         self.pushButton_3.clicked.connect(self.onReleased)         self.pushButton_4.clicked.connect(self.onToggled)         self.pushButton_5.clicked.connect(self.onToggled)         QtCore.QMetaObject.connectSlotsByName(MainWindow)      def retranslateUi(self, MainWindow):         _translate = QtCore.QCoreApplication.translate         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))         self.pushButton_5.setText(_translate("MainWindow", "PushButton"))         self.pushButton_4.setText(_translate("MainWindow", "PushButton"))         self.pushButton_3.setText(_translate("MainWindow", "PushButton"))         self.pushButton_2.setText(_translate("MainWindow", "PushButton"))         self.pushButton.setText(_translate("MainWindow", "PushButton"))      # 自定义按钮点击触发事件     def onClicked(self):         self.plainTextEdit.appendPlainText(             '按钮{0}被点击'.format(self.pushButton.objectName()))      def onPressed(self):         self.plainTextEdit.appendPlainText(             '按钮{0}被按下'.format(self.pushButton_2.objectName()))      def onReleased(self):         self.plainTextEdit.appendPlainText(             '按钮{0}被释放'.format(self.pushButton_3.objectName()))      def onToggled(self, checked):         self.plainTextEdit.appendPlainText(             '按钮{0}被选中：{1}'.format(self.pushButton_4.objectName(), checked))   if __name__ == '__main__':     app = QApplication(sys.argv)     app.setStyleSheet(StyleSheet)     MainWindow = QMainWindow()     ui = Ui_MainWindow()     ui.setupUi(MainWindow)     MainWindow.show()     sys.exit(app.exec_()) </code></pre> <p>&nbsp;重点:</p> <p>1、通过组件的ObjectName + 应用app的setStyleSheet(StyleSheet) 实现自定义样式绑定</p> <p>2、通过组件的Clicked.connect() 绑定自定义函数。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; # 自定义函数进行相关(信号/槽)事件绑定<br /> &nbsp; &nbsp; &nbsp; &nbsp; self.pushButton.clicked.connect(self.onClicked)&nbsp; # pushButton 绑定onClicked 函数<br /> &nbsp; &nbsp; &nbsp; &nbsp; self.pushButton_2.clicked.connect(self.onPressed)# pushButton_2绑定onPressed函数<br /> &nbsp; &nbsp; &nbsp; &nbsp; self.pushButton_3.clicked.connect(self.onReleased)# pushButton_3绑定onReleased函数<br /> &nbsp; &nbsp; &nbsp; &nbsp; self.pushButton_4.clicked.connect(self.onToggled)# pushButton_4绑定onToggled函数<br /> &nbsp; &nbsp; &nbsp; &nbsp; self.pushButton_5.clicked.connect(self.onToggled)# pushButton_5 绑定onToggled函数</p> </p></div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3911.htm">Spring Boot整合Kafka的简单用例(@KafkaListener注解)</a></p>
+                                                <p>下一个：<a href="/html/category/article-3913.htm">Appium+Python+Android自动化のdesired_caps会话参数</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4032.htm" title="springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成">springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-4053.htm" title="Autograd：Pytorch 中的自动微分机制讲解">Autograd：Pytorch 中的自动微分机制讲解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4028.htm" title="Halo 开源项目学习评论与点赞">Halo 开源项目学习评论与点赞</a></li>
+                        <li class="py-2"><a href="/html/category/article-4024.htm" title="网络协议之:socket协议详解之Unix domain Socket">网络协议之:socket协议详解之Unix domain Socket</a></li>
+                        <li class="py-2"><a href="/html/category/article-4011.htm" title="光的偏振">光的偏振</a></li>
+                        <li class="py-2"><a href="/html/category/article-4041.htm" title="关于信号量Semaphore的acquire与release的说明">关于信号量Semaphore的acquire与release的说明</a></li>
+                        <li class="py-2"><a href="/html/category/article-4047.htm" title="springboot关于mysql数据库date时间的坑">springboot关于mysql数据库date时间的坑</a></li>
+                        <li class="py-2"><a href="/html/category/article-4065.htm" title="Zookeeper分布式一致性协议ZAB">Zookeeper分布式一致性协议ZAB</a></li>
+                        <li class="py-2"><a href="/html/category/article-4050.htm" title="C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数">C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数</a></li>
+                        <li class="py-2"><a href="/html/category/article-4058.htm" title="TS语言与JS语言的区别">TS语言与JS语言的区别</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

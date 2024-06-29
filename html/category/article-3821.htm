@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3821.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>最大生成树Bad Cowtractors_在线工具 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">最大生成树Bad Cowtractors_在线工具 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<p>题目链接：http://poj.org/problem?id=2377；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220501/ce511adcf296fe6bb83c3d632098b867.jpg" alt="最大生成树Bad Cowtractors_在线工具"></p> <p> </p> <p> 仔细阅读题目，你会发现一个词-" as large as possible"，这个词的意思是尽可能最大； </p> <p>来，我们翻译一下题目：</p> <p>题目大意是</p> <p>现在有一个人给人修建一些线路，（当然，我们想要少花钱消费，人家就想多多赚你的钱了，现在就给出这么一个问题）。让你求修得所有电路能赚取的最大利润，若电路不能被全部修完，输出“-1”.</p> <p>那这个题考的是最小生成树的题，但是按照题目要求，我们要改成所谓的最大生成树问题，</p> <p>即求得生成树的权值是最大的而不是最小的，那该怎么办呢？</p> <p>其实也很好处理，最小生成树的核心无非是按照边的权值最小逐一将图的权值一一加进生成树里，</p> <p>那对于这个题来说，就将边的权值最大一一加进树里即可，</p> <p>所以说，和最小生成树相比，核心就在这:</p> <p> </p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">bool</span><span style="color: rgba(0, 0, 0, 1)"> cmp(edge a,edge b) {     </span><span style="color: rgba(0, 0, 255, 1)">return</span> a.w&gt;<span style="color: rgba(0, 0, 0, 1)">b.w; }</span></pre> </div> <p>将原来的按小排序改成按大排序即可。</p> <p>还有几个点需要注意的是，这个题的依旧是要判断图的联通性，如果联通则输出生成树的权值，如果不连通这次输出-1；</p> <p>然后根据最小生成树进行改动即可；</p> <h2>Talk is cheap. Show me the code.</h2> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 128, 1)"> 1</span> #include&lt;iostream&gt;//poj头文件很烦银 <span style="color: rgba(0, 128, 128, 1)"> 2</span> #include&lt;algorithm&gt; <span style="color: rgba(0, 128, 128, 1)"> 3</span> #include&lt;stdio.h&gt; <span style="color: rgba(0, 128, 128, 1)"> 4</span> #include&lt;cmath&gt; <span style="color: rgba(0, 128, 128, 1)"> 5</span> #include&lt;queue&gt; <span style="color: rgba(0, 128, 128, 1)"> 6</span> #include&lt;cstring&gt; <span style="color: rgba(0, 128, 128, 1)"> 7</span> #include&lt;vector&gt; <span style="color: rgba(0, 128, 128, 1)"> 8</span> #include&lt;map&gt; <span style="color: rgba(0, 128, 128, 1)"> 9</span> <span style="color: rgba(0, 0, 255, 1)">using</span> <span style="color: rgba(0, 0, 255, 1)">namespace</span><span style="color: rgba(0, 0, 0, 1)"> std; </span><span style="color: rgba(0, 128, 128, 1)">10</span> <span style="color: rgba(0, 0, 255, 1)">const</span> <span style="color: rgba(0, 0, 255, 1)">int</span> num=1e5+<span style="color: rgba(128, 0, 128, 1)">10</span><span style="color: rgba(0, 0, 0, 1)">; </span><span style="color: rgba(0, 128, 128, 1)">11</span> <span style="color: rgba(0, 0, 255, 1)">struct</span><span style="color: rgba(0, 0, 0, 1)"> edge </span><span style="color: rgba(0, 128, 128, 1)">12</span> <span style="color: rgba(0, 0, 0, 1)">{ </span><span style="color: rgba(0, 128, 128, 1)">13</span>     <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> u; </span><span style="color: rgba(0, 128, 128, 1)">14</span>     <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> v; </span><span style="color: rgba(0, 128, 128, 1)">15</span>     <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> w; </span><span style="color: rgba(0, 128, 128, 1)">16</span> }e[num];<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">存图</span> <span style="color: rgba(0, 128, 128, 1)">17</span> <span style="color: rgba(0, 0, 255, 1)">int</span> s[num];<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">集合</span> <span style="color: rgba(0, 128, 128, 1)">18</span> <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> n,m; </span><span style="color: rgba(0, 128, 128, 1)">19</span> <span style="color: rgba(0, 0, 255, 1)">int</span> ans;<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">生成树权值</span> <span style="color: rgba(0, 128, 128, 1)">20</span> <span style="color: rgba(0, 0, 255, 1)">int</span> cnt;<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">统计边数</span> <span style="color: rgba(0, 128, 128, 1)">21</span> <span style="color: rgba(0, 0, 255, 1)">bool</span> cmp(edge a,edge b)<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">降序排列</span> <span style="color: rgba(0, 128, 128, 1)">22</span> <span style="color: rgba(0, 0, 0, 1)">{ </span><span style="color: rgba(0, 128, 128, 1)">23</span>     <span style="color: rgba(0, 0, 255, 1)">return</span> a.w&gt;<span style="color: rgba(0, 0, 0, 1)">b.w; </span><span style="color: rgba(0, 128, 128, 1)">24</span> <span style="color: rgba(0, 0, 0, 1)">} </span><span style="color: rgba(0, 128, 128, 1)">25</span> <span style="color: rgba(0, 0, 255, 1)">int</span> find_set(<span style="color: rgba(0, 0, 255, 1)">int</span> x)<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">集合查找+路径压缩</span> <span style="color: rgba(0, 128, 128, 1)">26</span> <span style="color: rgba(0, 0, 0, 1)">{ </span><span style="color: rgba(0, 128, 128, 1)">27</span>     <span style="color: rgba(0, 0, 255, 1)">if</span>(x!=<span style="color: rgba(0, 0, 0, 1)">s[x]) </span><span style="color: rgba(0, 128, 128, 1)">28</span>     s[x]=<span style="color: rgba(0, 0, 0, 1)">find_set(s[x]); </span><span style="color: rgba(0, 128, 128, 1)">29</span>     <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> s[x]; </span><span style="color: rgba(0, 128, 128, 1)">30</span> <span style="color: rgba(0, 0, 0, 1)">} </span><span style="color: rgba(0, 128, 128, 1)">31</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> kruskal() </span><span style="color: rgba(0, 128, 128, 1)">32</span> <span style="color: rgba(0, 0, 0, 1)">{ </span><span style="color: rgba(0, 128, 128, 1)">33</span>     <span style="color: rgba(0, 0, 255, 1)">for</span>(<span style="color: rgba(0, 0, 255, 1)">int</span> i=<span style="color: rgba(128, 0, 128, 1)">1</span>;i&lt;=n;i++)<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">集合初始化</span> <span style="color: rgba(0, 128, 128, 1)">34</span>     s[i]=<span style="color: rgba(0, 0, 0, 1)">i; </span><span style="color: rgba(0, 128, 128, 1)">35</span>     sort(e+<span style="color: rgba(128, 0, 128, 1)">1</span>,e+<span style="color: rgba(128, 0, 128, 1)">1</span>+<span style="color: rgba(0, 0, 0, 1)">m,cmp); </span><span style="color: rgba(0, 128, 128, 1)">36</span>     <span style="color: rgba(0, 0, 255, 1)">for</span>(<span style="color: rgba(0, 0, 255, 1)">int</span> i=<span style="color: rgba(128, 0, 128, 1)">1</span>;i&lt;=m;i++<span style="color: rgba(0, 0, 0, 1)">) </span><span style="color: rgba(0, 128, 128, 1)">37</span> <span style="color: rgba(0, 0, 0, 1)">    { </span><span style="color: rgba(0, 128, 128, 1)">38</span>         <span style="color: rgba(0, 0, 255, 1)">int</span> b=<span style="color: rgba(0, 0, 0, 1)">find_set(e[i].u); </span><span style="color: rgba(0, 128, 128, 1)">39</span>         <span style="color: rgba(0, 0, 255, 1)">int</span> c=<span style="color: rgba(0, 0, 0, 1)">find_set(e[i].v); </span><span style="color: rgba(0, 128, 128, 1)">40</span>         <span style="color: rgba(0, 0, 255, 1)">if</span>(b==c)<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">如果重边则跳过</span> <span style="color: rgba(0, 128, 128, 1)">41</span>         <span style="color: rgba(0, 0, 255, 1)">continue</span><span style="color: rgba(0, 0, 0, 1)">; </span><span style="color: rgba(0, 128, 128, 1)">42</span>         s[c]=b;<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">合并集合</span> <span style="color: rgba(0, 128, 128, 1)">43</span>         ans+=e[i].w;<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">累计权值</span> <span style="color: rgba(0, 128, 128, 1)">44</span>         cnt++;<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">边+1</span> <span style="color: rgba(0, 128, 128, 1)">45</span>         <span style="color: rgba(0, 0, 255, 1)">if</span>(cnt==n-<span style="color: rgba(128, 0, 128, 1)">1</span>)<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">联通至此结束</span> <span style="color: rgba(0, 128, 128, 1)">46</span>         <span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">; </span><span style="color: rgba(0, 128, 128, 1)">47</span> <span style="color: rgba(0, 0, 0, 1)">    } </span><span style="color: rgba(0, 128, 128, 1)">48</span> <span style="color: rgba(0, 0, 0, 1)">} </span><span style="color: rgba(0, 128, 128, 1)">49</span> <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> main() </span><span style="color: rgba(0, 128, 128, 1)">50</span> <span style="color: rgba(0, 0, 0, 1)">{ </span><span style="color: rgba(0, 128, 128, 1)">51</span>     cin&gt;&gt;n&gt;&gt;<span style="color: rgba(0, 0, 0, 1)">m; </span><span style="color: rgba(0, 128, 128, 1)">52</span>     <span style="color: rgba(0, 0, 255, 1)">for</span>(<span style="color: rgba(0, 0, 255, 1)">int</span> i=<span style="color: rgba(128, 0, 128, 1)">1</span>;i&lt;=m;i++<span style="color: rgba(0, 0, 0, 1)">) </span><span style="color: rgba(0, 128, 128, 1)">53</span> <span style="color: rgba(0, 0, 0, 1)">    { </span><span style="color: rgba(0, 128, 128, 1)">54</span>         scanf(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">%d %d %d</span><span style="color: rgba(128, 0, 0, 1)">"</span>,&amp;e[i].u,&amp;e[i].v,&amp;<span style="color: rgba(0, 0, 0, 1)">e[i].w); </span><span style="color: rgba(0, 128, 128, 1)">55</span> <span style="color: rgba(0, 0, 0, 1)">    } </span><span style="color: rgba(0, 128, 128, 1)">56</span> <span style="color: rgba(0, 0, 0, 1)">    kruskal(); </span><span style="color: rgba(0, 128, 128, 1)">57</span>     <span style="color: rgba(0, 0, 255, 1)">if</span>(cnt==n-<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">) </span><span style="color: rgba(0, 128, 128, 1)">58</span>     printf(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">%d\n</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">,ans); </span><span style="color: rgba(0, 128, 128, 1)">59</span>     <span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">不连通输出-1</span> <span style="color: rgba(0, 128, 128, 1)">60</span>     printf(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">%d\n</span><span style="color: rgba(128, 0, 0, 1)">"</span>,-<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">); </span><span style="color: rgba(0, 128, 128, 1)">61</span>     <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">; </span><span style="color: rgba(0, 128, 128, 1)">62</span> }</pre> </div> <p> </p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3820.htm">MybatisPlus拓展——实现多数据源操作</a></p>
+                                                <p>下一个：<a href="/html/category/article-3822.htm">Vue 实现骨架屏（skeleton）</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4062.htm" title="Python格式化输出的三种方法（format,f前缀，%s）">Python格式化输出的三种方法（format,f前缀，%s）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4022.htm" title="java socket read 堵塞问题的解决方法">java socket read 堵塞问题的解决方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4063.htm" title="Python生成sql语句">Python生成sql语句</a></li>
+                        <li class="py-2"><a href="/html/category/article-4027.htm" title="前端需要了解的颜色模型，RGB、HSL和HSV_在线工具">前端需要了解的颜色模型，RGB、HSL和HSV_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4033.htm" title="global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）">global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4056.htm" title="SpringMVC对Ajax请求的处理">SpringMVC对Ajax请求的处理</a></li>
+                        <li class="py-2"><a href="/html/category/article-4051.htm" title="vue项目运行后自动运行浏览器（vue2/vue3）">vue项目运行后自动运行浏览器（vue2/vue3）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4021.htm" title="使用feign客户端要使用注解@EnableFeignClients">使用feign客户端要使用注解@EnableFeignClients</a></li>
+                        <li class="py-2"><a href="/html/category/article-4052.htm" title="Windows如何查看WiFi密码">Windows如何查看WiFi密码</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

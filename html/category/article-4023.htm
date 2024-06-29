@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4023.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>ElasticSearch学习：springboot集成ElasticSearch - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">ElasticSearch学习：springboot集成ElasticSearch </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>跟其他的菲关系类型数据库一样集成springboot，在生成代码时，勾选web和非关系数据库里面的ElasticSearch就可以。</p> <p>demo的git地址我放在下面：<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/stubborn123/codeDemo/tree/main/esdemo"  rel="nofollow">git es demo 代码</a></p> <p>这里我主要提两个部分<br /> (一)Java端返回结果警告<br /> 一般来说是虑ES security的设置，实际上7.13就开始了加强这个。ES 8直接默认让你去设置security。</p> <p>我这边用的是7.17版本，设置的是在有yml上：</p> <pre><code>xpack.security.enabled: false</code></pre> <p>（二）关于配置类和测试方法类<br /> 配置类</p> <pre><code>package com.es.example.demo.config;   import org.apache.http.HttpHost; import org.elasticsearch.client.RestClient; import org.elasticsearch.client.RestHighLevelClient; import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration;  /**  * @Author: zhangpeng  * @Date: 2022/2/16 10:56  */ @Configuration public class ElasticSearchClientConfig {      @Bean     public RestHighLevelClient restHighLevelClient() {         RestHighLevelClient client = new RestHighLevelClient(                 RestClient.builder(                         new HttpHost("127.0.0.1", 9200, "http")                 )         );          return client;     }   }</code></pre> <p>测试方法类，主要是多种方法</p> <pre><code>package com.es.example.demo;  import com.alibaba.fastjson.JSON; import com.es.example.demo.DO.User; import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest; import org.elasticsearch.action.bulk.BulkRequest; import org.elasticsearch.action.bulk.BulkResponse; import org.elasticsearch.action.delete.DeleteRequest; import org.elasticsearch.action.delete.DeleteResponse; import org.elasticsearch.action.get.GetRequest; import org.elasticsearch.action.get.GetResponse; import org.elasticsearch.action.index.IndexRequest; import org.elasticsearch.action.index.IndexResponse; import org.elasticsearch.action.search.SearchRequest; import org.elasticsearch.action.search.SearchResponse; import org.elasticsearch.action.support.master.AcknowledgedResponse; import org.elasticsearch.action.update.UpdateRequest; import org.elasticsearch.action.update.UpdateResponse; import org.elasticsearch.client.RequestOptions; import org.elasticsearch.client.RestHighLevelClient; import org.elasticsearch.client.indices.CreateIndexRequest; import org.elasticsearch.client.indices.CreateIndexResponse; import org.elasticsearch.client.indices.GetIndexRequest; import org.elasticsearch.common.unit.TimeValue; import org.elasticsearch.common.xcontent.XContentType; import org.elasticsearch.index.query.QueryBuilders; import org.elasticsearch.index.query.TermQueryBuilder; import org.elasticsearch.search.SearchHit; import org.elasticsearch.search.builder.SearchSourceBuilder; import org.elasticsearch.search.fetch.subphase.FetchSourceContext; import org.junit.jupiter.api.Test; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.beans.factory.annotation.Qualifier; import org.springframework.boot.test.context.SpringBootTest;  import java.io.IOException; import java.util.ArrayList; import java.util.concurrent.TimeUnit;  @SpringBootTest class EsdemoApplicationTests {      @Test     void contextLoads() {     }        public static final String INDEX = "zp_test_index";      @Autowired     //这个读取@bean要不用人家的原名或者在配置类搞个别名，要不在使用的地方指定好     @Qualifier(value = "restHighLevelClient")     private RestHighLevelClient client;      // 创建索引     @Test     void testCreateIndex() throws IOException {         // 1. 创建索引请求         CreateIndexRequest request = new CreateIndexRequest(INDEX);         // 2. 客户端执行请求， IndicesClient，请求后获得响应         CreateIndexResponse createIndexResponse = client.indices().create(request, RequestOptions.DEFAULT);         System.out.println(createIndexResponse);     }      // 测试索引存在     @Test     void testExistsIndex() throws IOException {         GetIndexRequest request = new GetIndexRequest(INDEX);         boolean exists = client.indices().exists(request, RequestOptions.DEFAULT);         System.out.println(exists);     }      // 删除索引     @Test     void testDeleteIndex() throws IOException {         DeleteIndexRequest request = new DeleteIndexRequest(INDEX);         AcknowledgedResponse acknowledgedResponse = client.indices().delete(request, RequestOptions.DEFAULT);         System.out.println(acknowledgedResponse.isAcknowledged());     }      // 添加文档     @Test     void testAddDocument() throws IOException {         User user = new User("张三", 28);         IndexRequest request = new IndexRequest(INDEX);         // 规则 PUT /index/_doc/1         request.id("1");         request.timeout(TimeValue.timeValueSeconds(1));         // 将数据放入请求 json         request.source(JSON.toJSONString(user), XContentType.JSON);         IndexResponse response = client.index(request, RequestOptions.DEFAULT);         System.out.println(response.toString());         System.out.println(response.status());     }      //注意这里要是发现获取返回结果提示警告，拿不到结果，要考虑ES security的设置      // 获取文档 判断是否存在 GET /index/_doc/1     @Test     void testIsExists() throws IOException {         GetRequest request = new GetRequest(INDEX, "1");         // 不获取返回的 _source 的上下文了         request.fetchSourceContext(new FetchSourceContext(false));         request.storedFields("_none_");          boolean exists = client.exists(request, RequestOptions.DEFAULT);         System.out.println(exists);     }      // 获取文档      /**      * 返回结果：      * {"age":28,"name":"狂神说"}      * {"_index":"xiaofan_test_index","_type":"_doc","_id":"1","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"age":28,"name":"狂神说"}}      */     @Test     void testGetDocument() throws IOException {         GetRequest request = new GetRequest(INDEX, "1");         GetResponse response = client.get(request, RequestOptions.DEFAULT);         System.out.println(response.getSourceAsString());         System.out.println(response);     }      // 更新文档     @Test     void testUpdateDocument() throws IOException {         UpdateRequest request = new UpdateRequest(INDEX, "1");         request.timeout("1s");          User user = new User("法外狂徒格雷福斯", 18);         request.doc(JSON.toJSONString(user), XContentType.JSON);          UpdateResponse updateResponse = client.update(request, RequestOptions.DEFAULT);         System.out.println(updateResponse);     }      // 删除文档     @Test     void testDeleteDocument() throws IOException {         DeleteRequest request = new DeleteRequest(INDEX, "1");         request.timeout("1s");          DeleteResponse deleteResponse = client.delete(request, RequestOptions.DEFAULT);         System.out.println(deleteResponse);      }      // 批量插入数据（修改，删除类似操作）     @Test     void testBulkRequest() throws IOException {         BulkRequest request = new BulkRequest();         request.timeout("10s");          ArrayList&lt;User&gt; users = new ArrayList&lt;&gt;();         users.add(new User("kuangshen1", 21));         users.add(new User("kuangshen2", 22));         users.add(new User("kuangshen3", 23));         users.add(new User("xiaofan1", 18));         users.add(new User("xiaofan2", 19));          // 批处理请求， 修改，删除，只要在这里修改相应的请求就可以         for (int i = 0; i &lt; users.size(); i++) {             request.add(new IndexRequest(INDEX)                     .id(String.valueOf(i + 1))                     .source(JSON.toJSONString(users.get(i)), XContentType.JSON));         }          BulkResponse bulkResponse = client.bulk(request, RequestOptions.DEFAULT);         //是否失败，返回false表示成功         System.out.println(bulkResponse.hasFailures());     }      // 查询文档     @Test     void testSearch() throws IOException {         SearchRequest searchRequest = new SearchRequest(INDEX);         // 构建搜索条件         SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();          // 查询条件， 可以使用QueryBuilders工具类实现         // QueryBuilders.termQuery 精确         // QueryBuilders.matchLLQuery() 匹配所有         TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery("name", "kuangshen1");         // MatchAllQueryBuilder matchAllQueryBuilder = QueryBuilders.matchAllQuery();         sourceBuilder.query(termQueryBuilder);         sourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));          searchRequest.source(sourceBuilder);          SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);         System.out.println(JSON.toJSON(searchResponse.getHits()));         System.out.println("======================================");         for (SearchHit documentFields : searchResponse.getHits().getHits()) {             System.out.println(documentFields.getSourceAsMap());         }      }  }</code></pre> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4022.htm">java socket read 堵塞问题的解决方法</a></p>
+                                                <p>下一个：<a href="/html/category/article-4024.htm">网络协议之:socket协议详解之Unix domain Socket</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4025.htm" title="Java原生HttpClient的使用详解_java">Java原生HttpClient的使用详解_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-4056.htm" title="SpringMVC对Ajax请求的处理">SpringMVC对Ajax请求的处理</a></li>
+                        <li class="py-2"><a href="/html/category/article-4027.htm" title="前端需要了解的颜色模型，RGB、HSL和HSV_在线工具">前端需要了解的颜色模型，RGB、HSL和HSV_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4018.htm" title="解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题">解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题</a></li>
+                        <li class="py-2"><a href="/html/category/article-4022.htm" title="java socket read 堵塞问题的解决方法">java socket read 堵塞问题的解决方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4058.htm" title="TS语言与JS语言的区别">TS语言与JS语言的区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-4036.htm" title="字符数组和字符串的区别，C语言字符数组和字符串区别详解">字符数组和字符串的区别，C语言字符数组和字符串区别详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4059.htm" title="Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程">Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程</a></li>
+                        <li class="py-2"><a href="/html/category/article-4061.htm" title="如何在Android sqlite中删除表？">如何在Android sqlite中删除表？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

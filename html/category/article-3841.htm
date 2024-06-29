@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3841.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Docker镜像构建之Dockerfile - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Docker镜像构建之Dockerfile </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<p>在 Docker 中构建镜像最常用的方式就是使用 Dockerfile。Dockerfile 是一个用来构建镜像的文本文件。</p> <p>官方文档：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.docker.com/engine/reference/builder/"  target="_blank" rel="nofollow">https://docs.docker.com/engine/reference/builder/</a></p> <h1 id="一dockerfile常用命令">一、Dockerfile常用命令</h1> <p>对官方文档的一个翻译：</p> <h2 id="11-from">1.1 FROM</h2> <p>语法：<code>FROM &lt;image&gt;:&lt;tag&gt;</code></p> <p>指明构建的新镜像是来自于那个基础镜像，如果没有选择tag，那么默认为 Latest。</p> <pre><code class="language-sh">FROM centos:7</code></pre> <p>如果不以任何镜像为基础，那么 写法为：<code>FROM scratch</code>。scratch 镜像是一个空镜像，可以用于构建 busybox 等超小镜像，可以说是真正的从零开始构建属于自己的镜像。</p> <h2 id="12-label">1.2 LABEL</h2> <p>语法：<code>LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...</code></p> <p>功能是为镜像指定标签。也可以使用 LABEL 来指定镜像作者。</p> <pre><code class="language-sh">LABEL maintainer="xxx.com"</code></pre> <h2 id="13-run">1.3 RUN</h2> <p>语法：<code>RUN &lt;command&gt;</code></p> <p>构建镜像时运行的 Shell 命令，比如构建的新镜像中想在 /usr/local 目录下创建一个 Java 目录。</p> <pre><code class="language-sh">RUN mkdir -p /usr/local/java</code></pre> <h2 id="14-add">1.4 ADD</h2> <p>语法：<code>ADD &lt;src&gt;... &lt;dest&gt;</code></p> <p>拷贝文件或目录到镜像中。src 可以是一个本地文件或者是一个本地压缩文件，压缩文件会自动解压。还可以是一个 url ，如果把 src 写成一个url，那么 ADD 就类似于 wget 命令，然后自动下载和解压。</p> <pre><code class="language-sh">ADD jdk-11.0.6_linux-x64_bin.tar.gz /usr/local/java</code></pre> <h2 id="15-copy">1.5 COPY</h2> <p>语法：<code>COPY &lt;src&gt;... &lt;dest&gt;</code></p> <p>拷贝文件或目录到镜像中。用法和 ADD 一样，只是不支持自动下载和解压。</p> <pre><code class="language-sh">COPY jdk-11.0.6_linux-x64_bin.tar.gz /usr/local/java</code></pre> <h2 id="16-expose">1.6 EXPOSE</h2> <p>语法：<code>EXPOSE &lt;port&gt; [&lt;port&gt;/&lt;protocol&gt;...]</code></p> <p>暴露容器运行时的监听端口给外部，可以指定端口是监听 TCP 还是 UDP，如果未指定协议，则默认为 TCP。</p> <pre><code class="language-sh">EXPOSE 80 443 8080/tcp</code></pre> <h2 id="17-env">1.7 ENV</h2> <p>语法：<code>ENV &lt;key&gt; &lt;value&gt;</code>添加单个，<code>ENV &lt;key&gt;=&lt;value&gt; ...</code>添加多个。</p> <p>设置容器内环境变量。</p> <pre><code class="language-sh">ENV JAVA_HOME /usr/local/java/jdk-11.0.6/</code></pre> <h2 id="18-cmd">1.8 CMD</h2> <p>语法：</p> <ul> <li><code>CMD ["executable", "param1", "param2"]</code> <ul> <li>示例：<code>CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]</code></li> </ul> </li> <li><code>CMD ["param1", "param2"]</code> <ul> <li>示例：<code>CMD ["echo", "$JAVA_HOME"]</code></li> </ul> </li> <li><code>CMD command param1 param2</code> <ul> <li>示例：<code>CMD echo $JAVA_HOME</code></li> </ul> </li> </ul> <p>启动容器时执行的 Shell 命令，在 DOckerfile 中只能有一条 CMD 命令，如果设置了多条 CMD，只有最后一条 CMD 会生效。</p> <pre><code class="language-sh">CMD echo $JAVA_HOME</code></pre> <blockquote> <p>如果创建容器的时候指定了命令，则 CMD 命令会被替代。</p> <p>假如镜像叫<code>centos:7</code>，创建容器时命令是：<code>docker run -it --name centos7 centos:7 echo "helloworld"</code> 或者<code>docker run -it --name centos7 centos:7 /bin/bash</code>，就不会输出<code>$JAVA_HOME</code> 的环境变量信息了，应为 CMD 命令被<code>echo "helloworld"</code>、<code>/bin/bash</code> 覆盖了。</p> </blockquote> <h2 id="19-entrypoint">1.9 ENTRYPOINT</h2> <p>语法：</p> <ul> <li><code>ENTRYPOINT ["executable", "param1", "param2"]</code> <ul> <li>示例：<code>ENTRYPOINT ["/usr/local/tomact/bin/catalina.sh", "run"]</code></li> </ul> </li> <li><code>ENTRYPOINT command param1 param2</code> <ul> <li>示例：<code>ENTRYPOINT echo $JAVA_HOME</code></li> </ul> </li> </ul> <p>启动容器时执行的 Shell 命令，同 CMD 类似，不会被 docker run 命令指定的参数所覆盖，在Dockerfile 中只能有一条 ENTRYPOINT 指令，如果设置了多条 ENTRYPOINT，只有最后一条 ENTRYPOINT 会生效。</p> <pre><code class="language-sh">ENTRYPOINT ehco $JAVA_HOME</code></pre> <blockquote> <p>如果在 Dockerfile 中同时写了 ENTRYPOINT 和 CMD，并且 CMD 指令不是一个完整的可执行命令，那么 CMD 指定的内容将会作为 ENTRYPOINT 的参数；</p> <p>如果在 Dockerfile 中同时写了 ENTRYPOINT 和 CMD，并且 CMD 是一个完整的指令，那么它两会互相覆盖，谁在最后谁生效；</p> </blockquote> <h2 id="110-workdir">1.10 WORKDIR</h2> <p>语法：<code>WORKDIR /path/to/workdir</code></p> <p>为 RUN、CMD、ENTRYPOINT 以及 COPY 和 AND 设置工作目录。</p> <pre><code class="language-sh">WORKDIR /usr/local</code></pre> <h2 id="111-wolume">1.11 WOLUME</h2> <p>指定容器挂载点到宿主机自动生成的目录或其他容器，一般的使用场景为需要持久化存储数据时。</p> <pre><code class="language-sh"># 容器的 /var/lib/mysql 目录会在运行时自动挂载为匿名卷，匿名卷在宿主机的 /var/lib/docker/volumes 目录下 VOLUME ["/var/lib/mysql"]</code></pre> <blockquote> <p>一般不会在 Dockerfile 中用到，更常见的还是在 docker run 的时候通过 -v 指定数据卷。</p> </blockquote> <h1 id="二构建镜像">二、构建镜像</h1> <p>Dockerfile 文件编写好了以后，真正构建镜像时需要通过<code>docker build</code> 命令。</p> <p><code>docker build</code> 命令用于使用<code>Dockerfile</code> 创建镜像。</p> <pre><code class="language-sh"># 使用当前目录的 Dockerfile 创建镜像 docker build -t mycentos:7  # 通过 -f Dockerfile 文件的位置创建镜像 docker build -f /usr/local/dockerfile/Dockerfile -t mycentos:7 .</code></pre> <ul> <li><code>-f</code>：指定要使用的 Dockerfile 路径；</li> <li><code>--tag, -t</code>：镜像的名字及标签，可以在一次构建中为一个镜像设置多个标签。</li> </ul> <blockquote> <p>在使用<code>docker build</code> 命令的去构建镜像时，通常都会看到命令最后会有一个<code>.</code> 号，多数人认为它是用来指定<code>Dockerfile</code> 文件所在位置的，但其实<code>-f</code> 才是。</p> <p>当使用<code>docker build</code> 命令构建镜像的时候，如果在<code>Dockerfile</code> 中使用了一些<code>ADD</code> 等指令来操作文件，为了使<code>Docker</code> 引擎获取到这些文件，当在构建的时候，就会由用户指定构建镜像时的上下文路径，<code>docker build</code> 会将这个路径下所有的文件都打包上传给<code>Docker 引擎</code>，从而获取到文件。</p> <p>可以理解为传入这个路径拼接上 Dockerfile 文件中需要操作文件的路径，<code>.</code> 代表当前路径，也就是说当前路径拼接到需要操作的文件路径从而拿到绝对路径。（只是个比喻）</p> </blockquote> <h1 id="三dockerfile-实践">三、Dockerfile 实践</h1> <p>通过基础镜像<code>centos:7</code>，在该镜像中安装 jdk 和 Tomcat 以后制作为一个新的镜像。</p> <p>创建目录</p> <pre><code class="language-sh">mkdir -p /usr/local/dockerfile</code></pre> <p>编写 Dockerfile 文件</p> <pre><code class="language-sh">vi Dockerfile</code></pre> <p>Dockerfile 文件内容如下：</p> <pre><code class="language-sh"># 指明构建镜像是来自于 centos:7 基础镜像 FROM centos:7  # 通过镜像标签声明作者信息 LABEL maintainer="xiaoyang.com"  # 设置工作目录 WORKDIR /usr/local  # 新镜像构建成功后创建指定目录 RUN mkdir -p /usr/local/java &amp;&amp; mkdir -p /usr/local/tomcat  ## 拷贝文件到镜像中并解压 ADD jdk-11.0.7_linux-x64_bin.tar.gz /usr/local/java ADD apache-tomcat-9.0.39.tar.gz /usr/local/tomcat  # 暴露容器运行时的 8080 监听端口给外部 EXPOSE 8080  # 设置容器内 JAVA_HOME 环境变量 ENV JAVA_HOME /usr/local/java/jdk-11.0.7/ ENV PATH $PATH:$JAVA_HOME/bin  # 启动容器时启动 Tomcat CMD ["/usr/local/tomcat/apache-tomcat-9.0.39/bin/catalina.sh", "run"]</code></pre> <p>构建镜像</p> <pre><code class="language-sh">docker build -f /usr/local/dockerfile/Dockerfile -t mycentos:7 /root/</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/abad833f51efcb80dd8a0cebbf3f5266.jpg" alt="Docker镜像构建之Dockerfile"></p> <p>查看镜像构建历史</p> <pre><code class="language-sh">docker history 镜像名称:标签|ID  docker history mycentos:7</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/13281803d7614750aa28775f299acab0.jpg" alt="Docker镜像构建之Dockerfile"></p> <p>使用构建的镜像创建容器</p> <pre><code class="language-sh"># 创建容器 docker run -id --name mycentos7 -p 8080:8080 mycentos:7  # 进入容器 docker exec -it mycentos7 /bin/bash  # 测试 Java 环境变量 [root@a12ceba19e75 ~]# java -version java version "11.0.7" 2020-04-14 LTS Java(TM) SE Runtime Environment 18.9 (build 11.0.7+8-LTS) Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.7+8-LTS, mixed mode)</code></pre> <p>访问<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://192.168.88.131:8080/"  target="_blank" rel="nofollow">http://192.168.88.131:8080/</a> 看到页面说明环境正常！</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e8e4477b5bedb22cb965e26310c3043e.jpg" alt="Docker镜像构建之Dockerfile"></p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3840.htm">定性检测的样本量估算之精确概率法</a></p>
+                                                <p>下一个：<a href="/html/category/article-3842.htm">为什么字符串对象在Java中是不可变的？</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4038.htm" title="[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案">[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案</a></li>
+                        <li class="py-2"><a href="/html/category/article-4013.htm" title="Django项目使用pyinstall打包步骤（包含各种出错处理方法）">Django项目使用pyinstall打包步骤（包含各种出错处理方法）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4064.htm" title="用python实现文件的词频统计">用python实现文件的词频统计</a></li>
+                        <li class="py-2"><a href="/html/category/article-4058.htm" title="TS语言与JS语言的区别">TS语言与JS语言的区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-4051.htm" title="vue项目运行后自动运行浏览器（vue2/vue3）">vue项目运行后自动运行浏览器（vue2/vue3）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4017.htm" title="Javascript搜索集合中的对象键">Javascript搜索集合中的对象键</a></li>
+                        <li class="py-2"><a href="/html/category/article-4037.htm" title="C++中的匿名对象的概念和使用">C++中的匿名对象的概念和使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-4023.htm" title="ElasticSearch学习：springboot集成ElasticSearch">ElasticSearch学习：springboot集成ElasticSearch</a></li>
+                        <li class="py-2"><a href="/html/category/article-4044.htm" title="python2字符串编码方式_一、基础部分-2.字符串编码">python2字符串编码方式_一、基础部分-2.字符串编码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4026.htm" title="ES6可选链操作符和空值合并运算符">ES6可选链操作符和空值合并运算符</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

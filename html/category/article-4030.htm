@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4030.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>vite+element-plus项目基础搭建 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">vite+element-plus项目基础搭建 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <div class="toc"> <h3>vite+element-plus项目基础搭建</h3> <ul> <li> <ul> <li> <ul> <li><a href="#1_1" rel="nofollow">1.引言</a></li> <li><a href="#2Vite_3" rel="nofollow">2.为什么是Vite?</a></li> <li><a href="#3Elementplus_7" rel="nofollow">3.为什么是Element-plus?</a></li> <li><a href="#4_9" rel="nofollow">4.项目搭建</a></li> <li><a href="#5_66" rel="nofollow">5.参考文献</a></li> </ul> </li> </ul> </li> </ul> </div> <h3><a id="1_1" rel="nofollow"></a>1.引言</h3> <p>    其实本来不应该写这种CSDN比较多的博文的，主要是因为比较多，然后想解决问题的时候有很多各种各样的文章，然后这些文章有各自的解决思路，甚至拿过来又不能解决问题，本着分享和方便以后使用的目的，记录这次使用过程。</p> <h3><a id="2Vite_3" rel="nofollow"></a>2.为什么是Vite?</h3> <p>    其实我最开始用的是vue-cli，但是使用的时候发现这个每次运行的时候都需要打包，导致运行的比较慢，得等个10几秒。加上看到Element-plus官网在配置教程里面甚至都没有放vue-cli的配置教程。在使用vue-cli引入的时候我又希望不是全部引入，因为很多组件是没必要的，也许正是因为这个Element-plus比较大，所以打包的时间平时使用的时候大更多。基于上述原因，我查了一下vite和vue-cli的区别：<br /> （1）vite打包速度快，能够利用浏览器对JavaScript 模块的原生支持，而vue-cli在打包上更像是webpack的一个超集，本身基于webpack来打包，又在webpack的基础上增加了很多脚手架，由于webpack将项目的各种依赖利用js串联起来，工作量相对较大，时间慢也是正常的；<br /> （2）由于Vite打包之后还是依赖于浏览器，所以对于低版本的浏览器支持的不是很好。</p> <h3><a id="3Elementplus_7" rel="nofollow"></a>3.为什么是Element-plus?</h3> <p>    因为之前没有使用过这个UI库，自己一个个组件的写太慢了。而且Element-plus热度也比较高。Element-plus本质是Element-UI对Vue3的支持更新，用来配合Vue3开发非常合适，相比之下，有很多UI框架还没能转到Vue3,不得不感叹前端发展实在是太快了，各种UI组件库，各种生态，这种来自于社区的依赖。</p> <h3><a id="4_9" rel="nofollow"></a>4.项目搭建</h3> <p>    好了不多说了，直接开始吧：</p> <pre><code class="prism language-shell"><span class="token function">npm</span> init vite@latest<span class="token operator">&lt;</span>app name<span class="token operator">&gt;</span> -- --template vue-ts</code></pre> <p>安装依赖、测试运行什么的就不说了，配置<code>vite.config.ts</code>（含修改端口方式）：</p> <pre><code class="prism language-javascript"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> defineConfig<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vite'</span><span class="token punctuation">;</span><span class="token keyword">import</span> vue<span class="token keyword">from</span><span class="token string">'@vitejs/plugin-vue'</span><span class="token punctuation">;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   plugins<span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   server<span class="token operator">:</span><span class="token punctuation">{<!-- --></span>     port<span class="token operator">:</span><span class="token number">8080</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>    安装<code>element-plus</code>依赖：<code>npm i element-plus</code> (使用-D主要是我们一般只是用生成的dist文件，用于生产环境)；安装 sass和sass-loader，方便之后使用element中提供的颜色主题和自己写sass一些样式。<br />     修改<code>tsconfig.json</code>，关闭打包时候的ts校验（<code>否则打包的时候会因为ts校验不通过而导致打包失败</code>）：<code>"skipLibCheck": true,</code>为了方便编译器提示加上：<code>"types": ["element-plus/global"],</code><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220820/b780a5e4a62ce731c322927f775a51a2.jpg" alt="vite+element-plus项目基础搭建"><br />     入口文件：</p> <pre><code class="prism language-javascript"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createApp<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token punctuation">;</span><span class="token keyword">import</span> App<span class="token keyword">from</span><span class="token string">'./App.vue'</span><span class="token punctuation">;</span><span class="token keyword">import</span> router<span class="token keyword">from</span><span class="token string">'./router/index'</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token string">'element-plus/dist/index.css'</span><span class="token punctuation">;</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span> app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span><span class="token punctuation">;</span> app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>    按需引入，安装官网提到的<code>unplugin-auto-import</code>和<code>unplugin-vue-components</code>依赖（<code>-D</code>就行），调整<code>vite.config.ts</code>文件：</p> <pre><code class="prism language-javascript"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> defineConfig<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vite'</span><span class="token punctuation">;</span><span class="token keyword">import</span> vue<span class="token keyword">from</span><span class="token string">'@vitejs/plugin-vue'</span><span class="token punctuation">;</span><span class="token keyword">import</span> AutoImport<span class="token keyword">from</span><span class="token string">'unplugin-auto-import/vite'</span><span class="token punctuation">;</span><span class="token keyword">import</span> Components<span class="token keyword">from</span><span class="token string">'unplugin-vue-components/vite'</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> ElementPlusResolver<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'unplugin-vue-components/resolvers'</span><span class="token punctuation">;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   plugins<span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">AutoImport</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>       resolvers<span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">ElementPlusResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">Components</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>       resolvers<span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">ElementPlusResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   server<span class="token operator">:</span><span class="token punctuation">{<!-- --></span>     port<span class="token operator">:</span><span class="token number">8080</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>实践测试，如果使用这种方法，那么每次会由这两个自动导入的依赖为我们引入我们自己写的<code>components</code>和<code>组件</code>：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220820/ba932907174535335016fcc0b6c345e4.jpg" alt="vite+element-plus项目基础搭建"><br /> 如果全部引入那么文件大小1.4MB左右，如果按需引入只有400KB，所以还是按需引入比较香。</p> <h3><a id="5_66" rel="nofollow"></a>5.参考文献</h3> <p>    本次项目搭建看了很多文章，对我帮助比较大的是这三篇文章：<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jianshu.com/p/4ac5b3b9f483"  rel="nofollow">（1）搭建vite项目并配置路由和element-plus</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://element-plus.gitee.io/zh-CN/guide/quickstart.html#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"  rel="nofollow">（2）Element官网配置教程</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/buduoduoorg/article/details/113462959?utm_source=app&amp;app_version=5.3.0&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen"  rel="nofollow">（3）Vite和Vue CLI的优劣</a></p> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4029.htm">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></p>
+                                                <p>下一个：<a href="/html/category/article-4031.htm">使用Nginx实现多个Tomcat负载均衡</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4041.htm" title="关于信号量Semaphore的acquire与release的说明">关于信号量Semaphore的acquire与release的说明</a></li>
+                        <li class="py-2"><a href="/html/category/article-4024.htm" title="网络协议之:socket协议详解之Unix domain Socket">网络协议之:socket协议详解之Unix domain Socket</a></li>
+                        <li class="py-2"><a href="/html/category/article-4017.htm" title="Javascript搜索集合中的对象键">Javascript搜索集合中的对象键</a></li>
+                        <li class="py-2"><a href="/html/category/article-4036.htm" title="字符数组和字符串的区别，C语言字符数组和字符串区别详解">字符数组和字符串的区别，C语言字符数组和字符串区别详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4033.htm" title="global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）">global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4038.htm" title="[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案">[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案</a></li>
+                        <li class="py-2"><a href="/html/category/article-4040.htm" title="@order注解 解答">@order注解 解答</a></li>
+                        <li class="py-2"><a href="/html/category/article-4046.htm" title="Vue  el-input  trim() 去空格">Vue  el-input  trim() 去空格</a></li>
+                        <li class="py-2"><a href="/html/category/article-4053.htm" title="Autograd：Pytorch 中的自动微分机制讲解">Autograd：Pytorch 中的自动微分机制讲解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4056.htm" title="SpringMVC对Ajax请求的处理">SpringMVC对Ajax请求的处理</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

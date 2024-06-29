@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4036.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>字符数组和字符串的区别，C语言字符数组和字符串区别详解 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">字符数组和字符串的区别，C语言字符数组和字符串区别详解 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>C 语言中并不存在字符串这个数据类型，而是使用字符数组来保存字符串。那么，字符数组就一定是字符串吗？</p> <p>一定不是，字符数组和字符串是完全不相同的两个概念，千万不要混淆。分析如下所示的示例代码。</p> <pre><code class="prism language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span></span><span class="token keyword">int</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">/*字符数组赋初值*/</span><span class="token keyword">char</span> cArr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">'I'</span><span class="token punctuation">,</span><span class="token string">'L'</span><span class="token punctuation">,</span><span class="token string">'O'</span><span class="token punctuation">,</span><span class="token string">'V'</span><span class="token punctuation">,</span><span class="token string">'E'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">/*字符串赋初值*/</span><span class="token keyword">char</span> sArr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"ILOVEC"</span><span class="token punctuation">;</span><span class="token comment">/*用sizeof（）求长度*/</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"cArr的长度=%d\n"</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>cArr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sArr的长度=%d\n"</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>sArr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">/*用strlen（）求长度*/</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"cArr的长度=%d\n"</span><span class="token punctuation">,</span><span class="token function">strlen</span><span class="token punctuation">(</span>cArr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sArr的长度=%d\n"</span><span class="token punctuation">,</span><span class="token function">strlen</span><span class="token punctuation">(</span>sArr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">/*用printf的%s打印内容*/</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"cArr的内容=%s\n"</span><span class="token punctuation">,</span> cArr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sArr的内容=%s\n"</span><span class="token punctuation">,</span> sArr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <h3><a id="_26" rel="nofollow"></a>运行结果为：</h3> <p>cArr的长度=6<br /> sArr的长度=7<br /> cArr的长度=6<br /> sArr的长度=6<br /> cArr的内容=ILOVEC<br /> sArr的内容=ILOVEC</p> <p>从代码及其运行结果中可以看出如下几点。</p> <p>首先，从概念上讲，<code>cArr</code> 是一个字符数组，而<code>sArr</code> 是一个字符串。因此，对于<code>sArr</code>，编译时会自动在末尾增加一个 null 字符（也就是’\0’，用十六进制表示为 0x00）；而对于<code>cArr</code>，则不会自动增加任何东西。</p> <p>记住，这里的<code>sArr</code> 必须是<code>char sArr[7]="ILOVEC"</code>，而不能够是<code>char sArr[6]="ILOVEC"</code>。</p> <p>其次，<code>sizeof()</code>运算符求的是字符数组的长度，而不是字符串长度。因此，对于<code>sizeof(cArr)</code>，其运行结果为 6；而对于<code>sizeof(sArr)</code>，其运行结果为 7（之所以为 7，是因为<code>sArr</code> 是一个字符串，编译时会自动在末尾增加一个 null 字符）。因此，对于以下代码：</p> <pre><code class="prism language-c"><span class="token comment">/*字符数组赋初值*/</span><span class="token keyword">char</span> cArr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">'I'</span>，<span class="token string">'L'</span>，<span class="token string">'O'</span>，<span class="token string">'V'</span>，<span class="token string">'E'</span>，<span class="token string">'C'</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">/*字符串赋初值*/</span><span class="token keyword">char</span> sArr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"ILOVEC"</span><span class="token punctuation">;</span></code></pre> <p>也可以写成如下等价形式：</p> <pre><code class="prism language-c"><span class="token comment">/*字符数组赋初值*/</span><span class="token keyword">char</span> cArr<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">'I'</span>，<span class="token string">'L'</span>，<span class="token string">'O'</span>，<span class="token string">'V'</span>，<span class="token string">'E'</span>，<span class="token string">'C'</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">/*字符串赋初值*/</span><span class="token keyword">char</span> sArr<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"ILOVEC"</span><span class="token punctuation">;</span></code></pre> <p>最后，对于字符串<code>sArr</code>，可以直接使用<code>print</code>f 的<code>%s</code> 打印其内容；而对字符数组，很显然使用<code>printf</code> 的<code>%s</code> 打印其内容是不合适的。</p> <p>通过对以上代码的分析，现在我们可以很简单地得出字符数组和字符串二者之间的区别：</p> <ul> <li>对于字符数组，其长度是固定的，其中任何一个数组元素都可以为<code>null</code> 字符。因此，字符数组不一定是字符串。</li> <li>对于字符串，它必须以<code>null</code> 结尾，其后的字符不属于该字符串。字符串一定是字符数组，它是最后一个字符为<code>null</code> 字符的字符数组。</li> <li>数组的元素可以是任意一种类型，而字符串是一种特殊的数组，它使用了一种众所周知的确定其长度的规则。</li> </ul> <p>有两种类型的语言，一种简单地将字符串看作是一个字符数组，另一种将字符串看作是一种特殊的类型。C属于前一种，但有一点补充，即C字符串是以一个NUL字符结束的。数组的值和数组中第一个元素的地址(或指向该元素的指针)是相同的，因此通常一个C字符串和一个字符指针是等价的。</p> <p>一个数组的长度可以是任意的。当数组名用作函数的参数时，函数无法通过数组名本身知道数组的大小，因此必须引入某种规则。对字符串来说，这种规则就是字符串的最后一个字符是ASCII字符NUL(’\0’)。</p> <p>在C中，int类型值的字面值可以是42这样的值，字符的字面值可以是‘*’这样的值，浮点型值的字面值可以是4.2el这样的单精度值或双精度值。</p> <p>注意：实际上，一个char类型字面值是一个int类型字面值的另一种表示方式，只不过使用了一种有趣的句法，例如当42和’*'都表示char类型的值时，它们是两个完全相同的值。然而，在C++中情况有所不同，C++有真正的char类型字面值和char类型函数参数，并且通常会更仔细地区分char类型和int类型，整数数组和字符数组没有字面值。然而，如果没有字符串字面值，程序编写起来就会很困难，因此C提供了字符串字面值。需要注意的是，按照惯例C字符串总是以NUL字符结束，因此C字符串的字面值也以NUL字符结束，例如，“six times nine”的长度是15个字符(包括NUL终止符)，而不是你看得见的14个字符。</p> <p>关于字符串字面值还有一条鲜为人知但非常有用的规则，如果程序中有两条紧挨着的字符串字面值，编译程序会将它们当作一条长的字符串字面值来对待，并且只使用一个NUL终止符。也就是说，“Hello，”world”和“Hello，world”是相同的，而以下这段代码中的几条字符串字面值也可以任意分割组合：</p> <pre><code class="prism language-c"><span class="token keyword">char</span>    message<span class="token punctuation">[</span><span class="token punctuation">]</span>＝ ”This is an extremely<span class="token keyword">long</span> prompt\n” ”How<span class="token keyword">long</span> is it<span class="token operator">?</span>\n” ”It's so<span class="token keyword">long</span>，\n” ”It wouldn't fit On one line\n”；</code></pre> <p>在定义一个字符串变量时，你需要有一个足以容纳该字符串的数组或者指针，并且要保证为NUL终止符留出空间，例如，以下这段代码中就有一个问题：</p> <pre><code class="prism language-c"><span class="token keyword">char</span> greeting<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span>；<span class="token function">strcpy</span><span class="token punctuation">(</span>greeting，”Hello，world”<span class="token punctuation">)</span>；<span class="token comment">/*trouble*/</span></code></pre> <p>在上例中，greeting只有容纳12个字符的空间，而“Hello，world”的长度为13个字符(包括NUL终止符)，因此NUL字符会被拷贝到greeting以外的某个位置，这可能会毁掉greetlng附近内存空间中的某些数据。再请看下例：</p> <pre><code class="prism language-c"><span class="token keyword">char</span>  greeting<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span>＝”Hello，world”；<span class="token comment">/*notastring*/</span></code></pre> <p>上例是没有问题的，但此时greeting是一个字符数组，而不是一个字符串。因为上例没有为NUL终止符留出空间，所以greeting不包含NUL字符。更好一些的方法是这样写：<br /> char greeting[]＝”Hello，world”;<br /> 这样编译程序就会计算出需要多少空间来容纳所有内容，包括NUL字符。</p> <p>字符串字面值是字符(char类型)数组，而不是字符常量(const char类型)数组。尽管ANSIC委员会可以将字符串字面值重新定义为字符常量数组，但这会使已有的数百万行代码突然无法通过编译，从而引起巨大的混乱。如果你试图修改字符串字面值中的内容，编译程序是</p> <p>不会阻止你的，但你不应该这样做。编译程序可能会选择禁止修改的内存区域来存放字符串字面值，例如ROM或者由内存映射寄存器禁止写操作的内存区域。但是，即使字符串字面值被存放在允许修改的内存区域中，编译程序还可能会使它们被共享。例如，如果你写了以下代码(并且字符串字面值是允许修改的)：</p> <pre><code class="prism language-c"><span class="token keyword">char</span><span class="token operator">*</span>p<span class="token operator">=</span><span class="token string">"message"</span>；<span class="token keyword">char</span><span class="token operator">*</span>q<span class="token operator">=</span><span class="token string">"message"</span>； p<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>＝<span class="token string">'\0'</span><span class="token punctuation">;</span><span class="token comment">/* p now points to”mess”*/</span></code></pre> <p>编译程序就会作出两种可能的反应，一种是为p和q创建两个独立的字符串，在这种情况下，q仍然是“message”；一种是只创建一个字符串(p和q都指向它)，在这种情况下，q将变成“mess”。</p> <p>注意：有人称这种现象为“C的幽默”，正是因为这种幽默，绝大多数C程序员才会整天被自己编写的程序所困扰，难得忙里偷闲一次。</p> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4035.htm">Vue路由router详细总结</a></p>
+                                                <p>下一个：<a href="/html/category/article-4037.htm">C++中的匿名对象的概念和使用</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4049.htm" title="JAVA初始化自定义类的数组">JAVA初始化自定义类的数组</a></li>
+                        <li class="py-2"><a href="/html/category/article-4023.htm" title="ElasticSearch学习：springboot集成ElasticSearch">ElasticSearch学习：springboot集成ElasticSearch</a></li>
+                        <li class="py-2"><a href="/html/category/article-4027.htm" title="前端需要了解的颜色模型，RGB、HSL和HSV_在线工具">前端需要了解的颜色模型，RGB、HSL和HSV_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4031.htm" title="使用Nginx实现多个Tomcat负载均衡">使用Nginx实现多个Tomcat负载均衡</a></li>
+                        <li class="py-2"><a href="/html/category/article-4025.htm" title="Java原生HttpClient的使用详解_java">Java原生HttpClient的使用详解_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                        <li class="py-2"><a href="/html/category/article-4012.htm" title="修改docker 默认镜像存储路径">修改docker 默认镜像存储路径</a></li>
+                        <li class="py-2"><a href="/html/category/article-4014.htm" title="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值">【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值</a></li>
+                        <li class="py-2"><a href="/html/category/article-4008.htm" title="我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？">我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

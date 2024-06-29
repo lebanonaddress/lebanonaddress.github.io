@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3805.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>git语法_在git-pandas中引入统一的glob语法 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">git语法_在git-pandas中引入统一的glob语法 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size: 16px;"> <p>git语法</p> <p>In an effort to improve the user interface to git-pandas, I’m introducing a new way of specifying which files in a repository you care about, which will become the sole way of specifying this kind of thing in version 2.0.0. &nbsp;Currently, for any given function, you can specify a list of extensions you’d like to include, and a list of directories you’d like to exclude. &nbsp;A toy example would be:</p> <p> 为了改善git-pandas的用户界面，我引入了一种新的方式来指定您关心的存储库中的哪些文件，这将成为在2.0.0版中指定此类内容的唯一方式。 当前，对于任何给定的函数，您都可以指定要包括的扩展名列表以及要排除的目录列表。 一个玩具的例子是： </p> <pre><code class="has">df = repo.some_method(     extensions=['py', 'md', 'html'],     ignore_dir=['docs', 'tests'] )</code> </pre> <p>With this, you’d be looking at python, markdown and HTML files other than those in the docs or tests directories.</p> <p> 这样，您将可以查看docs，tests目录中的python，markdown和HTML文件。 </p> <p>For most use-cases, this is a pretty compact way to express what you need. &nbsp;But those little edge cases come up increasingly often where a more flexible method is needed. So now you can alternatively pass a parameter to any of these methods called ignore_globs:</p> <p> 对于大多数用例，这是表达所需内容的一种非常紧凑的方法。 但是那些小巧的案例越来越多地出现在需要更灵活的方法的地方。 因此，现在您可以将参数传递给以下任何一种方法，称为ignore_globs： </p> <pre><code class="has">df = repo.some_method(     ignore_globs=[        'docs*',        'tests*'     ] )</code> </pre> <p>Which will ignore any file that matches any single glob passed into that object. &nbsp;For now, this is limiting, because things like file extension matching for multiple file types is really hard to do in this notation. &nbsp;To simplify that, the next addition will be a corresponding ‘include_globs’. &nbsp;A full description of that is in the github issue found here:&nbsp;<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/wdm0006/git-pandas/issues/3"  class="external" target="_blank" rel="nofollow">https://github.com/wdm0006/git-pandas/issues/3</a></p> <p> 它将忽略与传递给该对象的任何单个glob匹配的任何文件。 目前，这是有限的，因为用这种表示法实际上很难完成诸如针对多种文件类型进行文件扩展名匹配之类的事情。 为简化起见，下一个添加项将是对应的“ include_globs”。 对此的完整描述位于github问题中，网址为： <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/wdm0006/git-pandas/issues/3"  class="external" target="_blank" rel="nofollow">https</a> : <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/wdm0006/git-pandas/issues/3"  class="external" target="_blank" rel="nofollow">//github.com/wdm0006/git-pandas/issues/3</a> </p> <p>Once added, the logic will be that for any given file, at least one pattern in the include_globs must match, and at most zero patterns from exclude_globs must match.</p> <p> 添加后，逻辑将是对于任何给定文件，include_glob中的至少一个模式必须匹配，exclude_globs中的至多零个模式必须匹配。 </p> <p>In that way, we could replicate the first example above with:</p> <p> 这样，我们可以复制上面的第一个示例： </p> <pre><code class="has">df = repo.some_method(     ignore_globs=[        'docs*',        'tests*'     ],    include_globs=[        '*.py',        '*.md',        '*.html'    ] )</code> </pre> <p>Which is about the same level of verbosity, and far more flexible.</p> <p> 冗长程度大致相同，而且更加灵活。 </p> <p>If you’re a user of git-pandas, I would love your feedback on this. &nbsp;If you’re a developer, I’d love your help. &nbsp;Any feedback is always welcome on the issue posted above.</p> <p> 如果您是git-pandas的用户，我希望收到您的反馈。 如果您是一名开发人员，我将很乐意为您提供帮助。 始终欢迎您对以上问题发表任何反馈。 </p> <blockquote> <p>翻译自: <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.pybloggers.com/2016/06/introducing-unified-glob-syntax-in-git-pandas/"  rel="nofollow">https://www.pybloggers.com/2016/06/introducing-unified-glob-syntax-in-git-pandas/</a></p> </blockquote> <p>git语法</p> </div></div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3804.htm">从零开始学Python(六):函数,模块和类的使用</a></p>
+                                                <p>下一个：<a href="/html/category/article-3806.htm">SpringBoot的AutoConfigure自动配置原理</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4050.htm" title="C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数">C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数</a></li>
+                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-4014.htm" title="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值">【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值</a></li>
+                        <li class="py-2"><a href="/html/category/article-4065.htm" title="Zookeeper分布式一致性协议ZAB">Zookeeper分布式一致性协议ZAB</a></li>
+                        <li class="py-2"><a href="/html/category/article-4064.htm" title="用python实现文件的词频统计">用python实现文件的词频统计</a></li>
+                        <li class="py-2"><a href="/html/category/article-4020.htm" title="spring schedule 配置多任务动态 cron 【增删启停】">spring schedule 配置多任务动态 cron 【增删启停】</a></li>
+                        <li class="py-2"><a href="/html/category/article-4040.htm" title="@order注解 解答">@order注解 解答</a></li>
+                        <li class="py-2"><a href="/html/category/article-4060.htm" title="MySQL数据库生成某一年的日历存储过程_在线工具">MySQL数据库生成某一年的日历存储过程_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                        <li class="py-2"><a href="/html/category/article-4030.htm" title="vite+element-plus项目基础搭建">vite+element-plus项目基础搭建</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

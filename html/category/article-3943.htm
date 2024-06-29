@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3943.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<h2 id="使用brotli提高网站访问速度">使用Brotli提高网站访问速度</h2> <p>在优化网站打开速度上，我们有很多的方法，而其中一个就是减少诸如Javascript和CSS等资源文件的大小，而减少文件大小的方法除了在代码上下功夫外，最常用的方法就是使用压缩算法对文件进行压缩。</p> <p>目前，网站普遍使用的是gzip压缩算法，但是最近两年新兴了一个新的压缩算法：Brotli，下面我将会对这个算法进行简单的介绍。</p> <h2 id="什么是brotli">什么是Brotli</h2> <p>Brotli是一个Jyrki Alakuijala和Zoltán Szabadka开发的开源数据压缩程序库, Brotli基于LZ77算法的一个现代变体、霍夫曼编码和二阶上下文建模。最初发布于2015年，用于网络字体的离线压缩。Google软件工程师在2015年9月发布了包含通用无损数据压缩的Brotli增强版本，特别侧重于HTTP压缩。其中的编码器被部分改写以提高压缩比，编码器和解码器都提高了速度，流式API已被改进，增加更多压缩质量级别。新版本还展现了跨平台的性能改进，以及减少解码所需的内存。</p> <p>与常见的通用压缩算法不同，Brotli使用一个预定义的120千字节字典。该字典包含超过13000个常用单词、短语和其他子字符串，这些来自一个文本和HTML文档的大型语料库。预定义的算法可以提升较小文件的压缩密度。</p> <p>使用brotli取代deflate来对文本文件压缩通常可以增加20%的压缩密度，而压缩与解压缩速度则大致不变。</p> <h2 id="wasm压缩">WASM压缩</h2> <p>发布 Blazor WebAssembly 应用时，将在发布过程中对输出内容进行静态压缩，从而减小应用的大小，并免去运行时压缩的开销。 使用以下压缩算法：</p> <ul> <li>Brotli（级别最高）</li> <li>Gzip<br /> Blazor 依赖于主机提供适当的压缩文件。 使用 ASP.NET Core 托管项目时，主机项目能够执行内容协商并提供静态压缩文件。 托管 Blazor WebAssembly 独立应用时，可能需要额外的工作来确保提供静态压缩文件：</li> </ul> <p>有关 IIS web.config 压缩配置，请参阅<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/aspnet/core/blazor/host-and-deploy/webassembly?view=aspnetcore-6.0#brotli-and-gzip-compression"  target="_blank" rel="nofollow">IIS：Brotli 和 Gzip 压缩</a> 部分。</p> <p>如果在不支持静态压缩文件内容协商的静态托管解决方案（例如 GitHub 页面）上进行托管，请考虑配置应用以提取和解码 Brotli 压缩文件：</p> <p>从<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/google/brotli"  target="_blank" rel="nofollow">google/brotli GitHub repository</a> 中获取 JavaScript Brotli 解码器。 缩小的解码器文件被命名为 decode.min.js，并且位于存储库的 js 文件夹中。</p> <p>更新应用以使用解码器。</p> <p>在 wwwroot/index.html 文件中，在 Blazor 的 script 标记上将 autostart 设置为 false：</p> <pre><code>&lt;script src="_framework/blazor.webassembly.js" autostart="false"&gt;&lt;/script&gt;</code></pre> <p>在下面已经添加：</p> <pre><code>&lt;script type="module"&gt;   import { BrotliDecode } from './decode.min.js';   Blazor.start({     loadBootResource: function (type, name, defaultUri, integrity) {       if (type !== 'dotnetjs' &amp;&amp; location.hostname !== 'localhost') {         return (async function () {           const response = await fetch(defaultUri + '.br', { cache: 'no-cache' });           if (!response.ok) {             throw new Error(response.statusText);           }           const originalResponseBuffer = await response.arrayBuffer();           const originalResponseArray = new Int8Array(originalResponseBuffer);           const decompressedResponseArray = BrotliDecode(originalResponseArray);           const contentType = type ===              'dotnetwasm' ? 'application/wasm' : 'application/octet-stream';           return new Response(decompressedResponseArray,              { headers: { 'content-type': contentType } });         })();       }     }   }); &lt;/script&gt;</code></pre> <p>有关加载启动资源的详细信息，请参阅<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-6.0#load-boot-resources"  target="_blank" rel="nofollow">ASP.NET Core Blazor 启动</a>。</p> <h2 id="服务器nginx配置">服务器Nginx配置</h2> <p>运行nginx -V检查是否带br, 检查 module=<code>ngx_brotli</code> 关键字. 如果不带,自行编译安装.</p> <pre><code>nginx -V nginx version: nginx/1.20.1 built by gcc 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC)  built with OpenSSL 1.1.1k  25 Mar 2021 TLS SNI support enabled configure arguments: --user=www --group=www --prefix=/www/server/nginx --add-module=/www/server/nginx/src/ngx_devel_kit --add-module=/www/server/nginx/src/lua_nginx_module --add-module=/usr/src/ngx_brotli --add-module=/www/server/nginx/src/ngx_cache_purge --add-module=/www/server/nginx/src/nginx-sticky-module --with-openssl=/www/server/nginx/src/openssl --with-pcre=pcre-8.43 --with-http_v2_module --with-stream --with-stream_ssl_module --with-stream_ssl_preread_module --with-http_stub_status_module --with-http_ssl_module --with-http_image_filter_module --with-http_gzip_static_module --with-http_gunzip_module --with-ipv6 --with-http_sub_module --with-http_flv_module --with-http_addition_module --with-http_realip_module --with-http_mp4_module --with-ld-opt=-Wl,-E --with-cc-opt=-Wno-error --with-ld-opt=-ljemalloc --with-http_dav_module --add-module=/www/server/nginx/src/nginx-dav-ext-module</code></pre> <p>brotli 配置</p> <pre><code># brotli 配置开始 brotli on; brotli_comp_level 6;  #压缩等级，默认6，最高11，太高的压缩水平可能需要更多的CPU brotli_buffers 16 8k;  #请求缓冲区的数量和大小 brotli_min_length 100; #指定压缩数据的最小长度，只有大于或等于最小长度才会对其压缩。这里指定100字节 brotli_types text/plain application/javascript application/x-javascript text/javascript text/css application/xml application/json image/svg application/font-woff application/vnd.ms-fontobject application/vnd.apple.mpegurl image/x-icon image/jpeg image/gif image/png image/bmp;  #指定允许进行压缩类型 brotli_static always;   #是否允许查找预处理好的、以.br结尾的压缩文件，可选值为on、off、always brotli_window 512k;  #窗口值，默认值为512k proxy_set_header Accept-Encoding ""; # brotli 配置结束</code></pre> <h2 id="测试结果">测试结果</h2> <p>新建默认wasm工程,非pwa</p> <table> <thead> <tr> <th style="text-align: center">方式</th> <th style="text-align: center">发布后</th> <th style="text-align: center">rar压缩包</th> <th style="text-align: center">chrome 隐私模式</th> <th style="text-align: center">edge隐私模式</th> <th style="text-align: center">备注</th> </tr> </thead> <tbody> <tr> <td style="text-align: center">WASM+BR</td> <td style="text-align: center">15.5 m</td> <td style="text-align: center">8.76 m</td> <td style="text-align: center">1.87s</td> <td style="text-align: center">2.09s</td> <td style="text-align: center"></td> </tr> <tr> <td style="text-align: center">WASM AOT</td> <td style="text-align: center">32.5 m</td> <td style="text-align: center">16.2 m</td> <td style="text-align: center">3.75s</td> <td style="text-align: center">2.8s</td> <td style="text-align: center"></td> </tr> <tr> <td style="text-align: center">WASM+BR (net7pre2)</td> <td style="text-align: center">16.2 m</td> <td style="text-align: center">9.05 m</td> <td style="text-align: center">1.91s</td> <td style="text-align: center">2.68s</td> <td style="text-align: center">net6工程升级</td> </tr> <tr> <td style="text-align: center">WASM AOT (net7pre2)</td> <td style="text-align: center">27.7 m</td> <td style="text-align: center">14.6 m</td> <td style="text-align: center">2.54s</td> <td style="text-align: center">2.69s</td> <td style="text-align: center">net6工程升级</td> </tr> <tr> <td style="text-align: center">WASM+BR (net7pre2)</td> <td style="text-align: center">16.2 m</td> <td style="text-align: center">9.23 m</td> <td style="text-align: center">1.89s</td> <td style="text-align: center">1.99s</td> <td style="text-align: center">新建工程</td> </tr> <tr> <td style="text-align: center">WASM AOT (net7pre2)</td> <td style="text-align: center">36.3 m</td> <td style="text-align: center">17.3 m</td> <td style="text-align: center">2.52s</td> <td style="text-align: center">2.75s</td> <td style="text-align: center">新建工程</td> </tr> </tbody> </table> <h2 id="结论">结论</h2> <ol> <li> <p>在不支持静态压缩文件内容协商的静态托管解决方案使用decode.min.js的确可以调用br解压缩,在启用br的nginx上就无需这个操作了,因为使用和不使用decode.min.js实际请求发发送都是完全一致的.br文件.</p> </li> <li> <p>PWA方式是不能用decode.min.js的, 会直接会导致pwa离线功能失效. 在启用br的nginx上就走nginx自己的br就够了.会自动命中发布的br资源.</p> </li> </ol> <h2 id="技巧">技巧</h2> <p>提示hash校验失败, 可以强制关掉或者自己再算一遍</p> <pre><code>map(asset =&gt; new Request(asset.url, {  cache: 'no-cache' }));</code></pre> <h2 id="配图">配图</h2> <h3 id="测试一-wasm--br">测试一: WASM + BR</h3> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://testbr.app1.es/"  target="_blank" rel="nofollow">测试一 WASM</a></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/271489eedfe8969c14de44fe1e87e2c4.jpg" alt="Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8f5d8566e18f05e3378f7560cdfdeba3.jpg" alt="Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d460bf244db6844dd42b30bc399ccb2e.jpg" alt="Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ca15fbaa791b4f5840edde14f61682f1.jpg" alt="Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8da88cf3e9816abc7705771960ddf4fe.jpg" alt="Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度"></p> <h3 id="测试二-wasm--aot--br">测试二: WASM + AOT + BR</h3> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://testbrpwa.app1.es/"  target="_blank" rel="nofollow">测试二 WASM AOT</a></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ae5f303471b6a9cc1d8edb27bd3fd8ec.jpg" alt="Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ca90f8380dfac668ebc2295de2deea56.jpg" alt="Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/37e26909fa6755b5b50996f687baa60f.jpg" alt="Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/6ccc7d1ad1e853f341d03274e6f2e163.jpg" alt="Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/23742fefca40398fe1dbcc04273e28ab.jpg" alt="Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度"></p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3942.htm">numpy库的安装与导入，列表、数组、矩阵的互相转换以及差异</a></p>
+                                                <p>下一个：<a href="/html/category/article-3944.htm">格式字符串漏洞之任意地址覆盖大数字</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4046.htm" title="Vue  el-input  trim() 去空格">Vue  el-input  trim() 去空格</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4021.htm" title="使用feign客户端要使用注解@EnableFeignClients">使用feign客户端要使用注解@EnableFeignClients</a></li>
+                        <li class="py-2"><a href="/html/category/article-4044.htm" title="python2字符串编码方式_一、基础部分-2.字符串编码">python2字符串编码方式_一、基础部分-2.字符串编码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4049.htm" title="JAVA初始化自定义类的数组">JAVA初始化自定义类的数组</a></li>
+                        <li class="py-2"><a href="/html/category/article-4011.htm" title="光的偏振">光的偏振</a></li>
+                        <li class="py-2"><a href="/html/category/article-4039.htm" title="CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具">CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4065.htm" title="Zookeeper分布式一致性协议ZAB">Zookeeper分布式一致性协议ZAB</a></li>
+                        <li class="py-2"><a href="/html/category/article-4023.htm" title="ElasticSearch学习：springboot集成ElasticSearch">ElasticSearch学习：springboot集成ElasticSearch</a></li>
+                        <li class="py-2"><a href="/html/category/article-4032.htm" title="springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成">springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

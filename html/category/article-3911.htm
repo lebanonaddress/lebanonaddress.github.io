@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3911.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Spring Boot整合Kafka的简单用例(@KafkaListener注解) - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Spring Boot整合Kafka的简单用例(@KafkaListener注解) </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <h2 id="第一步启动zookeeper-server和kafka-server"><strong>第一步、启动zookeeper server和kafka server</strong></h2> <p>启动zookeeper server：bin/zookeeper-server-start.sh config/zookeeper.properties<br /> 启动两个kafka server：bin/kafka-server-start.sh config/server-1.properties；<br /> bin/kafka-server-start.sh config/server.properties<br /> zookeeper会选举一个作为leader，另外一个作为slave</p> <h2 id="第二步创建一个maven项目"><strong>第二步、创建一个maven项目</strong></h2> <p>这一篇中修改了Spring Boot的版本为2.0.0，pom.xml如下：</p> <pre class="prettyprint"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">dependencyManagement</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">dependencies</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">dependency</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-title">groupId</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">artifactId</span>&gt;</span>spring-boot-dependencies<span class="hljs-tag">&lt;/<span class="hljs-title">artifactId</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">version</span>&gt;</span>2.0.0.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-title">version</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-title">type</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-title">scope</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">dependency</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">dependencies</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">dependencyManagement</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">dependencies</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">dependency</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-title">groupId</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-title">artifactId</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">dependency</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">dependency</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">groupId</span>&gt;</span>org.springframework.kafka<span class="hljs-tag">&lt;/<span class="hljs-title">groupId</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">artifactId</span>&gt;</span>spring-kafka<span class="hljs-tag">&lt;/<span class="hljs-title">artifactId</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">version</span>&gt;</span>2.1.4.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-title">version</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">dependency</span>&gt;</span></code></pre> <h2 id="第三步kafka配置"><strong>第三步、kafka配置</strong></h2> <pre class="prettyprint"><code class="hljs java"><span class="hljs-annotation">@Configuration</span><span class="hljs-annotation">@EnableKafka</span><span class="hljs-keyword">public</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">KafkaConfig</span> {<!-- --></span><span class="hljs-comment">/* --------------producer configuration-----------------**/</span><span class="hljs-annotation">@Bean</span><span class="hljs-keyword">public</span> Map&lt;String, Object&gt;<span class="hljs-title">producerConfigs</span>() {         Map&lt;String, Object&gt; props =<span class="hljs-keyword">new</span> HashMap&lt;&gt;();         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,<span class="hljs-string">"localhost:9092,localhost:9093"</span>);         props.put(ProducerConfig.RETRIES_CONFIG,<span class="hljs-number">0</span>);         props.put(ProducerConfig.BATCH_SIZE_CONFIG,<span class="hljs-number">16384</span>);         props.put(ProducerConfig.LINGER_MS_CONFIG,<span class="hljs-number">1</span>);         props.put(ProducerConfig.BUFFER_MEMORY_CONFIG,<span class="hljs-number">33554432</span>);         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);<span class="hljs-keyword">return</span> props;     }<span class="hljs-annotation">@Bean</span><span class="hljs-keyword">public</span> ProducerFactory&lt;String, String&gt;<span class="hljs-title">producerFactory</span>() {<span class="hljs-keyword">return</span><span class="hljs-keyword">new</span> DefaultKafkaProducerFactory&lt;&gt;(producerConfigs());     }<span class="hljs-comment">/* --------------consumer configuration-----------------**/</span><span class="hljs-annotation">@Bean</span><span class="hljs-keyword">public</span> Map&lt;String, Object&gt;<span class="hljs-title">consumerConfigs</span>() {         Map&lt;String, Object&gt; props =<span class="hljs-keyword">new</span> HashMap&lt;&gt;();         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,<span class="hljs-string">"localhost:9092,localhost:9093"</span>);         props.put(ConsumerConfig.GROUP_ID_CONFIG,<span class="hljs-string">"0"</span>);         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG,<span class="hljs-keyword">true</span>);         props.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG,<span class="hljs-number">100</span>);         props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG,<span class="hljs-string">"15000"</span>);         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);<span class="hljs-keyword">return</span> props;     }<span class="hljs-annotation">@Bean</span>     ConcurrentKafkaListenerContainerFactory&lt;String, String&gt;     kafkaListenerContainerFactory() {         ConcurrentKafkaListenerContainerFactory&lt;String, String&gt; factory =<span class="hljs-keyword">new</span> ConcurrentKafkaListenerContainerFactory&lt;&gt;();         factory.setConsumerFactory(consumerFactory());<span class="hljs-keyword">return</span> factory;     }<span class="hljs-annotation">@Bean</span><span class="hljs-keyword">public</span> ConsumerFactory&lt;String, String&gt;<span class="hljs-title">consumerFactory</span>() {<span class="hljs-keyword">return</span><span class="hljs-keyword">new</span> DefaultKafkaConsumerFactory&lt;&gt;(consumerConfigs());     }<span class="hljs-annotation">@Bean</span><span class="hljs-comment">//消息监听器</span><span class="hljs-keyword">public</span> MyListener<span class="hljs-title">myListener</span>() {<span class="hljs-keyword">return</span><span class="hljs-keyword">new</span> MyListener();     }<span class="hljs-comment">/* --------------kafka template configuration-----------------**/</span><span class="hljs-annotation">@Bean</span><span class="hljs-keyword">public</span> KafkaTemplate&lt;String,String&gt;<span class="hljs-title">kafkaTemplate</span>() {         KafkaTemplate&lt;String, String&gt; kafkaTemplate =<span class="hljs-keyword">new</span> KafkaTemplate&lt;&gt;(producerFactory());<span class="hljs-keyword">return</span> kafkaTemplate;     }  }</code></pre> <h2 id="第四步topic的配置"><strong>第四步、topic的配置</strong></h2> <p><strong>自动创建的topic分区数是1，复制因子是0</strong></p> <pre class="prettyprint"><code class="hljs java"><span class="hljs-annotation">@Configuration</span><span class="hljs-annotation">@EnableKafka</span><span class="hljs-keyword">public</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">TopicConfig</span> {<!-- --></span><span class="hljs-annotation">@Bean</span><span class="hljs-keyword">public</span> KafkaAdmin<span class="hljs-title">kafkaAdmin</span>() {         Map&lt;String, Object&gt; configs =<span class="hljs-keyword">new</span> HashMap&lt;&gt;();         configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG,<span class="hljs-string">"localhost:9092,localhost:9093"</span>);<span class="hljs-keyword">return</span><span class="hljs-keyword">new</span> KafkaAdmin(configs);     }<span class="hljs-annotation">@Bean</span><span class="hljs-keyword">public</span> NewTopic<span class="hljs-title">foo</span>() {         /第一个是参数是topic名字，第二个参数是分区个数，第三个是topic的复制因子个数<span class="hljs-comment">//当broker个数为1个时会创建topic失败，</span><span class="hljs-comment">//提示：replication factor: 2 larger than available brokers: 1</span><span class="hljs-comment">//只有在集群中才能使用kafka的备份功能</span><span class="hljs-keyword">return</span><span class="hljs-keyword">new</span> NewTopic(<span class="hljs-string">"foo"</span>,<span class="hljs-number">10</span>, (<span class="hljs-keyword">short</span>)<span class="hljs-number">2</span>);     }<span class="hljs-annotation">@Bean</span><span class="hljs-keyword">public</span> NewTopic<span class="hljs-title">bar</span>() {<span class="hljs-keyword">return</span><span class="hljs-keyword">new</span> NewTopic(<span class="hljs-string">"bar"</span>,<span class="hljs-number">10</span>, (<span class="hljs-keyword">short</span>)<span class="hljs-number">2</span>);     }<span class="hljs-annotation">@Bean</span><span class="hljs-keyword">public</span> NewTopic<span class="hljs-title">topic1</span>(){<span class="hljs-keyword">return</span><span class="hljs-keyword">new</span> NewTopic(<span class="hljs-string">"topic1"</span>,<span class="hljs-number">10</span>, (<span class="hljs-keyword">short</span>)<span class="hljs-number">2</span>);     }<span class="hljs-annotation">@Bean</span><span class="hljs-keyword">public</span> NewTopic<span class="hljs-title">topic2</span>(){<span class="hljs-keyword">return</span><span class="hljs-keyword">new</span> NewTopic(<span class="hljs-string">"topic2"</span>,<span class="hljs-number">10</span>, (<span class="hljs-keyword">short</span>)<span class="hljs-number">2</span>);     } }</code></pre> <h2 id="第五步使用kafkalistener注解"><strong>第五步、使用@KafkaListener注解</strong></h2> <p><strong>topicPartitions和topics、topicPattern不能同时使用</strong></p> <pre class="prettyprint"><code class="hljs cs"><span class="hljs-keyword">public</span><span class="hljs-keyword">class</span> MyListener {     @KafkaListener(id =<span class="hljs-string">"myContainer1"</span>,<span class="hljs-comment">//id是消费者监听容器</span>             topicPartitions =<span class="hljs-comment">//配置topic和分区：监听两个topic，分别为topic1、topic2，topic1只接收分区0，3的消息，</span><span class="hljs-comment">//topic2接收分区0和分区1的消息，但是分区1的消费者初始位置为5</span>             { @TopicPartition(topic =<span class="hljs-string">"topic1"</span>, partitions = {<span class="hljs-string">"0"</span>,<span class="hljs-string">"3"</span> }),                     @TopicPartition(topic =<span class="hljs-string">"topic2"</span>, partitions =<span class="hljs-string">"0"</span>,                             partitionOffsets = @PartitionOffset(partition =<span class="hljs-string">"1"</span>, initialOffset =<span class="hljs-string">"4"</span>))             })<span class="hljs-keyword">public</span><span class="hljs-keyword">void</span><span class="hljs-title">listen</span>(ConsumerRecord&lt;?, ?&gt; record) {         System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"topic"</span> + record.topic());         System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"key:"</span> + record.key());         System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"value:"</span>+record.<span class="hljs-keyword">value</span>());     }       @KafkaListener(id =<span class="hljs-string">"myContainer2"</span>,topics = {<!-- --><span class="hljs-string">"foo"</span>,<span class="hljs-string">"bar"</span>})<span class="hljs-keyword">public</span><span class="hljs-keyword">void</span><span class="hljs-title">listen2</span>(ConsumerRecord&lt;?, ?&gt; record){         System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"topic："</span> + record.topic());         System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"key:"</span> + record.key());         System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"value:"</span>+record.<span class="hljs-keyword">value</span>());     } }</code></pre> <h2 id="第六步创建发送消息的接口"><strong>第六步、创建发送消息的接口</strong></h2> <pre class="prettyprint"><code class="hljs java"><span class="hljs-annotation">@RestController</span><span class="hljs-keyword">public</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">KafkaController</span> {<!-- --></span><span class="hljs-keyword">private</span><span class="hljs-keyword">final</span><span class="hljs-keyword">static</span> Logger logger = LoggerFactory.getLogger(KafkaController.class);<span class="hljs-annotation">@Autowired</span><span class="hljs-keyword">private</span>  KafkaTemplate&lt;String,String&gt; kafkaTemplate;<span class="hljs-annotation">@RequestMapping</span>(value =<span class="hljs-string">"/{topic}/send"</span>,method = RequestMethod.GET)<span class="hljs-keyword">public</span><span class="hljs-keyword">void</span><span class="hljs-title">sendMeessageTotopic1</span>(@PathVariable String topic,@<span class="hljs-title">RequestParam</span>(value =<span class="hljs-string">"partition"</span>,defaultValue =<span class="hljs-string">"0"</span>)<span class="hljs-keyword">int</span> partition) {         logger.info(<span class="hljs-string">"start send message to {}"</span>,topic);         kafkaTemplate.send(topic,partition,<span class="hljs-string">"你"</span>,<span class="hljs-string">"好"</span>);     } }</code></pre> <h2 id="第七步启动程序调用接口"><strong>第七步、启动程序、调用接口</strong></h2> <p>消息监听器只监听订阅的topic的特定分区的消息<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/fa489922b53cecdf3b0dd97c50b0845d.jpg" alt="Spring Boot整合Kafka的简单用例(@KafkaListener注解)"><br /> 源码：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/NapWells/java_framework_learn/tree/master/springkafka2"  rel="nofollow">https://github.com/NapWells/java_framework_learn/tree/master/springkafka2</a></p> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3910.htm">信号量Semaphore的使用</a></p>
+                                                <p>下一个：<a href="/html/category/article-3912.htm">PyQt5 按钮Button 添加事件(信号/槽)</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4057.htm" title="vue打包后整合到springboot项目、并打包成jar上传到Linux服务器运行【前后端分离开发、整体部署到Linux服务器】">vue打包后整合到springboot项目、并打包成jar上传到Linux服务器运行【前后端分离开发、整体部署到Linux服务器】</a></li>
+                        <li class="py-2"><a href="/html/category/article-4039.htm" title="CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具">CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4022.htm" title="java socket read 堵塞问题的解决方法">java socket read 堵塞问题的解决方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4033.htm" title="global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）">global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4036.htm" title="字符数组和字符串的区别，C语言字符数组和字符串区别详解">字符数组和字符串的区别，C语言字符数组和字符串区别详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4031.htm" title="使用Nginx实现多个Tomcat负载均衡">使用Nginx实现多个Tomcat负载均衡</a></li>
+                        <li class="py-2"><a href="/html/category/article-4009.htm" title="Java 超详细讲解ThreadLocal类的使用_java">Java 超详细讲解ThreadLocal类的使用_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-4058.htm" title="TS语言与JS语言的区别">TS语言与JS语言的区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4020.htm" title="spring schedule 配置多任务动态 cron 【增删启停】">spring schedule 配置多任务动态 cron 【增删启停】</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3889.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>SpringCloud Sleuth分布式链路跟踪 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">SpringCloud Sleuth分布式链路跟踪 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <h1 id="main-toc"><strong>目录</strong></h1> <p id="1%E3%80%81%E6%A6%82%E8%BF%B0-toc" style="margin-left:0px;"><a href="#1%E3%80%81%E6%A6%82%E8%BF%B0" rel="nofollow">1、概述</a></p> <p id="1.1%E3%80%81%E7%8E%B0%E6%9C%89%E9%97%AE%E9%A2%98-toc" style="margin-left:40px;"><a href="#1.1%E3%80%81%E7%8E%B0%E6%9C%89%E9%97%AE%E9%A2%98" rel="nofollow">1.1、现有问题</a></p> <p id="1.1.1%E3%80%81%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%AD%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B-toc" style="margin-left:80px;"><a href="#1.1.1%E3%80%81%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%AD%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B" rel="nofollow">1.1.1、微服务框架中请求处理过程</a></p> <p id="1.1.2%E3%80%81%E9%80%A0%E6%88%90%E9%97%AE%E9%A2%98-toc" style="margin-left:80px;"><a href="#1.1.2%E3%80%81%E9%80%A0%E6%88%90%E9%97%AE%E9%A2%98" rel="nofollow">1.1.2、造成问题</a></p> <p id="1.2%E3%80%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-toc" style="margin-left:40px;"><a href="#1.2%E3%80%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95" rel="nofollow">1.2、解决方法</a></p> <p id="2%E3%80%81%E5%AE%9E%E4%BE%8B-toc" style="margin-left:0px;"><a href="#2%E3%80%81%E5%AE%9E%E4%BE%8B" rel="nofollow">2、实例</a></p> <p id="2.1%E3%80%81zipkin-toc" style="margin-left:40px;"><a href="#2.1%E3%80%81zipkin" rel="nofollow">2.1、zipkin</a></p> <p id="2.1.1%E3%80%81%E4%B8%8B%E8%BD%BD-toc" style="margin-left:80px;"><a href="#2.1.1%E3%80%81%E4%B8%8B%E8%BD%BD" rel="nofollow">2.1.1、下载</a></p> <p id="2.1.2%E3%80%81%E8%BF%90%E8%A1%8C-toc" style="margin-left:80px;"><a href="#2.1.2%E3%80%81%E8%BF%90%E8%A1%8C" rel="nofollow">2.1.2、运行</a></p> <p id="2.1.3%E3%80%81%E8%BF%90%E8%A1%8C%E6%8E%A7%E5%88%B6%E5%8F%B0-toc" style="margin-left:80px;"><a href="#2.1.3%E3%80%81%E8%BF%90%E8%A1%8C%E6%8E%A7%E5%88%B6%E5%8F%B0" rel="nofollow">2.1.3、运行控制台</a></p> <p id="2.2%E3%80%81%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85-toc" style="margin-left:40px;"><a href="#2.2%E3%80%81%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85" rel="nofollow">2.2、服务提供者</a></p> <p id="2.2.1%E3%80%81POM%E6%96%87%E4%BB%B6-toc" style="margin-left:80px;"><a href="#2.2.1%E3%80%81POM%E6%96%87%E4%BB%B6" rel="nofollow">2.2.1、POM文件</a></p> <p id="2.2.2%E3%80%81yaml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-toc" style="margin-left:80px;"><a href="#2.2.2%E3%80%81yaml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" rel="nofollow">2.2.2、yaml配置文件</a></p> <p id="2.2.3%E3%80%81Controller-toc" style="margin-left:80px;"><a href="#2.2.3%E3%80%81Controller" rel="nofollow">2.2.3、Controller</a></p> <p id="2.3%E3%80%81%20%E6%9C%8D%E5%8A%A1%E6%B6%88%E8%B4%B9%E8%80%85-toc" style="margin-left:40px;"><a href="#2.3%E3%80%81%20%E6%9C%8D%E5%8A%A1%E6%B6%88%E8%B4%B9%E8%80%85" rel="nofollow">2.3、 服务消费者</a></p> <p id="2.3.1%E3%80%81POM%E5%92%8Cyaml%E6%96%87%E4%BB%B6%E5%90%8C%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85-toc" style="margin-left:80px;"><a href="#2.3.1%E3%80%81POM%E5%92%8Cyaml%E6%96%87%E4%BB%B6%E5%90%8C%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85" rel="nofollow">2.3.1、POM和yaml文件同服务提供者</a></p> <p id="2.3.2%E3%80%81Controller-toc" style="margin-left:80px;"><a href="#2.3.2%E3%80%81Controller" rel="nofollow">2.3.2、Controller</a></p> <p id="2.4%E3%80%81%E6%B5%8B%E8%AF%95-toc" style="margin-left:40px;"><a href="#2.4%E3%80%81%E6%B5%8B%E8%AF%95" rel="nofollow">2.4、测试</a></p> <hr id="hr-toc"/> <h1 id="1%E3%80%81%E6%A6%82%E8%BF%B0">1、概述</h1> <h2 id="1.1%E3%80%81%E7%8E%B0%E6%9C%89%E9%97%AE%E9%A2%98">1.1、现有问题</h2> <h3 id="1.1.1%E3%80%81%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%AD%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B">1.1.1、微服务框架中请求处理过程</h3> <ol> <li>客户端发起请求</li> <li>后端系统中，经过多个不同的服务节点调用</li> <li>产生结果</li> </ol> <h3 id="1.1.2%E3%80%81%E9%80%A0%E6%88%90%E9%97%AE%E9%A2%98">1.1.2、造成问题</h3> <p>每一个前端请求，会形成一条复杂的分布式服务调用链路，链路中的任何一环出现高延时或错误都会引起整个请求最后的失败</p> <h2 id="1.2%E3%80%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">1.2、解决方法</h2> <ul> <li>SpringCloud Sleuth提供了一套完整的服务跟踪的解决方案</li> <li>在分布式系统中提供追踪解决方案，并且兼容支持zipkin</li> </ul> <h1></h1> <h1 id="2%E3%80%81%E5%AE%9E%E4%BE%8B">2、实例</h1> <h2 id="2.1%E3%80%81zipkin">2.1、zipkin</h2> <h3 id="2.1.1%E3%80%81%E4%B8%8B%E8%BD%BD">2.1.1、下载</h3> <p class="img-center"><img decoding="async" alt="" height="71" src="http://img.555519.xyz/uploads/20221122/d19c228f52d37da9ef16f72554921d9f.jpg"></p> <h3 id="2.1.2%E3%80%81%E8%BF%90%E8%A1%8C">2.1.2、运行</h3> <p>在命令行终端中输入：java -jar zipkin-server-2.12.9-exec.jar</p> <p class="img-center"><img fetchpriority="high" decoding="async" alt="" height="264" src="http://img.555519.xyz/uploads/20221122/cc6840f4abdc5e20f5b71596fb195db2.jpg"></p> <h3 id="2.1.3%E3%80%81%E8%BF%90%E8%A1%8C%E6%8E%A7%E5%88%B6%E5%8F%B0">2.1.3、运行控制台</h3> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:9411/zipkin</p> <p class="img-center"><img decoding="async" alt="" height="366" src="http://img.555519.xyz/uploads/20221122/35af9178e1abe4b80e4c9434d2432b48.jpg"></p> <h2 id="2.2%E3%80%81%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85">2.2、服务提供者</h2> <h3 id="2.2.1%E3%80%81POM%E6%96%87%E4%BB%B6">2.2.1、POM文件</h3> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;引入&nbsp;spring-cloud-starter-zipkin 依赖</p> <pre><code class="language-XML">&lt;dependency&gt;     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;     &lt;artifactId&gt;spring-cloud-starter-zipkin&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <h3 id="2.2.2%E3%80%81yaml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">2.2.2、yaml配置文件</h3> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;添加<strong>zipkin</strong>和<strong>sleuth</strong>属性</p> <pre><code>spring:  application:   name: cloud-payment-service #微服务名称   zipkin:    base-url: http://localhost:9411   sleuth:    sampler:     # 采样率介于0到1之间，1表示全部采样     probability: 1</code></pre> <h3 id="2.2.3%E3%80%81Controller">2.2.3、Controller</h3> <p>&nbsp; &nbsp; &nbsp; &nbsp; 对外提供的服务项</p> <pre><code class="language-java">@GetMapping("/payment/zipkin") public String paymentZipkin() {     return "hi, i am Zipkin"; }</code></pre> <h2 id="2.3%E3%80%81%20%E6%9C%8D%E5%8A%A1%E6%B6%88%E8%B4%B9%E8%80%85">2.3、 服务消费者</h2> <h3 id="2.3.1%E3%80%81POM%E5%92%8Cyaml%E6%96%87%E4%BB%B6%E5%90%8C%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85">2.3.1、POM和yaml文件同服务提供者</h3> <h3 id="2.3.2%E3%80%81Controller">2.3.2、Controller</h3> <p>&nbsp; &nbsp; &nbsp; &nbsp; 调用服务提供者的url</p> <pre><code class="language-java">@GetMapping("/consumer/payment/zipkin") public String paymentZipkin() {     String result = restTemplate.getForObject("http://localhost:8001" + "/payment/zipkin/", String.class);     return result; }</code></pre> <h2 id="2.4%E3%80%81%E6%B5%8B%E8%AF%95">2.4、测试</h2> <p>1、启动服务提供者、服务消费者</p> <p>2、打开浏览器，访问http://localhost:9411</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;得到微服务调用关系：</p> <p class="img-center"><img loading="lazy" decoding="async" alt="" height="440" src="http://img.555519.xyz/uploads/20221122/239a3b4e62d76b878685483c790da98a.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;得到依赖关系：</p> <p class="img-center"><img loading="lazy" decoding="async" alt="" height="314" src="http://img.555519.xyz/uploads/20221122/c3cc6872a9491657d166080179039d36.jpg"></p> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3888.htm">vue中的this.$router.replace()和.push()和.go()的区别解析</a></p>
+                                                <p>下一个：<a href="/html/category/article-3890.htm">PHP回调/可调用对象详解</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4062.htm" title="Python格式化输出的三种方法（format,f前缀，%s）">Python格式化输出的三种方法（format,f前缀，%s）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4037.htm" title="C++中的匿名对象的概念和使用">C++中的匿名对象的概念和使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-4008.htm" title="我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？">我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4030.htm" title="vite+element-plus项目基础搭建">vite+element-plus项目基础搭建</a></li>
+                        <li class="py-2"><a href="/html/category/article-4047.htm" title="springboot关于mysql数据库date时间的坑">springboot关于mysql数据库date时间的坑</a></li>
+                        <li class="py-2"><a href="/html/category/article-4035.htm" title="Vue路由router详细总结">Vue路由router详细总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-4026.htm" title="ES6可选链操作符和空值合并运算符">ES6可选链操作符和空值合并运算符</a></li>
+                        <li class="py-2"><a href="/html/category/article-4011.htm" title="光的偏振">光的偏振</a></li>
+                        <li class="py-2"><a href="/html/category/article-4050.htm" title="C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数">C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数</a></li>
+                        <li class="py-2"><a href="/html/category/article-4014.htm" title="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值">【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

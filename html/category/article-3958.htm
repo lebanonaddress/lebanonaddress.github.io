@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3958.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Vue知识点整理编程式路由导航、缓存路由组件、两个新的生命周期钩子 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Vue知识点整理编程式路由导航、缓存路由组件、两个新的生命周期钩子 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p id="main-toc"><strong>目录</strong></p> <p id="%E4%B8%80%E3%80%81%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA-toc" style="margin-left:0px;"><a href="#%E4%B8%80%E3%80%81%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA" rel="nofollow">一、编程式路由导航</a></p> <p id="1.1%20%E7%AE%80%E4%BB%8B-toc" style="margin-left:40px;"><a href="#1.1%20%E7%AE%80%E4%BB%8B" rel="nofollow">1.1 简介</a></p> <p id="1.2%C2%A0%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0-toc" style="margin-left:40px;"><a href="#1.2%C2%A0%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0" rel="nofollow">1.2&nbsp;案例练习</a></p> <p id="1.2.1%20Banner.vue%E7%BB%84%E4%BB%B6-toc" style="margin-left:80px;"><a href="#1.2.1%20Banner.vue%E7%BB%84%E4%BB%B6" rel="nofollow">1.2.1 Banner.vue组件</a></p> <p id="1.2.2%20Message.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6%C2%A0-toc" style="margin-left:80px;"><a href="#1.2.2%20Message.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6%C2%A0" rel="nofollow">1.2.2 Message.vue路由组件</a></p> <p id="%E4%BA%8C%E3%80%81%E7%BC%93%E5%AD%98%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6-toc" style="margin-left:0px;"><a href="#%E4%BA%8C%E3%80%81%E7%BC%93%E5%AD%98%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6" rel="nofollow">二、缓存路由组件</a></p> <p id="2.1%20%E7%AE%80%E4%BB%8B-toc" style="margin-left:40px;"><a href="#2.1%20%E7%AE%80%E4%BB%8B" rel="nofollow">2.1 简介</a></p> <p id="2.2%20%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0-toc" style="margin-left:40px;"><a href="#2.2%20%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0" rel="nofollow">2.2 案例练习</a></p> <p id="2.2.1%20News.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6-toc" style="margin-left:80px;"><a href="#2.2.1%20News.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6" rel="nofollow">2.2.1 News.vue路由组件</a></p> <p id="2.2.2%20Home.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6-toc" style="margin-left:80px;"><a href="#2.2.2%20Home.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6" rel="nofollow">2.2.2 Home.vue路由组件</a></p> <p id="%E4%B8%89%E3%80%81%E4%B8%A4%E4%B8%AA%E6%96%B0%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90-toc" style="margin-left:0px;"><a href="#%E4%B8%89%E3%80%81%E4%B8%A4%E4%B8%AA%E6%96%B0%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90" rel="nofollow">三、两个新的生命周期钩子</a></p> <p id="3.1%20%E7%AE%80%E4%BB%8B-toc" style="margin-left:40px;"><a href="#3.1%20%E7%AE%80%E4%BB%8B" rel="nofollow">3.1 简介</a></p> <p id="3.2%20%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0-toc" style="margin-left:40px;"><a href="#3.2%20%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0" rel="nofollow">3.2 案例练习</a></p> <p id="3.2.1%C2%A0News.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6-toc" style="margin-left:80px;"><a href="#3.2.1%C2%A0News.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6" rel="nofollow">3.2.1&nbsp;News.vue路由组件</a></p> <hr id="hr-toc"/> <h1>一、编程式路由导航</h1> <h2 id="1.1%20%E7%AE%80%E4%BB%8B">1.1 简介</h2> <p>1. 作用：不借助 &lt;router-link&gt; 实现路由跳转，让路由跳转更加灵活</p> <p>2. 编码，例如：</p> <pre><code>// $router的两个API this.$router.push({         name: "路由命名",         params: {              参数1: xxx,               参数2: xxx              },       });   this.$router.replace({         name: "路由命名",         params: {              参数1: xxx,               参数2: xxx              },       });</code></pre> <h2 id="1.2%C2%A0%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0">1.2&nbsp;案例练习</h2> <ul> <li>Banner组件中添加了控制路由 前进 和 后退 的按钮</li> <li>Message路由组件中添加了 push跳转和replace跳转按钮</li> </ul> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220608/a66ecfbb5cbc581a7ddca86abf8264bb.jpg"></p> <blockquote> <p>以<a class="link-info" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/JHY97/article/details/124416171"  title="Vue知识点整理（六）- vue-router（2）中第六节 案例练习" rel="nofollow">Vue知识点整理（六）- vue-router（2）中第六节 案例练习</a> 为基础</p> </blockquote> <h3 id="1.2.1%20Banner.vue%E7%BB%84%E4%BB%B6">1.2.1 Banner.vue组件</h3> <ul> <li>添加了前进和后退的点击按钮，以及对应的点击事件</li> </ul> <pre><code>&lt;template&gt;   &lt;div class="row"&gt;     &lt;div class="col-xs-offset-2 col-xs-8"&gt;       &lt;div class="page-header"&gt;         &lt;h2&gt;Vue Router Demo&lt;/h2&gt;         &lt;!-- 前进和后退按钮 --&gt;         &lt;button @click="back"&gt;后退&lt;/button&gt;         &lt;button @click="forward"&gt;前进&lt;/button&gt;       &lt;/div&gt;     &lt;/div&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   name: "Banner",   methods: {     // 前进后退相对应的点击事件     back() {       this.$router.back();     },     forward() {       this.$router.forward();     },   }, }; &lt;/script&gt;</code></pre> <h3 id="1.2.2%20Message.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6%C2%A0">1.2.2 Message.vue路由组件</h3> <ul> <li>添加了push跳转和replace跳转，以及对应的点击事件</li> </ul> <pre><code>&lt;template&gt;   &lt;div&gt;     &lt;ul&gt;       &lt;li v-for="m in messageList" :key="m.id"&gt;         &lt;!-- 跳转并携带params参数，to的对象写法 --&gt;         &lt;!-- 开启replace模式 --&gt;         &lt;router-link           replace           :to="{ name: 'detail1', params: { id: m.id, title: m.title } }"           active-class="active"           &gt;{<!-- -->{ m.title }}&lt;/router-link         &gt;         &lt;!-- push跳转按钮 --&gt;         &lt;button @click="pushShow(m)"&gt;push跳转&lt;/button&gt;         &lt;!-- replace跳转按钮 --&gt;         &lt;button @click="replaceShow(m)"&gt;replace跳转&lt;/button&gt;       &lt;/li&gt;     &lt;/ul&gt;     &lt;hr /&gt;     &lt;router-view&gt;&lt;/router-view&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   name: "Message",   data() {     return {       messageList: [         { id: "001", title: "消息001" },         { id: "002", title: "消息002" },         { id: "003", title: "消息003" },       ],     };   },   methods: {     // push跳转点击事件     pushShow(m) {       // console.log(this.$router);       this.$router.push({         name: "detail1",         params: { id: m.id, title: m.title },       });     },     // replace跳转点击事件     replaceShow(m) {       this.$router.replace({         name: "detail1",         params: { id: m.id, title: m.title },       });     },   }, }; &lt;/script&gt;  &lt;style&gt;&lt;/style&gt;</code></pre> <h1 id="%E4%BA%8C%E3%80%81%E7%BC%93%E5%AD%98%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6">二、缓存路由组件</h1> <h2 id="2.1%20%E7%AE%80%E4%BB%8B">2.1 简介</h2> <p>1. 作用：让不展示的路由组件保持挂载，不被销毁</p> <p>2.编码，例如：</p> <pre><code>    // 缓存单个路由组件     &lt;keep-alive include="组件命名"&gt;       &lt;!-- 指定组件的呈现位置 --&gt;       &lt;router-view&gt;&lt;/router-view&gt;     &lt;/keep-alive&gt;      // 缓存多个路由组件     &lt;keep-alive :include="['组件命名1','组件命名2',...]"&gt;       &lt;!-- 指定组件的呈现位置 --&gt;       &lt;router-view&gt;&lt;/router-view&gt;     &lt;/keep-alive&gt;</code></pre> <h2 id="2.2%20%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0">2.2 案例练习</h2> <ul> <li>News路由组件内添加input输入框</li> <li>Home路由组件添加 keep-aliv标签 缓存News路由组件</li> </ul> <p>图示为未缓存路由组件效果，跳转到其他组件后 input输入框 内的内容会自动清空（通过切换，"隐藏"了的组件，默认是被销毁掉的，需要的时候才会再去挂载）</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220608/bd16fe83bd42199967289759bdb97c7a.jpg"></p> <blockquote> <p>以<a class="link-info" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/JHY97/article/details/124416171"  title="Vue知识点整理（六）- vue-router（2）中第六节 案例练习" rel="nofollow">Vue知识点整理（六）- vue-router（2）中第六节 案例练习</a> 为基础</p> </blockquote> <h3 id="2.2.1%20News.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6">2.2.1 News.vue路由组件</h3> <ul> <li>添加了input输入框</li> </ul> <pre><code>&lt;template&gt;   &lt;div&gt;     &lt;ul&gt;       &lt;li v-for="n in newsList" :key="n.id"&gt;         &lt;!-- 跳转并携带query参数，to的对象写法 --&gt;         &lt;!-- 开启replace模式 --&gt;         &lt;router-link           :replace="true"           :to="{ name: 'detail2', query: { id: n.id, title: n.title } }"           active-class="active"           &gt;{<!-- -->{ n.title }}&lt;/router-link         &gt;         &lt;input type="text" /&gt;       &lt;/li&gt;     &lt;/ul&gt;     &lt;hr /&gt;     &lt;router-view&gt;&lt;/router-view&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   name: "News",   data() {     return {       newsList: [         { id: "001", title: "新闻001" },         { id: "002", title: "新闻002" },         { id: "003", title: "新闻003" },       ],     };   }, }; &lt;/script&gt;</code></pre> <h3 id="2.2.2%20Home.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6">2.2.2 Home.vue路由组件</h3> <ul> <li>添加 keep-aliv标签 缓存News路由组件</li> </ul> <pre><code>&lt;template&gt;   &lt;div&gt;     &lt;h1&gt;Home相关内容&lt;/h1&gt;     &lt;div&gt;       &lt;ul class="nav nav-tabs"&gt;         &lt;li&gt;           &lt;!-- Vue中借助router-link标签实现路由的切换 --&gt;           &lt;router-link             class="list-group-item"             active-class="active"             to="/home/news"             &gt;News&lt;/router-link           &gt;         &lt;/li&gt;         &lt;li&gt;           &lt;router-link             class="list-group-item"             active-class="active"             to="/home/message"             &gt;Message&lt;/router-link           &gt;         &lt;/li&gt;       &lt;/ul&gt;     &lt;/div&gt;     &lt;!-- 缓存路由组件 --&gt;     &lt;keep-alive include="News"&gt;       &lt;!-- 指定组件的呈现位置 --&gt;       &lt;router-view&gt;&lt;/router-view&gt;     &lt;/keep-alive&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   name: "Home", }; &lt;/script&gt;</code></pre> <p>由图示可以看出，添加 keep-aliv标签 缓存News路由组件后，input输入框内的内容被保留了下来</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220608/eaf430e4adfa7090b1ad849f34e18000.jpg"></p> <h1 id="%E4%B8%89%E3%80%81%E4%B8%A4%E4%B8%AA%E6%96%B0%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90">三、两个新的生命周期钩子</h1> <h2 id="3.1%20%E7%AE%80%E4%BB%8B">3.1 简介</h2> <p>1.作用：路由器组件所独有的两个钩子，用于捕获路由组件的激活状态</p> <p>2. 具体名字：</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; （1）<strong>activated</strong>路由组件被激活时触发</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; （2）<strong>deactivated</strong>路由组件失活时触发</p> <h2 id="3.2%20%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0">3.2 案例练习</h2> <ul> <li>在News路由组件内添加一个定时器改变一段文字的透明度变化，并在控制台输出'@'</li> </ul> <p>图示中可看出，即使切换了路由组件，定时器仍旧在运作中</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220608/d614c50a339ff11723b7c6336fa0ee8a.jpg"></p> <h3 id="3.2.1%C2%A0News.vue%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6">3.2.1&nbsp;News.vue路由组件</h3> <ul> <li>添加 activated 和 deactivated 两个生命周期钩子</li> <li>将定时器放入activate生命周期钩子内</li> <li>将清除定时器放入deactivated生命周期钩子内</li> </ul> <pre><code>&lt;template&gt;   &lt;div&gt;     &lt;ul&gt;       &lt;li :style="{ opacity }"&gt;透明度变化&lt;/li&gt;       &lt;li v-for="n in newsList" :key="n.id"&gt;         &lt;!-- 跳转并携带query参数，to的对象写法 --&gt;         &lt;!-- 开启replace模式 --&gt;         &lt;router-link           :replace="true"           :to="{ name: 'detail2', query: { id: n.id, title: n.title } }"           active-class="active"           &gt;{<!-- -->{ n.title }}&lt;/router-link         &gt;         &lt;input type="text" /&gt;       &lt;/li&gt;     &lt;/ul&gt;     &lt;hr /&gt;     &lt;router-view&gt;&lt;/router-view&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   name: "News",   data() {     return {       newsList: [         { id: "001", title: "新闻001" },         { id: "002", title: "新闻002" },         { id: "003", title: "新闻003" },       ],       opacity: 1,     };   },   // mounted() {   //   this.timer = setInterval(() =&gt; {   //     console.log("@");   //     this.opacity -= 0.01;   //     if (this.opacity &lt;= 0) this.opacity = 1;   //   }, 20);   // },   // beforeDestroy() {   //   console.log("News路由组件即将销毁");   //   clearInterval(this.timer);   // },   activated() {     console.log("News组件被激活了");     this.timer = setInterval(() =&gt; {       console.log("@");       this.opacity -= 0.01;       if (this.opacity &lt;= 0) this.opacity = 1;     }, 20);   },   deactivated() {     console.log("News组件失活了");     clearInterval(this.timer);   }, }; &lt;/script&gt;  &lt;style&gt;&lt;/style&gt;</code></pre> <p>由图示可看出，切换路由组件后，定时器停止了，控制台也不再输出'@'</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220608/140739d01e62aba612fe24f0d5b597e4.jpg"></p> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3957.htm">python hdfs模块使用</a></p>
+                                                <p>下一个：<a href="/html/category/article-3959.htm">Kotlin新手入坑：构造函数，静态方法，顶层方法.._.ST</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4040.htm" title="@order注解 解答">@order注解 解答</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4051.htm" title="vue项目运行后自动运行浏览器（vue2/vue3）">vue项目运行后自动运行浏览器（vue2/vue3）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4027.htm" title="前端需要了解的颜色模型，RGB、HSL和HSV_在线工具">前端需要了解的颜色模型，RGB、HSL和HSV_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4012.htm" title="修改docker 默认镜像存储路径">修改docker 默认镜像存储路径</a></li>
+                        <li class="py-2"><a href="/html/category/article-4008.htm" title="我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？">我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4060.htm" title="MySQL数据库生成某一年的日历存储过程_在线工具">MySQL数据库生成某一年的日历存储过程_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4031.htm" title="使用Nginx实现多个Tomcat负载均衡">使用Nginx实现多个Tomcat负载均衡</a></li>
+                        <li class="py-2"><a href="/html/category/article-4049.htm" title="JAVA初始化自定义类的数组">JAVA初始化自定义类的数组</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

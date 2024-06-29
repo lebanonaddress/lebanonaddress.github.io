@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4026.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>ES6可选链操作符和空值合并运算符 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">ES6可选链操作符和空值合并运算符 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>目录</h3> <ul> <li><a href="#1_2" rel="nofollow">1、?.操作符</a></li> <li><a href="#2__46" rel="nofollow">2、?? 操作符</a></li> </ul> </div> <h1><a id="1_2" rel="nofollow"></a>1、?.操作符</h1> <p>ES5中我们判断一个对象是否存在一个属性并输出：</p> <pre><code class="prism language-javascript"><span class="token keyword">let</span> user<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">'yancy'</span><span class="token punctuation">,</span><span class="token literal-property property">age</span><span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">}</span><span class="token comment">//方法一：&amp;&amp;</span><span class="token keyword">let</span> person_name<span class="token operator">=</span> user<span class="token operator">&amp;&amp;</span> user<span class="token punctuation">.</span>name<span class="token punctuation">;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person_name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//方法二：三元运算符</span><span class="token keyword">let</span> person_name_2<span class="token operator">=</span> user<span class="token operator">?</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>name<span class="token operator">?</span> user<span class="token punctuation">.</span>name<span class="token operator">:</span><span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token keyword">undefined</span><span class="token punctuation">;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person_name_2<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>mdn中&amp;&amp;运算符的描述：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220706/b0bf8e5c9de73437be91bb7cd12f8640.jpg" alt="ES6可选链操作符和空值合并运算符"></p> <p>ES6中使用了?.运算符，直接在链式调用的时候判断，左侧的对象是否为null或者undefined。如果是，就不再往下运算，直接返回undefined：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220706/d9e5de0534d2e7f05a7fe10bdfd6eb3a.jpg" alt="ES6可选链操作符和空值合并运算符"></p> <pre><code class="prism language-javascript"> obj<span class="token operator">?.</span>prop<span class="token comment">// 对象属性</span>    obj<span class="token operator">?.</span><span class="token punctuation">[</span>expr<span class="token punctuation">]</span><span class="token comment">// 同上 [expr]是对象属性表达式</span>    obj<span class="token operator">?.</span>func<span class="token operator">?.</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token comment">// 函数或对象方法的调用</span></code></pre> <p>具体使用：</p> <pre><code class="prism language-javascript"><span class="token keyword">let</span> user<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">'yancy'</span><span class="token punctuation">,</span><span class="token literal-property property">age</span><span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">}</span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token operator">?.</span>name<span class="token punctuation">)</span></code></pre> <p>即user?.name会判断user中是否存在name属性，如果存在，返回user.name，否则返回undefined。</p> <h1><a id="2__46" rel="nofollow"></a>2、?? 操作符</h1> <p>?? 是Null判断符。<br /> ES5中||缺陷：左侧有部分假值，如：‘’ false 0 都使默认值生效，这明显不符合逻辑的，假如我们需要的值就是’’ false 0 怎么办 ？<br /> 这是mdn中||的描述：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220706/faf252d59d844f4ffbe82bf3c9e5c62a.jpg" alt="ES6可选链操作符和空值合并运算符"></p> <p>比如：</p> <pre><code class="prism language-javascript"><span class="token keyword">let</span> res<span class="token operator">=</span><span class="token number">0</span><span class="token operator">||</span><span class="token number">1</span><span class="token punctuation">;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//1</span></code></pre> <p>可以看到，当左侧为0时，那么判断为’假’，就会继续判断右侧的1，并返回。但是有的时候，我们认为0并不是’假’，而是只判断是否为null或者undefined为假。</p> <p>使用??操作符号：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220706/83bfe10bcf534479086b212bfe9ee437.jpg" alt="ES6可选链操作符和空值合并运算符"></p> <pre><code class="prism language-javascript"><span class="token keyword">let</span> res<span class="token operator">=</span><span class="token number">0</span><span class="token operator">??</span><span class="token number">1</span><span class="token punctuation">;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//0</span><span class="token keyword">let</span> res2<span class="token operator">=</span><span class="token keyword">null</span><span class="token operator">??</span><span class="token number">1</span><span class="token punctuation">;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res2<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//1</span></code></pre> <p>即??和||的主要区别是只认为null和undefined的为假值，而其他的，例如0、‘’、false，是’真值’。</p> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4025.htm">Java原生HttpClient的使用详解_java</a></p>
+                                                <p>下一个：<a href="/html/category/article-4027.htm">前端需要了解的颜色模型，RGB、HSL和HSV_在线工具</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4026.htm" title="ES6可选链操作符和空值合并运算符">ES6可选链操作符和空值合并运算符</a></li>
+                        <li class="py-2"><a href="/html/category/article-4062.htm" title="Python格式化输出的三种方法（format,f前缀，%s）">Python格式化输出的三种方法（format,f前缀，%s）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4018.htm" title="解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题">解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题</a></li>
+                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                        <li class="py-2"><a href="/html/category/article-4012.htm" title="修改docker 默认镜像存储路径">修改docker 默认镜像存储路径</a></li>
+                        <li class="py-2"><a href="/html/category/article-4023.htm" title="ElasticSearch学习：springboot集成ElasticSearch">ElasticSearch学习：springboot集成ElasticSearch</a></li>
+                        <li class="py-2"><a href="/html/category/article-4056.htm" title="SpringMVC对Ajax请求的处理">SpringMVC对Ajax请求的处理</a></li>
+                        <li class="py-2"><a href="/html/category/article-4035.htm" title="Vue路由router详细总结">Vue路由router详细总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-4007.htm" title="C++的命名空间">C++的命名空间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4010.htm" title="关于java抽象方法和抽象类的一些理解">关于java抽象方法和抽象类的一些理解</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3898.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>mybatis查询一对多返回List＜String＞集合 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">mybatis查询一对多返回List＜String＞集合 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>先看两张表</p> <p>channel_auth 授权信息主表 —— channel_auth_method 授权方法表</p> <table> <thead> <tr> <th>channel_auth表</th> <th>授权信息主表</th> <th></th> <th>channel_auth_method表</th> <th>授权方法表</th> </tr> </thead> <tbody> <tr> <td>id</td> <td>主表id</td> <td></td> <td>auth_id</td> <td>主表id</td> </tr> <tr> <td>app_key</td> <td>授权公钥</td> <td></td> <td>method</td> <td>方法</td> </tr> <tr> <td>app_user</td> <td>授权账号</td> <td></td> <td></td> <td></td> </tr> </tbody> </table> <p>entity：</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@Data</span> <span class="token annotation punctuation">@TableName</span><span class="token punctuation">(</span><span class="token string">"channel_auth"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ChannelAuthDO</span> <span class="token punctuation">{<!-- --></span>     <span class="token annotation punctuation">@TableId</span>     <span class="token keyword">private</span> <span class="token class-name">Long</span> id<span class="token punctuation">;</span>     <span class="token keyword">private</span> <span class="token class-name">String</span> appKey<span class="token punctuation">;</span><span class="token comment">//授权公钥</span>     <span class="token keyword">private</span> <span class="token class-name">String</span> appUser<span class="token punctuation">;</span> <span class="token comment">//授权账号</span>          <span class="token annotation punctuation">@TableField</span><span class="token punctuation">(</span>exist <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>     <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> method<span class="token punctuation">;</span> <span class="token comment">//方法集合</span> <span class="token punctuation">}</span> </code></pre> <blockquote> <p>查询ChannelAuthDO时，要关联channel_auth_method表，查询method，把实体中的<code>List&lt;String&gt; method</code>填充,进去</p> </blockquote> <h3> <a id="collection__select_28" rel="nofollow"></a>方式一：使用collection标签 中的 select</h3> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resultMap</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ChannelAuthDO<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>BaseMap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>appKey<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app_key<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>appUser<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app_user<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>       <span class="token comment">&lt;!-- 关联属性对应的表：ChannelAuthMethodDO的method字段 --&gt;</span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>collection</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>method<span class="token punctuation">"</span></span> <span class="token attr-name">ofType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>String<span class="token punctuation">"</span></span> <span class="token attr-name">select</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>select_method<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resultMap</span><span class="token punctuation">&gt;</span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>list<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ChannelAuthDO<span class="token punctuation">"</span></span> <span class="token attr-name">resultMap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>BaseMap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> 	select id, app_key, app_user     from channel_auth <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">&gt;</span></span>  <span class="token comment">&lt;!--查询方法表  		这个是映射collection 中select_method的方法   		这里的authId对应collection 中的column="id" --&gt;</span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>select_method<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>string<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>long<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>       select method       from channel_auth_method       where auth_id = #{authId}   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">&gt;</span></span> </code></pre> <p>弊端：当主表信息全部查出来以后，collection 会一个一个遍历去调用select_method方法，数据多的话会影响性能。</p> <h3> <a id="_56" rel="nofollow"></a>方式二：构造函数注入</h3> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resultMap</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ChannelAuthDO<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>BaseMap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>appKey<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app_key<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>appUser<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app_user<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span> 	 	   <span class="token comment">&lt;!-- 关联属性对应的表：ChannelAuthMethodDO的method字段 --&gt;</span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>collection</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>method<span class="token punctuation">"</span></span> <span class="token attr-name">ofType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>java.lang.String<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> 	       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constructor</span><span class="token punctuation">&gt;</span></span> 	           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>arg</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>table_method<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>  <span class="token comment">&lt;!-- 对号入座数据库column名称即可 --&gt;</span> 	       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>constructor</span><span class="token punctuation">&gt;</span></span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>collection</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resultMap</span><span class="token punctuation">&gt;</span></span>  <span class="token comment">&lt;!-- 直接用id关联，查出来的method会自动映射在List&lt;String&gt; method 中 --&gt;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>list<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ChannelAuthDO<span class="token punctuation">"</span></span> <span class="token attr-name">resultMap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>BaseMap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>     select  	     main.id, 	     main.app_key, 	     main.app_user, 	     method."method" as table_method   为区分上面的映射关系，这边重新命名     from channel_auth main, channel_auth_method method     where main.id = method.auth_id <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">&gt;</span></span> </code></pre> <p>弊端：会影响分页</p> <h3> <a id="_84" rel="nofollow"></a>拓展：</h3> <p>如果list既有<code>List&lt;String&gt;</code>又有 <code>List&lt;Integer&gt;</code>，则需要写两个collection的构造函数注入</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resultMap</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ChannelAuthDO<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>BaseMap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>appKey<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app_key<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>appUser<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app_user<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span> 	    	   <span class="token comment">&lt;!-- 映射字符串集合 --&gt;</span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>collection</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>method<span class="token punctuation">"</span></span> <span class="token attr-name">ofType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>java.lang.String<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> 	       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constructor</span><span class="token punctuation">&gt;</span></span> 	           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>arg</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>table_method<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>  <span class="token comment">&lt;!-- 数据库映射的column名称 --&gt;</span> 	       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>constructor</span><span class="token punctuation">&gt;</span></span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>collection</span><span class="token punctuation">&gt;</span></span> 	    	   <span class="token comment">&lt;!-- 映射int类型集合 --&gt;</span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>collection</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>age<span class="token punctuation">"</span></span> <span class="token attr-name">ofType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>java.lang.Integer<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> 	       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constructor</span><span class="token punctuation">&gt;</span></span> 	           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>arg</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>age<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>  <span class="token comment">&lt;!-- 数据库映射的column名称 --&gt;</span> 	       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>constructor</span><span class="token punctuation">&gt;</span></span> 	   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>collection</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resultMap</span><span class="token punctuation">&gt;</span></span>  </code></pre> </p></div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3897.htm">springcloud解决使用feign调用服务 header参数传递的问题</a></p>
+                                                <p>下一个：<a href="/html/category/article-3899.htm">Springboot中@Aspect无法引入</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4018.htm" title="解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题">解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题</a></li>
+                        <li class="py-2"><a href="/html/category/article-4045.htm" title="在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？">在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4058.htm" title="TS语言与JS语言的区别">TS语言与JS语言的区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-4039.htm" title="CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具">CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4049.htm" title="JAVA初始化自定义类的数组">JAVA初始化自定义类的数组</a></li>
+                        <li class="py-2"><a href="/html/category/article-4032.htm" title="springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成">springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-4054.htm" title="[Java]如何获取指定日期一天的开始时间和结束时间">[Java]如何获取指定日期一天的开始时间和结束时间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4061.htm" title="如何在Android sqlite中删除表？">如何在Android sqlite中删除表？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

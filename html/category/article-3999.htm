@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3999.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>java 拦截器响应中取所有参数,SpringBoot拦截器怎么获取http请求参数 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">java 拦截器响应中取所有参数,SpringBoot拦截器怎么获取http请求参数 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>1.1、获取http请求参数是一种刚需</p> <p>我想有的小伙伴肯定有过获取http请求的需要，比如想</p> <p>前置获取参数，统计请求数据</p> <p>做服务的接口签名校验</p> <p>敏感接口监控日志</p> <p>敏感接口防重复提交</p> <p>等等各式各样的场景，这时你就需要获取 HTTP 请求的参数或者请求body，一般思路有两种，一种就是自定义个AOP去拦截目标方法，第二种就是使用拦截器。整体比较来说，使用拦截器更灵活些，因为每个接口的请求参数定义不同，使用AOP很难细粒度的获取到变量参数，本文主线是使用拦截器来获取HTTP请求。</p> <p>1.2、定义拦截器获取请求</p> <p>使用 spring-boot-starter-parent 2.1.9.RELEASE</p> <p>看起来这个很简单，这里就直接上code，定义个拦截器</p> <p>/**</p> <p>* @author axin</p> <p>* @summary HTTP请求拦截器</p> <p>*/</p> <p>@Slf4j</p> <p>public class RequestInterceptor implements HandlerInterceptor {<!-- --></p> <p>@Override</p> <p>public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {<!-- --></p> <p>//获取请求参数</p> <p>String queryString = request.getQueryString();</p> <p>log.info("请求参数:{}", queryString);</p> <p>//获取请求body</p> <p>byte[] bodyBytes = StreamUtils.copyToByteArray(request.getInputStream());</p> <p>String body = new String(bodyBytes, request.getCharacterEncoding());</p> <p>log.info("请求体：{}", body);</p> <p>return true;</p> <p>}</p> <p>}</p> <p>然后把这个拦截器配置一下中：</p> <p>/**</p> <p>* WebMVC配置，你可以集中在这里配置拦截器、过滤器、静态资源缓存等</p> <p>*/</p> <p>@Configuration</p> <p>public class WebMvcConfig implements WebMvcConfigurer {<!-- --></p> <p>@Override</p> <p>public void addInterceptors(InterceptorRegistry registry) {<!-- --></p> <p>registry.addInterceptor(new RequestInterceptor()).addPathPatterns("/**");</p> <p>}</p> <p>}</p> <p>定义个接口测试一下</p> <p>/**</p> <p>* @author axin</p> <p>* @summary 提交测试接口</p> <p>*/</p> <p>@Slf4j</p> <p>@RestController</p> <p>public class MyHTTPController {<!-- --></p> <p>@GetMapping("/v1/get")</p> <p>public void get(@RequestParam("one") String one,</p> <p>@RequestParam("two") BigDecimal number) {<!-- --></p> <p>log.info("参数:{},{}", one, number);</p> <p>}</p> <p>@PostMapping("/v1/post")</p> <p>public void check(@RequestBody User user) {<!-- --></p> <p>log.info("{}", JSON.toJSONString(user));</p> <p>}</p> <p>}</p> <p>GET请求获取请求参数示例：</p> <p align="center"><img decoding="async" src="0" alt="2020110711562040937.png"></p> <p>POST请求获取请求Body示例：</p> <p align="center"><img decoding="async" src="0" alt="2020110711562040938.jpg"></p> <p>我们发现拦截器在获取HTTP请求的body时出现了 400 (Required request body is missing: public void com.axin.world.controller.MyHTTPController.check(com.axin.world.domain.User))；同时也发现拦截器竟然走了两遍，这又是咋回事呢？</p> <p align="center"><img decoding="async" src="0" alt="2020110711562040939.jpg"></p> <p>1.3、为什么拦截器会重复调两遍呢？</p> <p>其实是因为 tomcat截取到异常后就转发到/error网页，就在这个转发的过程中导致了springmvc重新版开始DispatcherServlet的整个流程，所以拦截器执行了两次，我们可以看下第二次调用时的url路径：</p> <p align="center"><img decoding="async" src="0" alt="2020110711562140940.jpg"></p> <p>1.4、ServletInputStream(CoyoteInputStream) 输入流无法重复调用</p> <p>而之前出现的 Required request body is missing 错误 其实是ServletInputStream被读取后无法第二次再读取了，所以我们要把读取过的内容存下来，然后需要的时候对外提供可被重复读取的ByteArrayInputStream。</p> <p>对于MVC的过滤器来说，我们就需要重写 ServletInputStream 的 getInputStream()方法。</p> <p>1.5、自定义 HttpServletRequestWrapper</p> <p>为了 重写 ServletInputStream 的 getInputStream()方法，我们需要自定义一个 HttpServletRequestWrapper ：</p> <p>/**</p> <p>* @author Axin</p> <p>* @summary 自定义 HttpServletRequestWrapper 来包装输入流</p> <p>*/</p> <p>public class AxinHttpServletRequestWrapper extends HttpServletRequestWrapper {<!-- --></p> <p>/**</p> <p>* 缓存下来的HTTP body</p> <p>*/</p> <p>private byte[] body;</p> <p>public AxinHttpServletRequestWrapper(HttpServletRequest request) throws IOException {<!-- --></p> <p>super(request);</p> <p>body = StreamUtils.copyToByteArray(request.getInputStream());</p> <p>}</p> <p>/**</p> <p>* 重新版包装输入流</p> <p>* @return</p> <p>* @throws IOException</p> <p>*/</p> <p>@Override</p> <p>public ServletInputStream getInputStream() throws IOException {<!-- --></p> <p>InputStream bodyStream = new ByteArrayInputStream(body);</p> <p>return new ServletInputStream() {<!-- --></p> <p>@Override</p> <p>public int read() throws IOException {<!-- --></p> <p>return bodyStream.read();</p> <p>}</p> <p>/**</p> <p>* 下面的方法一般情况下不会被使用，如果你引入了一些需要使用ServletInputStream的外部组件，可以重要关注一下。</p> <p>* @return</p> <p>*/</p> <p>@Override</p> <p>public boolean isFinished() {<!-- --></p> <p>return false;</p> <p>}</p> <p>@Override</p> <p>public boolean isReady() {<!-- --></p> <p>return true;</p> <p>}</p> <p>@Override</p> <p>public void setReadListener(ReadListener readListener) {<!-- --></p> <p>}</p> <p>};</p> <p>}</p> <p>@Override</p> <p>public BufferedReader getReader() throws IOException {<!-- --></p> <p>InputStream bodyStream = new ByteArrayInputStream(body);</p> <p>return new BufferedReader(new InputStreamReader(getInputStream()));</p> <p>}</p> <p>}</p> <p>然后定义一个 DispatcherServlet子类来分派 上面自定义的 AxinHttpServletRequestWrapper ：</p> <p>/**</p> <p>* @author Axin</p> <p>* @summary 自定义 DispatcherServlet 来分派 AxinHttpServletRequestWrapper</p> <p>*/</p> <p>public class AxinDispatcherServlet extends DispatcherServlet {<!-- --></p> <p>/**</p> <p>* 包装成我们自定义的request</p> <p>* @param request</p> <p>* @param response</p> <p>* @throws Exception</p> <p>*/</p> <p>@Override</p> <p>protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {<!-- --></p> <p>super.doDispatch(new AxinHttpServletRequestWrapper(request), response);</p> <p>}</p> <p>}</p> <p>然后配置一下：</p> <p>/**</p> <p>* WebMVC配置，你可以集中在这里配置拦截器、过滤器、静态资源缓存等</p> <p>*/</p> <p>@Configuration</p> <p>public class WebMvcConfig implements WebMvcConfigurer {<!-- --></p> <p>@Override</p> <p>public void addInterceptors(InterceptorRegistry registry) {<!-- --></p> <p>registry.addInterceptor(new RequestInterceptor()).addPathPatterns("/**");</p> <p>}</p> <p>@Bean</p> <p>@Qualifier(DispatcherServletAutoConfiguration.DEFAULT_DISPATCHER_SERVLET_BEAN_NAME)</p> <p>public DispatcherServlet dispatcherServlet() {<!-- --></p> <p>return new AxinDispatcherServlet();</p> <p>}</p> <p>}</p> <p>再调用一下 POST请求：</p> <p align="center"><img decoding="async" src="0" alt="2020110711562140941.png"></p> <p>请求成功！</p> <p>1.5、总结一下 展望一下</p> <p>如果你想对HTTP请求做些骚操作，那么前置获取HTTP请求参数是前提，为此文本给出了使用MVC拦截器获取参数的样例。</p> <p>在获取HTTP Body 的时候，出现了 Required request body is missing 的错误，同时拦截器还出现执行了两遍的问题，这是因为 ServletInputStream被读取了两遍导致的，tomcat截取到异常后就转发到 /error 网页 被拦截器拦截到了，拦截器也就执行了两遍。</p> <p>为此我们通过自定义 HttpServletRequestWrapper 来包装一个可被重读读取的输入流，来达到期望的拦截效果。</p> <p>在获取到HTTP的请求参数后，我们可以前置做很多操作，比如常用的版本接口签名验证，敏感接口防重复请求等等。</p> <p>个人水平有限，如果文章有逻辑错误或表述问题还请指出，欢迎一起交流。</p> <p>到此这篇关于SpringBoot拦截器怎么获取http请求参数的文章就简介到这了,更多相关SpringBoot拦截器获取http请求参数内容请搜索乐购源码以前的文章或继续浏览下面的相关文章希望大家以后多多支持乐购源码！</p> </div></div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3998.htm">解决python针对hdfs上传和下载问题</a></p>
+                                                <p>下一个：<a href="/html/category/article-4000.htm">【mq】从零开始实现 mq-01-生产者、消费者启动</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4056.htm" title="SpringMVC对Ajax请求的处理">SpringMVC对Ajax请求的处理</a></li>
+                        <li class="py-2"><a href="/html/category/article-4048.htm" title="【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）">【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4041.htm" title="关于信号量Semaphore的acquire与release的说明">关于信号量Semaphore的acquire与release的说明</a></li>
+                        <li class="py-2"><a href="/html/category/article-4024.htm" title="网络协议之:socket协议详解之Unix domain Socket">网络协议之:socket协议详解之Unix domain Socket</a></li>
+                        <li class="py-2"><a href="/html/category/article-4063.htm" title="Python生成sql语句">Python生成sql语句</a></li>
+                        <li class="py-2"><a href="/html/category/article-4052.htm" title="Windows如何查看WiFi密码">Windows如何查看WiFi密码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4036.htm" title="字符数组和字符串的区别，C语言字符数组和字符串区别详解">字符数组和字符串的区别，C语言字符数组和字符串区别详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4044.htm" title="python2字符串编码方式_一、基础部分-2.字符串编码">python2字符串编码方式_一、基础部分-2.字符串编码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4037.htm" title="C++中的匿名对象的概念和使用">C++中的匿名对象的概念和使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

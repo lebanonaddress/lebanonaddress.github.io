@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4065.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Zookeeper分布式一致性协议ZAB - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Zookeeper分布式一致性协议ZAB </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <h1>1、分布式一致性协议ZAB详解</h1> <p>Zookeeper Atomic Broadcast（Zookeeper 原子广播协议）。ZAB 协议是为分布式协调服务 Zookeeper 专门设计的一种支持<strong>崩溃恢复</strong>&nbsp;和<strong>原子广播</strong>&nbsp;的协议。<strong>整个 Zookeeper 就是在这两个模式之间切换</strong>。&nbsp;简而言之，当 Leader 服务可以正常使用，就进入消息广播模式，当 Leader 不可用时，则进入崩溃恢复模式。</p> <h1>2、zookeeper集群崩溃恢复leader选举流程</h1> <p>半数节点以上同步成功，3/2+1也就是3个节点需要2个节点同步。zk不是实时的强一致性，可以说是顺序一致性。leader挂了，事务id最大的那个节点成为新的主节点（因为他同步的数据最多）。</p> <h1>3、原子广播协议是什么</h1> <p>&nbsp;ZAB 协议的消息广播过程使用的是一个原子广播协议，类似一个<strong>两阶段提交过程（2PC）</strong>。对于客户端发送的写请求，全部由 Leader 接收，Leader 将请求封装成一个事务 Proposal，将其发送给所有 Follwer ，然后，根据所有 Follwer 的反馈，如果超过半数(含leader自己)成功响应，则执行 commit 操作。<strong>发送请求会先写到log中，leader收到超过半数ack才会commit写入内存。</strong></p> <h1>4、从create命令来看下zookeeper集群数据同步全流程</h1> <p>通过nio的socketChannel发送到客户端</p> <h1>5、zookeeper链式数据处理器之责任链设计模式剖析</h1> <p>LeaderZooKeeperServer 和 FollowerZooKeeperServer 责任链有一定不同，但整体是类似的 ，leader做过的syncRequest(同步日志到磁盘)，ackRequest(发送ack到leader)，commit(提交数据到内存)，finalRequest(数据到内存，节点变动触发客户端监听) ，follower也要做一遍这些操作。</p> <p><img fetchpriority="high" decoding="async" alt="" height="392" src="http://img.555519.xyz/uploads3/20220830/09881ee75d9bf4bdb7525ac484bf5b9a.jpg"></p> <p><img decoding="async" alt="" height="319" src="http://img.555519.xyz/uploads3/20220830/afea689f69045077c153b8ae1ed08120.jpg"></p> <pre><code class="language-java">//LeaderZooKeeperServer     protected void setupRequestProcessors() {//构建leader请求处理链 -责任链 设计模式         RequestProcessor finalProcessor = new FinalRequestProcessor(this);         RequestProcessor toBeAppliedProcessor = new Leader.ToBeAppliedRequestProcessor(finalProcessor, getLeader());         commitProcessor = new CommitProcessor(toBeAppliedProcessor,                 Long.toString(getServerId()), false,                 getZooKeeperServerListener());         commitProcessor.start();         ProposalRequestProcessor proposalProcessor = new ProposalRequestProcessor(this,                 commitProcessor);         proposalProcessor.initialize();         prepRequestProcessor = new PrepRequestProcessor(this, proposalProcessor);         prepRequestProcessor.start();//线程处理消息         firstProcessor = new LeaderRequestProcessor(this, prepRequestProcessor);          setupContainerManager();     } ProposalRequestProcessor构造器中又初始化了两个Processor public ProposalRequestProcessor(LeaderZooKeeperServer zks,             RequestProcessor nextProcessor) {         this.zks = zks;         this.nextProcessor = nextProcessor;         AckRequestProcessor ackProcessor = new AckRequestProcessor(zks.getLeader());         syncProcessor = new SyncRequestProcessor(zks, ackProcessor);     }</code></pre> <h1>6、集群数据同步全流程</h1> <p>SyncRequestProcessor</p> <p><strong>client 发起request create /zhuge 666</strong></p> <p><strong>Leader的操作</strong>1.1 leader向所有follower发送proposal&nbsp;1.2 写本地数据文件&nbsp;1.3 给自己发ack</p> <p><strong>Follower的操作</strong> 2.1 写本地数据文件 2.2 返回ack给Leader</p> <p><strong>Leader的操作</strong> 3.1 leader收到半数以上给所有Follower发送commit 3.2 发送inform让<strong>observer</strong>存储消息&nbsp;3.3 commit:写自己的内存数据 3.4&nbsp; 回发节点数据变动通知给客户端,触发客户端client监听事件 3.5 返回客户端命令操作结果</p> <p><strong>Follower的操作</strong>&nbsp; 4 commit:写自己的内存数据</p> <p> &nbsp;当leader发完时还没有超过半数以上，等follower发过来超过后会commit。1.1步中发生的proposal是加入到一个leader的queuedPackets队列里了，leader.lead启动时有启动一个线程LearnerHandler run方法种startSendingPackets方法又启动线程 ，将队列中的packet阻塞式poll数据转发给follower</p> <h1>7、zxid创建流程</h1> <p><img decoding="async" alt="" height="152" src="http://img.555519.xyz/uploads3/20220830/c0a9d64f9bcdf964366df40e8ef45a61.jpg"></p> <p>这么设计是因为某个leader挂掉后，事务Id在jvm内存中是无法同步的，所以下一次LeaderId+1即可，这样避免了事务Id又重0开始覆盖之前的记录的问题。private final AtomicLong hzxid = new AtomicLong(0); 事务id自增是原子性的</p> <h1>8、客户端Watcher监听机制</h1> <p>客户端用path和wathcer绑定好存到一个集合里，到时服务端（发现节点变动触发监听机制）传回来一个path，客户端就会根据path从wathcer集合里去找相应的watcher。出于性能考虑监听是一次性的，触发一次后在服务端的watcherTable里会remove这个path</p> <h1>9、zk如何使用BIO&amp;NIO&amp;Netty通信</h1> <p>leader和follower选举后的通讯是建立BIO连接(<strong>适用于连接数比较少</strong>)，除开选举的端口是另一个端口。</p> <p>zk默认使用NIO连接(<strong>适用于多个客户端</strong>)，因为以前Netty有时候不稳定，需要保证系统的稳定。Netty在后期加入，可以手动配置，现在官方是推荐使用netty.</p> <p>将zoo.cfg文件位置配置到启动参数里</p> <p><strong>-Dzookeeper.serverCnxnFactory=org.apache.zookeeper.server.NettyServerCnxnFactory</strong></p> <p>使用Netty通信</p> <p><img loading="lazy" decoding="async" alt="" height="179" src="http://img.555519.xyz/uploads3/20220830/9ae0e22797fbe25240b55744102faa82.jpg"></p> <h1>10、zookeeper集群架构如何规避脑裂问题</h1> <p>脑裂（brain-split）：脑裂是指在主备切换时，由于切换不彻底或其他原因，导致客户端和follower误以为出现两个leader，最终使得整个集群处于混乱状态。</p> <p>zookeeper 如果leader挂掉，会进行重新选举，选举周期会+1，就是leaderId会比上一个大，这样可以判断最大的zxid才是最终的leader。就算他后面恢复了，log记录的内容也会被清除掉，因为leaderId不是最大的那个。</p> <h1>11、zookeeper架构设计核心总结</h1> <p>ZAB协议（多节点分布式一致性算法的实现），原子广播，并发消息队列/并发编程，bio/nio通讯，zxid，leader选举（多级内存队列，半数以上），崩溃恢复</p> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4064.htm">用python实现文件的词频统计</a></p>
+                                                <p>下一个：<a href="/html/category/article-4066.htm">Go汇编语法和MatrixOne使用介绍</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4061.htm" title="如何在Android sqlite中删除表？">如何在Android sqlite中删除表？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4059.htm" title="Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程">Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程</a></li>
+                        <li class="py-2"><a href="/html/category/article-4049.htm" title="JAVA初始化自定义类的数组">JAVA初始化自定义类的数组</a></li>
+                        <li class="py-2"><a href="/html/category/article-4053.htm" title="Autograd：Pytorch 中的自动微分机制讲解">Autograd：Pytorch 中的自动微分机制讲解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4009.htm" title="Java 超详细讲解ThreadLocal类的使用_java">Java 超详细讲解ThreadLocal类的使用_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-4012.htm" title="修改docker 默认镜像存储路径">修改docker 默认镜像存储路径</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4020.htm" title="spring schedule 配置多任务动态 cron 【增删启停】">spring schedule 配置多任务动态 cron 【增删启停】</a></li>
+                        <li class="py-2"><a href="/html/category/article-4048.htm" title="【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）">【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4064.htm" title="用python实现文件的词频统计">用python实现文件的词频统计</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

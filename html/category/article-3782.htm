@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3782.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>python数据分析与挖掘实战————银行分控模型（几种算法模型的比较） - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">python数据分析与挖掘实战————银行分控模型（几种算法模型的比较） </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<p>一、神经网络算法：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 128, 1)"> 1</span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> pandas as pd</span><span style="color: rgba(0, 128, 128, 1)"> 2</span><span style="color: rgba(0, 0, 255, 1)">from</span> keras.models<span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> Sequential</span><span style="color: rgba(0, 128, 128, 1)"> 3</span><span style="color: rgba(0, 0, 255, 1)">from</span> keras.layers.core<span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> Dense, Activation</span><span style="color: rgba(0, 128, 128, 1)"> 4</span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> numpy as np</span><span style="color: rgba(0, 128, 128, 1)"> 5</span><span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)"> 参数初始化</span><span style="color: rgba(0, 128, 128, 1)"> 6</span> inputfile =<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">C:/Users/76319/Desktop/bankloan.xls</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 128, 128, 1)"> 7</span> data =<span style="color: rgba(0, 0, 0, 1)"> pd.read_excel(inputfile)</span><span style="color: rgba(0, 128, 128, 1)"> 8</span> x_test = data.iloc[:,:8<span style="color: rgba(0, 0, 0, 1)">].values</span><span style="color: rgba(0, 128, 128, 1)"> 9</span> y_test = data.iloc[:,8<span style="color: rgba(0, 0, 0, 1)">].values</span><span style="color: rgba(0, 128, 128, 1)">10</span> inputfile =<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">C:/Users/76319/Desktop/bankloan.xls</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 128, 128, 1)">11</span> data =<span style="color: rgba(0, 0, 0, 1)"> pd.read_excel(inputfile)</span><span style="color: rgba(0, 128, 128, 1)">12</span> x_test = data.iloc[:,:8<span style="color: rgba(0, 0, 0, 1)">].values</span><span style="color: rgba(0, 128, 128, 1)">13</span> y_test = data.iloc[:,8<span style="color: rgba(0, 0, 0, 1)">].values</span><span style="color: rgba(0, 128, 128, 1)">14</span><span style="color: rgba(0, 128, 128, 1)">15</span> model = Sequential()<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)"> 建立模型</span><span style="color: rgba(0, 128, 128, 1)">16</span> model.add(Dense(input_dim = 8, units = 8<span style="color: rgba(0, 0, 0, 1)">))</span><span style="color: rgba(0, 128, 128, 1)">17</span> model.add(Activation(<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">relu</span><span style="color: rgba(128, 0, 0, 1)">'</span>))<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)"> 用relu函数作为激活函数，能够大幅提供准确度</span><span style="color: rgba(0, 128, 128, 1)">18</span> model.add(Dense(input_dim = 8, units = 1<span style="color: rgba(0, 0, 0, 1)">))</span><span style="color: rgba(0, 128, 128, 1)">19</span> model.add(Activation(<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">sigmoid</span><span style="color: rgba(128, 0, 0, 1)">'</span>))<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)"> 由于是0-1输出，用sigmoid函数作为激活函数</span><span style="color: rgba(0, 128, 128, 1)">20</span> model.compile(loss =<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">mean_squared_error</span><span style="color: rgba(128, 0, 0, 1)">'</span>, optimizer =<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">adam</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 128, 128, 1)">21</span><span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)"> 编译模型。由于我们做的是二元分类，所以我们指定损失函数为binary_crossentropy，以及模式为binary</span><span style="color: rgba(0, 128, 128, 1)">22</span><span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)"> 另外常见的损失函数还有mean_squared_error、categorical_crossentropy等，请阅读帮助文件。</span><span style="color: rgba(0, 128, 128, 1)">23</span><span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)"> 求解方法我们指定用adam，还有sgd、rmsprop等可选</span><span style="color: rgba(0, 128, 128, 1)">24</span> model.fit(x_test, y_test, epochs = 1000, batch_size = 10<span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 128, 128, 1)">25</span> predict_x=<span style="color: rgba(0, 0, 0, 1)">model.predict(x_test)</span><span style="color: rgba(0, 128, 128, 1)">26</span> classes_x=np.argmax(predict_x,axis=1<span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 128, 128, 1)">27</span> yp =<span style="color: rgba(0, 0, 0, 1)"> classes_x.reshape(len(y_test))</span><span style="color: rgba(0, 128, 128, 1)">28</span><span style="color: rgba(0, 128, 128, 1)">29</span><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> cm_plot(y, yp):</span><span style="color: rgba(0, 128, 128, 1)">30</span><span style="color: rgba(0, 0, 255, 1)">from</span> sklearn.metrics<span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> confusion_matrix</span><span style="color: rgba(0, 128, 128, 1)">31</span>   cm =<span style="color: rgba(0, 0, 0, 1)"> confusion_matrix(y, yp)</span><span style="color: rgba(0, 128, 128, 1)">32</span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> matplotlib.pyplot as plt</span><span style="color: rgba(0, 128, 128, 1)">33</span>   plt.matshow(cm, cmap=<span style="color: rgba(0, 0, 0, 1)">plt.cm.Greens)</span><span style="color: rgba(0, 128, 128, 1)">34</span><span style="color: rgba(0, 0, 0, 1)">  plt.colorbar()</span><span style="color: rgba(0, 128, 128, 1)">35</span><span style="color: rgba(0, 0, 255, 1)">for</span> x<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(len(cm)):</span><span style="color: rgba(0, 128, 128, 1)">36</span><span style="color: rgba(0, 0, 255, 1)">for</span> y<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(len(cm)):</span><span style="color: rgba(0, 128, 128, 1)">37</span>       plt.annotate(cm[x,y], xy=(x, y), horizontalalignment=<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">center</span><span style="color: rgba(128, 0, 0, 1)">'</span>, verticalalignment=<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">center</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 128, 128, 1)">38</span>   plt.ylabel(<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">True label</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 128, 128, 1)">39</span>   plt.xlabel(<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">Predicted label</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 128, 128, 1)">40</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> plt</span><span style="color: rgba(0, 128, 128, 1)">41</span> cm_plot(y_test,yp).show()<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)"> 显示混淆矩阵可视化结果</span><span style="color: rgba(0, 128, 128, 1)">42</span> score  = model.evaluate(x_test,y_test,batch_size=128)<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)"> 模型评估</span><span style="color: rgba(0, 128, 128, 1)">43</span><span style="color: rgba(0, 0, 255, 1)">print</span>(score)</pre> </div> <p>结果以及混淆矩阵可视化如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/778c70266e7b0f80e1fa0efe02345f5c.jpg" alt="python数据分析与挖掘实战————银行分控模型（几种算法模型的比较）"></p> <p>&nbsp;二、然后我们使用逻辑回归模型进行分析和预测：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> pandas as pd inputfile</span>=<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">C:/Users/76319/Desktop/bankloan.xls</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)"> data</span>=<span style="color: rgba(0, 0, 0, 1)"> pd.read_excel(inputfile)</span><span style="color: rgba(0, 0, 255, 1)">print</span><span style="color: rgba(0, 0, 0, 1)"> (data.head()) X</span>= data.drop(columns=<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">违约</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">) y</span>= data[<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">违约</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">]</span><span style="color: rgba(0, 0, 255, 1)">from</span> sklearn.model_selection<span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> train_test_split</span><span style="color: rgba(0, 0, 255, 1)">from</span> sklearn.linear_model<span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> LogisticRegression  X_train, X_test, y_train, y_test</span>= train_test_split(X, y, test_size=0.2, random_state=1<span style="color: rgba(0, 0, 0, 1)">)  model</span>=<span style="color: rgba(0, 0, 0, 1)"> LogisticRegression() model.fit(X_train, y_train) y_pred</span>=<span style="color: rgba(0, 0, 0, 1)"> model.predict(X_test)</span><span style="color: rgba(0, 0, 255, 1)">print</span><span style="color: rgba(0, 0, 0, 1)">(y_pred)</span><span style="color: rgba(0, 0, 255, 1)">from</span> sklearn.metrics<span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> accuracy_score score</span>=<span style="color: rgba(0, 0, 0, 1)"> accuracy_score(y_pred, y_test)</span><span style="color: rgba(0, 0, 255, 1)">print</span><span style="color: rgba(0, 0, 0, 1)">(score)</span><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> cm_plot(y, y_pred):</span><span style="color: rgba(0, 0, 255, 1)">from</span> sklearn.metrics<span style="color: rgba(0, 0, 255, 1)">import</span> confusion_matrix<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">导入混淆矩阵函数</span>   cm = confusion_matrix(y, y_pred)<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">混淆矩阵</span><span style="color: rgba(0, 0, 255, 1)">import</span> matplotlib.pyplot as plt<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">导入作图库</span>   plt.matshow(cm, cmap=plt.cm.Greens)<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">画混淆矩阵图，配色风格使用cm.Greens，更多风格请参考官网。</span>   plt.colorbar()<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">颜色标签</span><span style="color: rgba(0, 0, 255, 1)">for</span> x<span style="color: rgba(0, 0, 255, 1)">in</span> range(len(cm)):<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">数据标签</span><span style="color: rgba(0, 0, 255, 1)">for</span> y<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(len(cm)):       plt.annotate(cm[x,y], xy</span>=(x, y), horizontalalignment=<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">center</span><span style="color: rgba(128, 0, 0, 1)">'</span>, verticalalignment=<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">center</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">)   plt.ylabel(</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">True label</span><span style="color: rgba(128, 0, 0, 1)">'</span>)<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">坐标轴标签</span>   plt.xlabel(<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">Predicted label</span><span style="color: rgba(128, 0, 0, 1)">'</span>)<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">坐标轴标签</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> plt cm_plot(y_test, y_pred).show()</span></pre> </div> <p>结果如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7befab97c970c755f924a12872f8457b.jpg" alt="python数据分析与挖掘实战————银行分控模型（几种算法模型的比较）"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/b676777cd4710eab642c6002588faa12.jpg" alt="python数据分析与挖掘实战————银行分控模型（几种算法模型的比较）"></p> <p>&nbsp;综上所述得出，两种算法模型总体上跑出来的准确率还是不错的，但是神经网络准确性更高一点。</p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3781.htm">python输出计算结果_Python学习&#8211;02输入和输出、运算符</a></p>
+                                                <p>下一个：<a href="/html/category/article-3783.htm">linux查看redis的主从,linux中redis的主从</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4054.htm" title="[Java]如何获取指定日期一天的开始时间和结束时间">[Java]如何获取指定日期一天的开始时间和结束时间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4017.htm" title="Javascript搜索集合中的对象键">Javascript搜索集合中的对象键</a></li>
+                        <li class="py-2"><a href="/html/category/article-4037.htm" title="C++中的匿名对象的概念和使用">C++中的匿名对象的概念和使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-4035.htm" title="Vue路由router详细总结">Vue路由router详细总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-4039.htm" title="CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具">CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                        <li class="py-2"><a href="/html/category/article-4008.htm" title="我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？">我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4021.htm" title="使用feign客户端要使用注解@EnableFeignClients">使用feign客户端要使用注解@EnableFeignClients</a></li>
+                        <li class="py-2"><a href="/html/category/article-4064.htm" title="用python实现文件的词频统计">用python实现文件的词频统计</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

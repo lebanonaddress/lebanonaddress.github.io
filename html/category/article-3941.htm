@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3941.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>线程安全问题的解决方案有哪些？ - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">线程安全问题的解决方案有哪些？ </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<p>线程安全是指某个方法或某段代码，在多线程中能够正确的执行，不会出现数据不一致或数据污染的情况，我们把这样的程序称之为线程安全的，反之则为非线程安全的。在 Java 中，解决线程安全问题有以下 3 种手段：</p> <ol> <li>使用线程安全类，比如 AtomicInteger。</li> <li>加锁排队执行 <ol> <li>使用 synchronized 加锁。</li> <li>使用 ReentrantLock 加锁。</li> </ol> </li> <li>使用线程本地变量 ThreadLocal。</li> </ol> <p>接下来我们逐个来看它们的实现。</p> <h2 id="线程安全问题演示">线程安全问题演示</h2> <p>我们创建一个变量 number 等于 0，之后创建线程 1，执行 100 万次 ++ 操作，同时再创建线程 2 执行 100 万次 -- 操作，等线程 1 和线程 2 都执行完之后，打印 number 变量的值，如果打印的结果为 0，则说明是线程安全的，否则则为非线程安全的，示例代码如下：</p> <pre><code class="language-java">public class ThreadSafeTest {     // 全局变量     private static int number = 0;     // 循环次数(100W)     private static final int COUNT = 1_000_000;      public static void main(String[] args) throws InterruptedException {         // 线程1：执行 100W 次 ++ 操作         Thread t1 = new Thread(() -&gt; {             for (int i = 0; i &lt; COUNT; i++) {                 number++;             }         });         t1.start();          // 线程2：执行 100W 次 -- 操作         Thread t2 = new Thread(() -&gt; {             for (int i = 0; i &lt; COUNT; i++) {                 number--;             }         });         t2.start();          // 等待线程 1 和线程 2，执行完，打印 number 最终的结果         t1.join();         t2.join();         System.out.println("number 最终结果：" + number);     } }</code></pre> <p> 从上述执行结果可以看出，number 变量最终的结果并不是 0，和预期的正确结果不相符，这就是多线程中的线程安全问题。</p> <h2 id="解决线程安全问题">解决线程安全问题</h2> <h3 id="1原子类atomicinteger">1.原子类AtomicInteger</h3> <p>AtomicInteger 是线程安全的类，使用它可以将 ++ 操作和 -- 操作，变成一个原子性操作，这样就能解决非线程安全的问题了，如下代码所示：</p> <pre><code class="language-java">import java.util.concurrent.atomic.AtomicInteger;  public class AtomicIntegerExample {     // 创建 AtomicInteger     private static AtomicInteger number = new AtomicInteger(0);     // 循环次数     private static final int COUNT = 1_000_000;      public static void main(String[] args) throws InterruptedException {         // 线程1：执行 100W 次 ++ 操作         Thread t1 = new Thread(() -&gt; {             for (int i = 0; i &lt; COUNT; i++) {                 // ++ 操作                 number.incrementAndGet();             }         });         t1.start();          // 线程2：执行 100W 次 -- 操作         Thread t2 = new Thread(() -&gt; {             for (int i = 0; i &lt; COUNT; i++) {                 // -- 操作                 number.decrementAndGet();             }         });         t2.start();          // 等待线程 1 和线程 2，执行完，打印 number 最终的结果         t1.join();         t2.join();         System.out.println("最终结果：" + number.get());     } }</code></pre> <p></p> <h3 id="2加锁排队执行">2.加锁排队执行</h3> <p>Java 中有两种锁：synchronized 同步锁和 ReentrantLock 可重入锁。</p> <h4 id="21-同步锁synchronized">2.1 同步锁synchronized</h4> <p>synchronized 是 JVM 层面实现的自动加锁和自动释放锁的同步锁，它的实现代码如下：</p> <pre><code class="language-java">public class SynchronizedExample {     // 全局变量     private static int number = 0;     // 循环次数(100W)     private static final int COUNT = 1_000_000;      public static void main(String[] args) throws InterruptedException {         // 线程1：执行 100W 次 ++ 操作         Thread t1 = new Thread(() -&gt; {             for (int i = 0; i &lt; COUNT; i++) {                 // 加锁排队执行                 synchronized (SynchronizedExample.class) {                     number++;                 }             }         });         t1.start();          // 线程2：执行 100W 次 -- 操作         Thread t2 = new Thread(() -&gt; {             for (int i = 0; i &lt; COUNT; i++) {                 // 加锁排队执行                 synchronized (SynchronizedExample.class) {                     number--;                 }             }         });         t2.start();          // 等待线程 1 和线程 2，执行完，打印 number 最终的结果         t1.join();         t2.join();         System.out.println("number 最终结果：" + number);     } }</code></pre> <p></p> <h4 id="22-可重入锁reentrantlock">2.2 可重入锁ReentrantLock</h4> <p>ReentrantLock 可重入锁需要程序员自己加锁和释放锁，它的实现代码如下：</p> <pre><code class="language-java">import java.util.concurrent.locks.ReentrantLock;  /**  * 使用 ReentrantLock 解决非线程安全问题  */ public class ReentrantLockExample {     // 全局变量     private static int number = 0;     // 循环次数(100W)     private static final int COUNT = 1_000_000;     // 创建 ReentrantLock     private static ReentrantLock lock = new ReentrantLock();      public static void main(String[] args) throws InterruptedException {         // 线程1：执行 100W 次 ++ 操作         Thread t1 = new Thread(() -&gt; {             for (int i = 0; i &lt; COUNT; i++) {                 lock.lock();    // 手动加锁                 number++;       // ++ 操作                 lock.unlock();  // 手动释放锁             }         });         t1.start();          // 线程2：执行 100W 次 -- 操作         Thread t2 = new Thread(() -&gt; {             for (int i = 0; i &lt; COUNT; i++) {                 lock.lock();    // 手动加锁                 number--;       // -- 操作                 lock.unlock();  // 手动释放锁             }         });         t2.start();          // 等待线程 1 和线程 2，执行完，打印 number 最终的结果         t1.join();         t2.join();         System.out.println("number 最终结果：" + number);     } }</code></pre> <p></p> <h3 id="3线程本地变量threadlocal">3.线程本地变量ThreadLocal</h3> <p>使用 ThreadLocal 线程本地变量也可以解决线程安全问题，它是给每个线程独自创建了一份属于自己的私有变量，不同的线程操作的是不同的变量，所以也不会存在非线程安全的问题，它的实现代码如下：</p> <pre><code class="language-java">public class ThreadSafeExample {     // 创建 ThreadLocal（设置每个线程中的初始值为 0）     private static ThreadLocal&lt;Integer&gt; threadLocal = ThreadLocal.withInitial(() -&gt; 0);     // 全局变量     private static int number = 0;     // 循环次数(100W)     private static final int COUNT = 1_000_000;      public static void main(String[] args) throws InterruptedException {         // 线程1：执行 100W 次 ++ 操作         Thread t1 = new Thread(() -&gt; {             try {                 for (int i = 0; i &lt; COUNT; i++) {                     // ++ 操作                     threadLocal.set(threadLocal.get() + 1);                 }                 // 将 ThreadLocal 中的值进行累加                 number += threadLocal.get();             } finally {                 threadLocal.remove(); // 清除资源，防止内存溢出             }         });         t1.start();          // 线程2：执行 100W 次 -- 操作         Thread t2 = new Thread(() -&gt; {             try {                 for (int i = 0; i &lt; COUNT; i++) {                     // -- 操作                     threadLocal.set(threadLocal.get() - 1);                 }                 // 将 ThreadLocal 中的值进行累加                 number += threadLocal.get();             } finally {                 threadLocal.remove(); // 清除资源，防止内存溢出             }         });         t2.start();          // 等待线程 1 和线程 2，执行完，打印 number 最终的结果         t1.join();         t2.join();         System.out.println("最终结果：" + number);     } }</code></pre> <p></p> <h2 id="总结">总结</h2> <p>在 Java 中，解决线程安全问题的手段有 3 种：1.使用线程安全的类，如 AtomicInteger 类；2.使用锁 synchronized 或 ReentrantLock 加锁排队执行；3.使用线程本地变量 ThreadLocal 来处理。</p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3940.htm">【java】关于sc.hasNext()在while语句中的使用</a></p>
+                                                <p>下一个：<a href="/html/category/article-3942.htm">numpy库的安装与导入，列表、数组、矩阵的互相转换以及差异</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4020.htm" title="spring schedule 配置多任务动态 cron 【增删启停】">spring schedule 配置多任务动态 cron 【增删启停】</a></li>
+                        <li class="py-2"><a href="/html/category/article-4040.htm" title="@order注解 解答">@order注解 解答</a></li>
+                        <li class="py-2"><a href="/html/category/article-4017.htm" title="Javascript搜索集合中的对象键">Javascript搜索集合中的对象键</a></li>
+                        <li class="py-2"><a href="/html/category/article-4041.htm" title="关于信号量Semaphore的acquire与release的说明">关于信号量Semaphore的acquire与release的说明</a></li>
+                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4045.htm" title="在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？">在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4062.htm" title="Python格式化输出的三种方法（format,f前缀，%s）">Python格式化输出的三种方法（format,f前缀，%s）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4065.htm" title="Zookeeper分布式一致性协议ZAB">Zookeeper分布式一致性协议ZAB</a></li>
+                        <li class="py-2"><a href="/html/category/article-4025.htm" title="Java原生HttpClient的使用详解_java">Java原生HttpClient的使用详解_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-4028.htm" title="Halo 开源项目学习评论与点赞">Halo 开源项目学习评论与点赞</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

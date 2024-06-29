@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3925.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>mysql做生日日期字段的用到的类型_MySQL 日期类型函数及使用 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">mysql做生日日期字段的用到的类型_MySQL 日期类型函数及使用 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>1 MySQL 数据库中有五种与日期时间有关的数据类型，各种日期数据类型所占空间如下图所示：</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads3/20220602/50f0adcd1de8b77394d6177a3516eb11.jpg" alt="mysql做生日日期字段的用到的类型_MySQL 日期类型函数及使用"></p> <p>2 datetime 与 date</p> <p>datetime 占用8字节，是占用空间最多的一种日期格式。它显示日期，同时也显示时间。5.5及以前的版本不支持微妙级别，任何微妙数值都会被截断之后存入数据库。</p> <p>date 占用3字节，仅仅显示日期。</p> <p>3 timestamp</p> <p>timestamp 与 datetime 显示的结果是一样的，不同的是timestamp 占用4个字节。它的显示范围是：1970-01-01 00:00:01 至 2038-01-19 01:14:07(UTC)，UTC 协调世界时间，世界统一时间。</p> <p>timestamp 与 datetime显示的格式一样，但是显示的范围不同，还有以下一些区别</p> <p>建表时， 列为timestamp的类型可以设置一个默认值，datetime 不行。</p> <p>更新表时，可以设置timestamp 类型的列自动更新时间为当前时间。</p> <p>4 year 与 time</p> <p>year 类型占用1字节，在定义时可以显示指定宽度为year(4)或者year(2)。对于year(4)，其显示的年份范围为 1901 ~ 2155；对于year(2)，其显示的年份范围为：1970~2070。</p> <p>在year(2)的设置下，00~69 代表 2000~2069。</p> <p>time 类型占用3字节，显示的范围 -838:59:59 ~ 838:59:59。time 类型时间大于23或者为负数时用来表示时间间隔。</p> <p>5 时间与日期函数</p> <p>5.1 系统时间函数&nbsp;now(), current_timestamp, sysdate()</p> <p>这三个函数都能返回系统时间，看看它们的区别，同时访问这三个函数得到的结果一样，但是让其等待几秒之后，结果就不同了。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads3/20220602/f381237574d7d5b7f5be7d98f01b469e.jpg" alt="mysql做生日日期字段的用到的类型_MySQL 日期类型函数及使用"></p> <p>上图发现sysdate()返回的时间与now(), current_timestamp不同，慢了2秒，原因如下：</p> <p>current_timestamp 是now的同义词，两者实际上是一样的；</p> <p>sysdate() 函数返回的是执行到当前函数时的时间，而now()返回的是执行sql语句时的时间；</p> <p>5.2 时间加减函数</p> <p>① date_add 与 date_sub</p> <p>date_add(date, interval expr unit) 与&nbsp;date_sub(date, interval expr unit) 分别表示增加与减少。</p> <p>select</p> <p>date_add('2017-12-18 22:51:00', interval 1 second),</p> <p>date_add('2017-12-18 22:51:00', interval 1 minute),</p> <p>date_add('2017-12-18 22:51:00', interval 1 hour),</p> <p>date_add('2017-12-18 22:51:00', interval 1 day),</p> <p>date_add('2017-12-18 22:51:00', interval 1 month),</p> <p>date_add('2017-12-18 22:51:00', interval 1 year);</p> <p>遇到闰月时，date_add怎么处理呢，MySQL如果是闰月返回的日期为2月29，如果不是闰月返回的是2月28。</p> <p>select date_add('2016-02-29 22:51:00', interval -1 year),</p> <p>date_add('2016-02-29 22:51:00', interval 4 year);</p> <p>2015-02-28 22:51:002020-02-29 22:51:00</p> <p>②&nbsp;datediff 与 timediff</p> <p>datediff(date1,date2)：两个日期相减 date1 - date2，返回天数。select datediff('2016-02-29 22:51:00','2016-03-29 22:51:00');</p> <p>timediff(time1,time2)：两个日期相减 time1 - time2，返回 time 差值(格式为：838:59:59)。select timediff('2016-02-29 22:51:00','2016-01-29 22:51:00');</p> <p>注意：timediff(time1,time2) 函数的两个参数类型必须相同。</p> <p>③ timestamp 增，减，转换函数</p> <p>timestamp(date) &nbsp;-- date to timestamp</p> <p>timestamp(date, time) -- date + time</p> <p>timestampadd(unit,interval,datetime_expr) &nbsp; -- 类似date_add，对时间按单位进行增加，减少</p> <p>select timestampadd(second, 60, '2017-12-18 00:00:00');</p> <p>select timestampadd(minute, 60, '2017-12-18 00:00:00');</p> <p>select timestampadd(hour, 60, '2017-12-18 00:00:00');</p> <p>timestampdiff(unit,datetime_expr1,datetime_expr2) --计算两个时间的差，可以计算秒，分，时，天，月，年，周</p> <p>select timestampdiff(second, '2017-12-18 00:00:00','2017-12-18 12:00:00');</p> <p>select timestampdiff(hour, '2017-11-18 00:00:00','2017-12-18 12:00:00');</p> <p>select timestampdiff(day, '2017-10-17 00:00:00','2017-11-18 23:00:00');</p> <p>④ date_format 函数</p> <p>date_format 函数主要用途是格式化日期</p> <p>select date_format(now(),'%Y%m%d'),</p> <p>date_format(now(),'%Y-%m-%d'),</p> <p>date_format(now(),'%Y/%m/%d'),</p> <p>date_format(now(),'%m/%d/%Y');</p> <p>注意：查询数据时如果对某个日期字段使用这个函数，则优化器不会使用字段的索引，也不能通过索引来查询数据，因此查询效率会很低，如下列查询语句，如果字段birth_date有索引，则该索引因为使用了date_format函数失效：</p> <p>select *</p> <p>from employees</p> <p>where date_format(birth_date,'%Y-%m-%d') = '1961-08-03';</p> <p>6 日期的经典编程问题</p> <p>根据某个用户的出生日期与当前日期，计算他最近的生日(包括已经过去的和将来的)</p> <p>-- 上一年，当年，下一年生日与当前时间差最小的年就是用户最近的生日</p> <p>select emp_no,first_name,last_name,birth_date,today,if(last_diff&lt;=cur_diff and last_diff&lt;=next_diff, last,if(cur_diff</p> <p>from</p> <p>(</p> <p>-- 计算当前时间与上一年，当年，下一年生日的时间差</p> <p>select emp_no,first_name,last_name,birth_date,datediff(today,last) as last_diff,abs(datediff(today,cur)) as cur_diff,abs(datediff(today,next)) as next_diff,</p> <p>last,cur,next,today</p> <p>from</p> <p>(</p> <p>-- 用户最近的生日可能分布在前一年，当年，下一年。根据年度差year_diff计算上一年，当年，下一年用户的生日</p> <p>select emp_no,first_name,last_name,birth_date,</p> <p>DATE_ADD(birth_date,INTERVAL year_diff year) as cur,</p> <p>DATE_ADD(birth_date,INTERVAL year_diff+1 year) as next,</p> <p>DATE_ADD(birth_date,INTERVAL year_diff-1 year) as last,</p> <p>today</p> <p>from</p> <p>(</p> <p>-- 获取当前事前与出生日期的年度差 year_diff</p> <p>select emp_no,first_name,last_name,birth_date,(year(NOW())-year(birth_date)) as year_diff, NOW() as today</p> <p>from employees</p> <p>) a</p> <p>) b</p> <p>) c</p> </div> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3924.htm">Python 传递元组参数</a></p>
+                                                <p>下一个：<a href="/html/category/article-3926.htm">Feign实现远程接口的调用</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4050.htm" title="C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数">C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数</a></li>
+                        <li class="py-2"><a href="/html/category/article-4056.htm" title="SpringMVC对Ajax请求的处理">SpringMVC对Ajax请求的处理</a></li>
+                        <li class="py-2"><a href="/html/category/article-4007.htm" title="C++的命名空间">C++的命名空间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4030.htm" title="vite+element-plus项目基础搭建">vite+element-plus项目基础搭建</a></li>
+                        <li class="py-2"><a href="/html/category/article-4048.htm" title="【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）">【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4017.htm" title="Javascript搜索集合中的对象键">Javascript搜索集合中的对象键</a></li>
+                        <li class="py-2"><a href="/html/category/article-4011.htm" title="光的偏振">光的偏振</a></li>
+                        <li class="py-2"><a href="/html/category/article-4046.htm" title="Vue  el-input  trim() 去空格">Vue  el-input  trim() 去空格</a></li>
+                        <li class="py-2"><a href="/html/category/article-4053.htm" title="Autograd：Pytorch 中的自动微分机制讲解">Autograd：Pytorch 中的自动微分机制讲解</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

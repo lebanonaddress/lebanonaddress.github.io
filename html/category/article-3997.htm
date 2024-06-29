@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3997.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>mysql ifnull判断null与空值 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">mysql ifnull判断null与空值 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>最近遇到一个需求上的问题，运用的数据库是Mysql，涉及到了ifnull函数。</p> <pre><code class="prism language-sql">ifnull（expr1，expr2）   如果expr1为<span class="token boolean">null</span>，则显示expr2<span class="token punctuation">,</span>否则显示expr1。 </code></pre> <p>举个例子：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/4fd85cbd3ac48e35cae21a6da20b47fe.jpg" alt="mysql ifnull判断null与空值"></p> <pre><code class="prism language-sql"><span class="token keyword">SELECT</span> IFNULL<span class="token punctuation">(</span>rcar_id<span class="token punctuation">,</span>rcar_id1<span class="token punctuation">)</span> <span class="token keyword">from</span> wb_busi_gross_rcar  <span class="token keyword">where</span> serial_no <span class="token operator">=</span> <span class="token string">'20000019122617250028'</span> </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230118/98cfa5cf0b138a23830aa172d6f958bc.jpg" alt="mysql ifnull判断null与空值"></p> <p><strong>1.如果两个都为null,结果为null。</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/ffe3f1c062512ae47917bd954c1a7307.jpg" alt="mysql ifnull判断null与空值"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/a965ed6a85633a45961b89d83b0e22e1.jpg" alt="mysql ifnull判断null与空值"></p> <p><strong>2.如果为空（mysql区分null与空字符串），不受影响。</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/bc43bedb46ea1bbc8043e1b32e624d4a.jpg" alt="mysql ifnull判断null与空值"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/2c3c1f74d5056d80c52689db077e14fe.jpg" alt="mysql ifnull判断null与空值"><br /> 所以这里需要把空转换为null，才能进行判断，下面给出一个方法。</p> <pre><code class="prism language-sql"><span class="token keyword">SELECT</span> ifnull<span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> rcar_id <span class="token operator">=</span> <span class="token string">''</span> <span class="token keyword">then</span> <span class="token boolean">null</span> <span class="token keyword">else</span> rcar_id <span class="token keyword">end</span><span class="token punctuation">,</span><span class="token keyword">case</span> <span class="token keyword">when</span> rcar_id1 <span class="token operator">=</span> <span class="token string">''</span> <span class="token keyword">then</span> <span class="token boolean">null</span> <span class="token keyword">else</span> rcar_id1 <span class="token keyword">end</span><span class="token punctuation">)</span> rcar_id <span class="token keyword">from</span> wb_busi_gross_rcar  <span class="token keyword">where</span> serial_no <span class="token operator">=</span> <span class="token string">'20000019122617250028'</span>  </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230118/a4377ec3cadeeacab33177ffa2fb4024.jpg" alt="mysql ifnull判断null与空值"><br /> 记录下来，方便学习，如有错误之处，欢迎指正！</p> </p></div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3996.htm">javaScript中内置对象Date基本操作入门_在线工具</a></p>
+                                                <p>下一个：<a href="/html/category/article-3998.htm">解决python针对hdfs上传和下载问题</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4064.htm" title="用python实现文件的词频统计">用python实现文件的词频统计</a></li>
+                        <li class="py-2"><a href="/html/category/article-4025.htm" title="Java原生HttpClient的使用详解_java">Java原生HttpClient的使用详解_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-4012.htm" title="修改docker 默认镜像存储路径">修改docker 默认镜像存储路径</a></li>
+                        <li class="py-2"><a href="/html/category/article-4026.htm" title="ES6可选链操作符和空值合并运算符">ES6可选链操作符和空值合并运算符</a></li>
+                        <li class="py-2"><a href="/html/category/article-4049.htm" title="JAVA初始化自定义类的数组">JAVA初始化自定义类的数组</a></li>
+                        <li class="py-2"><a href="/html/category/article-4045.htm" title="在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？">在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4032.htm" title="springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成">springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                        <li class="py-2"><a href="/html/category/article-4027.htm" title="前端需要了解的颜色模型，RGB、HSL和HSV_在线工具">前端需要了解的颜色模型，RGB、HSL和HSV_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4053.htm" title="Autograd：Pytorch 中的自动微分机制讲解">Autograd：Pytorch 中的自动微分机制讲解</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

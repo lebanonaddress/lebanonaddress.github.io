@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4007.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>C++的命名空间 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">C++的命名空间 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> <p>命名空间提供了一种在大项目中避免名字冲突的方法。</p> <p>在命名空间块内声明的符号被放入一个被命名（具名）的作用域中，避免这些符号被误认为其他作用域中的同名符号。</p> <p>多个命名空间块的名字可以相同，这些块中的所有声明在该具名作用域声明。</p> <p>基本语法：<code>inline(可选) namespace 属性(可选) 标识符 { 命名空间体 }</code></p> <ul> <li>inline<code>：存在时，表明此命名空间时内联命名空间。如果原初命名空间定义不使用</code>inline``，那么不能出现在扩展命名空间定义中。（内联命名空间可以把空间内函数和类型导出到父命名空间中） <ul> <li> <code>inline</code>可以出现在除第一个<code>namespace</code>之外的任意<code>namespace</code>之前。</li> </ul> </li> </ul> <p>示例一：</p> <pre><code class="prism language-cpp"><span class="token keyword">namespace</span> S1 <span class="token punctuation">{<!-- --></span>  <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token keyword">namespace</span> S2 <span class="token punctuation">{<!-- --></span>  <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token keyword">using</span> <span class="token keyword">namespace</span> S1<span class="token punctuation">;</span> <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token class-name">S2</span><span class="token double-colon punctuation">::</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <p>以上是命名空间的一个典型例子，例子中命名空间S1和S2都有相同的函数foo，在调用两个函数时，由于命名空间S1被<code>using</code>关键字打开，因此S1的foo函数可以直接使用，而S2的foo函数需要使用::来指定函数的命名空间。</p> <p>示例二：内联命名空间</p> <pre><code class="prism language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span> <span class="token keyword">namespace</span> Parent <span class="token punctuation">{<!-- --></span>  <span class="token keyword">namespace</span> Child1  <span class="token punctuation">{<!-- --></span>  <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Child1::foo()"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token punctuation">}</span>  <span class="token keyword">inline</span> <span class="token keyword">namespace</span> Child2  <span class="token punctuation">{<!-- --></span>  <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Child2::foo()"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>  Parent<span class="token double-colon punctuation">::</span><span class="token class-name">Child1</span><span class="token double-colon punctuation">::</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token class-name">Parent</span><span class="token double-colon punctuation">::</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <p>在上面的代码中，Child1不是一个内联命名空间，所以调用Child1的foo函数需要明确指定所属命名空间。而调用Child2的foo函数则方便了许多，直接指定父命名空间即可。</p> <p>示例三：嵌套命名空间</p> <pre><code class="prism language-cpp"><span class="token keyword">namespace</span> A<span class="token double-colon punctuation">::</span>B<span class="token double-colon punctuation">::</span>C <span class="token punctuation">{<!-- --></span>  <span class="token keyword">int</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> <span class="token keyword">return</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>上述代码等价于：</p> <pre><code class="prism language-cpp"><span class="token keyword">namespace</span> A <span class="token punctuation">{<!-- --></span>    <span class="token keyword">namespace</span> B <span class="token punctuation">{<!-- --></span>      <span class="token keyword">namespace</span> C <span class="token punctuation">{<!-- --></span>          <span class="token keyword">int</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> <span class="token keyword">return</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>      <span class="token punctuation">}</span>    <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>示例四：无名命名空间</p> <pre><code class="prism language-cpp"><span class="token keyword">namespace</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">int</span> i<span class="token punctuation">;</span> <span class="token comment">// 定义 ::(独有)::i</span> <span class="token punctuation">}</span>   <span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     i<span class="token operator">++</span><span class="token punctuation">;</span>   <span class="token comment">// 自增 ::(独有)::i</span> <span class="token punctuation">}</span>   <span class="token keyword">namespace</span> A <span class="token punctuation">{<!-- --></span>     <span class="token keyword">namespace</span>     <span class="token punctuation">{<!-- --></span>         <span class="token keyword">int</span> i<span class="token punctuation">;</span>        <span class="token comment">// A::(独有)::i</span>         <span class="token keyword">int</span> j<span class="token punctuation">;</span>        <span class="token comment">// A::(独有)::j</span>     <span class="token punctuation">}</span>       <span class="token keyword">void</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> i<span class="token operator">++</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment">// A::(独有)::i++</span> <span class="token punctuation">}</span>   <span class="token keyword">using</span> <span class="token keyword">namespace</span> A<span class="token punctuation">;</span> <span class="token comment">// 从 A 引入所有名称到全局命名空间</span>   <span class="token keyword">void</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     i<span class="token operator">++</span><span class="token punctuation">;</span>    <span class="token comment">// 错误：::(独有)::i 与 ::A::(独有)::i 均在作用域中</span>     A<span class="token double-colon punctuation">::</span>i<span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment">// OK：自增 A::(独有)::i</span>     j<span class="token operator">++</span><span class="token punctuation">;</span>    <span class="token comment">// OK：自增 A::(独有)::j</span> <span class="token punctuation">}</span> </code></pre> <p>虽然无名命名空间中的名字可以声明为具有外部连接，但从其他翻译单元无法访问它们，因为它的命名空间名是独有的。</p> <p>无名命名空间以及所有直接或间接在无名命名空间内声明的命名空间都具有内部连接，这表示在无名命名空间内声明的所有名字都具有内部连接。</p> </p></div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4006.htm">spring boot actuator监控详细介绍一(超级详细)</a></p>
+                                                <p>下一个：<a href="/html/category/article-4008.htm">我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4032.htm" title="springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成">springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-4007.htm" title="C++的命名空间">C++的命名空间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4024.htm" title="网络协议之:socket协议详解之Unix domain Socket">网络协议之:socket协议详解之Unix domain Socket</a></li>
+                        <li class="py-2"><a href="/html/category/article-4040.htm" title="@order注解 解答">@order注解 解答</a></li>
+                        <li class="py-2"><a href="/html/category/article-4037.htm" title="C++中的匿名对象的概念和使用">C++中的匿名对象的概念和使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-4028.htm" title="Halo 开源项目学习评论与点赞">Halo 开源项目学习评论与点赞</a></li>
+                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-4019.htm" title="os.walk函数">os.walk函数</a></li>
+                        <li class="py-2"><a href="/html/category/article-4047.htm" title="springboot关于mysql数据库date时间的坑">springboot关于mysql数据库date时间的坑</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3945.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>携程开源分布式配置系统Apollo服务端是如何实时更新配置的 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">携程开源分布式配置系统Apollo服务端是如何实时更新配置的 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<h1 id="引言">引言</h1> <p>前面有写过一篇<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s/5KQUS1YqcWnF2rHihfSgpA"  target="_blank" rel="nofollow">《分布式配置中心apollo是如何实时感知配置被修改》</a>，也就是客户端client是如何知道配置被修改了，有不少读者私信我你既然说了client端是如何感知的，那服务端又是如何知道配置被修改了。今天我们就一起来看看Apollo在Portal修改了配置文件，怎么通知到configService的。什么是portal和configService 建议可以看看这一篇文章篇<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s/5KQUS1YqcWnF2rHihfSgpA"  target="_blank" rel="nofollow">《分布式配置中心apollo是如何实时感知配置被修改》</a>，里面对这些模块都有简单的介绍，你如果实在不想看也行，我直接截个图过来<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ea1cfdf13fed854ce6811d1023b3e6f7.jpg" alt="携程开源分布式配置系统Apollo服务端是如何实时更新配置的"></p> <h1 id="服务端如何感知更新">服务端如何感知更新</h1> <p>我们来看官网提供的一张图<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/74b57851f5cf227cf6527719df5f8267.jpg" alt="携程开源分布式配置系统Apollo服务端是如何实时更新配置的"></p> <blockquote> <p>1.用户在Portal操作配置发布<br /> 2.Portal调用Admin Service的接口操作发布<br /> 3.Admin Service发布配置后，发送ReleaseMessage给各个Config Service<br /> 4.Config Service收到ReleaseMessage后，通知对应的客户端</p> </blockquote> <p>上面的流程就是从Portal到ConfigService主要流程，下面我们来看看具体的细节。要知道细节我们要自己动手去调试一把源码。<br /> 我们可以照着官网的文档，自己本地把项目run起来。文档写的还是很详细的，只要按照步骤来都能运行的起来。我们随便新建一个项目然后去编辑下key，然后打开浏览器的F12当我们点击提交按钮的时候我们就知道她到底调用了那些接口，有了接口我们就知道了入口剩下的就是打断点进行调试了。</p> <h3 id="portal-如何获取adminservice">portal 如何获取AdminService</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d733b365f794dae6b6b295314a1787a9.jpg" alt="携程开源分布式配置系统Apollo服务端是如何实时更新配置的"><br /> 根据这个方法我们是不是就可以定位到portal模块后端代码的controller。找到对应的controller打开看一看基本没有什么业务逻辑<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d9b2674d420e104714408d3d4555da3a.jpg" alt="携程开源分布式配置系统Apollo服务端是如何实时更新配置的"><br /> 然后<code>portal</code>紧接着就是去调用<code>adminService</code>了。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a88ef7181f22cd8bfcd17fc4875e0ff0.jpg" alt="携程开源分布式配置系统Apollo服务端是如何实时更新配置的"><br /> 根据上图我们就可以的方法我们就可以找到对应的adminService了，portal是如何找到对应的adminService服务的，因为adminService 是可以部署多台机器，这里就要用到服务注册和发现了adminService只有被注册到服务中心，portal才可以通过服务注册中心来获取对应的adminService服务了。<code>Apollo</code> 默认是采用eureka来作为服务注册和发现，它也提供了nacos、consul来作为服务注册和发现，还提供了一种kubernetes不采用第三方来做服务注册和发现，直接把服务的地址配置在数据库。如果地址有多个可以在数据库逗号分隔。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/43f22a6ee1db0eb835828355cbb7b5b1.jpg" alt="携程开源分布式配置系统Apollo服务端是如何实时更新配置的"><br /> 它提供了四种获取服务列表的实现方式，如果我们使用的注册中心是eureka 我们是不是需要通过eureka的api去获取服务列表，如果我们的服务发现使用的是nacos我们是不是要通过nacos的API去获取服务列表。。。所以Apollo提供了一个MetaService 层，封装服务发现的细节，对Portal和Client而言，永远通过一个Http接口获取Admin Service和Config Service的服务信息，而不需要关心背后实际的服务注册和发现组件。就跟我们平时搬砖一样没有啥是通过增加一个中间层解决不了的问题，一个不行那就再加一个。所以MetaService提供了两个接口services/admin 和services/config 来分别获取Admin Service和Config Service的服务信息。那么Portal 是如何来调用services/admin这个接口的呢？在 apollo-portal 项目里面com.ctrip.framework.apollo.portal.component#AdminServiceAddressLocator 这个类里面，</p> <ul> <li>这个类在加载的时候会通过MetaService 提供的services/admin 接口获取adminService的服务地址进行缓存。</li> </ul> <pre><code class="language-java">  @PostConstruct   public void init() {     allEnvs = portalSettings.getAllEnvs();     //init restTemplate     restTemplate = restTemplateFactory.getObject();          refreshServiceAddressService =         Executors.newScheduledThreadPool(1, ApolloThreadFactory.create("ServiceLocator", true)); 	// 创建延迟任务，1s后开始执行获取AdminService服务地址     refreshServiceAddressService.schedule(new RefreshAdminServerAddressTask(), 1, TimeUnit.MILLISECONDS);   }</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9c1cd4904412f36b5cae21d7c6734aa6.jpg" alt="携程开源分布式配置系统Apollo服务端是如何实时更新配置的"><br /> 上面要去MetaService 请求地址，那么MetaService的地址又是什么呢？这个又如何获取？com.ctrip.framework.apollo.portal.environment#DefaultPortalMetaServerProvider 这个类。</p> <p>portal 这个模块说完了，我们接着回到<code>adminService</code>了。通过<code>portal</code>调用adminService的接口地址我们很快可以找到它的入口<br /> AdminService 的实现也很简单</p> <pre><code class="language-java">   @PreAcquireNamespaceLock @PostMapping("/apps/{appId}/clusters/{clusterName}/namespaces/{namespaceName}/items")   public ItemDTO create(@PathVariable("appId") String appId,                         @PathVariable("clusterName") String clusterName,                         @PathVariable("namespaceName") String namespaceName, @RequestBody ItemDTO dto) {     Item entity = BeanUtils.transform(Item.class, dto);      ConfigChangeContentBuilder builder = new ConfigChangeContentBuilder();     Item managedEntity = itemService.findOne(appId, clusterName, namespaceName, entity.getKey());     if (managedEntity != null) {       throw new BadRequestException("item already exists");     }     entity = itemService.save(entity);     builder.createItem(entity);     dto = BeanUtils.transform(ItemDTO.class, entity);      Commit commit = new Commit();     commit.setAppId(appId);     commit.setClusterName(clusterName);     commit.setNamespaceName(namespaceName);     commit.setChangeSets(builder.build());     commit.setDataChangeCreatedBy(dto.getDataChangeLastModifiedBy());     commit.setDataChangeLastModifiedBy(dto.getDataChangeLastModifiedBy());     commitService.save(commit);      return dto;   }</code></pre> <h4 id="preacquirenamespacelock-注解">PreAcquireNamespaceLock 注解</h4> <p>首先方法上有个@PreAcquireNamespaceLock 这个注解，这个根据名字都应该能够去猜一个大概就是去获取NameSpace的分布式锁，现在分布式锁比较常见的方式是采用redis和zookeeper。但是在这里apollo是采用数据库来实现的，具体怎么细节大家可以去看看源码应该都看的懂，无非就是加锁往DB里面插入一条数据，释放锁然后把这个数据进行删除。稍微有点不一样的就是如果获取锁失败，就直接返回失败了，不会在继续自旋或者休眠重新去获取锁。 因为获取锁失败说明已经有其他人在你之前修改了配置，只有这个人新增的配置被发布或者删除之后，其他人才能继续新增配置，这样的话就会导致一个NameSpace只能同时被一个人修改。这个限制是默认关闭的需要我们在数据库里面去配置（ApolloConfigDb的ServiceConfig表）<img decoding="async" src="http://img.555519.xyz/uploads3/20220509/82f82d88c8f2ca78fcd388cd90ddda88.jpg" alt="携程开源分布式配置系统Apollo服务端是如何实时更新配置的"><br /> 一般我们应用的配置修改应该是比较低频的，多人同时去修改的话情况会比较少，再说有些公司是开发提交配置，测试去发布配置，提交和修改不能是同一个人，这样的话新增配置冲突就更少了，应该没有必要去配置namespace.lock.switch=true一个namespace只能一个人去修改。</p> <p>接下来的代码就非常简单明了，就是一个简单的参数判断然后执行入库操作了，把数据插入到<code>Item</code>表里面。这是我们新增的配置数据就已经保存了。效果如下<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9eea1224cda52c79cb9d06ac9b1b5b5b.jpg" alt="携程开源分布式配置系统Apollo服务端是如何实时更新配置的"><br /> 这时候新增的配置是不起作用的，不会推送给客户端的。只是单纯一个类似于草稿的状态。</p> <h3 id="发布配置">发布配置</h3> <p>接下来我们要使上面新增的配置生效，并且推送给客户端。同样的我们点击发布按钮然后就能知道对应的后端方法入口<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f5f7517b34aa5402d7eef37f05466f93.jpg" alt="携程开源分布式配置系统Apollo服务端是如何实时更新配置的"><br /> 我们通过这个接口可以直接找到<code>adminService</code>的方法入口</p> <pre><code class="language-java"> public ReleaseDTO publish(@PathVariable("appId") String appId,                             @PathVariable("clusterName") String clusterName,                             @PathVariable("namespaceName") String namespaceName,                             @RequestParam("name") String releaseName,                             @RequestParam(name = "comment", required = false) String releaseComment,                             @RequestParam("operator") String operator,                             @RequestParam(name = "isEmergencyPublish", defaultValue = "false") boolean isEmergencyPublish) {     Namespace namespace = namespaceService.findOne(appId, clusterName, namespaceName);     if (namespace == null) {       throw new NotFoundException(String.format("Could not find namespace for %s %s %s", appId,                                                 clusterName, namespaceName));     }     Release release = releaseService.publish(namespace, releaseName, releaseComment, operator, isEmergencyPublish);      //send release message     Namespace parentNamespace = namespaceService.findParentNamespace(namespace);     String messageCluster;     if (parentNamespace != null) {       messageCluster = parentNamespace.getClusterName();     } else {       messageCluster = clusterName;     }     messageSender.sendMessage(ReleaseMessageKeyGenerator.generate(appId, messageCluster, namespaceName),                               Topics.APOLLO_RELEASE_TOPIC);     return BeanUtils.transform(ReleaseDTO.class, release);   }</code></pre> <ul> <li>上述代码就不仔细展开分析了，感兴趣的可以自己断点调试下我们重点看下<code>releaseService.publish</code> 这个方法，里面有一些灰度发布相关的逻辑，不过这个不是本文的重点，这个方法主要是往release表插入数据。</li> <li>接下来就是<code>messageSender.sendMessage</code>这个方法了，这个方法主要是往<code>ReleaseMessage</code>表里面插入一条记录。保存完<code>ReleaseMessage</code>这个表会得到相应的主键ID，然后把这个ID放入到一个队列里面。然后在加载DatabaseMessageSender的时候会默认起一个定时任务去获取上面队列里面放入的消息ID，然后找出比这这些ID小的消息删除掉。<br /> 发布流程就完了，这里也没有说到服务端是怎么感知有配置修改了的。</li> </ul> <h3 id="config-service-通知配置变化">Config Service 通知配置变化</h3> <p><code>apolloConfigService</code> 在服务启动的时候<code>ReleaseMessageScanner</code> 会启动一个定时任务 每隔1s去去查询<code>ReleaseMessage</code>里面有没有最新的消息，如果有就会通知到所有的消息监听器比如<code>NotificationControllerV2</code>、<code>ConfigFileController</code>等，这个消息监听器注册是在ConfigServiceAutoConfiguration里面注册的。<br /><code>NotificationControllerV2</code> 得到配置发布的<code>AppId+Cluster+Namespace</code> 后，会通知对应的客户端，这样就从portal到<code>configService</code> 到 client 整个消息通知变化就串起来了。服务端通知客户端的具体细节可以看看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s/5KQUS1YqcWnF2rHihfSgpA"  target="_blank" rel="nofollow">《分布式配置中心apollo是如何实时感知配置被修改》</a><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/0f411c373c854fd3f3e67c1309c3a285.jpg" alt="携程开源分布式配置系统Apollo服务端是如何实时更新配置的"></p> <h3 id="总结">总结</h3> <p>这样服务端配置如何更新的流程就完了。</p> <blockquote> <p>1.用户在Portal操作配置发布<br /> 2.Portal调用Admin Service的接口操作发布<br /> 3.Admin Service发布配置后，发送ReleaseMessage给各个Config Service<br /> 4.Config Service收到ReleaseMessage后，通知对应的客户端</p> </blockquote> <p>apollo的源码相对于其他中间件来说还是相对于比较简单的，比较适合于想研究下中间件源码，又不知道如何下手的同学 。</p> <h3 id="结束">结束</h3> <ul> <li>由于自己才疏学浅，难免会有纰漏，假如你发现了错误的地方，还望留言给我指出来,我会对其加以修正。</li> <li>如果你觉得文章还不错，你的转发、分享、赞赏、点赞、留言就是对我最大的鼓励。</li> <li>感谢您的阅读,十分欢迎并感谢您的关注。</li> </ul> <p>站在巨人的肩膀<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.apolloconfig.com/#/zh/design/apollo-design?id=%e4%b8%80%e3%80%81%e6%80%bb%e4%bd%93%e8%ae%be%e8%ae%a1"  target="_blank" rel="nofollow">https://www.apolloconfig.com/#/zh/design/apollo-design?id=一、总体设计</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.iocoder.cn/Apollo/client-polling-config/"  target="_blank" rel="nofollow">https://www.iocoder.cn/Apollo/client-polling-config/</a></p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3944.htm">格式字符串漏洞之任意地址覆盖大数字</a></p>
+                                                <p>下一个：<a href="/html/category/article-3946.htm">FreeRTOS进阶之任务切换完全分析_操作系统_</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4011.htm" title="光的偏振">光的偏振</a></li>
+                        <li class="py-2"><a href="/html/category/article-4054.htm" title="[Java]如何获取指定日期一天的开始时间和结束时间">[Java]如何获取指定日期一天的开始时间和结束时间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4060.htm" title="MySQL数据库生成某一年的日历存储过程_在线工具">MySQL数据库生成某一年的日历存储过程_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4051.htm" title="vue项目运行后自动运行浏览器（vue2/vue3）">vue项目运行后自动运行浏览器（vue2/vue3）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4040.htm" title="@order注解 解答">@order注解 解答</a></li>
+                        <li class="py-2"><a href="/html/category/article-4026.htm" title="ES6可选链操作符和空值合并运算符">ES6可选链操作符和空值合并运算符</a></li>
+                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4043.htm" title="AspNetCore配置多环境log4net配置文件">AspNetCore配置多环境log4net配置文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-4010.htm" title="关于java抽象方法和抽象类的一些理解">关于java抽象方法和抽象类的一些理解</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

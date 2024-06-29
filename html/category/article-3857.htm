@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3857.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>c++动态库与静态库 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">c++动态库与静态库 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <h2> <a id="_0" rel="nofollow"></a>什么是库</h2> <p>库是写好的现有的，成熟的，可以复用的代码。现实中每个程序员都要依赖很多基础的底层库，不可能每个人的代码都从零开始，因此库的存在意义非同寻常。</p> <p>本质上来说库是一种可执行代码的二进制形式，可以被操作系统载入内存执行。</p> <p>库有两种：静态库(.a，.lib)和动态库(.so，.all)。</p> <p><strong>所谓静态，动态是指链接。</strong></p> <p>回顾一下，将一整个程序编译成可执行程序的步骤：<br /> ![在这里插入图片描述](https://img-blog.csdnimg.cn/a693a678ff1e4a238f<img decoding="async" src="http://img.555519.xyz/uploads/20230223/d9c38c2a51e676168a9b870f8a65ba22.jpg" alt="c++动态库与静态库"></p> <h2> <a id="_13" rel="nofollow"></a>静态库</h2> <p>之所以称为静态库，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式为静态链接。</p> <p>静态库与汇编生成的目标文件一起链接为可执行文件，那么静态库必定与.o文件格式相似。其实静态库可以简单看成是一组目标文件.o/.obj的集合。</p> <p>静态库特点总结：</p> <ul> <li>静态库对函数库的链接是放在编译时期完成的。</li> <li>程序在运行是与函数再无瓜葛，移植方便。</li> <li>浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件。<br /> 创建静态库过程如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/cac57b56c3d4b2d72827b097814dd2ef.jpg" alt="c++动态库与静态库"><br /> VS工程下设置静态库的步骤：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/1afdff01dfa0f52d9895bc1dd26026c0.jpg" alt="c++动态库与静态库"> </li> </ul> <p>使用静态库的三种方法:</p> <p><strong>方法1</strong>：</p> <p>工程“属性面板”，“通用属性”， “框架和引用”，”添加引用”，将显示“添加引用”对话框。 “项目”选项卡列出了当前解决方案中的各个项目以及可以引用的所有库。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/f8167b554a4b712af30a17f8adf409b1.jpg" alt="c++动态库与静态库"><br /> 选择了某个库，必须修改包含目录路径。打开工程“属性面板”，”配置属性”， “C/C++，常规”，在“附加包含目录”属性值中，键入头文件所在目录的路径或浏览至该目录。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/80831a413fc27753a0e7491182680c64.jpg" alt="c++动态库与静态库"></p> <p>如果引用的静态库不是在同一解决方案下的子工程，而是使用第三方提供的静态库lib和头文件，上面的方法设置不了。还有2中方法设置都可行。</p> <p><strong>方法2</strong>：</p> <p>打开工程“属性面板”，”配置属性”， “链接器”，”命令行”，输入静态库的完整路径即可。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/344b916c42399b8ea0d92494bb315f6f.jpg" alt="c++动态库与静态库"><br /><strong>方法3：</strong></p> <ul> <li>“属性面板”，”配置属性”， “链接器”，”常规”，附加依赖库目录中输入，静态库所在目录；</li> <li>“属性面板”，”配置属性”，“链接器”，”输入”，附加依赖库中输入静态库名。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/c5a87964ad0831d01e75f0827040585a.jpg" alt="c++动态库与静态库"><img decoding="async" src="http://img.555519.xyz/uploads/20230223/f5ada0c4c45a31b53a5511e71b7efcb6.jpg" alt="c++动态库与静态库"> </li> </ul> <h2> <a id="_51" rel="nofollow"></a>动态库</h2> <p>通过上面的介绍发现静态库，容易使用和理解，也达到了代码复用的目的，那为什么还需要动态库呢？</p> <p>为什么需要动态库，其实也是静态库的特点导致。</p> <ul> <li> <p>空间浪费是静态库的一个问题。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/0cf55ec95c6cc858400e06f80628ce45.jpg" alt="c++动态库与静态库"></p> </li> <li> <p>另一个问题是静态库对程序的更新、部署和发布页会带来麻烦。如果静态库liba.lib更新了，所以使用它的应用程序都需要重新编译、发布给用户（对于玩家来说，可能是一个很小的改动，却导致整个程序重新下载，全量更新）。</p> </li> </ul> <p>动态库在程序编译时并不会被连接到目标代码中，而是在程序运行是才被载入。<strong>不同的应用程序如果调用相同的库，那么在内存里只需要有一份该共享库的实例，规避了空间浪费问题</strong>。动态库在程序运行是才被载入，也解决了静态库对程序的更新、部署和发布页会带来麻烦。用户只需要更新动态库即可，增量更新。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/eebdeac3cc122118f19f120de9450976.jpg" alt="c++动态库与静态库"></p> <p>动态库特点总结：</p> <ul> <li>动态库把对一些库函数的链接载入推迟到程序运行的时期。</li> <li>可以实现进程之间的资源共享。（因此动态库也称为共享库）</li> <li>将一些程序升级变得简单。 甚至可以真正做到链接载入完全由程序员在程序代码中控制（显示调用）。</li> </ul> <p><strong>动态库的设置与静态库的设置一样。</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/420cebaaa5b5bc17abe537abb697a8e1.jpg" alt="c++动态库与静态库"></p> <p>动态库的使用与静态库的使用基本相同。这里不再赘述。</p> <h2> <a id="_76" rel="nofollow"></a>总结</h2> <p><strong>二者的不同点在于代码被载入的时刻不同。</strong></p> <ul> <li>静态库在程序编译时会被连接到目标代码中，程序运行时将不再需要该静态库，因此体积较大。</li> <li>动态库在程序编译时并不会被连接到目标代码中，而是在程序运行是才被载入，因此在程序运行时还需要动态库存在，因此代码体积较小。</li> </ul> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3856.htm">spring cloud gateway和nacos整合</a></p>
+                                                <p>下一个：<a href="/html/category/article-3858.htm">Win10 的 WPF 程序的 wisptis 服务是附加到进程的窗口</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-4053.htm" title="Autograd：Pytorch 中的自动微分机制讲解">Autograd：Pytorch 中的自动微分机制讲解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4037.htm" title="C++中的匿名对象的概念和使用">C++中的匿名对象的概念和使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-4015.htm" title="MySQL 回表">MySQL 回表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4041.htm" title="关于信号量Semaphore的acquire与release的说明">关于信号量Semaphore的acquire与release的说明</a></li>
+                        <li class="py-2"><a href="/html/category/article-4047.htm" title="springboot关于mysql数据库date时间的坑">springboot关于mysql数据库date时间的坑</a></li>
+                        <li class="py-2"><a href="/html/category/article-4051.htm" title="vue项目运行后自动运行浏览器（vue2/vue3）">vue项目运行后自动运行浏览器（vue2/vue3）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4030.htm" title="vite+element-plus项目基础搭建">vite+element-plus项目基础搭建</a></li>
+                        <li class="py-2"><a href="/html/category/article-4044.htm" title="python2字符串编码方式_一、基础部分-2.字符串编码">python2字符串编码方式_一、基础部分-2.字符串编码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4008.htm" title="我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？">我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

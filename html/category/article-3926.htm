@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3926.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Feign实现远程接口的调用 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Feign实现远程接口的调用 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p><strong>目录</strong></p> <p id="%E4%B8%80.Feign%E4%BB%8B%E7%BB%8D-toc" style="margin-left:40px;"><a href="#%E4%B8%80.Feign%E4%BB%8B%E7%BB%8D" rel="nofollow">一.Feign介绍</a></p> <p id="%E4%BA%8C.Feign%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4-toc" style="margin-left:40px;"><a href="#%E4%BA%8C.Feign%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4" rel="nofollow">二.Feign使用步骤</a></p> <hr id="hr-toc"/> <h2 id="%E4%B8%80.Feign%E4%BB%8B%E7%BB%8D">一.Feign介绍</h2> <p>在开发中，我们常用httpClient去远程调用其他系统的接口，需要我们指定调用的url，Feign 是一个声明式的 Web Service 客户端，它实现了一套远程调用的方法，调用的方式也更为优雅。</p> <p>前提：1.被调用的模块注册到eureka中，能正常运行</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2.feign接口文件夹要和启动类在同一个目录下， 否则需指定包名，@EnableFeignClients(basePackages="com.**.***")</p> <h2 id="%E4%BA%8C.Feign%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4">二.Feign使用步骤</h2> <p>不同版本依赖可能略有区别</p> <p>2.1 添加feigh客户端依赖</p> <pre><code class="language-java">&lt;dependency&gt;     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;     &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <p>2.2 启动类上添加feign注解：@EnableFeignClients</p> <pre><code class="language-java">@SpringBootApplication @EnableDiscoveryClient @EnableFeignClients public class SIAPIApplication {     public static void main(String[] args) {         SpringApplication.run(SIAPIApplication.class, args);     }   }</code></pre> <p>2.3 application.yml配置文件添加配置信息</p> <pre><code>feign:   client:     config:       default:         connectTimeout: 10000         readTimeout: 10000</code></pre> <p>2.4 创建一个feign客户端，用于引入远程模块的接口：@FeignClient</p> <pre><code class="language-java"># 注册到eureka中的si-api模块名称 @FeignClient(value = "si-api")  public interface ApiOrderFlowService  {   &nbsp; &nbsp; &nbsp;// 这里定义了类似于SpringMVC用法的方法，就可以进行RESTful的调用了     /**      * 更新流程状态      */     @RequestMapping("flow/progressOrderFlow")     Result progressOrderFlow(@RequestParam("orderId") Long orderId);       /**      * 创建流程实例, 并关联指定订单      * @param orderId 指定订单ID      * @param  serviceOfferId 指定订单操作类型      * @return 流程数量      */     @RequestMapping("flow/createOrderFlowInst")     Result createOrderFlowInst(@RequestParam("orderId") Long orderId,                                @RequestParam("serviceOfferId") Integer serviceOfferId); }</code></pre> <p>2.5&nbsp; 在需要进行远程调用的方法里注入该接口，并调用对应的api接口方法</p> <pre><code class="language-java">    @Autowired     private ApiOrderFlowService apiOrderFlowService;</code></pre> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3925.htm">mysql做生日日期字段的用到的类型_MySQL 日期类型函数及使用</a></p>
+                                                <p>下一个：<a href="/html/category/article-3927.htm">Vue-跑马灯效果</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-4021.htm" title="使用feign客户端要使用注解@EnableFeignClients">使用feign客户端要使用注解@EnableFeignClients</a></li>
+                        <li class="py-2"><a href="/html/category/article-4061.htm" title="如何在Android sqlite中删除表？">如何在Android sqlite中删除表？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                        <li class="py-2"><a href="/html/category/article-4037.htm" title="C++中的匿名对象的概念和使用">C++中的匿名对象的概念和使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-4058.htm" title="TS语言与JS语言的区别">TS语言与JS语言的区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-4032.htm" title="springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成">springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-4065.htm" title="Zookeeper分布式一致性协议ZAB">Zookeeper分布式一致性协议ZAB</a></li>
+                        <li class="py-2"><a href="/html/category/article-4036.htm" title="字符数组和字符串的区别，C语言字符数组和字符串区别详解">字符数组和字符串的区别，C语言字符数组和字符串区别详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4028.htm" title="Halo 开源项目学习评论与点赞">Halo 开源项目学习评论与点赞</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

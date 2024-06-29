@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3929.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Citus 分布式 PostgreSQL 集群 &#8211; SQL Reference(手动查询传播) - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Citus 分布式 PostgreSQL 集群 &#8211; SQL Reference(手动查询传播) </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e486e3a9b4b0decb4cb1a878930ccdf8.jpg" alt="Citus 分布式 PostgreSQL 集群 - SQL Reference(手动查询传播)"></p> <h1 id="手动查询传播">手动查询传播</h1> <p>当用户发出查询时，<code>Citus</code><em>coordinator</em> 将其划分为更小的查询片段，其中每个查询片段可以在工作分片上独立运行。这允许<code>Citus</code> 将每个查询分布在集群中。</p> <p>但是，将查询划分为片段的方式（以及传播哪些查询）因查询类型而异。 在某些高级情况下，手动控制此行为很有用。<code>Citus</code> 提供实用函数来将<code>SQL</code> 传播到<code>workers</code>、<code>shards</code> 或<code>placements</code>。</p> <p>手动查询传播绕过<code>coordinator</code> 逻辑、锁定和任何其他一致性检查。 这些函数可作为最后的手段，以允许 Citus 否则不会在本机运行的语句。小心使用它们以避免数据不一致和死锁。</p> <h2 id="在所有-worker-上运行">在所有 Worker 上运行</h2> <p>最小的执行级别是广播一条语句以在所有<code>worker</code> 上执行。这对于查看整个工作数据库的属性很有用。</p> <pre><code class="language-sql">-- List the work_mem setting of each worker database SELECT run_command_on_workers($cmd$ SHOW work_mem; $cmd$);</code></pre> <blockquote> <p>注意：<br /><small><br /> 不应使用此命令在<code>worker</code> 上创建数据库对象，因为这样做会使以自动方式添加<code>worker</code> 节点变得更加困难。<br /></small></p> </blockquote> <blockquote> <p>注意：<br /><small><br /> 本节中的<code>run_command_on_workers</code> 函数和其他手动传播命令只能运行返回单列单行的查询。</small></p> <p><small></small></p></blockquote> <h2 id="在所有分片上运行">在所有分片上运行</h2> <p>下一个粒度级别是在特定分布式表的所有分片上运行命令。例如，在直接在<code>worker</code> 上读取表的属性时，它可能很有用。 在<code>worker</code> 节点上本地运行的查询可以完全访问元数据，例如表统计信息。</p> <p><code>run_command_on_shards</code> 函数将<code>SQL</code> 命令应用于每个分片，其中提供分片名称以在命令中进行插值。 这是一个估计分布式表行数的示例，通过使用每个<code>worker</code> 上的<code>pg_class</code> 表来估计每个分片的行数。 请注意将替换为每个分片名称的<code>%s</code>。</p> <pre><code class="language-sql">-- Get the estimated row count for a distributed table by summing the -- estimated counts of rows for each shard. SELECT sum(result::bigint) AS estimated_count   FROM run_command_on_shards(     'my_distributed_table',     $cmd$       SELECT reltuples         FROM pg_class c         JOIN pg_catalog.pg_namespace n on n.oid=c.relnamespace        WHERE (n.nspname || '.' || relname)::regclass = '%s'::regclass          AND n.nspname NOT IN ('citus', 'pg_toast', 'pg_catalog')     $cmd$   );</code></pre> <h2 id="在所有放置上运行">在所有放置上运行</h2> <p>最精细的执行级别是在所有分片及其副本（也称为<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.citusdata.com/en/v11.0-beta/develop/api_metadata.html#placements"  target="_blank" rel="nofollow">放置</a>）上运行命令。它对于运行数据修改命令很有用，这些命令必须应用于每个副本以确保一致性。</p> <p>例如，假设一个分布式表有一个<code>updated_at</code> 字段，我们想要“触摸”所有行，以便在某个时间将它们标记为已更新。<code>coordinator</code> 上的普通<code>UPDATE</code> 语句需要按分布列进行过滤，但我们可以手动将更新传播到所有分片和副本：</p> <pre><code class="language-sql">-- note we're using a hard-coded date rather than -- a function such as "now()" because the query will -- run at slightly different times on each replica  SELECT run_command_on_placements(   'my_distributed_table',   $cmd$     UPDATE %s SET updated_at = '2017-01-01';   $cmd$ );</code></pre> <p><code>run_command_on_placements</code> 的一个有用伴侣是<code>run_command_on_colocated_placements</code>。 它将位于<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.citusdata.com/en/v11.0-beta/sharding/data_modeling.html#colocation"  target="_blank" rel="nofollow">共置</a>的分布式表的两个位置的名称插入到查询中。放置对总是被选择为本地的同一个<code>worker</code>，其中完整的<code>SQL</code> 覆盖是可用的。因此，我们可以使用触发器等高级<code>SQL</code> 功能来关联表：</p> <pre><code class="language-sql">-- Suppose we have two distributed tables CREATE TABLE little_vals (key int, val int); CREATE TABLE big_vals    (key int, val int); SELECT create_distributed_table('little_vals', 'key'); SELECT create_distributed_table('big_vals',    'key');  -- We want to synchronize them so that every time little_vals -- are created, big_vals appear with double the value -- -- First we make a trigger function, which will -- take the destination table placement as an argument CREATE OR REPLACE FUNCTION embiggen() RETURNS TRIGGER AS $$   BEGIN     IF (TG_OP = 'INSERT') THEN       EXECUTE format(         'INSERT INTO %s (key, val) SELECT ($1).key, ($1).val*2;',         TG_ARGV[0]       ) USING NEW;     END IF;     RETURN NULL;   END; $$ LANGUAGE plpgsql;  -- Next we relate the co-located tables by the trigger function -- on each co-located placement SELECT run_command_on_colocated_placements(   'little_vals',   'big_vals',   $cmd$     CREATE TRIGGER after_insert AFTER INSERT ON %s       FOR EACH ROW EXECUTE PROCEDURE embiggen(%L)   $cmd$ );</code></pre> <h2 id="限制">限制</h2> <ul> <li>多语句事务没有防止死锁的安全措施。</li> <li>没有针对中间查询失败和由此产生的不一致的安全措施。</li> <li>查询结果缓存在内存中； 这些函数无法处理非常大的结果集。</li> <li>如果无法连接到节点，这些函数会提前出错。</li> <li>你可以做很坏的事情！</li> </ul> <ol></ol> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3928.htm">ReLabel：自动将ImageNet转化成多标签数据集，更准确地有监督训练 | 2021新文</a></p>
+                                                <p>下一个：<a href="/html/category/article-3930.htm">Java 方法的定义与调用详解_java</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4015.htm" title="MySQL 回表">MySQL 回表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4030.htm" title="vite+element-plus项目基础搭建">vite+element-plus项目基础搭建</a></li>
+                        <li class="py-2"><a href="/html/category/article-4031.htm" title="使用Nginx实现多个Tomcat负载均衡">使用Nginx实现多个Tomcat负载均衡</a></li>
+                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                        <li class="py-2"><a href="/html/category/article-4028.htm" title="Halo 开源项目学习评论与点赞">Halo 开源项目学习评论与点赞</a></li>
+                        <li class="py-2"><a href="/html/category/article-4032.htm" title="springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成">springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-4027.htm" title="前端需要了解的颜色模型，RGB、HSL和HSV_在线工具">前端需要了解的颜色模型，RGB、HSL和HSV_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4009.htm" title="Java 超详细讲解ThreadLocal类的使用_java">Java 超详细讲解ThreadLocal类的使用_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-4041.htm" title="关于信号量Semaphore的acquire与release的说明">关于信号量Semaphore的acquire与release的说明</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

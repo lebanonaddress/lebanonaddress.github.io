@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4004.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Python tkinter库图形绘制例子分享_python_ - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Python tkinter库图形绘制例子分享_python_ </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">一、椭圆绘制</a></li> <li><a href="#_label1" rel="nofollow">二、矩形绘制</a></li> <li><a href="#_label2" rel="nofollow">三、多边形绘制</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>一、椭圆绘制</h2> <p><strong>实例代码：</strong></p> <div class="ay1code"> <pre class="brush:py;">import tkinter as tk                    # 导入tkinter库，并重命名为tk  from tkinter import messagebox          # 导入messagebox模块  mywindow = tk.Tk()                      # 创建一个窗体  mywindow.title("绘制椭圆")              # 设置窗体的标题  # 创建画布并布局  mycanvas = tk.Canvas(mywindow,width=350,height=350,bg="white")  mycanvas.pack()  # 绘制椭圆  myoval = mycanvas.create_oval(10,20,340,300)   # create_oval()方法绘制椭圆  # 设置椭圆边框的宽度和颜色  myova2 = mycanvas.create_oval(30,50,320,280,width=5)  myova3 = mycanvas.create_oval(50,70,320,260,width=5,outline="red")  # 设置椭圆的边框是否是虚线  myova4 = mycanvas.create_oval(70,90,300,240,width=8,outline="red",dash=(5,3))  # 设置椭圆的填充色  myova5 = mycanvas.create_oval(100,120,260,200,width=8,outline="blue",dash=(5,3),fill="purple")  # 绘制圆  myova6 = mycanvas.create_oval(140,140,180,180,width=5,outline="red")     mywindow.mainloop()      # 显示画布</pre> </div> <p><strong>运行结果：</strong></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220414/031f52441f63b8647a8a6030ac9aefcb.jpg"></p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>二、矩形绘制</h2> <p><strong>实例代码：</strong></p> <div class="ay1code"> <pre class="brush:py;">import tkinter as tk                    # 导入tkinter库，并重命名为tk  from tkinter import messagebox          # 导入messagebox模块  mywindow = tk.Tk()                      # 创建一个窗体  mywindow.title("绘制矩形")               # 设置窗体的标题  # 创建画布并布局  mycanvas = tk.Canvas(mywindow, width=350, height=350, bg="purple")  mycanvas.pack()  # 绘制矩形  a = 10         # 定义两个整型变量  b = 340  # 利用for循环结制多个矩形  for i in range(a, b, 20):      mycanvas.create_rectangle(a+i, a+i, b-i, b-i)   # .create_rectangle()方法可以绘制矩形     mywindow.mainloop()      # 显示画布</pre> </div> <p><strong>运行结果：</strong></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220414/d54b0d19ff2e06a678db451fa0828589.jpg"></p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>三、多边形绘制</h2> <p><strong>实例代码：</strong></p> <div class="ay1code"> <pre class="brush:py;">import tkinter as tk                     # 导入tkinter库，并重命名为tk  mywindow = tk.Tk()                       # 创建一个窗体  mywindow.title("绘制多边形")              # 设置窗体的标题  # 创建画布并布局  mycanvas = tk.Canvas(mywindow, width=250, height=250, bg="white")  mycanvas.pack()     # 绘制多边形  mycanvas.create_polygon(80,80,80,180,130,220,180,180,180,80,130,40, fill="purple",width=5,outline="red")     mywindow.mainloop()      # 显示画布</pre> </div> <p><strong>运行结果：</strong></p> <p> </p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220414/dd8dc735f4f705f471368c2bddf743f3.jpg"></p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4003.htm">【Sharding-JDBC】Sharding-JDBC入门（一）——数据分片</a></p>
+                                                <p>下一个：<a href="/html/category/article-4005.htm">一文搞懂MySQL事务的隔离性如何实现｜MVCC</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4058.htm" title="TS语言与JS语言的区别">TS语言与JS语言的区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-4063.htm" title="Python生成sql语句">Python生成sql语句</a></li>
+                        <li class="py-2"><a href="/html/category/article-4008.htm" title="我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？">我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4050.htm" title="C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数">C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数</a></li>
+                        <li class="py-2"><a href="/html/category/article-4011.htm" title="光的偏振">光的偏振</a></li>
+                        <li class="py-2"><a href="/html/category/article-4064.htm" title="用python实现文件的词频统计">用python实现文件的词频统计</a></li>
+                        <li class="py-2"><a href="/html/category/article-4053.htm" title="Autograd：Pytorch 中的自动微分机制讲解">Autograd：Pytorch 中的自动微分机制讲解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-4040.htm" title="@order注解 解答">@order注解 解答</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

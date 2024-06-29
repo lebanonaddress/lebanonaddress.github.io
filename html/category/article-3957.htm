@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3957.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>python hdfs模块使用 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">python hdfs模块使用 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <hr/> <p>title: python hdfs模块使用<br /> date: 2017-02-21 20:43:11<br /> categories: Python<br /> tags: HDFS</p> <hr/> <p>HDFS是hadoop分布式文件系统，HDFS中有两类节点。一类是NameNode，一类是DataNode。<br /> 其中NameNode是管理者，存储各种文件的元数据，SecondaryNameNode作为NameNode的冷备份。DataNode则是真正存储数据块，进行文件读写的地方。<br /> 更多内容参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.uml.org.cn/sjjm/201309044.asp"  rel="nofollow">HDFS 原理、架构与特性介绍</a></p> <p>python中对hdfs api封装的模块主要有hdfs,hdfs3,pytinyhdfs，PYHDFS等。这里选择hdfs比较简单清晰。</p> <ol> <li> <p>安装<br /><code>pip install hdfs</code></p> </li> <li> <p>连接</p> <pre><code class="prism language-python">     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> hdfs <span class="token keyword">import</span> <span class="token operator">*</span>      <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token operator">=</span>Client<span class="token punctuation">(</span><span class="token string">'http://192.168.71.109:50070'</span><span class="token punctuation">)</span> </code></pre> <pre><code>    这里是在windwos上连接IP为192.168.71.109的安装有hadoop机器 </code></pre> </li> <li> <p>列出文件</p> <pre><code class="prism language-python">     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span><span class="token builtin">list</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>      <span class="token punctuation">[</span><span class="token string">'2017'</span><span class="token punctuation">]</span> </code></pre> </li> <li> <p>新建文件夹</p> <pre><code class="prism language-python">     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span><span class="token string">'/a/b/c'</span><span class="token punctuation">)</span> </code></pre> <pre><code> 可以递归创建文件夹，完成后不返回结果 </code></pre> </li> <li> <p>重命名/移动</p> <pre><code class="prism language-python">     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>rename<span class="token punctuation">(</span><span class="token string">'/2017/02'</span><span class="token punctuation">,</span><span class="token string">'/2017/03'</span><span class="token punctuation">)</span>      <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span><span class="token builtin">list</span><span class="token punctuation">(</span><span class="token string">'/2017'</span><span class="token punctuation">)</span>      <span class="token punctuation">[</span><span class="token string">'03'</span><span class="token punctuation">]</span> </code></pre> <pre><code> 可以对文件进行重命名，移动操作，类似mv命令。函数原型`rename (hdfs_src_path, hdfs_dst_path)` </code></pre> </li> <li> <p>删除</p> <pre><code class="prism language-python">     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>delete<span class="token punctuation">(</span><span class="token string">'/2017'</span><span class="token punctuation">,</span>recursive<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>      <span class="token boolean">True</span> </code></pre> <pre><code> recursive为递归删除，类似`rm -r`，函数原型`delete(hdfs_path, recursive=False)` </code></pre> </li> <li> <p>写文件</p> <pre><code class="prism language-python">    <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'D:/tmp/test.txt'</span><span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     data<span class="token operator">=</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'/2017/02/test.txt'</span><span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span> </code></pre> <p>这里会报错，信息如下：</p> <pre><code class="prism language-python">  requests<span class="token punctuation">.</span>exceptions<span class="token punctuation">.</span>ConnectionError<span class="token punctuation">:</span> HTTPConnectionPool<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'debian'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">50075</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Max retries exceeded <span class="token keyword">with</span> url<span class="token punctuation">:</span> <span class="token operator">/</span>webhdfs<span class="token operator">/</span>v1<span class="token operator">/</span><span class="token number">2017</span><span class="token operator">/</span><span class="token number">02</span><span class="token operator">/</span>test<span class="token punctuation">.</span>txt?op<span class="token operator">=</span>CREATE<span class="token operator">&amp;</span>namenoderpcaddress<span class="token operator">=</span>localhost<span class="token punctuation">:</span><span class="token number">9000</span><span class="token operator">&amp;</span>overwrite<span class="token operator">=</span>false <span class="token punctuation">(</span>Caused by NewConnectionError<span class="token punctuation">(</span>'<span class="token operator">&lt;</span>requests<span class="token punctuation">.</span>packages<span class="token punctuation">.</span>urllib3<span class="token punctuation">.</span>connection<span class="token punctuation">.</span>HTTPConnection <span class="token builtin">object</span> at <span class="token number">0x03BB0D10</span><span class="token operator">&gt;</span><span class="token punctuation">:</span> Failed to establish a new connection<span class="token punctuation">:</span> <span class="token punctuation">[</span>Errno <span class="token number">11001</span><span class="token punctuation">]</span> getaddrinfo failed'<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> <p>这里<code>host='debian'</code>，<code>namenoderpcaddress=localhost:9000</code>，debian是安装hadoop的linux主机名，localhost:9000并不是namenode所在IP。原因是hdfs在读写操作中，namenode向客户端返回datanode时是主机名，而不是IP。所以需要在hosts文件中加入datanode主机名与IP的记录。</p> <pre><code>#	127.0.0.1       localhost #	::1             localhost 192.168.71.109 debian </code></pre> <p>再来操作即可成功。</p> <pre><code class="prism language-python">   <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'/2017/02/test.txt'</span><span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span>    <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span><span class="token builtin">list</span><span class="token punctuation">(</span><span class="token string">'/2017/02/'</span><span class="token punctuation">)</span>    <span class="token punctuation">[</span><span class="token string">'test.txt'</span><span class="token punctuation">]</span> </code></pre> <p>函数原型：<code>write(hdfs_path, data=None, overwrite=False, permission=None, blocksize=None, replication=None, buffersize=None, append=False, encoding=None)</code></p> <p>overwrite 当目标文件存在时，覆盖写入。</p> </li> <li> <p>读文件</p> <pre><code class="prism language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">with</span> client<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token string">'/2017/02/test.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     data<span class="token operator">=</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token number">2017</span>年<span class="token number">2</span>月<span class="token number">21</span>日<span class="token number">13</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">:</span><span class="token number">37</span> test </code></pre> </li> <li> <p>上传</p> <pre><code class="prism language-python">   <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>upload<span class="token punctuation">(</span><span class="token string">'/2017/02/test.txt'</span><span class="token punctuation">,</span><span class="token string">'D:/tmp/test.txt'</span><span class="token punctuation">,</span>overwrite<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>    <span class="token string">'/2017/02/test.txt'</span> </code></pre> </li> <li> <p>下载</p> </li> </ol> <pre><code>```python &gt;&gt;&gt; client.download('/2017/02/test.txt','D:/tmp/test2.txt') 'D:\\tmp\\test2.txt' ``` </code></pre> <p><strong>参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://hdfscli.readthedocs.io/en/latest/index.html"  rel="nofollow">官方文档</a></strong></p> </p></div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3956.htm">如何解决sass-loader和node-sass版本冲突的问题_vue.js_</a></p>
+                                                <p>下一个：<a href="/html/category/article-3958.htm">Vue知识点整理编程式路由导航、缓存路由组件、两个新的生命周期钩子</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4057.htm" title="vue打包后整合到springboot项目、并打包成jar上传到Linux服务器运行【前后端分离开发、整体部署到Linux服务器】">vue打包后整合到springboot项目、并打包成jar上传到Linux服务器运行【前后端分离开发、整体部署到Linux服务器】</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                        <li class="py-2"><a href="/html/category/article-4038.htm" title="[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案">[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案</a></li>
+                        <li class="py-2"><a href="/html/category/article-4049.htm" title="JAVA初始化自定义类的数组">JAVA初始化自定义类的数组</a></li>
+                        <li class="py-2"><a href="/html/category/article-4054.htm" title="[Java]如何获取指定日期一天的开始时间和结束时间">[Java]如何获取指定日期一天的开始时间和结束时间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4019.htm" title="os.walk函数">os.walk函数</a></li>
+                        <li class="py-2"><a href="/html/category/article-4039.htm" title="CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具">CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4017.htm" title="Javascript搜索集合中的对象键">Javascript搜索集合中的对象键</a></li>
+                        <li class="py-2"><a href="/html/category/article-4008.htm" title="我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？">我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

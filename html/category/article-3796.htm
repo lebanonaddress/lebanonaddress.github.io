@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3796.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>vue3中 setup注意点 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">vue3中 setup注意点 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/51d7d21338dd6446ebb64ecb940fb2b9.jpg" alt="vue3中 setup注意点"></p> <h2><a id="setupbeforeCreatethisundefined_2" rel="nofollow"></a>setup执行的时机：<strong>在beforeCreate之前</strong>执行一次，this是undefined。</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/e109070af736a563ff14cf9808464c0e.jpg" alt="vue3中 setup注意点"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/7f59997885b93f934e04df213fcf4a78.jpg" alt="vue3中 setup注意点"></p> <h2><a id="setup2_7" rel="nofollow"></a>setup参数（只能收到2个）：</h2> <p>1 props:值 为对象，包含：组件外部传递过来，且组件内部声明接收了的属性。<br /> 2 context：上下文对象。<br /> （1）attrs: 值为对象，包含：组件外部传递过来，但没有在props配置中声明的属性，相当于this. $attrs。<br /> （2）slots: 收到的插槽内容，相当于this. $slots。<br /> （3）emit: 分发自定义事件的函数，相当于 this. $emit。</p> <p>解析<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/3844f8754633a776a317e4193d15d92a.jpg" alt="vue3中 setup注意点"><br /> 注意的是setup接收参数的时候，必须有props接收声明，否则就会警告，跟vue2是不一样的。</p> <p>context是一个对象<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/faa46bf168d6417f50ed2b4fe79f7b4c.jpg" alt="vue3中 setup注意点"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/f9192d3f34b9a702ca29a4e4ec012d14.jpg" alt="vue3中 setup注意点"><br /> 传值事件上也是不一样的。<br /> 父组件App<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/0d67d234be16b3e7c763292cfc32627d.jpg" alt="vue3中 setup注意点"><br /> 子组件<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/6588715fb22bb75972890375d9a55f4b.jpg" alt="vue3中 setup注意点"><br /> 插槽 建议直接用 v-slot: slot名<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/a2b5cd4237f07cbed5941c55d93b0123.jpg" alt="vue3中 setup注意点"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/937dc7080fa1eb73beefcb65ea1aec61.jpg" alt="vue3中 setup注意点"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/822697f7aac570a4ca74022abcc94395.jpg" alt="vue3中 setup注意点"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/92093f0ee63555a90ee8aeb4a01d13cc.jpg" alt="vue3中 setup注意点"></p> <p>vue3的生命周期钩子函数后边在说。</p> <p>我们在看一下<strong>vue2 的 知识点。</strong><br /><strong>插槽：</strong> slot可以给组件动态插入一些内容或组件，是实现高阶函数的重要途径，当需要多个插槽时，可使用具名插槽slot。<br /> 父子组件传值 props / this.$emit<br /><strong>父组件向子组件传值</strong>：在子组件标签上绑定自定义属性名(:child = ‘value’)，值是父组件要传递的数据，在子组件内部通过<strong>props</strong> 属性来接收 ‘自定义属性名’，页面在展示上，通过接收的 {<!-- -->{属性名}} 显示。（父子之间是上下传值）<br /><strong>子组件向父组件传值</strong>：在子组件标签上绑定自定义事件(@change= ‘change’)，子组件内部通过 $emit 给该事件推送数据<strong>(this. $emit</strong>(‘绑定的自定义事件名’,this.数据))。父组件内部通过“函数参数”接收。（子组件之间是平行传值）</p> <pre><code>&lt;fu&gt; 	&lt;zi :isdel=”fuvalue” @ziuser=”fudel”&gt;&lt;/zi&gt; 	Methods:{ 		Fudel(value){ Console.log(value) } 	} &lt;/fu&gt; &lt;zi @click=”user”&gt; 	props:{isdel:{对象形式}} 或者 props:[“isdel”] 	methods:{ 		User(){this.$emit(“ziuser”,’this.value’) } 	} &lt;/zi&gt;</code></pre> <h2><a id="vue2_58" rel="nofollow"></a>vue2生命周期钩子函数以及每个阶段的作用</h2> <p><strong>vue实例有一个完整的生命周期，生命周期也就是指一个实例从开始创建到销毁的这个过程;</strong><br /> 常用的</p> <pre><code>beforeCreate() 在实例创建之间执行，数据未加载状态/  created() 在实例创建、数据加载后，能初始化数据，dom渲染之前执行/  beforeMount() 虚拟dom已创建完成，在数据渲染前最后一次更改数据/  mounted() 页面、数据渲染完成，真实dom挂载完成/  beforeUpadate() 重新渲染之前触发/  updated() 数据已经更改完成，dom 也重新 render 完成,更改数据/  beforeDestory() 是销毁前执行（实例仍然完全可用）/  destoryed() 则是销毁后执行/  keep-alive 缓存。</code></pre> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3795.htm">vue3及与vue2的区别总结（部分）</a></p>
+                                                <p>下一个：<a href="/html/category/article-3797.htm">PowerShell中的复制项目用于什么？</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4010.htm" title="关于java抽象方法和抽象类的一些理解">关于java抽象方法和抽象类的一些理解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                        <li class="py-2"><a href="/html/category/article-4038.htm" title="[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案">[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案</a></li>
+                        <li class="py-2"><a href="/html/category/article-4011.htm" title="光的偏振">光的偏振</a></li>
+                        <li class="py-2"><a href="/html/category/article-4019.htm" title="os.walk函数">os.walk函数</a></li>
+                        <li class="py-2"><a href="/html/category/article-4054.htm" title="[Java]如何获取指定日期一天的开始时间和结束时间">[Java]如何获取指定日期一天的开始时间和结束时间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4051.htm" title="vue项目运行后自动运行浏览器（vue2/vue3）">vue项目运行后自动运行浏览器（vue2/vue3）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4027.htm" title="前端需要了解的颜色模型，RGB、HSL和HSV_在线工具">前端需要了解的颜色模型，RGB、HSL和HSV_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

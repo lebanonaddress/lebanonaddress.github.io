@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3916.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>JavaScript函数调用及函数上下文(this) - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">JavaScript函数调用及函数上下文(this) </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p>JavaScript中函数调用有如下4种方式：</p> <p><strong>1.作为一个函数直接被调用， func()。</strong></p> <p>&nbsp; &nbsp;此时，在非严格模式中函数上下文this指向全局window;在严格模式中指向undefined</p> <p><strong>2.作为一个对象的方法调用，obj.func()。</strong></p> <p>&nbsp; 此时，上下文this指向这个调用它的对象obj</p> <p><strong>3.作为构造函数调用new Func()，实例化一个新的对象。</strong></p> <p>&nbsp; 此时，构造函数内部的this指向其实例化的对象。</p> <pre class="has"><code class="language-javascript">function Func(name) {    this.name = name } let obj1 = new Func('zhangshan'); let obj2 = new Func('lisi');  obj1.name  // =&gt; 'zhangshan' obj2.name  // =&gt; 'lisi'</code></pre> <p>&nbsp; <strong>当通过new关键字调用构造函数时会做如下操作：</strong></p> <p>&nbsp; &nbsp; &nbsp; 1).创建一个新的空对象。</p> <p>&nbsp; &nbsp; &nbsp; 2).该对象作为this参数传递给构造函数，从而成为构造函数的函数上下文（构造函数的作用域赋给新对象，因此构造函数中&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 的&nbsp;this指向了这个新对象）。</p> <p>&nbsp; &nbsp; &nbsp; 3).以创建的对象为上下文执行构造函数中的代码（为新对象添加属性）</p> <p>&nbsp; &nbsp; &nbsp; 4).新构造的对象作为new运算符的返回值<br /> &nbsp; &nbsp; &nbsp; &nbsp;<strong>注：</strong><br /> &nbsp; &nbsp; &nbsp; &nbsp; a:如果构造函数返回一个对象，则该对象将作为整个表达式的值返回，&nbsp;而传入构造函数的this将被丢弃。<br /> &nbsp; &nbsp; &nbsp; &nbsp; b.如果构造函数返回的是非对象类型，则忽略返回值，返回新创建的对象。<br /> &nbsp; &nbsp; &nbsp; &nbsp; c.每个函数都有一个原型对象（可以通过函数的prototype属性访问），该原型对象将被自动设置为通过该函数创建对象的原型。函数的原型可以被任意替换，已经构建的实例引用旧的原型,重新定义函数原型对已经构建的实例没有影响。</p> <pre class="has"><code class="language-javascript">//new 操作过程可以用如下代码来表示  let obj = new Object(); Constructor = [].shift.call(arguments); obj.__proto__ = Constructor.prototype; let ret = Contructor.apply(obj, arguments); return typeof ret === 'object' ? ret : obj</code></pre> <pre class="has"><code class="language-javascript">function Func(name) {    this.name = name    return 1 }  let obj = new Func('zhangshan'); obj  // =&gt; 忽略构造函数中返回值1 还是返回对象 { name: 'zhangshan'};  function Func(name) {    this.name = name    return {      name: 'wang2'    } }  let obj2 = new Func('lisi); obj2 // =&gt; { name: 'wang2'} </code></pre> <p>4.通过函数的apply或者call方法——func.apply(obj)或者func.call(obj)。</p> <pre class="has"><code class="language-javascript">let obj1 = {   name: 'zhangshan' } let obj2 = {   name: 'lisi' }  function func(age) {   console.log(`${this.name} age ${age}`) }  func.call(obj1, 22) // =&gt; zhangshan age 22 func.call(obj2, 26) // =&gt; lisi age 26  //call, apply第一个参数是函数的上下文this //如果第一个参数是null，在非严格模式下this指向window, 严格模式下指向null //apply和call的用法是一样的除了call传递的参数必须一个一个列出来，apply是以数组形式传递参数 </code></pre> <p>在JavaScript中this的值会根据函数的调用方式不同而不同，有时候会使程序中this出现与预期不一致的情况。<br /> 决解方式有两种：使用es6的箭头函数 和 通过bind绑定上下文</p> <pre class="has"><code class="language-javascript">function Ninja(){   this.whoAmI = () =&gt; this; } var ninja1 = new Ninja(); var ninja2 = {   whoAmI: ninja1.whoAmI };  ninja1.whoAmI() === ninja1 //true ninja2.whoAmI() === ninja2 //false   //在箭头函数中this等于函数定义时的上下文 //在这个例子中this是指向ninja1 //所以ninja2.whoAmI() 还是指向ninja1  function Ninja(){   this.whoAmI = function(){     return this;   }.bind(this); } var ninja1 = new Ninja(); var ninja2 = {   whoAmI: ninja1.whoAmI };  ninja1.whoAmI() === ninja1  // true ninja2.whoAmI() === ninja2  //false  //在实例化ninja1的时候， ninja1.whoAmI中的this被绑定为ninja1 //所以不管怎样的方式调用ninja1.whoAmI都是指向 ninja1  //注：此例摘录自 《JavaSript忍者秘籍第2版》</code></pre> <pre class="has"><code class="language-javascript">    const obj = {       func1() {         return this === obj       },       func2: () =&gt; this === window     }     console.log(obj.func1()) //true     console.log(obj.func2()) //true </code></pre> <p>&nbsp;</p> </p></div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3915.htm">shiro550反序列学习</a></p>
+                                                <p>下一个：<a href="/html/category/article-3917.htm">vue实力踩坑 当前页push当前页无效的解决_vue.js_</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4020.htm" title="spring schedule 配置多任务动态 cron 【增删启停】">spring schedule 配置多任务动态 cron 【增删启停】</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                        <li class="py-2"><a href="/html/category/article-4028.htm" title="Halo 开源项目学习评论与点赞">Halo 开源项目学习评论与点赞</a></li>
+                        <li class="py-2"><a href="/html/category/article-4012.htm" title="修改docker 默认镜像存储路径">修改docker 默认镜像存储路径</a></li>
+                        <li class="py-2"><a href="/html/category/article-4036.htm" title="字符数组和字符串的区别，C语言字符数组和字符串区别详解">字符数组和字符串的区别，C语言字符数组和字符串区别详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4045.htm" title="在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？">在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4059.htm" title="Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程">Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程</a></li>
+                        <li class="py-2"><a href="/html/category/article-4024.htm" title="网络协议之:socket协议详解之Unix domain Socket">网络协议之:socket协议详解之Unix domain Socket</a></li>
+                        <li class="py-2"><a href="/html/category/article-4017.htm" title="Javascript搜索集合中的对象键">Javascript搜索集合中的对象键</a></li>
+                        <li class="py-2"><a href="/html/category/article-4054.htm" title="[Java]如何获取指定日期一天的开始时间和结束时间">[Java]如何获取指定日期一天的开始时间和结束时间</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

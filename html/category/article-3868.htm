@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3868.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>iOS全埋点解决方案手势采集 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">iOS全埋点解决方案手势采集 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<h3 id="前言">前言</h3> <p>	随着科技以及业务的发展，手势的应用也越来越普及，因此对于数据采集，我们要考虑如果通过全埋点来实现手势的采集。</p> <h3 id="一手势识别器">一、手势识别器</h3> <p>	苹果为了降低开发者在手势事件处理方面的开发难度，定义了一个抽象类 UIGestureRecognizer 来协助开发者。UIGestureRecognizer 是具体手势识别器的抽象基类，它定义了一组可以为所有具体手势识别器配置的常见行为。它还可以通过设置委托（即实现了 UIGestureRecognizerDelegate 协议的对象），来支持对某些行为进行更细粒度的定制。</p> <p>	手势识别器必须被添加在一个特定的视图上（比如 UILabel、UIImageView 等控件），即需要通过调用 UIView 类中的 - addGestureRecognizer: 方法进行添加。手势识别器也是用了 Target-Action 设计模式。当我们为一个手势识别器添加一个或者多个 Target-Action 后，在视图上进行触摸操作时，一旦系统识别了该手势，就会向所有的 Target 对象发送消息，并执行 Action 方法。虽然手势识别器和 UIControl 类一样，都是使用了 Target-Action 设计模式，但是手势识别器并不会将消息交由 UIApplication 对象来进行发送。因此，我们无法使用与 UIControl 控件相同的处理方式，即通过响应者链的方式来实现对手势操作的全埋点。</p> <p>	由于 UIGestureRecognizer 是一个抽象基类，所以它并不会处理具体的手势。因此，对于轻拍（UITapGestureRecognizer）、长按（UILongPressGestureRecognizer）等具体的手势触摸事件，需要使用相应的子类即具体的手势识别器进行处理。</p> <p>常见的具体手势识别器有：</p> <ul> <li>UITapGestureRecognizer：轻拍手势</li> <li>UILongPressGestureRecognizer：长按手势</li> <li>UIPinchGestureRecognizer：捏合（缩放）手势</li> <li>UIRotationGestureRecognizer：旋转手势</li> <li>UISwipeGestureRecognizer：轻扫手势</li> <li>UIPanGestureRecognizer：平移手势</li> <li>UIScreenEdgePanGestureRecognizer：屏幕边缘平移手势</li> </ul> <p>	给上面所有的具体手势识别器添加 Target-Action 的方法都是相同的，常见的主要是通过以下的两个方法进行添加。</p> <ul> <li> <p>initWithTarget:target action:</p> </li> <li> <p>addTarget:action:</p> <p>详细的定义参考如下：</p> <pre><code>/** 指定初始化方法  通过添加一个 Target-Action 进行初始化， 当初始化的手势识别器对象，识别到触摸手势时，会向 Target 对象发送消息，即调用 Action 方法  @param target 需要发送消息的 Target 对象 @param action 向 Target 对象发送的消息，即方法名 @return 初始化的对象 */ - (instancetype)initWithTarget:(nullable id)target action:(nullable SEL)action NS_DESIGNATED_INITIALIZER;  /** 向一个手势识别器添加一个 Target-Action  可以多次调用此方法，给一个手势识别器对象添加多个 Target-Action 。 如果已经添加了一个 Target-Action，再次添加相同的 Target-Action 时，会被忽略。  @param target 需要发送消息的 Target 对象 @param action 向 Target 对象发送的消息，即方法名 */ - (void)addTarget:(id)target action:(SEL)action;</code></pre> </li> </ul> <p>    在实际的开发过程中，使用比较多的是 UITapGestureRecognizer 和 UILongPressGestureRecognizer 两个手势识别器，这两个手势识别器分别是处理轻拍手势和长按手势。</p> <h3 id="二手势全埋点">二、手势全埋点</h3> <p>	在数据采集中，一般只需要采集常见控件（UILabel、UIImageView）的轻拍和长按手势。<br /> 所以，我们分别介绍如何实现控件轻拍和长按手势的全埋点。</p> <h4 id="21-uitapgesturerecognizer-全埋点">2.1 UITapGestureRecognizer 全埋点</h4> <p>	为了采集控件的轻拍手势，我们可以通过 Method Swizzling 交换 UITapGestureRecognizer 类的添加 Target-Action 的方法，从而可以添加一个新的 Target-Action，并在新添加的 Action 方法中触发 $AppClick 事件，从而就可以达到采集控件轻拍手势全埋点的效果。</p> <p>在 UITapGestureRecognizer 类中，用于添加 Target-Action 方法有两个：</p> <p>• - initWithTarget:action:</p> <p>• - addTarget:action:</p> <p>因此，我们需要对这两个方法分别进行交换。</p> <p>第一步：创建 UITapGestureRecognizer 分类 UIGestureRecognizer+SensorsData，并实现 +load 类方法，在 + load方法中，进行 - initWithTarget:action: 和 - addTarget:action: 的方法交换。</p> <pre><code>#import "UIGestureRecognizer+SensorsData.h" #import "NSObject+SASwizzler.h" #import "SensorsAnalyticsSDK+Track.h"  @implementation UITapGestureRecognizer (SensorsData)  + (void)load {     [UITapGestureRecognizer sensorsdata_swizzleMethod:@selector(sensorsdata_initWithTarget:action:) withMethod:@selector(initWithTarget:action:)];     [UITapGestureRecognizer sensorsdata_swizzleMethod:@selector(addTarget:action:) withMethod:@selector(sensorsdata_addTarget:action:)]; }  - (instancetype)sensorsdata_initWithTarget:(id)target action:(SEL)action {     [self sensorsdata_initWithTarget:target action:action];     [self addTarget:target action:action];     return self; }  - (void)sensorsdata_addTarget:(id)target action:(SEL)action {     [self sensorsdata_addTarget:target action:action];          // 新增 Target-Action, 用于触发 $AppClick 事件     [self sensorsdata_addTarget:self action:@selector(sensorsdata_trackTapGestureAction:)]; }  - (void)sensorsdata_trackTapGestureAction:(UITapGestureRecognizer *)sender {     [[SensorsAnalyticsSDK sharedInstance] trackAppClickWithView:view properties:nil]; }</code></pre> <p>第二步：在 - sensorsdata_trackTapGestureAction: 方法中判断要采集的控件</p> <pre><code>- (void)sensorsdata_trackTapGestureAction:(UITapGestureRecognizer *)sender {     UIView *view = sender.view;     // 暂定只采集 UILabel 和 UIImageView     BOOL isTrackClass = [view isKindOfClass:UILabel.class] || [view isKindOfClass:UIImageView.class];     if (!isTrackClass) {         return;     }     [[SensorsAnalyticsSDK sharedInstance] trackAppClickWithView:view properties:nil]; }</code></pre> <p>第三步：测试验证</p> <pre><code>{   "event" : "$AppClick",   "time" : 1648892963385,   "propeerties" : {     "$model" : "x86_64",     "$manufacturer" : "Apple",     "$element_type" : "UIImageView",     "$lib_version" : "1.0.0",     "$os" : "iOS",     "$app_version" : "1.0",     "$screen_name" : "ViewController",     "$os_version" : "15.2",     "$lib" : "iOS"   } }</code></pre> <h4 id="22-uilongpressgesturerecognizer-全埋点">2.2 UILongPressGestureRecognizer 全埋点</h4> <p>	对于 UILongPressGestureRecognizer 来说，其实现逻辑与 UITapGestureRecognizer 基本上是相同的。</p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3867.htm">解析SpringBoot中的starter原理</a></p>
+                                                <p>下一个：<a href="/html/category/article-3869.htm">C#反射调用dll文件中的方法操作泛型与属性字段_C#教程</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4017.htm" title="Javascript搜索集合中的对象键">Javascript搜索集合中的对象键</a></li>
+                        <li class="py-2"><a href="/html/category/article-4047.htm" title="springboot关于mysql数据库date时间的坑">springboot关于mysql数据库date时间的坑</a></li>
+                        <li class="py-2"><a href="/html/category/article-4052.htm" title="Windows如何查看WiFi密码">Windows如何查看WiFi密码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4059.htm" title="Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程">Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4060.htm" title="MySQL数据库生成某一年的日历存储过程_在线工具">MySQL数据库生成某一年的日历存储过程_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4015.htm" title="MySQL 回表">MySQL 回表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4045.htm" title="在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？">在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4037.htm" title="C++中的匿名对象的概念和使用">C++中的匿名对象的概念和使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-4014.htm" title="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值">【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

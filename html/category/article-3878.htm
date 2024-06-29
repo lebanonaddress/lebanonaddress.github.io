@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3878.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Redux基础必知必会 reducer拆分 中间件 单向数据流 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Redux基础必知必会 reducer拆分 中间件 单向数据流 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<h2 id="什么是-redux-三大原则">什么是 redux? 三大原则？</h2> <p><strong>什么是 redux</strong><br /> Redux 是一个基于 js 的全局可预测状态容器，主要用于现代前端框架中进行全局状态管理，能够在不同组件之间进行状态共享<br /> Redux 常与 React 配合使用，但它并非只能用于 React，由于 Vue 官方推出了自己的状态管理库 Vuex，因此 Redux 很少在 Vue 中使用<br /> Redux 的实现借鉴了 Flux， 如单项数据流。但又有别于 Flux，如全局单例 store</p> <p><strong>redux 三大原则</strong></p> <ol> <li> <p>单一数据源<br /> store 必须是唯一的，全局的 state 存储在单一 store 中</p> </li> <li> <p>state 是只读的<br /> state 只能通过派发 action 来改变</p> </li> <li> <p>reducer 必须是纯函数<br /> reducer 只做一件事情，通过累积的 preState 和当前的 action 计算得出新的 state<br /> 相同的输入必须得到相同的结果，因此 reducer 必须是一个纯函数</p> </li> </ol> <p>reducer 中不应该出现副作用，比如发请求</p> <p></p> <h2 id="为什么要用-redux">为什么要用 redux</h2> <p>React 的定义是"一个用于构建 UI 界面的 javascript 库"，React 关注的点在于如何将状态转换为 UI(UI = fn(state))，在自带的状态管理方案中:</p> <ul> <li>state: 适用于管理自身状态，也可联合 this.props.chidren 实现 callback render</li> <li>props: 适用于父子组件传值，但父子组件嵌套过深时这种方式过于繁琐</li> <li>context: 适用于父子组件嵌套过深和兄弟组件共享状态的场景。context 一般是作为局部的状态管理方案而不是全局的，因为 context 一旦更新，Provider 下包裹的所有子组件都会重新渲染，造成性能问题</li> </ul> <p>在一个复杂的应用中，数据的流向存在跨层、反向的数据流， 在交互上也存在父子、兄弟、跨组件通信， 不利于维护<br /> 而 Redux 只需要在最外层传入 store， 内层组件即可通过 props 与 store 中的状态交互<br /> 在 Redux 中，数据的流动是单向的，store 是全局单一的，reducer 是纯函数，同样的输入得到的输出一定相同，因此状态是可预测的</p> <h2 id="什么时候用-redux">什么时候用 redux</h2> <ol> <li>某个组件的状态，需要让其他组件可以随时拿到</li> <li>一个组件需要改变另外一个组件的状态</li> <li>如果你不确定要不要用 redux，那就一定不需要用 redux</li> </ol> <p></p> <h2 id="redux-基本-api">redux 基本 api</h2> <h4 id="createstore">createStore</h4> <p>createStore 是 redux 的重要组成部分， 大部分 api 都基于它生成<br /> 以下是 createStore 的形参列表</p> <ol> <li>reducer: 初始化、更新 state</li> <li>preloadedState: 默认初始化 state，但一般不用它而是 reducer 处理 init action 来初始化一个 state</li> <li>enhancer: 一般用于 applyMiddleWare 增加中间件，作用是对 createStore 进行增强，覆盖原来的 dispatch 来实现一些功能上的拓展，如异步 action、日志打印、异常监听</li> </ol> <p></p> <h4 id="getstate">getState</h4> <p>获取 state 的唯一方式，返回当前最新的 state<br /> createStore 内部维持了一个变量 currentState，这个变量是私有的，对外部隐藏，只通过唯一接口 getState 对外暴露<br /> react-redux connect 方法底层也是通过这个 api 拿到 state</p> <p></p> <h4 id="dispatch">dispatch</h4> <p>改变 state 的唯一方式，通过 dispatch 将用户的行为以 action 的形式通知给 redux，通知 redux 把计算最新的状态并反馈给用户<br /> 如果你想在 dispatch 的前后做一些拓展功能，比如异步 action，异常收集，日志打印，建议使用中间件来做一些增强</p> <p></p> <h4 id="subscribe">subscribe</h4> <p>订阅 store 的状态变化，当且仅当 dispatch 触发状态更新之后执行入参 callback 回调函数，并返回一个取消订阅时执行的回调函数。<br /> 通常我们使用这个 api 来实现 redux 和其他 js 库通信<br /> react-redux 底层在 Provider 中通过 store.subscribe 发起订阅，在 state 改变时，会检查子组件是否通过 connect 消费了 store 以及子组件的 props 有变化，如果这两个条件都满足，就使用最新的状态更新子组件，从而达到精确的最小粒度的 render，相对于 context 一旦数据更新就渲染所有 Provider 包裹的子组件而言，这种处理方式在性能上显然是更优的</p> <p></p> <h2 id="redux-combinereducers-拆分reducer">redux combineReducers 拆分reducer</h2> <p>随着业务复杂度的增加，把所有状态都放在一个 reducer 中进行处理只会让代码变得更加难以维护<br /> 此时可以利用 combineReducers 拆分多个不同的 reducer，对不同业务模块的状态进行分别管理</p> <p>combineReducers 接受一个 reducers obj 作为入参，你可以给不同 reducer 指定 key，这样调用 getState 时拿到的也是对应 key 的 state<br /> 如果多个组件要共享 state，使用相同的 reducer 即可</p> <pre><code class="language-javascript">import {combineReducers, createStore} from 'redux' import countReducer from './reducer' import countReducer2 from './count2reducer'  const store = createStore(combineReducers(myCountState:countReducer,myCountState2:countReducer2})) // store.getState() {myCountState:{...},myCountState2:{...}}  export default store</code></pre> <p></p> <h2 id="redux-middleware-中间件">redux MiddleWare 中间件</h2> <p>如果要记录状态的历史变化，你会怎么做？<br /> 我们可能很容易想到只要在 dispatch 前后分别 log 一下就好了<br /> 但是一个复杂的大型项目，调用 dispatch 的地方不计其数，上述实现过于臃肿</p> <p>所以我们应当使用中间件</p> <p>中间件其实就是对 dispatch 的增强，中间件在 action 到达 store 的前后提供了逻辑插入点，我们可以在上面实现一些异步 action、日志输出、异常检测等功能</p> <p><strong>使用中间件</strong><br /> 通过 applyMiddleWare 传入中间件</p> <pre><code class="language-javascript">const store = createStore(reducer, applyMiddleware(thunk))</code></pre> <p></p> <h2 id="redux-数据流向">redux 数据流向</h2> <ol> <li>初始化 store，此时 redux 会 dispatch 一个 type 为 init，payload 为 undefined 的 action 并从 reducer 拿到最初的 state</li> <li>组件引入 store 并通过 getState 消费 store 状态，通过 subscribe 订阅 store 状态变化</li> <li>用户动作产生 action，dispatch 派发 action 到 store 并通过 reducer 更新状态。dispatch 的前后如果有中间件会在此时执行中间件相关逻辑</li> <li>状态更新发布之后通知订阅者，订阅者执行注册订阅的回调函数，在回调函数中可以调用 render 将最新的状态展现给用户，并等待用户的下一次动作</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3ee2b41b77553e64dde12dab76263137.jpg" alt="Redux基础必知必会 reducer拆分 中间件 单向数据流"></p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3877.htm">vue安装node-sass</a></p>
+                                                <p>下一个：<a href="/html/category/article-3879.htm">java引用类型数组6_请问一下JAVA 基本类型数组和复合类型数组的问题？</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4061.htm" title="如何在Android sqlite中删除表？">如何在Android sqlite中删除表？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4007.htm" title="C++的命名空间">C++的命名空间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4060.htm" title="MySQL数据库生成某一年的日历存储过程_在线工具">MySQL数据库生成某一年的日历存储过程_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                        <li class="py-2"><a href="/html/category/article-4053.htm" title="Autograd：Pytorch 中的自动微分机制讲解">Autograd：Pytorch 中的自动微分机制讲解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4011.htm" title="光的偏振">光的偏振</a></li>
+                        <li class="py-2"><a href="/html/category/article-4051.htm" title="vue项目运行后自动运行浏览器（vue2/vue3）">vue项目运行后自动运行浏览器（vue2/vue3）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4049.htm" title="JAVA初始化自定义类的数组">JAVA初始化自定义类的数组</a></li>
+                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

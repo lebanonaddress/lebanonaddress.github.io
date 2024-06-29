@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3927.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Vue-跑马灯效果 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Vue-跑马灯效果 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="markdown_views prism-dracula"> <h1> <a id="_0" rel="nofollow"></a>代码实现</h1> <pre><code class="prism language-java"><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">&gt;</span> <span class="token generics"><span class="token punctuation">&lt;</span>html<span class="token punctuation">&gt;</span></span>  	<span class="token generics"><span class="token punctuation">&lt;</span>head<span class="token punctuation">&gt;</span></span> 		<span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">&gt;</span> 		<span class="token generics"><span class="token punctuation">&lt;</span>title<span class="token punctuation">&gt;</span></span><span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span> 		<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token number">1.</span>导入<span class="token class-name">Vue</span>包<span class="token operator">--</span><span class="token operator">&gt;</span> 		<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"js/Vue-2.6.14.js"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span> 	<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span>  	<span class="token generics"><span class="token punctuation">&lt;</span>body<span class="token punctuation">&gt;</span></span> 		<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token number">2.</span>创建一个要控制的区域<span class="token operator">--</span><span class="token operator">&gt;</span> 		<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">&gt;</span> 			<span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"button"</span> value<span class="token operator">=</span><span class="token string">"浪起来"</span> <span class="token annotation punctuation">@click</span><span class="token operator">=</span><span class="token string">"lang"</span> <span class="token operator">/</span><span class="token operator">&gt;</span> 			<span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"button"</span> value<span class="token operator">=</span><span class="token string">"停止"</span> <span class="token annotation punctuation">@click</span><span class="token operator">=</span><span class="token string">"stop"</span> <span class="token operator">/</span><span class="token operator">&gt;</span>  			<span class="token generics"><span class="token punctuation">&lt;</span>h4<span class="token punctuation">&gt;</span></span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>msg<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">&gt;</span> 		<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span> 	<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span> 	<span class="token generics"><span class="token punctuation">&lt;</span>script<span class="token punctuation">&gt;</span></span> 		<span class="token comment">//注意：在vw实例中，如果想要获取data上的数据，或者想要调用methods中的方法，必须通过 this.数据属性名或this.方法名来进行访问，这里的this,就表示我们new出来的 M实例对像</span>  		<span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span> 			el<span class="token operator">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span> 			data<span class="token operator">:</span> <span class="token punctuation">{<!-- --></span> 				msg<span class="token operator">:</span> <span class="token string">"猥琐发育，别浪~~！"</span><span class="token punctuation">,</span> 				intervalId<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment">// 在data上定义 定时器Id</span> 			<span class="token punctuation">}</span><span class="token punctuation">,</span> 			methods<span class="token operator">:</span> <span class="token punctuation">{<!-- --></span> 				<span class="token function">lang</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 					<span class="token comment">// console.log(this.msg)</span>  					<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>intervalId <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>  					<span class="token keyword">this</span><span class="token punctuation">.</span>intervalId <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{<!-- --></span> 						<span class="token comment">//获取到头的第一个字符 </span> 						<span class="token keyword">var</span> start <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>msg<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>  						<span class="token comment">//获取到后面的所有字符 </span> 						<span class="token keyword">var</span> end <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>msg<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>  						<span class="token comment">//重新拼接得到新的字符串，并赋值给</span> 						<span class="token keyword">this</span><span class="token punctuation">.</span>msg <span class="token operator">=</span> end <span class="token operator">+</span> start 					<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span>  					<span class="token comment">//注意：实例，会监听自己身上ata中所有数据的改变，只要数据一发生变化，就会自动把最 新的数据，从data上同步到页面中去；【好处：程序员只需要关心数据，不需要考虑如何重新渲染DoM 页面】</span> 				<span class="token punctuation">}</span><span class="token punctuation">,</span>  				<span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> <span class="token comment">// 停止定时器</span> 					<span class="token function">clearInterval</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>intervalId<span class="token punctuation">)</span> 					<span class="token comment">//每当清除了定时器之后，需要重新把 interva1Id 置为 nul1 </span> 					<span class="token keyword">this</span><span class="token punctuation">.</span>intervalId <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> 				<span class="token punctuation">}</span> 			<span class="token punctuation">}</span>  		<span class="token punctuation">}</span><span class="token punctuation">)</span>  		<span class="token comment">// 分析： </span> 		<span class="token comment">//1.给【浪起来】按钮，绑定一个点击事件 v-on @</span> 		<span class="token comment">//2.在按钮的事件处理函数中，写相关的业务逻辑代码：拿到msg字符串，然后调用字符串的 substring来进行字符串的截取操作，把第一个字符截取出来，放到最后一个位置即可 </span> 		<span class="token comment">//3.为了实现点击下按钮，自动截取的功能，需要把2步骤中的代码，放到个定时器中去</span> 	<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>  <span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span> </code></pre> </p></div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3926.htm">Feign实现远程接口的调用</a></p>
+                                                <p>下一个：<a href="/html/category/article-3928.htm">ReLabel：自动将ImageNet转化成多标签数据集，更准确地有监督训练 | 2021新文</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4014.htm" title="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值">【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值</a></li>
+                        <li class="py-2"><a href="/html/category/article-4061.htm" title="如何在Android sqlite中删除表？">如何在Android sqlite中删除表？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4026.htm" title="ES6可选链操作符和空值合并运算符">ES6可选链操作符和空值合并运算符</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4041.htm" title="关于信号量Semaphore的acquire与release的说明">关于信号量Semaphore的acquire与release的说明</a></li>
+                        <li class="py-2"><a href="/html/category/article-4065.htm" title="Zookeeper分布式一致性协议ZAB">Zookeeper分布式一致性协议ZAB</a></li>
+                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                        <li class="py-2"><a href="/html/category/article-4052.htm" title="Windows如何查看WiFi密码">Windows如何查看WiFi密码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4046.htm" title="Vue  el-input  trim() 去空格">Vue  el-input  trim() 去空格</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3792.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>真正的高并发还得看IO多路复用 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">真正的高并发还得看IO多路复用 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<h2 id="教程说明">教程说明</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/500269188"  target="_blank" rel="nofollow">C++高性能网络服务保姆级教程</a></p> <h2 id="首发地址">首发地址</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s?__biz=MzI4MTc0NDg2OQ==&amp;mid=2247484643&amp;idx=1&amp;sn=541786b1cb873da7243adb58554632ad&amp;chksm=eba5c069dcd2497f8fcf644dec68a181af89ff91642548b66ae8936e6db94cdbf362b67bcc00&amp;token=1272258804&amp;lang=zh_CN#rd"  target="_blank" rel="nofollow">day02 真正的高并发还得看IO多路复用</a></p> <h2 id="本节目的">本节目的</h2> <p>使用epoll实现一个高并发的服务器</p> <h2 id="从单进程讲起">从单进程讲起</h2> <p>上节<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s?__biz=MzI4MTc0NDg2OQ==&amp;mid=2247484613&amp;idx=1&amp;sn=52e727e5ba69d76ea1ed1782d9f4c5be&amp;chksm=eba5c04fdcd249590d45a41bf0842c4eb4b65b19ff41b62b94ff58df3522bf0b9b118f351f51&amp;token=1272258804&amp;lang=zh_CN#rd"  target="_blank" rel="nofollow">从一个基础的socket服务说起</a>我们实现了一个基本的socket服务器，并留了个思考题</p> <blockquote> <p>先启动server，然后启动一个client，不输入数据，这个时候在另外一个终端上再启动一个client，并在第二个client终端中输入数据，会发生什么呢？</p> </blockquote> <p>实际操作后，我们会发现，在第二个client输入后，服务端并没有响应，直到第一个client也输入数据完成交互后，第二个client才会有数据返回。</p> <p>这是由于服务端accept获取到第一个client的套接字后，由于第一个client未输入数据，所以服务端进程会阻塞在等待客户端数据那一行。</p> <pre><code class="language-Cpp">... int read_num = read(accept_fd, read_msg, 100); ...</code></pre> <p>所以，第二个client完成三次握手后，连接一直在服务端的全连接队列中，等待accept获取处理。</p> <h2 id="多线程一个线程一个连接">多线程，一个线程一个连接</h2> <p>后续的client无法得到处理是由于服务端只有一个线程，获取client套接字还有连接通信全在一个线程中。</p> <p>那我们直接开多个线程就好了，主线程只负责accept获取客户端套接字。每来一个连接，我们就新起一个线程去处理客户端和服务端的通信。这样多个连接之间就不会互相影响了。服务端程序如下：</p> <pre><code class="language-Cpp">// per_conn_per_thread_server.cpp #include &lt;sys/socket.h&gt; #include &lt;netinet/in.h&gt; #include &lt;unistd.h&gt; #include &lt;thread&gt; #include &lt;arpa/inet.h&gt; #include &lt;string.h&gt; #include &lt;cstdio&gt; #include &lt;errno.h&gt;  void handleConn(int accept_fd) {   char read_msg[100];   int read_num = read(accept_fd, read_msg, 100);   printf("get msg from client: %s\n", read_msg);   int write_num = write(accept_fd, read_msg, read_num);   close(accept_fd); }  int main() {   int listen_fd = socket(AF_INET, SOCK_STREAM, 0);   struct sockaddr_in server_addr;   bzero(&amp;server_addr, sizeof(server_addr));   server_addr.sin_family = AF_INET;   server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");   server_addr.sin_port = htons(8888);   if (bind(listen_fd, (struct sockaddr *)&amp;server_addr, sizeof(server_addr)) &lt; 0) {     printf("bind err: %s\n", strerror(errno));     close(listen_fd);     return -1;   }    if (listen(listen_fd, 2048) &lt; 0) {     printf("listen err: %s\n", strerror(errno));     close(listen_fd);     return -1;   }      struct sockaddr_in client_addr;   bzero(&amp;client_addr, sizeof(struct sockaddr_in));   socklen_t client_addr_len = sizeof(client_addr);   int accept_fd = 0;   while((accept_fd = accept(listen_fd, (struct sockaddr *)&amp;client_addr, &amp;client_addr_len)) &gt; 0) {     printf("get accept_fd: %d from: %s:%d\n", accept_fd, inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));     std::thread handleThread(handleConn, accept_fd);     // 将线程设置为后台线程，避免阻塞主线程     handleThread.detach();   } }</code></pre> <blockquote> <p>使用thread库时，如果使用g++进行编译需要添加<code>-lpthread</code>,完整编译命令：</p> <pre><code class="language-shell">g++ -std=c++11 xxx.cpp -lpthread</code></pre> </blockquote> <p>看似解决阻塞问题了，但其实这种方案有大缺陷，只要我们稍微加大下客户端的并发度，就会发现服务端会处理不过来。每来一个连接都创建一个新线程，处理完后再销毁线程，这种处理方式成本太大。</p> <h2 id="io多路复用和reactor模型">IO多路复用和Reactor模型</h2> <p>我们仔细分析下，「per connection per thread」出现性能瓶颈有以下几个原因：</p> <ol> <li>一个系统能同时创建的线程数量是有限的，而且线程数量越多，占用内存也会变多，容易导致OOM。</li> <li>每个连接都用一个新线程去处理，处理结束后销毁对应线程，线程创建和销毁都需要较大开销。</li> <li>一个线程当执行时间片用完或者遇到系统调用阻塞时，都会让出CPU。CPU会保留线程的现场信息，然后去执行其他线程（这个过程也称为CPU上下文切换）。所以当线程数很多时，CPU的线程上下文切换也会越频繁，真正用于处理连接通信的时间也会越少。也就是CPU在瞎忙活。</li> </ol> <p>既然是由于并发量高时线程太多导致的性能问题，那如果有一种技术，能让一个线程负责N个连接就能完美解决了。伪代码如下：</p> <pre><code class="language-Cpp">class HandleThread {     std::vector&lt;int&gt; handle_fds;     void addFd(int fd) {handle_fds.push_back(fd)};     void work(); } HandleThread::work() {     for(;;) {         int readyFd = getReadyIOFd();         ...         // 对readyFd读写处理         ...     } }  auto pool = createThreadPool(4); int accept_fd = accept(...); HandleThread thread = pool.getThread(); thread.addFd(accept_fd);</code></pre> <p>上面代码大家应该很容易看懂，先创建一个指定线程数量的线程池，主线程获取到新连接后，丢到线程池的一个线程去处理。每个线程初始化后会执行work函数，work函数是一个while死循环，里面的getReadyIOFd会阻塞线程，直到有可读可写的套接字时，才会唤醒线程，去进行连接的读写。</p> <blockquote> <p>扫盲点：一般我们讲的由于系统调用（比如read/write等）导致阻塞，这个时候阻塞的线程状态会被置为挂起，不会占用CPU。所以上面虽然有个while死循环，但在getReadyIOFd被阻塞了，getReadyIOFd底层也是个系统调用（具体实现我们后面会讲到），在没有可读写的套接字时线程并不会占用CPU。</p> </blockquote> <p>上面的流程，其实就是大名鼎鼎的IO多路复用和Reactor多线程模型了。</p> <h2 id="epoll登场">epoll登场</h2> <p>这一节我们具体聊聊一个handleThread是如何管理多个套接字的。</p> <p>IO多路复用的实现模型大家多少听过一些，我们先比较下常见的select和epoll</p> <h3 id="select">select</h3> <p>select简单理解就是拿一个数组保存连接套接字，调用select时，会将整个数组拷贝到内核空间中，如果当前数组中没有可读写的套接字，线程被阻塞。</p> <p>等到数组中有可读写的套接字，或者超时（select可以设置阻塞的超时时间），select调用会返回，然后线程遍历全部数组，找到可读写的套接字，进行读写处理。</p> <p>select存在以下几个缺点：</p> <ol> <li>数组中的套接字数量有限制。最多1024个，这个数是select代码中写死的，具体可看<code>/usr/include/bits/typesizes.h</code>中有定义。</li> <li>select返回后，只是告诉我们这些数组中有fd就绪了，但却没告诉我们具体是哪个fd可读写，我们需要轮训整个数据，才能找到可操作的fd。效率比较低</li> <li>需要维护一个用来存放大量fd的数据结构，这样会使得用户空间和内核空间在传递该结构时复制开销大。</li> </ol> <h3 id="epoll">epoll</h3> <p>epoll是linux2.6的时候提出的，epoll在內核中维护了一个eventpoll对象，eventpoll包含一个红黑树结构的等待队列wq和一个链表结构的就绪队列rdlist。</p> <p>新获取到一个套接字后，将该套接字添加到wq中，等到套接字可读写时，操作系统会将该套接字从wq转到rdlist，然后线程直接处理rdlist中的套接字即可，不需要再遍历全部监听的套接字了。</p> <p>与select相比，可以发现有以下几个优点：</p> <ol> <li>没有套接字数量的限制</li> <li>阻塞返回后，会明确告知哪些套接字是可以读写的，不需要全部轮训，效率较高</li> </ol> <p><em><strong>epoll基本使用</strong></em></p> <p>因为我们的项目选用epoll，所以下面我们具体讲讲epoll的使用方法</p> <ol> <li><code>epoll_create</code>创建一个epoll实例</li> </ol> <pre><code>int epoll_create(int size); int epoll_create1(int flags);</code></pre> <ul> <li>size：用来告知內核期望监控的套接字数量，但在2.6.8之后就废弃了，由系统自动化分配。</li> <li>flags: 如果设置为0，和<code>epoll_create</code>功能相同。可以设置为<code>EPOLL_CLOEXEC</code>, 表示当持有epoll句柄的进程fork出一个子进程时，子进程不会包含该epoll_fd。</li> <li>返回值：成功返回epoll_fd,失败返回-1</li> </ul> <ol start="2"> <li><code>epoll_ctl</code>管理监听的描述符，并注册要监听的事件</li> </ol> <pre><code>int epoll_ctl(int epfd, int op, int fd, struct epoll_event* event);</code></pre> <ul> <li>epfd:<code>epoll_create</code>创建的epoll_fd</li> <li>op: 要操作的类型：<br /> a. EPOLL_CTL_ADD ：注册事件<br /> b. EPOLL_CTL_MOD：更改事件<br /> c. EPOLL_CTL_DEL：删除事件</li> <li>fd: 要操作的文件描述符</li> <li>event: 要注册的事件类型</li> </ul> <pre><code class="language-Cpp">typedef union epoll_data {   void *ptr;   int fd;   uint32_t u32;   uint64_t u64; } epoll_data_t;  struct epoll_event {   uint32_t events;	/* Epoll events */   epoll_data_t data;	/* User data variable */ }  // epoll_event.event表示具体的事件类型，常见有以下几种： // EPOLLIN：文件描述符可读 // EPOLLOUT：文件描述符可写 // EPOLLRDHUP：套接字对端断开 // EPOLLET：边缘触发（后面细讲）</code></pre> <ol start="3"> <li><code>epoll_wait</code> 等待事件发生，没有事件时，调用者进程会被挂起，等到事件发生/超时后返回</li> </ol> <pre><code>int epoll_wait(int epfd, struct epoll_event* evlist, int maxevents, int timeout);</code></pre> <ul> <li>epfd:<code>epoll_create</code>创建的epoll_fd</li> <li>evlist: 返回给用户空间的可以处理的IO事件数组，即前面说的就绪队列</li> <li>maxevents：表示一次<code>epoll_wait</code>最多可以返回的事件数量</li> <li>timeout：<code>epoll_wait</code>阻塞的超时值，如果设置为-1，表示不超时，如果设置为0，即使没有IO事件也会立即返回</li> </ul> <p>epoll有EPOLLLT(水平触发)和EPOLLET(边缘触发)两种工作模式：</p> <ul> <li>水平触发：只要socket处于可读状态(缓冲区有数据)或可写状态，无论什么时候进行epoll_wait都会返回该socket，也就是说我们第一次<code>epoll_wait</code>返回后读了部分数据，在下一次的<code>epoll_wait</code>调用还是会返回之前那个没读完数据的socket。</li> <li>边缘触发：只有套接字的状态由不可写到可写或由不可读到可读时，才会触发<code>epoll_wait</code>返回。如果我们第一次<code>epoll_wait</code>返回中读了部分数据，<em><strong>如果该套接字没再收到新数据</strong></em>，那即使该套接字缓存区中还有一些数据没读，下一次的<code>epoll_wait</code>也不会返回该套接字了。所以我们需要在第一次读时通过循环read的方式把套接字中的数据全读出来。</li> </ul> <blockquote> <p>边缘触发处理起来会比水平触发比较麻烦，但性能会比水平触发高，因为减少 epoll 相关系统调用次数</p> </blockquote> <p>讲完epoll的使用方法，我们把前面的伪代码套上epoll的边缘触发模式，完整代码如下：</p> <pre><code class="language-Cpp">#include &lt;sys/socket.h&gt; #include &lt;netinet/in.h&gt; #include &lt;unistd.h&gt; #include &lt;thread&gt; #include &lt;arpa/inet.h&gt; #include &lt;string.h&gt; #include &lt;cstdio&gt; #include &lt;errno.h&gt; #include &lt;vector&gt; #include &lt;assert.h&gt; #include &lt;sys/epoll.h&gt; #include &lt;fcntl.h&gt;  int setfdNonBlock(int fd) {   int flag = fcntl(fd, F_GETFL, 0);   if (flag == -1) return -1;   flag |= O_NONBLOCK;   if (fcntl(fd, F_SETFL, flag) == -1) return -1;   return 0; };  void handleConn(int accept_fd) {   char read_msg[100];   char *buf_ptr = read_msg;   int total_read_num = 0;   int read_num = 0;   // 使用的是epollet边缘触发模式，需要把套接字缓存区中的数据全读完   do {     read_num = read(accept_fd, buf_ptr, 100);     buf_ptr += read_num;     total_read_num += read_num;   } while(read_num &gt; 0);   printf("get msg from client: %s\n", read_msg);   int write_num = write(accept_fd, read_msg, total_read_num);   close(accept_fd); }  int listenServer(char *host, int port) {   int listen_fd = socket(AF_INET, SOCK_STREAM, 0);   struct sockaddr_in server_addr;   bzero(&amp;server_addr, sizeof(server_addr));   server_addr.sin_family = AF_INET;   server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");   server_addr.sin_port = htons(8888);   if (bind(listen_fd, (struct sockaddr *)&amp;server_addr, sizeof(server_addr)) &lt; 0) {     printf("bind err: %s\n", strerror(errno));     close(listen_fd);     return -1;   }    if (listen(listen_fd, 2048) &lt; 0) {     printf("listen err: %s\n", strerror(errno));     close(listen_fd);     return -1;   }   return listen_fd; }  const int EPOLLWAIT_TIME = 10000; const int EVENTSMAXNUM = 4096;  class HandleThread {   public:     HandleThread()      : epoll_fd_(epoll_create1(EPOLL_CLOEXEC)),       epoll_events_(EVENTSMAXNUM),       thread_(std::bind(&amp;HandleThread::work, this)) {       assert(epoll_fd_ &gt; 0);       thread_.detach();     }     ~HandleThread() {       close(epoll_fd_);     }     // 线程实际运行函数     void work();     // 添加监听套接字     void addFd(int fd);     // 不再监听指定套接字     void rmFd(int fd);   private:     int epoll_fd_;     std::vector&lt;epoll_event&gt;epoll_events_;     std::thread thread_; };  void HandleThread::work() {   for(;;) {     int event_count = epoll_wait(epoll_fd_, &amp;*epoll_events_.begin(), epoll_events_.size(), EPOLLWAIT_TIME);     if (event_count &lt; 0) {       perror("epoll wait error");       continue;     }     for (int i = 0; i &lt; event_count; i++) {       epoll_event cur_event = epoll_events_[i];       int fd = cur_event.data.fd;        // 不再监听fd，从epoll中去掉       rmFd(fd);       // 处理连接读写       handleConn(fd);     }   } }  void HandleThread::addFd(int fd) {   epoll_event event;   event.data.fd = fd;   // 只监听读事件   event.events = EPOLLIN | EPOLLET;   if (epoll_ctl(epoll_fd_, EPOLL_CTL_ADD, fd, &amp;event) &lt; 0) {     perror("epoll_add error");   } }  void HandleThread::rmFd(int fd) {   epoll_event event;   event.data.fd = fd;   event.events = EPOLLIN | EPOLLET;   if (epoll_ctl(epoll_fd_, EPOLL_CTL_DEL, fd, &amp;event) &lt; 0) {     perror("epoll_del error");   } }  typedef std::shared_ptr&lt;HandleThread&gt; SP_HandleThread;  class HandleThreadPool {   public:     HandleThreadPool(int thread_nums) : thread_nums_(thread_nums), next_thread_idx_(0) {       for (int i = 0; i &lt; thread_nums; i++) {         SP_HandleThread t (new HandleThread());         thread_pool_.push_back(t);       }     }     SP_HandleThread getThread();   private:     int thread_nums_;     int next_thread_idx_;     std::vector&lt;SP_HandleThread&gt; thread_pool_; };  // 从线程池中获取一个线程 SP_HandleThread HandleThreadPool::getThread() {   SP_HandleThread t = thread_pool_[next_thread_idx_];   next_thread_idx_ = (next_thread_idx_ + 1) % thread_nums_;   return t; }  int main() {   int listen_fd = listenServer("127.0.0.1", 8888);    // 创建线程池   HandleThreadPool pool(4);   // 等待1秒   sleep(1);   struct sockaddr_in client_addr;   bzero(&amp;client_addr, sizeof(struct sockaddr_in));   socklen_t client_addr_len = sizeof(client_addr);   int accept_fd = 0;   while((accept_fd = accept(listen_fd, (struct sockaddr *)&amp;client_addr, &amp;client_addr_len)) &gt; 0) {     printf("get accept_fd: %d from: %s:%d\n", accept_fd, inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));     // 将fd设置为非阻塞 ?     setfdNonBlock(accept_fd);     // 从pool中获取一个线程处理连接     SP_HandleThread t = pool.getThread();     t-&gt;addFd(accept_fd);   } }</code></pre> <p>代码比较长，但不难，大家可以fork下来慢慢看。</p> <blockquote> <p>使用了智能指针，避免忘记回收堆上的资源。</p> </blockquote> <p>大家可能会发现代码有两次注释添加了"?"，第一处是在创建线程池后，sleep了1秒，这个当成本节的思考题，大家可以先思考，并想想有没有什么更好的解决办法？</p> <p>第二处是在获取到accept_fd后，将fd设置为非阻塞了。下面我们展开具体讲讲。</p> <h2 id="非阻塞与io多路复用更搭">非阻塞与IO多路复用更搭</h2> <h3 id="首先我们先聊聊阻塞io调用和非阻塞io调用的区别">首先我们先聊聊阻塞IO调用和非阻塞IO调用的区别。</h3> <p><em><strong>阻塞IO调用</strong></em>：进程在调用IO操作时，如果没有数据可读或缓冲区没有空闲空间可写，导致IO操作未完成，进程被阻塞挂起，后续操作将无法执行。比如下面代码，如果客户端建立连接后，一直不发送数据，那服务端执行就会阻塞在<code>read</code>调用，后面的<code>printf</code>无法被执行到。</p> <pre><code class="language-Cpp">int accept_fd = accept(...); char read_msg[100]; int read_num = read(accept_fd, read_msg, 100); printf("i am a log\n");</code></pre> <blockquote> <p>小提示：上面的代码即使客户端只发了1个字节的数据，服务端<code>read</code>调用也会返回，并不是要等到读满100个字节才会返回。</p> </blockquote> <p><em><strong>非阻塞IO调用</strong></em>: 进程在调用IO操作时，即使IO操作未完成，该IO调用也会立刻返回，之后进程可以进行后续操作。比如下面代码，将accept_fd设置为非阻塞后，再调用<code>read</code>，这时即使客户端没有发数据，服务端也不会一直卡在<code>read</code>调用上，后面的<code>printf</code>能顺利打印出来。</p> <pre><code class="language-Cpp">int accept_fd = accept(...); // 将fd设置为非阻塞 setfdNonBlock(accept_fd); char read_msg[100]; int read_num = read(accept_fd, read_msg, 100); printf("i am a log\n");</code></pre> <h3 id="下面我们再说下为什么io多路复用要搭配非阻塞io">下面我们再说下为什么IO多路复用要搭配非阻塞IO？</h3> <p>在前面，我们使用epoll实现了一个线程管理多个套接字，当某个套接字有读写事件时，<code>epoll_wait</code>调用返回，告诉我们哪些套接字能读，但并不会告诉我们某个套接字上有多少数据可读。</p> <ul> <li>使用非阻塞IO处理方式：我们只要循环的read，直到读完全部的数据即可（read返回0）。</li> <li>使用阻塞IO处理方式：每次只能调用一次read，因为我们并不知道下一次循环中还有没有数据可读，如果没数据就会阻塞整个进程了，所以只能等待下一次的<code>epoll_wait</code>返回了。这对于水平触发还可行，但对于边缘触发就不行了，因为我们不知道这个套接字还会不会有新数据写入，如果对端不再写入新数据，那缓冲区中剩下的数据就再也读不到了。</li> </ul> <p><em><strong>完整源码已上传到https://github.com/lzs123/CProxy-tutorial,欢迎fork and star！</strong></em></p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3791.htm">手撕spring核心源码，彻底搞懂spring流程</a></p>
+                                                <p>下一个：<a href="/html/category/article-3793.htm">ThreadLocal原理及使用场景</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4046.htm" title="Vue  el-input  trim() 去空格">Vue  el-input  trim() 去空格</a></li>
+                        <li class="py-2"><a href="/html/category/article-4015.htm" title="MySQL 回表">MySQL 回表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4023.htm" title="ElasticSearch学习：springboot集成ElasticSearch">ElasticSearch学习：springboot集成ElasticSearch</a></li>
+                        <li class="py-2"><a href="/html/category/article-4056.htm" title="SpringMVC对Ajax请求的处理">SpringMVC对Ajax请求的处理</a></li>
+                        <li class="py-2"><a href="/html/category/article-4049.htm" title="JAVA初始化自定义类的数组">JAVA初始化自定义类的数组</a></li>
+                        <li class="py-2"><a href="/html/category/article-4012.htm" title="修改docker 默认镜像存储路径">修改docker 默认镜像存储路径</a></li>
+                        <li class="py-2"><a href="/html/category/article-4024.htm" title="网络协议之:socket协议详解之Unix domain Socket">网络协议之:socket协议详解之Unix domain Socket</a></li>
+                        <li class="py-2"><a href="/html/category/article-4031.htm" title="使用Nginx实现多个Tomcat负载均衡">使用Nginx实现多个Tomcat负载均衡</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                        <li class="py-2"><a href="/html/category/article-4059.htm" title="Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程">Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

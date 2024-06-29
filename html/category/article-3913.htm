@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3913.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Appium+Python+Android自动化のdesired_caps会话参数 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Appium+Python+Android自动化のdesired_caps会话参数 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp;参数详解请见代码：</p> <pre><code class="language-python">from appium import webdriver from time import sleep  if __name__ == '__main__':     desired_caps = {}      # 必填参数：      #platformName：操作系统名（iOS, Android, FirefoxOS）     desired_caps['platformName'] = 'Android'      # deviceName：设备名（值有意义即可）     desired_caps['deviceName'] = 'Android Emulator'      # 指定要操作的APP有两种方式：         # 方式1（APP如果没有安装，自动安装）：     # app：apk的绝对路径     desired_caps['app'] = r"D:\AppPackage\TestApks\ApiDemos-debug.apk"         # 方式2（APP必须预先安装）：     # appPackage：应用的包名。appActivity：应用的任意窗口名。     # 这两参数需要一起指定。     desired_caps['appPackage'] = 'com.android.androidui'     desired_caps['appActivity'] = '.MainActivity'      # 可选参数：      # platformVersion：操作系统版本     # 在设置里查看。6是主版本号，0是次版本号，1是修订号。     desired_caps['platformVersion'] = '6.0.1'     desired_caps['platformVersion'] = '6.0'     desired_caps['platformVersion'] = '6'      # unicodeKeyboard和resetKeyboard：使用中文字符输入。     # 这两参数需要一起指定，值是布尔值。     desired_caps['unicodeKeyboard'] = True     desired_caps['resetKeyboard'] = True      # automationName：指定想使用的自动化测试引擎。     # ①Appium（uiautomator）：不指定的话默认     desired_caps['automationName'] = 'Appium'     # ②Selendroid：支持安卓4.2之前的版本，报错     desired_caps['automationName'] = 'Selendroid'     # ③uiautomator2：支持安卓6.0之后的版本     desired_caps['automationName'] = 'uiautomator2'      # udid：如果连接真机测试，必须指定设备的id（在adb devides里或设置里查看）     desired_caps['udid'] = '7N3HPX159H051514'     # 真机测试需要做的事情:     # ①打开开发者模式和USB调试模式     # ②在电脑上安装手机驱动     # ③用USB连接手机和电脑      driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)      driver.find_element_by_id('android:id/text1').click()      # 启动一个窗口。     # 可以打开本APP的任意窗口，还可以打开其他APP的任意窗口，前提是APP已安装。     driver.start_activity('io.selendroid.testapp','.HomeScreenActivity')      driver.back()      sleep(2)     driver.quit()</code></pre> <p>from appium import webdriver<br /> from time import sleep<br /> &nbsp;<br /> if __name__ == '__main__':<br /> &nbsp;&nbsp;&nbsp; desired_caps = {}<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # 必填参数：<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; #<span style="color:#f33b45;"><strong>platformName</strong></span>：操作系统名（<span style="color:#86ca5e;"><strong>iOS, Android, FirefoxOS</strong></span>）<br /> &nbsp;&nbsp;&nbsp; desired_caps['platformName'] = 'Android'<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">deviceName</span></strong>：设备名（值有意义即可）<br /> &nbsp;&nbsp;&nbsp; desired_caps['deviceName'] = 'Android Emulator'<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # 指定要操作的APP有两种方式：<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # 方式1（APP如果没有安装，自动安装）：<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">app</span></strong>：apk的绝对路径<br /> &nbsp;&nbsp;&nbsp; desired_caps['app'] = r"D:\AppPackage\TestApks\ApiDemos-debug.apk"<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # 方式2（APP必须预先安装）：<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">appPackage</span></strong>：应用的包名。<strong><span style="color:#f33b45;">appActivity</span></strong>：应用的任意窗口名。<br /> &nbsp;&nbsp;&nbsp; # 这两参数需要一起指定。<br /> &nbsp;&nbsp;&nbsp; desired_caps['appPackage'] = 'com.android.androidui'<br /> &nbsp;&nbsp;&nbsp; desired_caps['appActivity'] = '.MainActivity'<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # 可选参数：<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">platformVersion</span></strong>：操作系统版本<br /> &nbsp;&nbsp;&nbsp; # 在设置里查看。6是主版本号，0是次版本号，1是修订号。<br /> &nbsp;&nbsp;&nbsp; desired_caps['platformVersion'] = '6.0.1'<br /> &nbsp;&nbsp;&nbsp; desired_caps['platformVersion'] = '6.0'<br /> &nbsp;&nbsp;&nbsp; desired_caps['platformVersion'] = '6'<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">unicodeKeyboard</span></strong>和<strong><span style="color:#f33b45;">resetKeyboard</span></strong>：使用中文字符输入。<br /> &nbsp;&nbsp;&nbsp; # 这两参数需要一起指定，值是布尔值。<br /> &nbsp;&nbsp;&nbsp; desired_caps['unicodeKeyboard'] = <span style="color:#86ca5e;"><strong>True</strong></span><br /> &nbsp;&nbsp;&nbsp; desired_caps['resetKeyboard'] = <span style="color:#86ca5e;"><strong>True</strong></span><br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">automationName</span></strong>：指定想使用的自动化测试引擎。<br /> &nbsp;&nbsp;&nbsp; # ①<strong><span style="color:#86ca5e;">Appium</span></strong>（uiautomator）：不指定的话默认<br /> &nbsp;&nbsp;&nbsp; desired_caps['automationName'] = 'Appium'<br /> &nbsp;&nbsp;&nbsp; # ②<strong><span style="color:#86ca5e;">Selendroid</span></strong>：支持安卓4.2之前的版本，报错<br /> &nbsp;&nbsp;&nbsp; desired_caps['automationName'] = 'Selendroid'<br /> &nbsp;&nbsp;&nbsp; # ③<strong><span style="color:#86ca5e;">uiautomator2</span></strong>：支持安卓6.0之后的版本<br /> &nbsp;&nbsp;&nbsp; desired_caps['automationName'] = 'uiautomator2'<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">udid</span></strong>：如果连接真机测试，必须指定设备的id（在adb devides里或设置里查看）<br /> &nbsp;&nbsp;&nbsp; desired_caps['udid'] = '7N3HPX159H051514'<br /> &nbsp;&nbsp;&nbsp; # 真机测试需要做的事情:<br /> &nbsp;&nbsp;&nbsp; # ①打开开发者模式和USB调试模式<br /> &nbsp;&nbsp;&nbsp; # ②在电脑上安装手机驱动<br /> &nbsp;&nbsp;&nbsp; # ③用USB连接手机和电脑<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; driver.find_element_by_id('android:id/text1').click()<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # 启动一个窗口。<br /> &nbsp;&nbsp;&nbsp; # 可以打开本APP的任意窗口，还可以打开其他APP的任意窗口，前提是APP已安装。<br /> &nbsp;&nbsp;&nbsp; driver.start_activity('io.selendroid.testapp','.HomeScreenActivity')<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; driver.back()<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; sleep(2)<br /> &nbsp;&nbsp;&nbsp; driver.quit()</p> </p></div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3912.htm">PyQt5 按钮Button 添加事件(信号/槽)</a></p>
+                                                <p>下一个：<a href="/html/category/article-3914.htm">vue中的可拖拽宽度div的实现示例_vue.js</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4047.htm" title="springboot关于mysql数据库date时间的坑">springboot关于mysql数据库date时间的坑</a></li>
+                        <li class="py-2"><a href="/html/category/article-4065.htm" title="Zookeeper分布式一致性协议ZAB">Zookeeper分布式一致性协议ZAB</a></li>
+                        <li class="py-2"><a href="/html/category/article-4007.htm" title="C++的命名空间">C++的命名空间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4017.htm" title="Javascript搜索集合中的对象键">Javascript搜索集合中的对象键</a></li>
+                        <li class="py-2"><a href="/html/category/article-4063.htm" title="Python生成sql语句">Python生成sql语句</a></li>
+                        <li class="py-2"><a href="/html/category/article-4040.htm" title="@order注解 解答">@order注解 解答</a></li>
+                        <li class="py-2"><a href="/html/category/article-4015.htm" title="MySQL 回表">MySQL 回表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4060.htm" title="MySQL数据库生成某一年的日历存储过程_在线工具">MySQL数据库生成某一年的日历存储过程_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                        <li class="py-2"><a href="/html/category/article-4035.htm" title="Vue路由router详细总结">Vue路由router详细总结</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3939.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>springboot集成swagger碰到的坑（报404） - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">springboot集成swagger碰到的坑（报404） </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp; &nbsp; &nbsp; &nbsp;一：项目使用springboot集成swagger进行调试，配置swagger非常简单，主要有三步：</p> <p>1、添加swagger依赖</p> <pre class="has"><code>&lt;!-- 引入 swagger等相关依赖 --&gt; &lt;dependency&gt; 	&lt;groupId&gt;io.springfox&lt;/groupId&gt; 	&lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt; 	&lt;version&gt;2.6.1&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; 	&lt;groupId&gt;io.springfox&lt;/groupId&gt; 	&lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt; 	&lt;version&gt;2.6.1&lt;/version&gt; &lt;/dependency&gt;</code></pre> <p>2、进行swagger的配置</p> <pre class="has"><code class="language-java">package com.sailing.springbootmybatis.config;  import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration; import springfox.documentation.builders.ApiInfoBuilder; import springfox.documentation.builders.PathSelectors; import springfox.documentation.builders.RequestHandlerSelectors; import springfox.documentation.service.ApiInfo; import springfox.documentation.spi.DocumentationType; import springfox.documentation.spring.web.plugins.Docket; import springfox.documentation.swagger2.annotations.EnableSwagger2;  /**  * @author baibing  * @project: springboot-mybatis  * @package: com.sailing.springbootmybatis.config  * @Description: swagger2配置类  * @date 2018/9/25 15：35  */ @Configuration @EnableSwagger2 public class Swagger2Config {      @Bean     public Docket createRestApi(){         return new Docket(DocumentationType.SWAGGER_2)                 .apiInfo(apiInfo())                 .select()                 .apis(RequestHandlerSelectors.basePackage("com.sailing.springbootmybatis.controller"))                 .paths(PathSelectors.any())                 .build();     }      private ApiInfo apiInfo(){         return new ApiInfoBuilder()                 .title("SPRING-BOOT整合MYBATIS--API说明文档")                 .description("2018-8完成版本")                 .contact("Sailing西安研发中心-baibing")                 .version("1.0")                 .license("署名-非商用-相同方式共享 4.0转载请保留原文链接及作者")                 .licenseUrl("https://creativecommons.org/licenses/by-nc-sa/4.0/")                 .build();     } }</code></pre> <p>3、在controller层添加相应的注解（<strong>@Api</strong>和<strong>@ApiOperation</strong> 以及<strong>@ApiIgnore</strong>等）</p> <pre class="has"><code class="language-java">package com.sailing.springbootmybatis.controller;  import com.sailing.springbootmybatis.bean.Userinfo; import com.sailing.springbootmybatis.common.log.LogOperationEnum; import com.sailing.springbootmybatis.common.log.annotation.MyLog; import com.sailing.springbootmybatis.common.response.BuildResponseUtil; import com.sailing.springbootmybatis.common.response.ResponseData; import com.sailing.springbootmybatis.common.websocket.WebSocketServer; import com.sailing.springbootmybatis.service.RedisService; import com.sailing.springbootmybatis.service.UserinfoService; import io.swagger.annotations.Api; import io.swagger.annotations.ApiOperation; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.validation.BindingResult; import org.springframework.web.bind.annotation.*; import springfox.documentation.annotations.ApiIgnore;  import javax.validation.Valid; import java.io.IOException; import java.util.List;  /**  * @author baibing  * @project: springboot-mybatis  * @package: com.sailing.springbootmybatis.controller  * @Description: Userinfo controller 控制层  * @date 2018/9/12 10:07  */ @RestController @Api(value = "USERINFO", description = "用户信息测试controller") public class UserinfoController{      @Autowired     private UserinfoService userinfoService;      @Autowired     private WebSocketServer webSocketServer;      @Autowired     private RedisService redisService;        /**      * 查找指定id对应的用户      * @param id      * @return      */     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)     @MyLog(type = LogOperationEnum.SELECT,value = "查询指定id的用户信息")     @ApiOperation(value = "查询指定id的用户信息接口", notes = "查询指定id的用户信息接口")     public ResponseData getUser(@PathVariable(value = "id") Integer id){         return userinfoService.findById(id);     }      /**      * 查找所有用户      * @return      */     @RequestMapping(value = "/users", method = RequestMethod.GET)     @MyLog(type = LogOperationEnum.SELECT,value = "查询全部用户信息")     @ApiOperation(value = "查询所有用户信息接口", notes = "查询所有用户信息接口")     public ResponseData getAllUsers(){         return userinfoService.findAllUsers();     }      /**      * 查找所有用户（带分页）      * @param page 当前页数      * @param rows 每页显示条数      * @return      */     @RequestMapping(value = "/users/p", method = RequestMethod.GET)     @ApiOperation(value = "查询所有用户信息接口(带分页)", notes = "查询所有用户信息接口(带分页)")     public ResponseData getAllUsers(Integer page, Integer rows){         return userinfoService.findAllUsers(page, rows);     }      /**      * 新增用户 (带参数校验@Valid)      * 注意：BindingResult 对象必须在 @Valid 的紧挨着的后面，否则接收不到错误信息      * @Valid 可以校验json 也可以校验表单传递的对象属性      * @param userinfo      * @return      */     @RequestMapping(value = "/user", method = RequestMethod.POST)     @MyLog(type = LogOperationEnum.INSERT, value = "新增用户信息")     @ApiOperation(value = "新增用户接口(包含参数校验)", notes = "新增用户接口(包含参数校验)")     public ResponseData saveUserinfo(@RequestBody @Valid Userinfo userinfo, BindingResult bindingResult){         if(bindingResult.hasErrors()){             return BuildResponseUtil.buildFailResponse(bindingResult.getFieldError().getDefaultMessage());         }         return userinfoService.saveUser(userinfo);     }      /**      * 删除指定用户      * @param id 用户id      * @return      */     @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)     @ApiOperation(value = "删除指定id的用户信息接口", notes = "删除指定id的用户信息接口")     public ResponseData deleteUser(@PathVariable Integer id){         return userinfoService.deleteUser(id);     }      /**      * 更新用户      * @param userinfo      * @return      */     @RequestMapping(value = "/user", method = RequestMethod.PUT)     @ApiOperation(value = "更新指定id用户信息接口", notes = "更新指定id用户信息接口")     public ResponseData updateUserinfo(@RequestBody Userinfo userinfo){         return userinfoService.updateUser(userinfo);     }      /**      * 给指定用户推送消息      * @param userName 用户名      * @param message 消息      * @throws IOException      */     @RequestMapping(value = "/socket", method = RequestMethod.GET)     @ApiIgnore //使用此注解忽略方法的暴露，也可以用在controller上     @ApiOperation(value = "给指定用户推送socket消息接口", notes = "给指定用户推送socket消息接口")     public void testSocket(@RequestParam String userName,@RequestParam String message){         webSocketServer.sendInfo(userName, message);     }      /**      * 测试redis接口保存String类型action      * @param address      * @return      */     @RequestMapping(value = "/redis", method = RequestMethod.POST)     @ApiIgnore //使用此注解忽略方法的暴露，也可以用在controller上     @ApiOperation(value = "redis中添加String数据接口", notes = "redis中添加String数据接口")     public ResponseData setString(@RequestBody String address){         System.out.println(address);         return redisService.setValue(address);     }      /**      * 测试redis接口保存实体类型action      * @param userinfo      * @return      */     @RequestMapping(value = "/redis/userinfo", method = RequestMethod.POST)     @ApiIgnore //使用此注解忽略方法的暴露，也可以用在controller上     @ApiOperation(value = "redis中添加Userinfo实体接口", notes = "redis中添加Userinfo实体接口")     public ResponseData setEntity(@RequestBody Userinfo userinfo){         return redisService.setEntityValue(userinfo);     }     /**      * 测试redis接口读取实体类型action      * @param key      * @return      */     @RequestMapping(value = "/redis/userinfo/{key}", method = RequestMethod.GET)     @ApiIgnore //使用此注解忽略方法的暴露，也可以用在controller上     @ApiOperation(value = "redis中读取指定key对应的数据接口", notes = "redis中读取指定key对应的数据接口")     public ResponseData getEntity(@PathVariable String key){         return redisService.getEntityValue(key);     }      /**      *      * @param list      * @return      */     @RequestMapping(value = "/redis/userList", method = RequestMethod.POST)     @ApiIgnore //使用此注解忽略方法的暴露，也可以用在controller上     @ApiOperation(value = "redis中添加包含Userinfo实体的集合接口", notes = "redis中添加包含Userinfo实体的集合接口")     public ResponseData setCollection(@RequestBody List&lt;Userinfo&gt; list){         return redisService.setCollectionValue(list);     }      /**      * 测试redis接口读取实体类型action      * @param key      * @return      */     @RequestMapping(value = "/redis/userList/{key}", method = RequestMethod.GET)     @ApiOperation(value = "redis中读取指定key对应的集合数据接口", notes = "redis中读取指定key对应的集合数据接口")     public ResponseData getCollection(@PathVariable String key){         return redisService.getCollectionValue(key);     }  }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp;二：到这里配置就结束了，访问<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://127.0.0.1:8088/yjbj/swagger-ui.html"  rel="nofollow">http://127.0.0.1:端口/项目路径/swagger-ui.html</a>&nbsp;就ok了，&nbsp;页面如下：</p> <div style="text-align:center;"> <figure class="image has"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220830/d3eebebbb024e2d2ee91ef5e30cb6449.jpg"><figcaption>    swagger-ui界面展示</figcaption></figure> </div> <p>&nbsp; &nbsp; &nbsp; &nbsp;三：项目运行了一段时间后访问上面连接突然报<span style="color:#f33b45;">404</span>错误，百思不得其解，但是可以肯定的是加了什么配置导致，最后在<strong>application.yml</strong>中发现了一个配置：</p> <pre class="has"><code class="language-java">spring.mvv.resources.add-mapping:false</code></pre> <p>将其注释掉熟悉的界面又回来了，查阅资料发现这个配置<strong>是不自动给静态资源添加路径，导致swagger-ui.html找不到资源</strong>，知道原因后摸索看能不能在保留以上配置的前提下自己手动给swagger-ui.html添加静态资源路径呢？</p> <pre class="has"><code class="language-java">package com.sailing.springbootmybatis.config;  import org.springframework.context.annotation.Configuration; import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry; import org.springframework.web.servlet.config.annotation.ViewControllerRegistry; import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;  /**  * 在SpringBoot2.0及Spring 5.0 WebMvcConfigurerAdapter已被废弃，目前找到解决方案就有  * 1 直接实现WebMvcConfigurer （官方推荐）  * 2 直接继承WebMvcConfigurationSupport  * @ https://blog.csdn.net/lenkvin/article/details/79482205  */ @Configuration public class WebMvcConfig extends WebMvcConfigurerAdapter {      @Override     public void addResourceHandlers(ResourceHandlerRegistry registry) {         registry.addResourceHandler("swagger-ui.html")                 .addResourceLocations("classpath:/META-INF/resources/");         registry.addResourceHandler("/webjars/**")                 .addResourceLocations("classpath:/META-INF/resources/webjars/");      } }</code></pre> <p>发现通过以上代码手动给swagger-ui.html指定路径也可以解决404的问题。</p> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3938.htm">灵感乍现！造了个与众不同的Dubbo注册中心扩展轮子</a></p>
+                                                <p>下一个：<a href="/html/category/article-3940.htm">【java】关于sc.hasNext()在while语句中的使用</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4050.htm" title="C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数">C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数</a></li>
+                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                        <li class="py-2"><a href="/html/category/article-4040.htm" title="@order注解 解答">@order注解 解答</a></li>
+                        <li class="py-2"><a href="/html/category/article-4064.htm" title="用python实现文件的词频统计">用python实现文件的词频统计</a></li>
+                        <li class="py-2"><a href="/html/category/article-4025.htm" title="Java原生HttpClient的使用详解_java">Java原生HttpClient的使用详解_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-4030.htm" title="vite+element-plus项目基础搭建">vite+element-plus项目基础搭建</a></li>
+                        <li class="py-2"><a href="/html/category/article-4020.htm" title="spring schedule 配置多任务动态 cron 【增删启停】">spring schedule 配置多任务动态 cron 【增删启停】</a></li>
+                        <li class="py-2"><a href="/html/category/article-4010.htm" title="关于java抽象方法和抽象类的一些理解">关于java抽象方法和抽象类的一些理解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4027.htm" title="前端需要了解的颜色模型，RGB、HSL和HSV_在线工具">前端需要了解的颜色模型，RGB、HSL和HSV_在线工具</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

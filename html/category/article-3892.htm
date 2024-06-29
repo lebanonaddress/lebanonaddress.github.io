@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3892.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>k8s入门之Ingress - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">k8s入门之Ingress </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<p>Ingress 的功能其实很容易理解：所谓 Ingress，就是 Service 的“Service”，代理不同后端 Service 而设置的负载均衡服务。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c7107b7b2a69bd8fd5f8dd82a8833fd9.jpg" alt="k8s入门之Ingress"></p> <p><strong>一、安装ingress</strong></p> <p><strong>1.查找ingress安装文件</strong></p> <p>从github上查看ingress对应k8s版本的deploy文件，链接地址是：</p> <p><a href="" rel="nofollow">https://github.com/kubernetes/ingress-nginx/tree/main/deploy/static/provider/baremetal</a></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a203bb181f921646065634704a4ec434.jpg" alt="k8s入门之Ingress"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9fed87814f93b2e5dff754461d3ea446.jpg" alt="k8s入门之Ingress"></p> <p><strong>2.点击Raw按钮可得到该文件的url链接</strong></p> <p><a href="" rel="nofollow">https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/baremetal/1.21/deploy.yaml</a></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/eacc779d874a49e2e310fd64b588d910.jpg" alt="k8s入门之Ingress"></p> <p><strong>3.在master节点上下载该文件</strong></p> <pre><code>wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/baremetal/1.21/deploy.yaml</code></pre> <p><strong>4.更改文件名</strong></p> <pre><code>mv deploy.yaml ingress-nginx.yaml</code></pre> <p><strong>5.替换镜像</strong></p> <p>由于国内访问不了谷歌，需要更改ingress-nginx.yaml文件中的镜像，从docker hub上搜索相关镜像进行替换</p> <pre><code>k8s.gcr.io/ingress-nginx/controller:v1.1.2@sha256:28b11ce69e57843de44e3db6413e98d09de0f6688e33d4bd384002a44f7 8405c&nbsp;替换成&nbsp;liangjw/ingress-nginx-controller:v1.1.2  k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1@sha256:64d8c73dca984af206adf9d6d7e46aa550362b1d7a01f3a0a 91b20cc67868660 替换成 liangjw/kube-webhook-certgen:v1.1.1</code></pre> <p><strong>6.创建nginx ingress</strong></p> <pre><code>kubectl apply -f ingress-nginx.yaml</code></pre> <p><strong>7.查看资源</strong></p> <pre><code>kubectl get pod,svc -n ingress-nginx</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7ca5b9c610c4ba09450980f8aa8af89f.jpg" alt="k8s入门之Ingress"></p> <p><strong>8.在集群外通过集群内任意一台节点的IP+Port就可以访问</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4576588f3181b3d932255d812fb126b3.jpg" alt="k8s入门之Ingress"></p> <p>由于还没有配置被代理的服务，所以返回404</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/78014b7bf966a1eac04277bdd1de3146.jpg" alt="k8s入门之Ingress"></p> <p><strong>二、配置</strong></p> <p><strong>1.参考前面的章节部署nginx的deploy与service</strong></p> <p>服务名为：svc-nginx</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/3322eefc635189932cbc2e0898737a91.jpg" alt="k8s入门之Ingress"></p> <p><strong>2.配置ingress</strong></p> <p>创建ingress-svc.yaml文件</p> <pre><code>vi ingress-svc.yaml</code></pre> <p>编写文件内容</p> <pre><code>apiVersion: networking.k8s.io/v1 kind: Ingress metadata:   name: ingress-demo   # 名称空间不要忘了   namespace: dev spec:   ingressClassName: nginx   rules:   - host: "demo.k8s.com"     http:       paths:       - pathType: Prefix         path: "/"         backend:           service:             # 代理的服务名称             name: svc-nginx             port:               # 服务端口               number: 8000</code></pre> <p><strong>3.创建ingress对象</strong></p> <pre><code>kubectl apply -f ingress-svc.yaml</code></pre> <p><strong>4.查看ingress对象的信息</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/cfb7e4a1218e8f5c2698bee3cbe337fb.jpg" alt="k8s入门之Ingress"></p> <p><strong>5.配置域名访问</strong></p> <p>在windows宿主机上找到hosts文件：</p> <p>C:\Windows\System32\drivers\etc\hosts，</p> <p>添加一条映射记录（从三台节点中任选一台的IP进行映射）：</p> <pre><code>192.168.59.112 demo.k8s.com</code></pre> <p>然后通过该域名加上ingress controller服务自己暴露的端口就可以访问了，千万要注意不是你代理的服务的端口。如下图所示获取ingress服务的端口</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4425cc9c83d0b463ad028d48f2085c90.jpg" alt="k8s入门之Ingress"></p> <p>在浏览器就可以访问被ingress代理的k8s服务了</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/631322fbe973a9734ba12e08fc0d52a4.jpg" alt="k8s入门之Ingress"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/72f3b2f85b970ff37d76682aaf4c7159.jpg" alt="k8s入门之Ingress"></p> <p><strong>三、路径重写</strong></p> <p><strong>1.更新yaml文件</strong></p> <pre><code>vi ingress-svc.yaml</code></pre> <pre><code>apiVersion: networking.k8s.io/v1 kind: Ingress metadata:   annotations:     # 加上此重写配置     nginx.ingress.kubernetes.io/rewrite-target: /$2   name: ingress-demo   namespace: dev spec:   ingressClassName: nginx   rules:   - host: "demo.k8s.com"     http:       paths:       - pathType: Prefix         path: "/"         backend:           service:             name: svc-nginx             port:               number: 8000   - host: "demo2.k8s.com"     http:       paths:       - pathType: Prefix         path: "/nginx(/|$)(.*)"         backend:           service:             name: svc-nginx             port:               number: 8000</code></pre> <p><strong>2.更新ingress对象</strong></p> <pre><code>kubectl apply -f ingress-svc.yaml</code></pre> <p><strong>3.查看ingress对象</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/661f4a9b1f956a717d83e4b32f060be1.jpg" alt="k8s入门之Ingress"></p> <p><strong>4.配置域名</strong></p> <p>在windows宿主机上找到hosts文件：</p> <p>C:\Windows\System32\drivers\etc\hosts，添加一条映射记录：</p> <pre><code>192.168.59.112 demo2.k8s.com</code></pre> <p>在浏览器中访问</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/34cc23facda9e52b523360cd4e825557.jpg" alt="k8s入门之Ingress"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/5545bcd0ad9b65745163b163ff9498da.jpg" alt="k8s入门之Ingress"></p> <p><strong>四、限流配置</strong></p> <p><strong>1.更新yaml文件</strong></p> <pre><code>vi ingress-svc.yaml</code></pre> <pre><code>apiVersion: networking.k8s.io/v1 kind: Ingress metadata:   annotations:     # 加上此重写配置     nginx.ingress.kubernetes.io/rewrite-target: /$2     # 限流     nginx.ingress.kubernetes.io/limit-rps: "1"   name: ingress-demo   namespace: dev spec:   ingressClassName: nginx   rules:   - host: "demo.k8s.com"     http:       paths:       - pathType: Prefix         path: "/"         backend:           service:             name: svc-nginx             port:               number: 8000   - host: "demo2.k8s.com"     http:       paths:       - pathType: Prefix         path: "/nginx(/|$)(.*)"         backend:           service:             name: svc-nginx             port:               number: 8000</code></pre> <p><strong>2.更新ingress对象</strong></p> <pre><code>kubectl apply -f ingress-svc.yaml</code></pre> <p><strong>3.测试</strong></p> <p>快速刷新访问会报异常，你可以自定义错误页面</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/603286db9a2d12523a15872a59ced1fe.jpg" alt="k8s入门之Ingress"></p> <p><strong>五、总结</strong></p> <p>目前，Ingress 只能工作在七层，而 Service 只能工作在四层。所以当你想要在 Kubernetes 里为应用进行 TLS 配置等 HTTP 相关的操作时，都必须通过 Ingress 来进行。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e9373a4c1849e1f7d28adf4f2c866ce2.jpg" alt="k8s入门之Ingress"></p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3891.htm">网络协议之:socket协议详解之Datagram Socket</a></p>
+                                                <p>下一个：<a href="/html/category/article-3893.htm">Redis详解&#8212;Redis持久化_在线工具</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4064.htm" title="用python实现文件的词频统计">用python实现文件的词频统计</a></li>
+                        <li class="py-2"><a href="/html/category/article-4023.htm" title="ElasticSearch学习：springboot集成ElasticSearch">ElasticSearch学习：springboot集成ElasticSearch</a></li>
+                        <li class="py-2"><a href="/html/category/article-4036.htm" title="字符数组和字符串的区别，C语言字符数组和字符串区别详解">字符数组和字符串的区别，C语言字符数组和字符串区别详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4063.htm" title="Python生成sql语句">Python生成sql语句</a></li>
+                        <li class="py-2"><a href="/html/category/article-4022.htm" title="java socket read 堵塞问题的解决方法">java socket read 堵塞问题的解决方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4038.htm" title="[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案">[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案</a></li>
+                        <li class="py-2"><a href="/html/category/article-4058.htm" title="TS语言与JS语言的区别">TS语言与JS语言的区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4062.htm" title="Python格式化输出的三种方法（format,f前缀，%s）">Python格式化输出的三种方法（format,f前缀，%s）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4021.htm" title="使用feign客户端要使用注解@EnableFeignClients">使用feign客户端要使用注解@EnableFeignClients</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

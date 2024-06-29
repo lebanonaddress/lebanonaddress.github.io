@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3984.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>Java连接MySQL数据库实例_java - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">Java连接MySQL数据库实例_java </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<p>首先说明，由于是8版本的数据库，所以配置类的写法上与5版本的有所区别，需要注意，同时用idea或eclipse时需要导入jar包，jar包的下载链接：</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://dev.mysql.com/get/archives/mysql-connector-java-8.0/mysql-connector-java-8.0.28.zip"   target="_blank" rel="nofollow">https://dev.mysql.com/get/archives/mysql-connector-java-8.0/mysql-connector-java-8.0.28.zip</a></p> <p>如果想要下载8版本不同的jar包只需要修改8.0.28为指定版本即可。</p> <p>idea导入jar包的方法如下：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/fa093e7820e38eefeec7a5672f713ee4.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/c3cf41d33aaeeb8ee22b6c3aa87a9971.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/6fed7e5390ad39b7e38752c32dc5c9bc.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/7845733a5694291643ca4779130d1e56.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/e96b255a1022c4b0b5e56b02883de2c8.jpg"></p> <p>然后是代码部分，首先先建表：</p> <div class="ay1code"> <pre class="brush:sql;">CREATE TABLE `train_message` (                                   `id` int NOT NULL AUTO_INCREMENT COMMENT '主键id',                                   `train_name` varchar(20) NOT NULL COMMENT '列车名',                                   `origin` varchar(30) NOT NULL COMMENT '始发地',                                   `terminal` varchar(30) NOT NULL COMMENT '终到地',                                   `departure_time` timestamp NOT NULL COMMENT '出站时间',                                   `state` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '正常' COMMENT '列车状态',                                   PRIMARY KEY (`id`)  ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3</pre> </div> <p>然后创建连接的配置类DbConfig.java，localhost是本机的ip地址，如果有服务器就填服务器的ip地址，message是数据库的名字，这里一张图说下有很多新手误解的名字</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/65d59914c1129d897785fba6c0589b0f.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/068511f8c62845366bb6dcb302b40729.jpg"></p> <div class="ay1code"> <pre class="brush:java;">import java.sql.Connection;  import java.sql.DriverManager;  import java.sql.SQLException;    /**   *  数据库配置类   *  @author 景苒   */  public class DbConfig {      public Connection dbConfig() throws SQLException {          try {              Class.forName("com.mysql.cj.jdbc.Driver");          }catch (Exception e) {              System.out.print("加载驱动失败!");              e.printStackTrace();          }          String url = "jdbc:mysql://localhost:3306/message?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=GMT%2B8&amp;allowPublicKeyRetrieval=true";          String user = "root";          String password = "123456";          return DriverManager.getConnection(url, user, password);      }  }</pre> </div> <p>然后写下主函数Main.java，这里主函数的函数体可以在最后再写，需要什么功能就把注释打开就好，快捷注释的方法，选中这句话，按ctrl加/，就能全注释了。</p> <div class="ay1code"> <pre class="brush:java;">import java.sql.SQLException;    /**   * 主函数，调用功能   * @author 景苒   */  public class Main {      public static void main(String[] args) throws SQLException {  //        new GetMessage().getMessage();  //        new UpdateTrainState().updateTrainState();  //        new InsertTrain().insertTrain();  //        new GetNumber().getNumber();      }  }</pre> </div> <p>然后是每个的功能：</p> <h3>1.查询沈阳到武汉的所有列车信息，按出发时间先后排序</h3> <p>建GetMessage.java类</p> <div class="ay1code"> <pre class="brush:java;">import java.sql.Connection;  import java.sql.PreparedStatement;  import java.sql.ResultSet;  import java.sql.SQLException;    /**   * 查询沈阳到武汉的所有列车信息，按出发时间先后排序   * @author 景苒   */  public class GetMessage {      public void getMessage() throws SQLException {          Connection con = new DbConfig().dbConfig();          String sql = "select * from `train_message` where origin = ? and terminal = ? ORDER BY departure_time ASC";          String origin = "沈阳";          String terminal = "武汉";          PreparedStatement ps = con.prepareStatement(sql);          ps.setString(1, origin);          ps.setString(2, terminal);          ResultSet rs = ps.executeQuery();          try {              while (rs.next()) {                  System.out.println("列车名：" + rs.getString("train_name")                          + " 始发站：" + rs.getString("origin")                          + " 终到站：" + rs.getString("terminal")                          + " 出发时间：" + rs.getString("departure_time")                          + " 列车状态：" + rs.getString("state"));              }          }catch (SQLException e) {              e.printStackTrace();          }finally {              ps.close();              con.close();          }      }  }</pre> </div> <h3>2.修改T2255列车的状态为停运</h3> <p>建UpdateTrainState.java类</p> <div class="ay1code"> <pre class="brush:java;">import java.sql.Connection;  import java.sql.SQLException;  import java.sql.Statement;    /**   * 修改T2255列车的状态为停运   * @author 景苒   */  public class UpdateTrainState {      public void updateTrainState() throws SQLException {          Connection con = new DbConfig().dbConfig();          String sql = "UPDATE `train_message` SET state = '停运' WHERE train_name = 'T2255'";          Statement statement = con.createStatement();          try {              int i = statement.executeUpdate(sql);              if (i &gt; 0) {                  System.out.println("更新成功");              }else {                  System.out.println("更新失败");              }          }catch (SQLException e) {              e.printStackTrace();          }finally {              statement.close();              con.close();          }      }  }</pre> </div> <h3>3.新增一辆列车信息（自己输入）</h3> <p>建InsertTrain.java类</p> <div class="ay1code"> <pre class="brush:java;">import java.sql.Connection;  import java.sql.PreparedStatement;  import java.sql.SQLException;  import java.util.Scanner;    /**   * 新增一辆列车信息（自己输入）   * 始发时间为timestamp类型，输入时需要确保格式正确，如：2019-01-01 00:00:00   * @author 景苒   */  public class InsertTrain {      public void insertTrain() throws SQLException {          Connection con = new DbConfig().dbConfig();          Scanner scanner = new Scanner(System.in);          String sql = "insert into `train_message` values(null, ?, ?, ?, ?, default)";          System.out.print("请输入列车名：");          String trainName = scanner.nextLine();          System.out.print("请输入始发站：");          String origin = scanner.nextLine();          System.out.print("请输入终到站：");          String terminal = scanner.nextLine();          System.out.print("请输入始发时间：");          String departureTime = scanner.nextLine();          PreparedStatement ps = con.prepareStatement(sql);          ps.setString(1, trainName);          ps.setString(2, origin);          ps.setString(3, terminal);          ps.setString(4, departureTime);          try {              int i = ps.executeUpdate();              if (i &gt; 0) {                  System.out.println("添加成功");              }else {                  System.out.println("添加失败");              }          }catch (SQLException e) {              e.printStackTrace();          }finally {              ps.close();              con.close();          }      }  }</pre> </div> <h3>4.查询状态为正常的列车数量</h3> <p>建GetNumber.java类</p> <div class="ay1code"> <pre class="brush:java;">import java.sql.Statement;    /**   * 查询状态为正常的列车数量   * @author 景苒   */  public class GetNumber {      public void getNumber() throws SQLException {          Connection con = new DbConfig().dbConfig();          String sql = "select count(state) from `train_message` where state = '正常'";          Statement statement = con.createStatement();          try {              ResultSet resultSet = statement.executeQuery(sql);              while (resultSet.next()) {                  System.out.println("状态为正常的列车数量为：" + resultSet.getInt(1));              }          }catch (SQLException e){              e.printStackTrace();          }finally {              statement.close();              con.close();          }      }  }</pre> </div> <p>最后附上navicat的属性结构图和样例插入的语句</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/c6eff9393b2850f4d1e360277e4a1db7.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/a33825d3b3ed9d0e35427e89c753b1a7.jpg"></p> <p>数据根据自己需求自行写入几个就行，以上就是java连接mysql数据库的实例代码，eclipse也大同小异，就导入jar包的方式不同。</p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-3983.htm">VUE 实现下拉分页加载更多功能</a></p>
+                                                <p>下一个：<a href="/html/category/article-3985.htm">Ribbon、Hystrix超时问题</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4040.htm" title="@order注解 解答">@order注解 解答</a></li>
+                        <li class="py-2"><a href="/html/category/article-4023.htm" title="ElasticSearch学习：springboot集成ElasticSearch">ElasticSearch学习：springboot集成ElasticSearch</a></li>
+                        <li class="py-2"><a href="/html/category/article-4031.htm" title="使用Nginx实现多个Tomcat负载均衡">使用Nginx实现多个Tomcat负载均衡</a></li>
+                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-4014.htm" title="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值">【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值</a></li>
+                        <li class="py-2"><a href="/html/category/article-4028.htm" title="Halo 开源项目学习评论与点赞">Halo 开源项目学习评论与点赞</a></li>
+                        <li class="py-2"><a href="/html/category/article-4061.htm" title="如何在Android sqlite中删除表？">如何在Android sqlite中删除表？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

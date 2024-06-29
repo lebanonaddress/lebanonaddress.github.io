@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4014.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<h1>问题描述</h1> <p>在使用CURL通过REST API获取Azure Key Vaualt的Secrets值，提示Missing Token， 问如何来生成正确的Token呢？</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)"># curl 命令 curl</span>-k --request GET -H<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Content-type: application/json;charset=UTF-8</span><span style="color: rgba(128, 0, 0, 1)">"</span> -s https:<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">&lt;your key vault name&gt;.vault.azure.cn/secrets/&lt;secrets name &gt;/&lt;Secrets version number b38a011e4a82a8830b401af1a2384e72</span><span style="color: rgba(0, 0, 0, 1)"> # 错误消息 {</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">error</span><span style="color: rgba(128, 0, 0, 1)">"</span>:{<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">code</span><span style="color: rgba(128, 0, 0, 1)">"</span>:<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Unauthorized</span><span style="color: rgba(128, 0, 0, 1)">"</span>,<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">message</span><span style="color: rgba(128, 0, 0, 1)">"</span>:<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">AKV10000: Request is missing a Bearer or PoP token</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1d389a956539b4caef3aab4bd3724896.jpg" alt="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值" width="999" height="419" loading="lazy"/></p> <h1>问题分析</h1> <p>通过-v 输出的更详细错误显示 401 Unauthorized，在curl发送的请求中缺少了 Authorization Header。而如果通过浏览器F12(开发者工具)获取到访问Key Vault Secret的Netwrok Trace获取的Authorization还是会遇见错误。</p> <p>错误消息为：</p> <div class="cnblogs_code"> <pre>{<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">error</span><span style="color: rgba(128, 0, 0, 1)">"</span>:{<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">code</span><span style="color: rgba(128, 0, 0, 1)">"</span>:<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Unauthorized</span><span style="color: rgba(128, 0, 0, 1)">"</span>,<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">message</span><span style="color: rgba(128, 0, 0, 1)">"</span>:<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">AKV10022: Invalid audience. Expected https://vault.azure.cn, found: https://management.core.chinacloudapi.cn/.</span><span style="color: rgba(128, 0, 0, 1)">"</span>}}</pre> </div> <p>所以为了获取正确的Token：</p> <h4 style="margin-left: 30px">一：需要在Azure AD中“注册应用”</h4> <h4 style="margin-left: 30px">二：在Azure Key Vault的Access Policy中添加访问授权</h4> <h4 style="margin-left: 30px">三：调用AAD Token 接口获取到正确的Token</h4> <h1>操作步骤</h1> <h2>一：在Azure AD中“注册应用”</h2> <p>进入 Azure AD<span id="_weave_e_5821" class="msportalfx-font-regular">App registrations 页面（</span>https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps），点击 “New registration”添加新的注册应用，输入名称后注册。</p> <p>成功后，一定要记住一点。复制出<strong> Application(Client) ID, Directory (tenant) ID,</strong>外加 在Certificates &amp; Secrets页面中添加的<strong>Client Secrets.</strong> (将在第三步中使用)</p> <p><strong><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1d546bbbda820e0918ff5adff4172571.jpg" alt="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值" width="999" height="982" loading="lazy"/></strong></p> <h2>二：在Azure Key Vault的Access Policy中添加访问授权</h2> <ol> <li>进入Azure Key Vault页面</li> <li>选择要操作的Key Value</li> <li>点击 Access Policy</li> <li>赋予Secret Permissions权限</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/af56bc425beaa964cc6c3fc33d430e43.jpg" alt="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值" width="999" height="482" loading="lazy"/></p> <h2>三：调用AAD Token 接口获取到正确的Token</h2> <p>同样，使用CURL命令调用AAD Token API，获取第四步的Authorization Token</p> <p>在Windows中，POST请求的Body内容可以通过 --data “parameter1=value1&amp;parameter2=value2”的格式传递。所以获取Token的CLUR命令为：</p> <div class="cnblogs_code"> <pre>curl -k --request POST -H<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">Content-Type: application/x-www-form-urlencoded</span><span style="color: rgba(128, 0, 0, 1)">'</span><br/>--data<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">grant_type=client_credentials&amp;resource=https://vault.azure.cn&amp;client_secret=your secret value&amp;client_id=your aad client id</span><span style="color: rgba(128, 0, 0, 1)">"</span><br/>-s https:<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">login.chinacloudapi.cn/&lt;your tenant id &gt;/oauth2/token</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/fe77855bb0dd8a7649a3923428d16697.jpg" alt="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值" width="999" height="226" loading="lazy"/></p> <h2>四：调用Key Vault Secrets接口获取Secret</h2> <p>从第三步中获取Token，放入获取Secrets的Header中。命令为：</p> <div class="cnblogs_code"> <pre>curl -k --request GET -H<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Content-type: application/json;charset=UTF-8</span><span style="color: rgba(128, 0, 0, 1)">"</span><br/>-H<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)"><span style="background-color: rgba(255, 255, 0, 1)">Authorization:Bearer</span> &lt;REPLACE CONTENT ey*********************&gt;</span><span style="color: rgba(128, 0, 0, 1)">"</span><br/>-s  https:<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">&lt;your key vault name&gt;.vault.azure.cn/secrets/&lt;secrets name &gt;/&lt;Secrets version number b38a011e4a82a8830b401af1a2384e72?<span style="background-color: rgba(255, 255, 0, 1)">api-version=7.3</span></span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7a21e9ce74a677ca3c59e54640563930.jpg" alt="【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值" width="999" height="138" loading="lazy"/></p> <h2>附录一：curl命令的参数设定</h2> <div class="cnblogs_code"> <pre>C:\&gt;curl -<span style="color: rgba(0, 0, 0, 1)">h Usage: curl [options...]</span>&lt;url&gt;  -d, --data &lt;data&gt;<span style="color: rgba(0, 0, 0, 1)">   HTTP POST data</span>-f, --<span style="color: rgba(0, 0, 0, 1)">fail          Fail silently (no output at all) on HTTP errors</span>-h, --help &lt;category&gt;  Get help<span style="color: rgba(0, 0, 255, 1)">for</span><span style="color: rgba(0, 0, 0, 1)"> commands</span>-i, --include       Include protocol response headers<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> the output</span>-o, --output &lt;<span style="color: rgba(0, 0, 255, 1)">file</span>&gt;  Write to<span style="color: rgba(0, 0, 255, 1)">file</span><span style="color: rgba(0, 0, 0, 1)"> instead of stdout</span>-O, --remote-name   Write output to a<span style="color: rgba(0, 0, 255, 1)">file</span> named as the remote<span style="color: rgba(0, 0, 255, 1)">file</span>  -s, --<span style="color: rgba(0, 0, 0, 1)">silent        Silent mode</span>-T, --upload-<span style="color: rgba(0, 0, 255, 1)">file</span> &lt;<span style="color: rgba(0, 0, 255, 1)">file</span>&gt;<span style="color: rgba(0, 0, 0, 1)">  Transfer local FILE to destination</span>-u, --user &lt;user:password&gt;<span style="color: rgba(0, 0, 0, 1)">  Server user and password</span>-A, --user-agent &lt;name&gt;  Send User-Agent &lt;name&gt;<span style="color: rgba(0, 0, 0, 1)"> to server</span>-v, --verbose       Make the operation<span style="color: rgba(0, 0, 255, 1)">more</span><span style="color: rgba(0, 0, 0, 1)"> talkative</span>-V, --<span style="color: rgba(0, 0, 0, 1)">version       Show version number and quit  This is not the full help, this menu is stripped into categories. Use</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">--help category</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> to get an overview of all categories. For all options use the manual or</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">--help all</span><span style="color: rgba(128, 0, 0, 1)">"</span>.</pre> </div> <h3>参考文档</h3> <p><strong>Azure Key Vault REST API - Get Secret:</strong><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/rest/api/keyvault/secrets/get-secret/get-secret"  target="_blank" rel="nofollow">https://docs.microsoft.com/zh-cn/rest/api/keyvault/secrets/get-secret/get-secret</a></p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4013.htm">Django项目使用pyinstall打包步骤（包含各种出错处理方法）</a></p>
+                                                <p>下一个：<a href="/html/category/article-4015.htm">MySQL 回表</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4018.htm" title="解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题">解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题</a></li>
+                        <li class="py-2"><a href="/html/category/article-4010.htm" title="关于java抽象方法和抽象类的一些理解">关于java抽象方法和抽象类的一些理解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4052.htm" title="Windows如何查看WiFi密码">Windows如何查看WiFi密码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4061.htm" title="如何在Android sqlite中删除表？">如何在Android sqlite中删除表？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4051.htm" title="vue项目运行后自动运行浏览器（vue2/vue3）">vue项目运行后自动运行浏览器（vue2/vue3）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4046.htm" title="Vue  el-input  trim() 去空格">Vue  el-input  trim() 去空格</a></li>
+                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4047.htm" title="springboot关于mysql数据库date时间的坑">springboot关于mysql数据库date时间的坑</a></li>
+                        <li class="py-2"><a href="/html/category/article-4050.htm" title="C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数">C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

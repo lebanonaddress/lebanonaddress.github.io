@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4005.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>一文搞懂MySQL事务的隔离性如何实现｜MVCC - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">一文搞懂MySQL事务的隔离性如何实现｜MVCC </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<blockquote> <p>关注公众号【程序员白泽】，带你走进一个不一样的程序员/学生党</p> </blockquote> <h2 id="前言">前言</h2> <p>MySQL有ACID四大特性，本文着重讲解<strong>MySQL不同事务之间的隔离性</strong>的概念，以及MySQL如何实现隔离性。下面先罗列一下MySQL的四种事务隔离级别，以及不同隔离级别可能会存在的问题。<strong>事务隔离级别越高，多个事务在并发访问数据库时互相产生数据干扰的可能性越低，但是并发访问的性能就越差</strong>。（相当于牺牲了一定的性能去保证数据的安全性）</p> <p>下面这张表，展示了MySQL的四大隔离级别和伴随着的一些问题，下面详细介绍。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c817406767c119463ce172829b4048ce.jpg" alt="一文搞懂MySQL事务的隔离性如何实现｜MVCC"></p> <h2 id="事务隔离级别">事务隔离级别</h2> <p>读未提交：多个事务同时修改一条记录，A事务对其的改动在A事务还没提交时，在B事务中就可以看到A事务对其的改动。</p> <p>读已提交：多个事务同时修改一条记录，A事务对其的改动在A事务提交之后，在B事务中可以看到A事务对其的改动。</p> <p>可重复读：多个事务同时修改一条记录，这条记录在A事务执行期间是不变的（别的事务对这条记录的修改不被A事务感知）。</p> <p>串行化：多个事务同时访问一条记录（CRUD），读加读锁，写加写锁，完全退化成了串行的访问，自然不会收到任何其他事务的干扰，性能最低。</p> <h2 id="不同级别伴随的问题">不同级别伴随的问题</h2> <p>脏读：A事务在提交前对一个字段的改动会被B事务感知，那么事务之间就很容易产生干扰，假如A对一个字段改动之后被B感知，但是A又回滚了事务，则对该字段的改动依旧保留在B的查询结果中，那么这样的数据就是脏数据（处于处理中间过程的数据）。</p> <p>不可重复读：A事务对于一条记录的读取结果，在B事务对其修改并提交之后，A再次读取同一条记录会得到不同的结果。</p> <p>幻读：侧重于A事务的同一个范围查询命令，前后两次得到不同的记录数量，原因是B事务可能对其进行了插入。</p> <h3 id="小结一下">小结一下</h3> <p>通过阅读上面给出的内容，可以得到结论：</p> <ol> <li>读未提交隔离级别并没有对行数据的可见性做任何限制，所有事务之间的改动都是互相可见的，所以存在很多问题，不推荐使用；</li> </ol> <ol start="2"> <li>串行化隔离级别因为通过锁机制对记录的访问进行限制，所以安全性最高，但并发访问退化成串行访问，性能较低；</li> </ol> <p><strong>因此本文将侧重于探究MySQL如何实现<code>读已提交</code>和<code>可重复读</code>两种隔离级别（也就是你听闻的MVCC多版本并发控制的实现），通过后面的学习你将理解<code>读已提交</code>隔离级别如何<code>解决脏读</code>，<code>可重复读</code>隔离级别如何更进一步<code>解决不可重复读</code>。</strong></p> <p><strong>接下来我将向你介绍<code>undo 版本链</code>机制以及<code>read view</code>快照读机制，这两个机制相互配合是实现MVCC的核心，而<code>读已提交</code>和<code>可重复读</code>隔离级别的实现都是建立在这两个核心机制之上。</strong></p> <h2 id="undo-版本链">undo 版本链</h2> <p>undo 版本链就是指undo log的存储在逻辑上的表现形式，它被用于事务当中的<strong>回滚操作</strong>以及<strong>实现MVCC</strong>，这里介绍一下undo log之所以能实现回滚记录的原理。</p> <p>对于每一行记录，会有两个隐藏字段：<code>row_trx_id</code>和<code>roll_pointer</code>，<code>row_trx_id</code>表示更新（改动）本条记录的全局事务id<strong>（每个事务创建都会分配id，全局递增，因此事务id区别对某条记录的修改是由哪个事务作出的）</strong> ，<code>roll_pointer</code>是回滚指针，指向当前记录的前一个<code>undo log版本</code>，如果是第一个版本则<code>roll_pointer</code>指向nil，这样如果有多个事务对同一条记录进行了多次改动，则会在<code>undo log</code>中以链的形式存储改动过程。</p> <p>假如有两个事务AB，数据表中有一行id为1的记录，其字段a初始值为0，事务A对id=1的行的a修改为1，事务B对id=1的行的a字段修改为2，则<code>undo log版本链</code>记录如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ad1e400c2fc1b51bb8a2a535a8d57f5c.jpg" alt="一文搞懂MySQL事务的隔离性如何实现｜MVCC"></p> <p>在上图中，最下方的undo log中记录了当前行的最新版本，而该条记录之前的版本则以版本链的形式可追溯，这也是事务回滚所做的事。那undo log版本链和事务的隔离性有什么关系呢？<strong>那就要引入另一个核心机制：read view。</strong></p> <h2 id="read-view">read view</h2> <p>read view表示快照读，这个快照读会记录四个关键的属性：</p> <ol> <li><code>create_trx_id</code>: 当前事务的id</li> <li><code>m_idx</code>: 当前正在活跃的所有事务id（id数组），没有提交的事务的id</li> <li><code>min_trx_id</code>: 当前系统中活跃的事务的id最小值</li> <li><code>max_trx_id</code>: 当前系统中已经创建过的最新事务（id最大）的id+1的值</li> </ol> <p><strong>当一个事务读取某条记录时会追溯undo log版本链，找到第一个可以访问的版本，而该记录的某一个版本是否能被这个事务读取到遵循如下规则：（这个规则永远成立，这个需要好好理解，对后面讲解可重复读和读已提交两个级别的实现密切相关）</strong></p> <ol> <li> <p>如果当前记录行的row_trx_id小于min_trx_id，表示该版本的记录在当前事务开启之前创建，因此可以访问到</p> </li> <li> <p>如果当前记录行的row_trx_id大于等于max_trx_id，表示该版本的记录创建晚于当前活跃的事务，因此不能访问到</p> </li> <li> <p>如果当前记录行的row_trx_id大于等于min_trx_id且小于max_trx_id，则要分两种情况：</p> <ul> <li>当前记录行的row_trx_id在m_idx数组中，则当前事务无法访问到这个版本的记录<strong>（除非这个版本的row_trx_id等于当前事务本身的trx_id，本事务当然能访问自己修改的记录）</strong> ，在m_idx数组中又不是当前事务自己创建的undo版本，表示是并发访问的其他事务对这条记录的修改的结果，则不能访问到。</li> <li>当前记录行的row_trx_id不在m_idx数组中，则表示这个版本是当前事务开启之前，其他事务已经提交了的undo版本，当前事务可访问到。</li> </ul> </li> </ol> <p>配合使用<code>read view</code>和<code>undo log版本链</code>就能实现<strong>事务之间<code>并发访问</code>相同记录</strong>时，可以根据事务id不同，获取同一行的不同undo log版本（多版本并发控制）。<strong>下面通过模拟并发访问的两个事务操作</strong>，介绍MVCC的实现（具体来说就是<strong>可重复读</strong>和<strong>读已提交</strong>两个隔离级别的实现）</p> <h3 id="可重复读">可重复读</h3> <p>下面模拟两个并发访问同一条记录的事务AB的行为，假设这条记录初始时id=1，a=0，该记录两个隐藏字段row_trx_id = 100，roll_pointer = nil</p> <p><strong>注意：在可重复读隔离级别下，当事务sql执行的时候，会生成一个read view快照，且在本事务周期内一直使用这个read view</strong>，下面给出了并发访问同一条记录的两个事务AB的具体执行过程，并解释<code>可重复读</code>是如何实现的（解决了<code>脏读</code>和<code>不可重复读</code>）。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3b7c3b0ccd2afce0e6e202ab6567b24e.jpg" alt="一文搞懂MySQL事务的隔离性如何实现｜MVCC"></p> <p>事务A的read view：</p> <p><code>create_trx_id</code> = 101｜<code>m_idx</code> = [101, 102]｜<code>min_trx_id</code> = 101｜<code>max_trx_id</code> = 103</p> <p>事务B的read view：</p> <p><code>create_trx_id</code> = 102｜<code>m_idx</code> = [101, 102]｜<code>min_trx_id</code> = 101｜<code>max_trx_id</code> = 103</p> <p>（ps. 这里因为AB事务是并发执行，因此两个事务创建的read view的max_trx_id = 103）</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/67a406c0c279137cc6720e3bdba68e4b.jpg" alt="一文搞懂MySQL事务的隔离性如何实现｜MVCC"></p> <p><strong>这里要注意的是，每次对一条记录发生修改，就会记录一个undo log的版本</strong>，则在A事务中第二次查询id=1的记录的a的值的时候，B事务对该记录的修改已经添加到版本链上了，此时这个<code>undo log</code>的<code>trx_id = 102</code>，在A事务的<code>read view</code>的<code>m_idx数组</code>中且不等于A事务的<code>trx_id = 101</code>，因此无法访问到，需要在向前回溯，这里找到<code>trx_id = 100</code>的记录版本（小于A事务<code>read view</code>的<code>min_trx_id</code>属性，因此可以访问到），故A事务第二次查询依旧得到a = 0，而不是B事务修改的a = 1。</p> <p>你可能有疑问，在A事务第二次查询的时候，B事务已经完成提交了，那么A事务的read view的m_idx数组应该移除102才对啊，它存的不是当前活跃的事务的id吗？·</p> <p><strong>注意：在可重复读隔离级别下，当事务sql执行的时候，会生成一个read view快照，且在本事务周期内一直使用这个read view</strong>，虽然102确实应该从A事务的read view中移除，但是因为read view在可重复读隔离级别下只会在第一条SQL执行时创建一次，并始终保持不变直到事务结束。</p> <p><strong>那么也就明白了，在可重复读隔离级别下，因为read view只在第一条SQL执行时创建，因此并发访问的其他事务提交前改动的脏数据、以及并发访问的其他事务提交的改动数据都对当前事务是透明的（尽管确实是记录在了undo log版本链中）</strong> ，这就解决了脏读和不可重复读（即使其他事务提交的修改，对A事务来说前后查询结果相同）的问题！</p> <h3 id="读已提交">读已提交</h3> <p>还是借助上面事务处理的例子，所有的事务处理流程不变，<strong>只是将隔离级别调整为读已提交，读已提交依旧遵守read view和undo log版本链机制，它和可重复读级别的区别在于，每次执行sql，都会创建一个read view，获取最新的事务快照。</strong> 而因为这个区别，读已提交产生了不可重复读的问题，下面来分析一下原因：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d5a6cdab8105bdd748e7708857a5d535.jpg" alt="一文搞懂MySQL事务的隔离性如何实现｜MVCC"></p> <p>事务A第一次查询创建的read view：</p> <p><code>create_trx_id</code> = 101｜<code>m_idx</code> = [101, 102]｜<code>min_trx_id</code> = 101｜<code>max_trx_id</code> = 103</p> <p>事务B的read view：</p> <p><code>create_trx_id</code> = 102｜<code>m_idx</code> = [101, 102]｜<code>min_trx_id</code> = 101｜<code>max_trx_id</code> = 103</p> <p>事务A第二次查询创建的read view：</p> <p><code>create_trx_id</code> = 101｜<code>m_idx</code> = [101]｜<code>min_trx_id</code> = 101｜<code>max_trx_id</code> = 103</p> <p>（ps. 这里因为AB事务是并发执行，因此两个事务创建的read view的max_trx_id = 103）</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3b1e2e1bbaeefb0ef7b946c04e5f88fb.jpg" alt="一文搞懂MySQL事务的隔离性如何实现｜MVCC"></p> <p>这里重点观察A事务的第二次查询，之前你可能就意识到了，在事务B完成提交后，当前系统中活跃的事务id应该移除102，但是因为<strong>在可重复读隔离级别下，A事务的<code>read view</code>只会在第一个SQL执行时创建，而在读已提交隔离级别下，每次执行SQL都会创建最新的read view</strong>，且此时<code>m_idx</code>数组中移除了102，那么事务A在追溯undo log版本链的时候，最新版本记录的<code>trx_id = 102</code>，102不在A事务的m_idx数组中，且<code>101 = min_trx_id &lt;= 102 &lt; max_trx_id = 103</code>，因此可以访问到B事务的提交结果。</p> <p><strong>那么对A事务来说，在事务过程中读取同一条记录第一次得到a=0，第二次得到a=1，所以出现了不可重复读的问题（这里B不提交的话A如果就进行了第二次查询，则102不会从A事务的read view移除，则A事务依旧访问不到B事务未提交的修改，因此脏读还是可以避免的！）</strong></p> <h2 id="结束语">结束语</h2> <p>在我的理解中，MVCC多版本并发控制的实现可以理解成读已提交、可重复读两种隔离级别的实现，通过控制read view的创建时机（其访问机制是不变的），配合undo log版本链可以实现事务之间对同一条记录的并发访问，并获得不同的结果。</p> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4004.htm">Python tkinter库图形绘制例子分享_python_</a></p>
+                                                <p>下一个：<a href="/html/category/article-4006.htm">spring boot actuator监控详细介绍一(超级详细)</a></p>
+                                            </div>
+
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4064.htm" title="用python实现文件的词频统计">用python实现文件的词频统计</a></li>
+                        <li class="py-2"><a href="/html/category/article-4038.htm" title="[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案">[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4062.htm" title="Python格式化输出的三种方法（format,f前缀，%s）">Python格式化输出的三种方法（format,f前缀，%s）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4019.htm" title="os.walk函数">os.walk函数</a></li>
+                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4018.htm" title="解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题">解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题</a></li>
+                        <li class="py-2"><a href="/html/category/article-4008.htm" title="我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？">我们如何使用来自任何表达式，函数等的MySQL自我计算输出在一行中插入值？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4020.htm" title="spring schedule 配置多任务动态 cron 【增删启停】">spring schedule 配置多任务动态 cron 【增删启停】</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
