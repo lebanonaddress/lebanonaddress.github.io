@@ -406,6 +406,10 @@ button {
     padding: 20px 0px;
 }
 
+.about_section .item {
+    margin-bottom: 2rem;
+}
+
 .about_taital {
     width: 100%;
     float: left;
