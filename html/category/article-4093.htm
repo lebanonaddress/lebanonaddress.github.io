@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 <head>
-       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-3894.htm" />
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4093.htm" />
     <!-- basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
     <!-- site metas -->
-    <title>Java带返回值的方法的定义和调用详解_java_ - Lebanon Address</title>
+    <title>修改docker容器端口映射的方法 - Lebanon Address</title>
         <!-- bootstrap css -->
     <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
     <!-- style css -->
@@ -74,7 +74,7 @@ var _hmt = _hmt || [];
          <div class="container">
             <div class="row">
                <div class="col-sm-12">
-                  <h1 class="services_taital"><span class="about_icon">Java带返回值的方法的定义和调用详解_java_ </h1>
+                  <h1 class="services_taital"><span class="about_icon">修改docker容器端口映射的方法 </h1>
                     <p class="nav-box text-center">
                         <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
                     </p>
@@ -88,12 +88,31 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                      				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">带返回值的方法练习</a></li> <li><a href="#_label1" rel="nofollow">方法的注意事项</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">方法注意事项</a></li> <li><a href="#_lab2_1_1" rel="nofollow">方法通用格式</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>带返回值的方法练习</h2> <p>需求： 设计一个方法可以获取两个数的较大值，数据来自于参数</p> <p>思路：</p> <p>1. 定义一个方法，用于获取两个数中的较大数</p> <div class="ay1code"> <pre class="brush:java;">public  static  int  getMax（int a，int b）{    }</pre> </div> <p>2.使用分支语句分两种情况对两个数的大小进行处理</p> <div class="ay1code"> <pre class="brush:java;">if  （a&gt;b)    {      }else{   }</pre> </div> <p>3. 根据题设分别设置两种情况下对应返回值结果</p> <div class="ay1code"> <pre class="brush:java;">if  （a&gt;b)    {   return a;      }else{   return b;   }</pre> </div> <p>4. 在main() 方法中调用定义好的方法并使用变量保存</p> <div class="ay1code"> <pre class="brush:java;">public static void main (String[ ]  args){            int result  =  getMax(10,20);            system.out.println(getMax(10,20));  }</pre> </div> <p>示例代码：</p> <div class="ay1code"> <pre class="brush:java;"> public class methodtext {      public static void main(String args[]){          int result = getMax(10,20);          System.out.println(result);      }      public static int getMax(int a,int b){          if(a&gt;b){              return a;          }else{              return b;          }      }  }</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>方法的注意事项</h2> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>方法注意事项</h3> <p>* 方法不能嵌套定义</p> <p>* void表示无返回值，可以省略return，也可以单独书写return，后面不加数据</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>方法通用格式</h3> <p>格式：</p> <blockquote> <p>public static 返回值类型 方法名（参数）{<!-- --></p> <p>          方法体；</p> <p>          return数据;</p> <p>}</p> </blockquote> <p>*定义方法时，要做到两个明确：</p> <p>    明确返回值类型：主要是明确方法操作完毕之后是否有数据返回，如果没有，写void；如果有，写对应的数据类型</p> <p>     明确参数：主要是明确参数类型和数量</p> <p>调用方法时：</p> <p>  void类型的方法，直接调用即可</p> <p>  非void类型方法，推荐用变量接收调用</p> 			
+                      				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> <p>大家都知道docker run可以指定端口映射，但是容器一旦生成，就没有一个命令可以直接修改。通常间接的办法是，保存镜像，再创建一个新的容器，在创建时指定新的端口映射。</p> <p>有没有办法不保存镜像而直接修改已有的这个容器呢？有。在stackoverflow上面找到答案了，<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://stackoverflow.com/questions/19335444/how-do-i-assign-a-port-mapping-to-an-existing-docker-container"  rel="nofollow">原帖链接</a></p> <h5><a id="_3" rel="nofollow"></a>方法一</h5> <ul> <li>1、停止容器(docker stop d00254ce3af7)</li> <li>2、停止docker服务(systemctl stop docker)</li> <li>3、修改这个容器的hostconfig.json文件中的端口（原帖有人提到，如果config.v2.json里面也记录了端口，也要修改）</li> </ul> <pre><code>cd /var/lib/docker/containers/d00254ce3af7*     #这里是CONTAINER ID  vim hostconfig.json 如果之前没有端口映射, 应该有这样的一段: "PortBindings":{}  增加一个映射, 这样写: "PortBindings":{"8080/tcp":[{"HostIp":"","HostPort":"60000"}]} 前一个数字是容器端口, 后一个是宿主机端口。将宿主机的60000端口映射到容器的8080端口 而修改现有端口映射更简单, 把端口号改掉就行。</code></pre> <ul> <li>4、启动docker服务(systemctl start docker)</li> <li>5、启动容器(docker start d00254ce3af7)</li> </ul> <p><strong>hostconfig.json文件</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/2f85cd77b730b360086e427276360834.jpg" alt="修改docker容器端口映射的方法"></p> <p><strong>config.v2.json文件</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/3d24b0505926f4d8e0e63c3e7768650b.jpg" alt="修改docker容器端口映射的方法"></p> <h5><a id="_28" rel="nofollow"></a>方法二</h5> <p>1、获得容器IP<br /> 将<kbd>container_name</kbd> 换成实际环境中的容器名</p> <pre><code>docker inspect `container_name` | grep IPAddress</code></pre> <p>2、iptable转发端口<br /> 将宿主机的60000端口映射到容器的8080端口</p> <pre><code>iptables -t nat -A  DOCKER -p tcp --dport 60000 -j DNAT --to-destination 172.17.0.2:8080</code></pre> </div> 			
                     <div class="col-md-12 mt-5">
-                                                <p>上一个：<a href="/html/category/article-3893.htm">Redis详解&#8212;Redis持久化_在线工具</a></p>
-                                                <p>下一个：<a href="/html/category/article-3895.htm">如何获得基于多列的排序输出？</a></p>
+                                                <p>上一个：<a href="/html/category/article-4066.htm">Go汇编语法和MatrixOne使用介绍</a></p>
+                                                <p>下一个：<a href="/html/category/article-4094.htm">var、function、let、const 的区别及变量提升</a></p>
                                             </div>
 
+                                        <div class="panel panel-default mt-5">
+                        <div class="panel-heading">
+                            <h3 class="m-0">推荐文章</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="p-0 x-0">
+                                                                <li class="py-2"><a href="/html/category/article-4064.htm">用python实现文件的词频统计</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-4055.htm">Token验证JWT方法</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-4032.htm">springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-4025.htm">Java原生HttpClient的使用详解_java</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-4007.htm">C++的命名空间</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3921.htm">Mysql中的Date,DateTime,TimeStamp和Time类型</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3861.htm">git commit后的撤销操作</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3844.htm">C++ 类成员指针</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3833.htm">oracle not like查询多个条件_MySQL的简单查询</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3794.htm">减治思二分查找详细总结</a></li>
+                                                            </ul>
+                        </div>
+                    </div>
                                     </div>
                 <div class="col-md-3">
                   <div class="panel panel-default">
@@ -102,16 +121,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-4035.htm" title="Vue路由router详细总结">Vue路由router详细总结</a></li>
-                        <li class="py-2"><a href="/html/category/article-4048.htm" title="【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）">【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4011.htm" title="光的偏振">光的偏振</a></li>
-                        <li class="py-2"><a href="/html/category/article-4045.htm" title="在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？">在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？</a></li>
-                        <li class="py-2"><a href="/html/category/article-4063.htm" title="Python生成sql语句">Python生成sql语句</a></li>
-                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
-                        <li class="py-2"><a href="/html/category/article-4057.htm" title="vue打包后整合到springboot项目、并打包成jar上传到Linux服务器运行【前后端分离开发、整体部署到Linux服务器】">vue打包后整合到springboot项目、并打包成jar上传到Linux服务器运行【前后端分离开发、整体部署到Linux服务器】</a></li>
+                        <li class="py-2"><a href="/html/category/article-4054.htm" title="[Java]如何获取指定日期一天的开始时间和结束时间">[Java]如何获取指定日期一天的开始时间和结束时间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4041.htm" title="关于信号量Semaphore的acquire与release的说明">关于信号量Semaphore的acquire与release的说明</a></li>
                         <li class="py-2"><a href="/html/category/article-4038.htm" title="[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案">[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案</a></li>
-                        <li class="py-2"><a href="/html/category/article-4024.htm" title="网络协议之:socket协议详解之Unix domain Socket">网络协议之:socket协议详解之Unix domain Socket</a></li>
-                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4048.htm" title="【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）">【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4012.htm" title="修改docker 默认镜像存储路径">修改docker 默认镜像存储路径</a></li>
+                        <li class="py-2"><a href="/html/category/article-4036.htm" title="字符数组和字符串的区别，C语言字符数组和字符串区别详解">字符数组和字符串的区别，C语言字符数组和字符串区别详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4044.htm" title="python2字符串编码方式_一、基础部分-2.字符串编码">python2字符串编码方式_一、基础部分-2.字符串编码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4026.htm" title="ES6可选链操作符和空值合并运算符">ES6可选链操作符和空值合并运算符</a></li>
+                        <li class="py-2"><a href="/html/category/article-4045.htm" title="在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？">在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？</a></li>
+                        <li class="py-2"><a href="/html/category/article-4056.htm" title="SpringMVC对Ajax请求的处理">SpringMVC对Ajax请求的处理</a></li>
                     </ul>
     </div>
 </div>
