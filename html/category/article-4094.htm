@@ -91,6 +91,7 @@ var _hmt = _hmt || [];
                       				  				  				<div id="content_views" class="htmledit_views"> <p>JS的解析器会做两部分的工作：&nbsp;<br /> 1）预解析 | 预解析仓库 = “找东西“（找VAR , FUNCTION 以及参数）&nbsp;<br /> 2）逐行解读代码</p> <p>预解析时，var 、function 会发生我们通常所说的变量提升</p> <pre class="has"><code>// 变量提升 var function console.log(a) // a() { //   console.log('this is a2') // }  var b=3 a() console.log(a) var a = 1 function a() {   console.log('this is a1') } console.log(a)// 1 function a(a, b) {   console.log('this is a2')   console.log(a)   console.log(b) } console.log(a)// 1 var a = 2 console.log(a)// 2   log: /** ƒ a(a, b) {   console.log('this is a2')   console.log(a)   console.log(b) } this is a2 undefined undefined ƒ a(a, b) {   console.log('this is a2')   console.log(a)   console.log(b) } 1 1 2 {a: 3}  */  /**  * 预解析步骤：  * 1.首先解析到第七行var a, 在预解析器中定义 a =undefined  * 2.解析到a1, 将解析器中 a = a() {       console.log('this is a1')     }     3.解析到a2， 将解析器中 a = a() {       console.log('this is a2')     }     4.解析到var a= 2，由于a =undefined， 所以a = a() {       console.log('this is a2')     }  */</code></pre> <p>预解析步骤：</p> <p>1.首先解析到第七行var a, 在预解析器中定义 a =undefined</p> <p>2.解析到a1, 将解析器中 a = a() {<!-- --></p> <p>console.log('this is a1')</p> <p>}</p> <p>3.解析到a2， 将解析器中 a = a() {<!-- --></p> <p>console.log('this is a2')</p> <p>}</p> <p>4.解析到var a= 2，由于a =undefined， 所以a = a() {<!-- --></p> <p>console.log('this is a2')</p> <p>}</p> <p>&nbsp;</p> <p>// 一是不存在变量提升：</p> <p>&nbsp;</p> <p>// 二是let声明的变量不能重复声明，否则会报错</p> <p>&nbsp;</p> <p>// var i = 1;</p> <p>// var i = 2;</p> <p>// console.log(i)//2</p> <p>// let i = 1;</p> <p>// let i = 2;</p> <p>// console.log(i)//报错</p> <p> &nbsp;</p> <p>// 三是新增了块级作用域。</p> <p>&nbsp;</p> <p>for(var i = 0; i &lt; 5; i++){<!-- --></p> <p>}</p> <p>console.log(i) // 5</p> <p>for(let i = 0; i &lt; 5; i++){ // 这个i只能在这个for循环内使用</p> <p>}</p> <p>console.log(i) // 报错：i is not defined</p> <p>// 一个常见的闭包问题就可以用let来解决。</p> <p> &nbsp;</p> <p>// for循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域</p> <p>for (let i = 0; i &lt; 3; i++) {<!-- --></p> <p>let i = 'abc';</p> <p>console.log(i);</p> <p>}</p> <p>// abc</p> <p>// abc</p> <p>// abc</p> <p>// 上面代码正确运行，输出了 3 次abc。这表明函数内部的变量i与循环变量i不在同一个作用域，有各自单独的作用域。</p> <p>&nbsp;</p> <p>for(var i = 0; i &lt; 5; i++){<!-- --></p> <p>setTimeout(function(){<!-- --></p> <p>console.log(i)</p> <p>}, 1000)</p> <p>}</p> <p>// 这个可谓是经典的闭包题了，结果是一次性输出5个5。如何让它输出01234呢，ES5我们用IIFE来解决。</p> <p>&nbsp;</p> <p>for(var i = 0; i &lt; 5; i++){<!-- --></p> <p>(function(e){<!-- --></p> <p>setTimeout(function(){<!-- --></p> <p>console.log(e)</p> <p>}, 1000)</p> <p>})(i)</p> <p>}</p> <p>// 将代码放在一个IIFE中创建了一个独立的作用域，传入i,这样就实现了对i的暂存。(详细可参看我的另一篇关于闭包的文章。)</p> <p>// ES6就可以用let来解决了。</p> <p>&nbsp;</p> <p>for(let i = 0; i &lt; 5; i++){<!-- --></p> <p>setTimeout(function(){<!-- --></p> <p>console.log(i)</p> <p>}, 1000)</p> <p>}</p> <p>// 其实JS引擎解析上述代码中的let,就是按照ES5的规范来解析的。即创建一个IIFE传入i.</p> <p>// console.log(b)</p> <p>// let b = 2</p> <p>// for循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域</p> <p>for (let i = 0; i &lt; 3; i++) {<!-- --></p> <p>let i = 'abc';</p> <p>console.log(i);</p> <p>}</p> <p>// abc</p> <p>// abc</p> <p>// abc</p> <p>// 上面代码正确运行，输出了 3 次abc。这表明函数内部的变量i与循环变量i不在同一个作用域，有各自单独的作用域。</p> <p> &nbsp;</p> <p>const c = {}</p> <p>c.a=3</p> <p>console.log(c)</p> </p></div> 			
                     <div class="col-md-12 mt-5">
                                                 <p>上一个：<a href="/html/category/article-4093.htm">修改docker容器端口映射的方法</a></p>
+                                                <p>下一个：<a href="/html/category/article-4121.htm">PyTorch查看CUDA支持情况</a></p>
                                             </div>
 
                                         <div class="panel panel-default mt-5">
@@ -120,16 +121,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-4060.htm" title="MySQL数据库生成某一年的日历存储过程_在线工具">MySQL数据库生成某一年的日历存储过程_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4011.htm" title="光的偏振">光的偏振</a></li>
+                        <li class="py-2"><a href="/html/category/article-4037.htm" title="C++中的匿名对象的概念和使用">C++中的匿名对象的概念和使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-4032.htm" title="springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成">springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-4053.htm" title="Autograd：Pytorch 中的自动微分机制讲解">Autograd：Pytorch 中的自动微分机制讲解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4059.htm" title="Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程">Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程</a></li>
+                        <li class="py-2"><a href="/html/category/article-4048.htm" title="【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）">【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4016.htm" title="一文看懂哈希表并学会使用C++ STL 中的哈希表">一文看懂哈希表并学会使用C++ STL 中的哈希表</a></li>
                         <li class="py-2"><a href="/html/category/article-4093.htm" title="修改docker容器端口映射的方法">修改docker容器端口映射的方法</a></li>
-                        <li class="py-2"><a href="/html/category/article-4042.htm" title="python安装卸载及查看python版本/第三方包版本">python安装卸载及查看python版本/第三方包版本</a></li>
-                        <li class="py-2"><a href="/html/category/article-4063.htm" title="Python生成sql语句">Python生成sql语句</a></li>
-                        <li class="py-2"><a href="/html/category/article-4018.htm" title="解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题">解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题</a></li>
-                        <li class="py-2"><a href="/html/category/article-4024.htm" title="网络协议之:socket协议详解之Unix domain Socket">网络协议之:socket协议详解之Unix domain Socket</a></li>
                         <li class="py-2"><a href="/html/category/article-4019.htm" title="os.walk函数">os.walk函数</a></li>
-                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
-                        <li class="py-2"><a href="/html/category/article-4061.htm" title="如何在Android sqlite中删除表？">如何在Android sqlite中删除表？</a></li>
-                        <li class="py-2"><a href="/html/category/article-4052.htm" title="Windows如何查看WiFi密码">Windows如何查看WiFi密码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4025.htm" title="Java原生HttpClient的使用详解_java">Java原生HttpClient的使用详解_java</a></li>
                     </ul>
     </div>
 </div>
@@ -140,6 +141,9 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
             </li>
