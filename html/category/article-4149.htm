@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4149.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>CompletableFuture的使用介绍, CompletableFuture与FutureTask的区别 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">CompletableFuture的使用介绍, CompletableFuture与FutureTask的区别 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <blockquote> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CompletableFuture实现了CompletionStage接口和Future接口，前者是对后者的一个扩展，增加了异步回调、流式处理、多个Future组合处理的能力，使Java在处理多任务的协同工作时更加顺畅便利。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 总的来说简洁了FutureTask与线程池的配合使用</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 没啥太大区别吧我觉得, 使用方法不一样, 多了一些方法 ???</p> </blockquote> <h2>futureTask 创建异步任务</h2> <pre><code class="language-java">        FutureTask&lt;String&gt; stringFutureTask = new FutureTask&lt;&gt;(() -&gt; {             return "aa";         });         executorService.execute(stringFutureTask);         System.out.println(stringFutureTask.get());          CompletableFuture&lt;String&gt; future1 = CompletableFuture.supplyAsync(() -&gt; {             return "aa";         }, executorService); // 不用手动提交了         System.out.println(future1.get());</code></pre> <blockquote> <p>&nbsp;还有很多异步回调, 组合处理</p> </blockquote> <h2>创建任务</h2> <h3>1. .supplyAsync</h3> <blockquote> <p>&nbsp;创建一个带返回值的任务</p> </blockquote> <h3>&nbsp;2. .runAsync</h3> <blockquote> <p>&nbsp;创建一个不带返回值的任务</p> </blockquote> <pre><code class="language-java">        ExecutorService executorService = Executors.newFixedThreadPool(1);          // 带返回值         CompletableFuture future = CompletableFuture.supplyAsync(() -&gt; {             try {                 System.out.println("future　" + new Date());                 Thread.sleep(2000);             } catch (InterruptedException e) {                 e.printStackTrace();             }             return "aaa";         }, executorService); // 推荐使用</code></pre> <p>&nbsp;以上两个方法都有两个构造方法, 默认不指定自定义线程池, 他会指定默认的提交任务的方法</p> <pre><code class="language-java">    // 查看cpu的核数是否大于1核     private static final boolean useCommonPool =         (ForkJoinPool.getCommonPoolParallelism() &gt; 1);      // 如果大于1核 则调用execute方法, 每次创建一个线程     private static final Executor asyncPool = useCommonPool ?         ForkJoinPool.commonPool() : new ThreadPerTaskExecutor();      static final class ThreadPerTaskExecutor implements Executor {         public void execute(Runnable r) { new Thread(r).start(); }     }</code></pre> <p>所以推荐自定义线程池的方式</p> <h2>异步回调</h2> <blockquote> <p>指的是 异步任务结束后调用的任务</p> </blockquote> <h3>1. .thenApply</h3> <blockquote> <p>带返回值的异步调用函数, 有入参, 有出参</p> </blockquote> <h3>2. .thenAccept</h3> <blockquote> <p>&nbsp;不带返回值的异步回调函数, 有入参</p> </blockquote> <pre><code class="language-java">         CompletableFuture future = CompletableFuture.supplyAsync(() -&gt; {             try {                 System.out.println("future　" + new Date());                 Thread.sleep(2000);             } catch (InterruptedException e) {                 e.printStackTrace();             }             return "aaa";         }, executorService);          // future执行完之后执行的异步任务         CompletableFuture&lt;String&gt; thenApply = future.thenApply((result) -&gt; {             System.out.println("future2　" +new Date());             System.out.println(result);             return "bbb" + result;         });</code></pre> <h3>3. .exceptionally</h3> <blockquote> <p>异步任务出现异常调用的回调方法</p> </blockquote> <pre><code class="language-java">        CompletableFuture future = CompletableFuture.supplyAsync(() -&gt; {             try {                 System.out.println("future　" + new Date());                 Thread.sleep(2000);                 int a = 1 / 0;             } catch (InterruptedException e) {                 e.printStackTrace();             }             return "aaa";         }, executorService);          CompletableFuture&lt;String&gt; exceptionally = future.exceptionally((result) -&gt; {             System.out.println("future3 " + result);             return "bbb" + result;         });                  // 出现异常则返回异常, 没异常则返回future的返回值         System.out.println(exceptionally.get());</code></pre> <p><img fetchpriority="high" decoding="async" alt="" height="97" src="http://img.555519.xyz/uploads/20230205/2b3c3225244a100b0684723621403945.jpg"></p> <p>&nbsp;去掉异常</p> <p><img decoding="async" alt="" height="81" src="http://img.555519.xyz/uploads/20230205/84b908a2b419f60edd6025b07503341d.jpg"></p> <h3>4. .whenComplete</h3> <blockquote> <p>&nbsp;当主任务出现异常时, 会终止任务,get的时候会抛出主任务的异常,&nbsp; 入参值为null, 否则正常运行</p> </blockquote> <pre><code class="language-java">        CompletableFuture future = CompletableFuture.supplyAsync(() -&gt; {             try {                 System.out.println("future　" + new Date());                 Thread.sleep(2000);                 int a = 1/0;             } catch (InterruptedException e) {                 e.printStackTrace();             }             return "aaa";         }, executorService);          CompletableFuture&lt;String&gt; exceptionally = future.whenComplete((result, error) -&gt; {             System.out.println("future3 " + result);             System.out.println("future3 " + error);         });         System.out.println(exceptionally.get());</code></pre> <p><img decoding="async" alt="" height="205" src="http://img.555519.xyz/uploads/20230205/8cc37a9e72120e09446d58af4195957c.jpg"></p> <p>&nbsp;去掉异常</p> <p><img loading="lazy" decoding="async" alt="" height="131" src="http://img.555519.xyz/uploads/20230205/cc41952905b50ae9e919ead674a0833d.jpg"></p> <h2 id="%E4%B8%89%E3%80%81%E7%BB%84%E5%90%88%E5%A4%84%E7%90%86">组合处理</h2> <p>....</p> <blockquote> <p>就是将多个任务组合起来执行, 时间原因, 这里我就不介绍了, 大家另行百度吧</p> </blockquote></div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4122.htm">垃圾收集器与内存分配策略_在线工具</a></p>
+                                                <p>下一个：<a href="/html/category/article-4150.htm">netty系列之:在netty中使用native传输协议</a></p>
+                                            </div>
+
+                                        <div class="panel panel-default mt-5">
+                        <div class="panel-heading">
+                            <h3 class="m-0">推荐文章</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="p-0 x-0">
+                                                                <li class="py-2"><a href="/html/category/article-4019.htm">os.walk函数</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-4011.htm">光的偏振</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-4006.htm">spring boot actuator监控详细介绍一(超级详细)</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3994.htm">iOS全埋点解决方案-应用退出和启动</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3973.htm">Spark SQL底层执行流程详解</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3954.htm">SpringBoot之把数据库导出到Excel表</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3866.htm">数据结构（初阶）—— C语言实现双向带头循环链表</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3851.htm">SOLID原则：解释和实例</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3838.htm">openssl 3.0 和 1.1.x 区别</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3805.htm">git语法_在git-pandas中引入统一的glob语法</a></li>
+                                                            </ul>
+                        </div>
+                    </div>
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4031.htm" title="使用Nginx实现多个Tomcat负载均衡">使用Nginx实现多个Tomcat负载均衡</a></li>
+                        <li class="py-2"><a href="/html/category/article-4063.htm" title="Python生成sql语句">Python生成sql语句</a></li>
+                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                        <li class="py-2"><a href="/html/category/article-4018.htm" title="解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题">解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题</a></li>
+                        <li class="py-2"><a href="/html/category/article-4013.htm" title="Django项目使用pyinstall打包步骤（包含各种出错处理方法）">Django项目使用pyinstall打包步骤（包含各种出错处理方法）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4021.htm" title="使用feign客户端要使用注解@EnableFeignClients">使用feign客户端要使用注解@EnableFeignClients</a></li>
+                        <li class="py-2"><a href="/html/category/article-4094.htm" title="var、function、let、const 的区别及变量提升">var、function、let、const 的区别及变量提升</a></li>
+                        <li class="py-2"><a href="/html/category/article-4048.htm" title="【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）">【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4065.htm" title="Zookeeper分布式一致性协议ZAB">Zookeeper分布式一致性协议ZAB</a></li>
+                        <li class="py-2"><a href="/html/category/article-4044.htm" title="python2字符串编码方式_一、基础部分-2.字符串编码">python2字符串编码方式_一、基础部分-2.字符串编码</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">4</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

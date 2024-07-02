@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+       <link rel="canonical" href="https://lebanonaddress.github.io/html/category/article-4150.htm" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/lebanonaddress/favicon.ico" type="image/x-icon"/>
+    <!-- site metas -->
+    <title>netty系列之:在netty中使用native传输协议 - Lebanon Address</title>
+        <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/assets/addons/xcblog/css/lebanonaddress/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/lebanonaddress/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f480db041fa3a9ffc78a7d6776ae8726";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+       <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Lebanon Address</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/html/category/">文章分类</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+      <!-- services section start -->
+      <div class="services_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="services_taital"><span class="about_icon">netty系列之:在netty中使用native传输协议 </h1>
+                    <p class="nav-box text-center">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</span>
+                    </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p>对于IO来说，除了传统的block IO,使用最多的就是NIO了，通常我们在netty程序中最常用到的就是NIO,比如NioEventLoopGroup,NioServerSocketChannel等。</p> <p>我们也知道在IO中有比NIO更快的IO方式，比如kqueue和epoll，但是这两种方式需要native方法的支持，也就是说需要在操作系统层面提供服务。</p> <p>如果我们在支持Kqueue或者epoll的服务器上，netty是否可以提供对这些优秀IO的支持呢？</p> <p>答案是肯定的。但是首先kqueue和epoll需要JNI支持，也就是说JAVA程序需要调用本地的native方法。</p> <h2>native传输协议的依赖</h2> <p>要想使用kequeue和epoll这种native的传输方式，我们需要额外添加项目的依赖,如果是linux环境，则可以添加如下的maven依赖环境：</p> <pre>&lt;dependencies&gt;     &lt;dependency&gt;       &lt;groupId&gt;io.netty&lt;/groupId&gt;       &lt;artifactId&gt;netty-transport-native-epoll&lt;/artifactId&gt;       &lt;version&gt;${project.version}&lt;/version&gt;       &lt;classifier&gt;linux-x86_64&lt;/classifier&gt;     &lt;/dependency&gt;     ...   &lt;/dependencies&gt;</pre> <p>其中version需要匹配你所使用的netty版本号，否则可能出现调用异常的情况。</p> <p>classifier表示的是系统架构，它的值可以是linux-x86_64，也可以是linux-aarch_64.</p> <p>如果你使用的mac系统，那么可以这样引入：</p> <pre>&lt;dependencies&gt;     &lt;dependency&gt;       &lt;groupId&gt;io.netty&lt;/groupId&gt;       &lt;artifactId&gt;netty-transport-native-kqueue&lt;/artifactId&gt;       &lt;version&gt;${project.version}&lt;/version&gt;       &lt;classifier&gt;osx-x86_64&lt;/classifier&gt;     &lt;/dependency&gt;     ...   &lt;/dependencies&gt;</pre> <p>netty除了单独的个体包之外，还有一个all in one的netty-all包，如果你使用了这个all in one的包，那么不需要额外添加native的依赖。</p> <p>如果netty提供的系统架构并没有你正在使用的，那么你需要手动进行编译，以下是编译所依赖的程序包, 如果是在RHEL/CentOS/Fedora系统中，则使用：</p> <pre>sudo yum install autoconf automake libtool make tar \                  glibc-devel \                  libgcc.i686 glibc-devel.i686</pre> <p>如果是在Debian/Ubuntu系统中，则使用：</p> <pre>sudo apt-get install autoconf automake libtool make tar \                      gcc</pre> <p>如果是在MacOS/BSD系统中，则使用：</p> <pre>brew install autoconf automake libtool</pre> <h2>netty本地传输协议的使用</h2> <p>安装好依赖包之后，我们就可以在netty中使用这些native传输协议了。</p> <p>native传输协议的使用和NIO的使用基本一致，我们只需要进行下面的替换即可。</p> <p>如果是在liunx系统中，则进行下面的替换：</p> <pre>NioEventLoopGroup → EpollEventLoopGroup     NioEventLoop → EpollEventLoop     NioServerSocketChannel → EpollServerSocketChannel     NioSocketChannel → EpollSocketChannel</pre> <p>如果是在mac系统中，则进行下面的替换：</p> <pre>NioEventLoopGroup → KQueueEventLoopGroup     NioEventLoop → KQueueEventLoop     NioServerSocketChannel → KQueueServerSocketChannel     NioSocketChannel → KQueueSocketChannel</pre> <p>这里还是使用我们熟悉的聊天服务为例，首先看下基于Kqueue的netty服务器端应该怎么写：</p> <pre>EventLoopGroup bossGroup = new KQueueEventLoopGroup(1);         EventLoopGroup workerGroup = new KQueueEventLoopGroup();         try {             ServerBootstrap b = new ServerBootstrap();             b.group(bossGroup, workerGroup)              .channel(KQueueServerSocketChannel.class)              .handler(new LoggingHandler(LogLevel.INFO))              .childHandler(new NativeChatServerInitializer());              Channel channel = b.bind(PORT).sync().channel();             log.info("server channel:{}", channel);             channel.closeFuture().sync();</pre> <p>和NIO一样，在服务器端我们需要使用KQueueEventLoopGroup创建两个EventLoopGroup，一个是bossGroup, 一个是workerGroup。</p> <p>然后将这两个group传入到ServerBootstrap中，并且添加KQueueServerSocketChannel作为channel。</p> <p>其他的内容和NIO server的内容是一样的。</p> <p>接下来我们看下基于Kqueue的netty客户端改如何跟server端建立连接：</p> <pre>EventLoopGroup group = new KQueueEventLoopGroup();         try {             Bootstrap b = new Bootstrap();             b.group(group)              .channel(KQueueSocketChannel.class)              .handler(new NativeChatClientInitializer());              // 建立连接             Channel ch = b.connect(HOST, PORT).sync().channel();             log.info("client channel: {}", ch);</pre> <p>这里使用的是KQueueEventLoopGroup，并将KQueueEventLoopGroup放到Bootstrap中，并且为Bootstrap提供了和server端一致的KQueueSocketChannel。</p> <p>然后就是客户端向channel中写消息，这里我们直接从命令行输入：</p> <pre>// 从命令行输入             ChannelFuture lastWriteFuture = null;             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));             for (;;) {                 String line = in.readLine();                 if (line == null) {                     break;                 }                 // 将从命令行输入的一行字符写到channel中                 lastWriteFuture = ch.writeAndFlush(line + "\r\n");                 // 如果输入'再见'，则等待server端关闭channel                 if ("再见".equalsIgnoreCase(line)) {                     ch.closeFuture().sync();                     break;                 }             }</pre> <p>上面代码的意思是将命令行收到的消息写入到channel中，如果输入的是’再见’，则关闭channel。</p> <p>为了能够处理字符串，这里用到了三个编码解码器：</p> <pre>// 添加行分割器         pipeline.addLast(new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()));         // 添加String Decoder和String Encoder,用来进行字符串的转换         pipeline.addLast(new StringEncoder());         pipeline.addLast(new StringDecoder());</pre> <p>分别是行分割器，字符编码器和字符解码器。</p> <p>运行一下看，程序运行没问题，客户端和服务器端可以进行通讯。</p> <p>这里我们只以Kqueue为例介绍了netty中native传输协议的使用，具体的代码，大家可以参考：</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/ddean2009/learn-netty4"  title="learn-netty4" rel="nofollow">learn-netty4</a></p> </div> 			
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4149.htm">CompletableFuture的使用介绍, CompletableFuture与FutureTask的区别</a></p>
+                                            </div>
+
+                                        <div class="panel panel-default mt-5">
+                        <div class="panel-heading">
+                            <h3 class="m-0">推荐文章</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="p-0 x-0">
+                                                                <li class="py-2"><a href="/html/category/article-4006.htm">spring boot actuator监控详细介绍一(超级详细)</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-4003.htm">【Sharding-JDBC】Sharding-JDBC入门（一）——数据分片</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-4000.htm">【mq】从零开始实现 mq-01-生产者、消费者启动</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3982.htm">用RxJS和react开发mac地址输入框</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3967.htm">pymysql执行有参数的in语句</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3914.htm">vue中的可拖拽宽度div的实现示例_vue.js</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3904.htm">【java】兴唐第二十一节（LinkedList和泛型）</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3876.htm">详解MySQL索引</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3825.htm">C#中的委托和事件_C#教程</a></li>
+                                                                <li class="py-2"><a href="/html/category/article-3809.htm">正则表达式（二）(python) ——21天养成好习惯</a></li>
+                                                            </ul>
+                        </div>
+                    </div>
+                                    </div>
+                <div class="col-md-3">
+                  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-4041.htm" title="关于信号量Semaphore的acquire与release的说明">关于信号量Semaphore的acquire与release的说明</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4015.htm" title="MySQL 回表">MySQL 回表</a></li>
+                        <li class="py-2"><a href="/html/category/article-4054.htm" title="[Java]如何获取指定日期一天的开始时间和结束时间">[Java]如何获取指定日期一天的开始时间和结束时间</a></li>
+                        <li class="py-2"><a href="/html/category/article-4018.htm" title="解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题">解决微前端 single-spa 项目中 Vue 和 React 路由跳转问题</a></li>
+                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                        <li class="py-2"><a href="/html/category/article-4039.htm" title="CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具">CoreWCF 1.0 正式发布，支持 .NET Core 和 .NET 5+ 的 WCF &#8211; 冠军 _在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4021.htm" title="使用feign客户端要使用注解@EnableFeignClients">使用feign客户端要使用注解@EnableFeignClients</a></li>
+                        <li class="py-2"><a href="/html/category/article-4053.htm" title="Autograd：Pytorch 中的自动微分机制讲解">Autograd：Pytorch 中的自动微分机制讲解</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">4</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                        Lebanon Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/popper.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/jquery-3.0.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/lebanonaddress/plugin.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
