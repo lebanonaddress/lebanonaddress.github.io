@@ -88,7 +88,7 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <h2> <a id="SpringMVC__0" rel="nofollow"></a>SpringMVC 的执行流程</h2> <ol> <li> <h5> <a id="SpringMVC__2" rel="nofollow"></a>SpringMVC 框架</h5> <p> SpringMVC 是一个基于 Java 的实现了 MVC 设计模式的请求驱动类型的轻量级 Web 框架，通过把 Model，View，Controller 分离，将 Web 层进行职责解耦，把复杂的 Web 应用分成逻辑清晰的几部分，简化开发，减少出错，方便组内开发人员之间的配合。 简而言之，SpringMVC 就是将我们原来开发在 Servlet 中的代码拆分了，一部分由 SpringMVC 完成，一部分由我们自己完成。</p> </li> <li> <h5> <a id="SpringMVC__6" rel="nofollow"></a>SpringMVC 主要组件</h5> <p>前端控制器 DispatcherServlet：接收请求、响应结果，相当于转发器，有了 DispatcherServlet 就减少了其它组件之间的耦合度。</p> <p>处理器映射器 HandlerMapping：根据请求的 URL 来查找 Handler。</p> <p>处理器适配器 HandlerAdapter：负责执行 Handler。</p> <p>处理器 Handler：处理业务逻辑的 Java 类（我们自己写的 Controller 类）。</p> <p>视图解析器 ViewResolver：进行视图的解析，根据视图逻辑名将 ModelAndView 解析成真正的视图（view） 。</p> <p>视图 View：View 是一个接口， 它的实现类支持不同的视图类型，如 jsp，freemarker， pdf 等。</p> </li> <li> <h5> <a id="SpringMVC__20" rel="nofollow"></a>SpringMVC 的执行流程</h5> </li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230113/23e6c09fce140e767f8196ca5f888cae.jpg" alt="SpringMVC 执行流程"></p> <ol> <li>用户发送请求到前端控制器（DispatcherServlet）。</li> <li>前端控制器 （ DispatcherServlet ） 收到请求调用处理器映射器 （HandlerMapping），去查找处理器（Handler）。</li> <li>处理器映射器（HandlerMapping）找到具体的处理器(可以根据 xml 配置、注解进行查找)，生成处理器对象及处理器拦截器(如果有则生成)一并返回给 DispatcherServlet。</li> <li>前端控制器（DispatcherServlet）调用处理器适配器（HandlerAdapter）。</li> <li>处理器适配器（HandlerAdapter）去调用自定义的处理器类（Controller）。</li> <li>自定义的处理器类（Controller）将得到的参数进行处理并返回结果给处理器适配器（HandlerAdapter）。</li> <li>处理器适配器 （ HandlerAdapter ）将得到的结果返回给前端控制器 （DispatcherServlet）。</li> <li>前端控制器（DispatcherServlet ）将 ModelAndView 传给视图解析器 （ViewReslover）。</li> <li>视图解析器（ViewReslover）将得到的参数从逻辑视图转换为物理视图并返回给前端控制器（DispatcherServlet）。</li> <li>前端控制器（DispatcherServlet）调用物理视图进行渲染并返回。</li> <li>前端控制器（DispatcherServlet）将渲染后的结果返回。</li> </ol> </div> 			
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <h2> SpringMVC 的执行流程</h2> <ol> <li> <h5> SpringMVC 框架</h5> <p> SpringMVC 是一个基于 Java 的实现了 MVC 设计模式的请求驱动类型的轻量级 Web 框架，通过把 Model，View，Controller 分离，将 Web 层进行职责解耦，把复杂的 Web 应用分成逻辑清晰的几部分，简化开发，减少出错，方便组内开发人员之间的配合。 简而言之，SpringMVC 就是将我们原来开发在 Servlet 中的代码拆分了，一部分由 SpringMVC 完成，一部分由我们自己完成。</p> </li> <li> <h5> SpringMVC 主要组件</h5> <p>前端控制器 DispatcherServlet：接收请求、响应结果，相当于转发器，有了 DispatcherServlet 就减少了其它组件之间的耦合度。</p> <p>处理器映射器 HandlerMapping：根据请求的 URL 来查找 Handler。</p> <p>处理器适配器 HandlerAdapter：负责执行 Handler。</p> <p>处理器 Handler：处理业务逻辑的 Java 类（我们自己写的 Controller 类）。</p> <p>视图解析器 ViewResolver：进行视图的解析，根据视图逻辑名将 ModelAndView 解析成真正的视图（view） 。</p> <p>视图 View：View 是一个接口， 它的实现类支持不同的视图类型，如 jsp，freemarker， pdf 等。</p> </li> <li> <h5> SpringMVC 的执行流程</h5> </li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230113/23e6c09fce140e767f8196ca5f888cae.jpg" alt="SpringMVC 执行流程"></p> <ol> <li>用户发送请求到前端控制器（DispatcherServlet）。</li> <li>前端控制器 （ DispatcherServlet ） 收到请求调用处理器映射器 （HandlerMapping），去查找处理器（Handler）。</li> <li>处理器映射器（HandlerMapping）找到具体的处理器(可以根据 xml 配置、注解进行查找)，生成处理器对象及处理器拦截器(如果有则生成)一并返回给 DispatcherServlet。</li> <li>前端控制器（DispatcherServlet）调用处理器适配器（HandlerAdapter）。</li> <li>处理器适配器（HandlerAdapter）去调用自定义的处理器类（Controller）。</li> <li>自定义的处理器类（Controller）将得到的参数进行处理并返回结果给处理器适配器（HandlerAdapter）。</li> <li>处理器适配器 （ HandlerAdapter ）将得到的结果返回给前端控制器 （DispatcherServlet）。</li> <li>前端控制器（DispatcherServlet ）将 ModelAndView 传给视图解析器 （ViewReslover）。</li> <li>视图解析器（ViewReslover）将得到的参数从逻辑视图转换为物理视图并返回给前端控制器（DispatcherServlet）。</li> <li>前端控制器（DispatcherServlet）调用物理视图进行渲染并返回。</li> <li>前端控制器（DispatcherServlet）将渲染后的结果返回。</li> </ol> </div> 			
                     <div class="col-md-12 mt-5">
                                                 <p>上一个：<a href="/html/category/article-3828.htm">MySQL多表查询（内连接和外连接）</a></p>
                                                 <p>下一个：<a href="/html/category/article-3830.htm">什么是JavaScript集？</a></p>
@@ -102,16 +102,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-4051.htm" title="vue项目运行后自动运行浏览器（vue2/vue3）">vue项目运行后自动运行浏览器（vue2/vue3）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4033.htm" title="global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）">global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
-                        <li class="py-2"><a href="/html/category/article-4045.htm" title="在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？">在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？</a></li>
-                        <li class="py-2"><a href="/html/category/article-4065.htm" title="Zookeeper分布式一致性协议ZAB">Zookeeper分布式一致性协议ZAB</a></li>
+                        <li class="py-2"><a href="/html/category/article-4034.htm" title="vscode离线在线安装扩展工具">vscode离线在线安装扩展工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4612.htm" title="猫咪打疫苗针要多少钱（猫咪打疫苗需要花多少钱）">猫咪打疫苗针要多少钱（猫咪打疫苗需要花多少钱）</a></li>
                         <li class="py-2"><a href="/html/category/article-4504.htm" title="宠物领养平台有哪几个品牌名称（宠物领养平台有哪几个品牌名称好听）">宠物领养平台有哪几个品牌名称（宠物领养平台有哪几个品牌名称好听）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
-                        <li class="py-2"><a href="/html/category/article-4046.htm" title="Vue  el-input  trim() 去空格">Vue  el-input  trim() 去空格</a></li>
-                        <li class="py-2"><a href="/html/category/article-4058.htm" title="TS语言与JS语言的区别">TS语言与JS语言的区别</a></li>
-                        <li class="py-2"><a href="/html/category/article-4037.htm" title="C++中的匿名对象的概念和使用">C++中的匿名对象的概念和使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-4149.htm" title="CompletableFuture的使用介绍, CompletableFuture与FutureTask的区别">CompletableFuture的使用介绍, CompletableFuture与FutureTask的区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-4395.htm" title="安又琪个人资料（安又琪图片 个人资料 感情生活）">安又琪个人资料（安又琪图片 个人资料 感情生活）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4394.htm" title="宠物医院收费价目表昆明（昆明宠物医院24小时营业）">宠物医院收费价目表昆明（昆明宠物医院24小时营业）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4052.htm" title="Windows如何查看WiFi密码">Windows如何查看WiFi密码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4063.htm" title="Python生成sql语句">Python生成sql语句</a></li>
+                        <li class="py-2"><a href="/html/category/article-4428.htm" title="动物疫苗企业名单公布时间表（中国动物疫苗生产企业排名）">动物疫苗企业名单公布时间表（中国动物疫苗生产企业排名）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4045.htm" title="在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？">在UNIX_TIMESTAMP()或FROM_UNIXTIME()函数中传递超出范围的值时，将返回什么MySQL？</a></li>
                     </ul>
     </div>
 </div>
@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">24</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>

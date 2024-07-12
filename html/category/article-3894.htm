@@ -88,7 +88,7 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                      				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">带返回值的方法练习</a></li> <li><a href="#_label1" rel="nofollow">方法的注意事项</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">方法注意事项</a></li> <li><a href="#_lab2_1_1" rel="nofollow">方法通用格式</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>带返回值的方法练习</h2> <p>需求： 设计一个方法可以获取两个数的较大值，数据来自于参数</p> <p>思路：</p> <p>1. 定义一个方法，用于获取两个数中的较大数</p> <div class="ay1code"> <pre class="brush:java;">public  static  int  getMax（int a，int b）{    }</pre> </div> <p>2.使用分支语句分两种情况对两个数的大小进行处理</p> <div class="ay1code"> <pre class="brush:java;">if  （a&gt;b)    {      }else{   }</pre> </div> <p>3. 根据题设分别设置两种情况下对应返回值结果</p> <div class="ay1code"> <pre class="brush:java;">if  （a&gt;b)    {   return a;      }else{   return b;   }</pre> </div> <p>4. 在main() 方法中调用定义好的方法并使用变量保存</p> <div class="ay1code"> <pre class="brush:java;">public static void main (String[ ]  args){            int result  =  getMax(10,20);            system.out.println(getMax(10,20));  }</pre> </div> <p>示例代码：</p> <div class="ay1code"> <pre class="brush:java;"> public class methodtext {      public static void main(String args[]){          int result = getMax(10,20);          System.out.println(result);      }      public static int getMax(int a,int b){          if(a&gt;b){              return a;          }else{              return b;          }      }  }</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>方法的注意事项</h2> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>方法注意事项</h3> <p>* 方法不能嵌套定义</p> <p>* void表示无返回值，可以省略return，也可以单独书写return，后面不加数据</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>方法通用格式</h3> <p>格式：</p> <blockquote> <p>public static 返回值类型 方法名（参数）{<!-- --></p> <p>          方法体；</p> <p>          return数据;</p> <p>}</p> </blockquote> <p>*定义方法时，要做到两个明确：</p> <p>    明确返回值类型：主要是明确方法操作完毕之后是否有数据返回，如果没有，写void；如果有，写对应的数据类型</p> <p>     明确参数：主要是明确参数类型和数量</p> <p>调用方法时：</p> <p>  void类型的方法，直接调用即可</p> <p>  非void类型方法，推荐用变量接收调用</p> 			
+                      				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li>带返回值的方法练习</li> <li>方法的注意事项</li> <ul class="second_class_ul"> <li>方法注意事项</li> <li>方法通用格式</li> </ul> </ul> </div> <p class="maodian"></p> <h2>带返回值的方法练习</h2> <p>需求： 设计一个方法可以获取两个数的较大值，数据来自于参数</p> <p>思路：</p> <p>1. 定义一个方法，用于获取两个数中的较大数</p> <div class="ay1code"> <pre class="brush:java;">public  static  int  getMax（int a，int b）{    }</pre> </div> <p>2.使用分支语句分两种情况对两个数的大小进行处理</p> <div class="ay1code"> <pre class="brush:java;">if  （a>b)    {      }else{   }</pre> </div> <p>3. 根据题设分别设置两种情况下对应返回值结果</p> <div class="ay1code"> <pre class="brush:java;">if  （a>b)    {   return a;      }else{   return b;   }</pre> </div> <p>4. 在main() 方法中调用定义好的方法并使用变量保存</p> <div class="ay1code"> <pre class="brush:java;">public static void main (String[ ]  args){            int result  =  getMax(10,20);            system.out.println(getMax(10,20));  }</pre> </div> <p>示例代码：</p> <div class="ay1code"> <pre class="brush:java;"> public class methodtext {      public static void main(String args[]){          int result = getMax(10,20);          System.out.println(result);      }      public static int getMax(int a,int b){          if(a>b){              return a;          }else{              return b;          }      }  }</pre> </div> <p class="maodian"></p> <h2>方法的注意事项</h2> <p class="maodian"></p> <h3>方法注意事项</h3> <p>* 方法不能嵌套定义</p> <p>* void表示无返回值，可以省略return，也可以单独书写return，后面不加数据</p> <p class="maodian"></p> <h3>方法通用格式</h3> <p>格式：</p> <blockquote> <p>public static 返回值类型 方法名（参数）{<!-- --></p> <p>          方法体；</p> <p>          return数据;</p> <p>}</p> </blockquote> <p>*定义方法时，要做到两个明确：</p> <p>    明确返回值类型：主要是明确方法操作完毕之后是否有数据返回，如果没有，写void；如果有，写对应的数据类型</p> <p>     明确参数：主要是明确参数类型和数量</p> <p>调用方法时：</p> <p>  void类型的方法，直接调用即可</p> <p>  非void类型方法，推荐用变量接收调用</p> 			
                     <div class="col-md-12 mt-5">
                                                 <p>上一个：<a href="/html/category/article-3893.htm">Redis详解&#8212;Redis持久化_在线工具</a></p>
                                                 <p>下一个：<a href="/html/category/article-3895.htm">如何获得基于多列的排序输出？</a></p>
@@ -102,16 +102,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-4050.htm" title="C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数">C ++程序实施Rabin-Miller素性测试以检查给定数字是否为素数</a></li>
-                        <li class="py-2"><a href="/html/category/article-4029.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
-                        <li class="py-2"><a href="/html/category/article-4048.htm" title="【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）">【Android笔记】BaseAdapter适配器的介绍、使用及优化（详细）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4468.htm" title="动物打疫苗后多久能杀了吃的 动物打疫苗后多久能杀了吃的东西">动物打疫苗后多久能杀了吃的 动物打疫苗后多久能杀了吃的东西</a></li>
-                        <li class="py-2"><a href="/html/category/article-4094.htm" title="var、function、let、const 的区别及变量提升">var、function、let、const 的区别及变量提升</a></li>
-                        <li class="py-2"><a href="/html/category/article-4150.htm" title="netty系列之:在netty中使用native传输协议">netty系列之:在netty中使用native传输协议</a></li>
-                        <li class="py-2"><a href="/html/category/article-4031.htm" title="使用Nginx实现多个Tomcat负载均衡">使用Nginx实现多个Tomcat负载均衡</a></li>
-                        <li class="py-2"><a href="/html/category/article-4349.htm" title="宠物粮食哪里批发便宜点呢（宠物粮从哪里进货便宜）">宠物粮食哪里批发便宜点呢（宠物粮从哪里进货便宜）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4032.htm" title="springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成">springboot mybatis-plus 配置 yml 、druid 配置 yml 、mybatis-plus 代码生成</a></li>
-                        <li class="py-2"><a href="/html/category/article-4044.htm" title="python2字符串编码方式_一、基础部分-2.字符串编码">python2字符串编码方式_一、基础部分-2.字符串编码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4033.htm" title="global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）">global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4395.htm" title="安又琪个人资料（安又琪图片 个人资料 感情生活）">安又琪个人资料（安又琪图片 个人资料 感情生活）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4122.htm" title="垃圾收集器与内存分配策略_在线工具">垃圾收集器与内存分配策略_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4469.htm" title="兰州最大的宠物市场是哪里（兰州最大宠物市场地址）">兰州最大的宠物市场是哪里（兰州最大宠物市场地址）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4057.htm" title="vue打包后整合到springboot项目、并打包成jar上传到Linux服务器运行【前后端分离开发、整体部署到Linux服务器】">vue打包后整合到springboot项目、并打包成jar上传到Linux服务器运行【前后端分离开发、整体部署到Linux服务器】</a></li>
+                        <li class="py-2"><a href="/html/category/article-4149.htm" title="CompletableFuture的使用介绍, CompletableFuture与FutureTask的区别">CompletableFuture的使用介绍, CompletableFuture与FutureTask的区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-4611.htm" title="宠物店养狗一个月多少钱 宠物店养狗一个月多少钱啊">宠物店养狗一个月多少钱 宠物店养狗一个月多少钱啊</a></li>
+                        <li class="py-2"><a href="/html/category/article-4505.htm" title="动物医院咨询电话号码（动物医院的电话号码）">动物医院咨询电话号码（动物医院的电话号码）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4429.htm" title="合肥猫咪领养微信群 合肥猫咪领养微信群号">合肥猫咪领养微信群 合肥猫咪领养微信群号</a></li>
+                        <li class="py-2"><a href="/html/category/article-4539.htm" title="牛杂怎么去腥味?">牛杂怎么去腥味?</a></li>
                     </ul>
     </div>
 </div>
@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">24</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>

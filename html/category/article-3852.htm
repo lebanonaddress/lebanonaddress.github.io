@@ -88,7 +88,7 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                      				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body"> <h1>为什么要对URL进行编码？</h1> <p>&nbsp; &nbsp; &nbsp; 一般来说，网页URL只能使用英文、数字、还有一些特定的字符。根据网络标准<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.ietf.org/rfc/rfc1738.txt"  rel="nofollow">RFC 1738</a>做了硬性规定：</p> <blockquote> <p>只有字母和数字[0-9a-zA-Z]、一些特殊符号"$-_.+!*'(),"[不包括双引号]、以及某些保留字，才可以不经过编码直接用于URL。</p> </blockquote> <p>&nbsp; &nbsp; &nbsp; 所以若URL中包括中文等字符，就必须经过编码后使用，否则传给服务器的request URL就会包含乱码，服务器无法正确识别。</p> <p>&nbsp; &nbsp; &nbsp; 因为RFC 1738没有规定具体的编码方法，而是交给应用程序（浏览器）自己决定，所以导致“URL编码”领域非常混乱。想要了解浏览器多种情况下的编码处理，可以参考阮一峰大神的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.ruanyifeng.com/blog/2010/02/url_encoding.html"  rel="nofollow">关于URL编码</a>。</p> <h1>URL的编码与解码方法</h1> <p>&nbsp; &nbsp; &nbsp; 不同的操作系统、不同的浏览器、不同的网页字符集，将导致完全不同的编码结果，为了保证客户端只用一种编码方法向服务器发出请求，可以使用Javascript先对URL编码，然后再向服务器提交，不要给浏览器插手的机会。</p> <p>&nbsp; &nbsp; &nbsp; 编码方法有三种：</p> <p>&nbsp; &nbsp; &nbsp; escape(url)、encodeURL(url)、encodeURLComponent(url) （url为需要编码的URL）</p> <table border="0"> <tbody> <tr> <td style="width:200px;">方法</td> <td>规则</td> <td>特点</td> </tr> <tr> <td> <p>escape（编码）</p> <p>unescape（解码）</p> </td> <td>除了ASCII字母、数字、标点符号"@ * _ + - . /"以外，对其他所有字符进行编码</td> <td>现在已经不提倡使用这种方法了，它不能直接运用与URL编码，它的真正作用是返回一个字符的Unicode编码值</td> </tr> <tr> <td> <p>encodeURI（编码）</p> <p>decodeURI（解码）</p> </td> <td>除了常见的符号以外，对其他一些在网址中有特殊含义的符号"; / ? : @ &amp; = + $ , #"，也不进行编码</td> <td>encodeURI()是Javascript中真正用来对URL编码的函数，它着眼于对整个URL进行编码</td> </tr> <tr> <td> <p>encodeURIComponent（编码）</p> <p>decodeURIComponent解码）</p> </td> <td>在encodeURI()中不被编码的符号"; / ? : @ &amp; = + $ , #"，在encodeURIComponent()中统统会被编码</td> <td>与encodeURI()的区别是，它用于对URL的组成部分进行个别编码，而不用于对整个URL进行编码</td> </tr> </tbody> </table> <p>&nbsp; &nbsp; &nbsp; 举个栗子：</p> <p>&nbsp; &nbsp; &nbsp; 用后两种常用编码方法对该URL：http://www.w3school.com.cn/my first:class/ 进行编码：</p> <ul> <li>encodeURI: encodeURI('http://www.w3school.com.cn/my first:class/') -&gt; http://www.w3school.com.cn/my%20first:class/</li> <li>encodeURIComponent: encodeURIComponent('http://www.w3school.com.cn/my first:class/') -&gt; http%3A%2F%2Fwww.w3school.com.cn%2Fmy%20first%3Aclass%2F</li> </ul> </div> </div> 			
+                      				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body"> <h1>为什么要对URL进行编码？</h1> <p>&nbsp; &nbsp; &nbsp; 一般来说，网页URL只能使用英文、数字、还有一些特定的字符。根据网络标准RFC 1738做了硬性规定：</p> <blockquote> <p>只有字母和数字[0-9a-zA-Z]、一些特殊符号"$-_.+!*'(),"[不包括双引号]、以及某些保留字，才可以不经过编码直接用于URL。</p> </blockquote> <p>&nbsp; &nbsp; &nbsp; 所以若URL中包括中文等字符，就必须经过编码后使用，否则传给服务器的request URL就会包含乱码，服务器无法正确识别。</p> <p>&nbsp; &nbsp; &nbsp; 因为RFC 1738没有规定具体的编码方法，而是交给应用程序（浏览器）自己决定，所以导致“URL编码”领域非常混乱。想要了解浏览器多种情况下的编码处理，可以参考阮一峰大神的关于URL编码。</p> <h1>URL的编码与解码方法</h1> <p>&nbsp; &nbsp; &nbsp; 不同的操作系统、不同的浏览器、不同的网页字符集，将导致完全不同的编码结果，为了保证客户端只用一种编码方法向服务器发出请求，可以使用Javascript先对URL编码，然后再向服务器提交，不要给浏览器插手的机会。</p> <p>&nbsp; &nbsp; &nbsp; 编码方法有三种：</p> <p>&nbsp; &nbsp; &nbsp; escape(url)、encodeURL(url)、encodeURLComponent(url) （url为需要编码的URL）</p> <table border="0"> <tbody> <tr> <td style="width:200px;">方法</td> <td>规则</td> <td>特点</td> </tr> <tr> <td> <p>escape（编码）</p> <p>unescape（解码）</p> </td> <td>除了ASCII字母、数字、标点符号"@ * _ + - . /"以外，对其他所有字符进行编码</td> <td>现在已经不提倡使用这种方法了，它不能直接运用与URL编码，它的真正作用是返回一个字符的Unicode编码值</td> </tr> <tr> <td> <p>encodeURI（编码）</p> <p>decodeURI（解码）</p> </td> <td>除了常见的符号以外，对其他一些在网址中有特殊含义的符号"; / ? : @ & = + $ , #"，也不进行编码</td> <td>encodeURI()是Javascript中真正用来对URL编码的函数，它着眼于对整个URL进行编码</td> </tr> <tr> <td> <p>encodeURIComponent（编码）</p> <p>decodeURIComponent解码）</p> </td> <td>在encodeURI()中不被编码的符号"; / ? : @ & = + $ , #"，在encodeURIComponent()中统统会被编码</td> <td>与encodeURI()的区别是，它用于对URL的组成部分进行个别编码，而不用于对整个URL进行编码</td> </tr> </tbody> </table> <p>&nbsp; &nbsp; &nbsp; 举个栗子：</p> <p>&nbsp; &nbsp; &nbsp; 用后两种常用编码方法对该URL：http://www.w3school.com.cn/my first:class/ 进行编码：</p> <ul> <li>encodeURI: encodeURI('http://www.w3school.com.cn/my first:class/') -> http://www.w3school.com.cn/my%20first:class/</li> <li>encodeURIComponent: encodeURIComponent('http://www.w3school.com.cn/my first:class/') -> http%3A%2F%2Fwww.w3school.com.cn%2Fmy%20first%3Aclass%2F</li> </ul> </div> </div> 			
                     <div class="col-md-12 mt-5">
                                                 <p>上一个：<a href="/html/category/article-3851.htm">SOLID原则：解释和实例</a></p>
                                                 <p>下一个：<a href="/html/category/article-3853.htm">Python操作高可用HDFS,实现文件按hash值取余从HDFS到本地</a></p>
@@ -102,16 +102,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4066.htm" title="Go汇编语法和MatrixOne使用介绍">Go汇编语法和MatrixOne使用介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-4052.htm" title="Windows如何查看WiFi密码">Windows如何查看WiFi密码</a></li>
+                        <li class="py-2"><a href="/html/category/article-4062.htm" title="Python格式化输出的三种方法（format,f前缀，%s）">Python格式化输出的三种方法（format,f前缀，%s）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4041.htm" title="关于信号量Semaphore的acquire与release的说明">关于信号量Semaphore的acquire与release的说明</a></li>
+                        <li class="py-2"><a href="/html/category/article-4429.htm" title="合肥猫咪领养微信群 合肥猫咪领养微信群号">合肥猫咪领养微信群 合肥猫咪领养微信群号</a></li>
+                        <li class="py-2"><a href="/html/category/article-4046.htm" title="Vue  el-input  trim() 去空格">Vue  el-input  trim() 去空格</a></li>
                         <li class="py-2"><a href="/html/category/article-4540.htm" title="普通人怎么考兽医证难不难呀（怎么考兽医资格证需要什么条件）">普通人怎么考兽医证难不难呀（怎么考兽医资格证需要什么条件）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4575.htm" title="狗粮颗粒机家用小型（制作狗粮配方 颗粒机器）">狗粮颗粒机家用小型（制作狗粮配方 颗粒机器）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4318.htm" title="动物打疫苗去哪里预约呢（动物打疫苗去哪里预约呢）">动物打疫苗去哪里预约呢（动物打疫苗去哪里预约呢）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4504.htm" title="宠物领养平台有哪几个品牌名称（宠物领养平台有哪几个品牌名称好听）">宠物领养平台有哪几个品牌名称（宠物领养平台有哪几个品牌名称好听）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4033.htm" title="global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）">global关键字  （如果需要在函数中修改全部变量，需要使用global 来声明全局变量）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4348.htm" title="动物诊疗许可证去哪里办理手续（动物诊疗许可证在哪个部门办理）">动物诊疗许可证去哪里办理手续（动物诊疗许可证在哪个部门办理）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4093.htm" title="修改docker容器端口映射的方法">修改docker容器端口映射的方法</a></li>
-                        <li class="py-2"><a href="/html/category/article-4035.htm" title="Vue路由router详细总结">Vue路由router详细总结</a></li>
-                        <li class="py-2"><a href="/html/category/article-4055.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
-                        <li class="py-2"><a href="/html/category/article-4394.htm" title="宠物医院收费价目表昆明（昆明宠物医院24小时营业）">宠物医院收费价目表昆明（昆明宠物医院24小时营业）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4065.htm" title="Zookeeper分布式一致性协议ZAB">Zookeeper分布式一致性协议ZAB</a></li>
+                        <li class="py-2"><a href="/html/category/article-4053.htm" title="Autograd：Pytorch 中的自动微分机制讲解">Autograd：Pytorch 中的自动微分机制讲解</a></li>
+                        <li class="py-2"><a href="/html/category/article-4059.htm" title="Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程">Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程</a></li>
                     </ul>
     </div>
 </div>
@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">24</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
